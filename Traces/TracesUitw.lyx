@@ -426,7 +426,8 @@ reference "fig:Eenvoudige-pulsen"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+In de groene grafiek zijn een aantal treedjes te zien, Deze zijn bijvoorbeeld
+ te verklaren als ieder treedje door een 
 \end_layout
 
 \end_inset
@@ -437,7 +438,9 @@ reference "fig:Eenvoudige-pulsen"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+deeltje wordt veroorzaakt.
+ De treedjes zijn ook te verklaren doordat lichtstralen via verschillende
+ wegen op de
 \end_layout
 
 \end_inset
@@ -448,7 +451,9 @@ reference "fig:Eenvoudige-pulsen"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+detector vallen.
+ 1m komt door de lichtsnelheid ongeveer overeen met 3ns.
+ Kunnen de treedjes nu verklaard 
 \end_layout
 
 \end_inset
@@ -459,7 +464,7 @@ reference "fig:Eenvoudige-pulsen"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+worden? (Brekingsindex?)
 \end_layout
 
 \end_inset
@@ -580,7 +585,9 @@ reference "fig:Iets-complexere-pulsen"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+In de zwarte grafiek zijn drie bobbels te herkennen: rond de 35ns, de 95ns
+ en de 210ns.
+ Ieder bobbel duidt op
 \end_layout
 
 \end_inset
@@ -591,7 +598,8 @@ reference "fig:Iets-complexere-pulsen"
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+fluorescentie veroorzaakt door 1 of meer deeltjes.
+ (Dit kan ook op verval binnen de detector wijzen! De 
 \end_layout
 
 \end_inset
@@ -602,7 +610,11 @@ reference "fig:Iets-complexere-pulsen"
 \begin_inset Text
 
 \begin_layout Plain Layout
+levensduur van muonen is 
+\begin_inset Formula $2.2\mu\mathrm{s}$
+\end_inset
 
+, dus?)
 \end_layout
 
 \end_inset
@@ -673,6 +685,9 @@ reference "fig:Iets-complexere-pulsen"
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $s=c*t\Rightarrow s=3.0*10^{8}*\left(95-35\right)*10^{-9}=18\mathrm{m}$
+\end_inset
+
 
 \end_layout
 
@@ -684,7 +699,10 @@ reference "fig:Iets-complexere-pulsen"
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $s=c*t\Rightarrow s=3.0*10^{8}*\left(210-95\right)*10^{-9}=35\mathrm{m}$
+\end_inset
 
+ (Eigenlijk 1 significant getal meer.)
 \end_layout
 
 \end_inset
@@ -831,7 +849,8 @@ Leg met het verloop van de pulsen uit dat het midden van de air-shower in
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+De hoogte (en breedte van de pulsen) duiden op meerdere deeltjes per detector
+ (met ieder een oppervlak van 
 \end_layout
 
 \end_inset
@@ -842,7 +861,12 @@ Leg met het verloop van de pulsen uit dat het midden van de air-shower in
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $0.500\mathrm{m^{2}}$
+\end_inset
 
+).
+ Bij de andere stations ligt dit lager, deze liggen dus waarschijnlijk verder
+ van het midden van de 
 \end_layout
 
 \end_inset
@@ -853,7 +877,8 @@ Leg met het verloop van de pulsen uit dat het midden van de air-shower in
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+air-shower.
+ 
 \end_layout
 
 \end_inset
@@ -922,7 +947,8 @@ Leg met de pulsintegraal (het pulsoppervlak) uit waarom er waarschijnlijk
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+De puls van detector 2 kan ontstaan als twee deeltjes vlak na elkaar komen.
+ Als deze deeltjes tegelijk komen 
 \end_layout
 
 \end_inset
@@ -933,7 +959,7 @@ Leg met de pulsintegraal (het pulsoppervlak) uit waarom er waarschijnlijk
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+ontstaat puls 1.
 \end_layout
 
 \end_inset
@@ -1012,7 +1038,8 @@ Verklaar waarom er binnen een station soms detectoren zijn die een aantal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Er worden slechts enkele deeltjes gemeten.
+ Soms zullen er meer deeltjes dan het gemiddelde worden gemeten.
 \end_layout
 
 \end_inset
@@ -1023,7 +1050,8 @@ Verklaar waarom er binnen een station soms detectoren zijn die een aantal
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Soms minder.
+ Het aantal deeltjes dat gemeten wordt volgt een Poisson distributie.
 \end_layout
 
 \end_inset
