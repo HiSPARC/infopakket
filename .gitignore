@@ -1,3 +1,4 @@
+# LateX
 *.acn
 *.acr
 *.alg
@@ -30,3 +31,6 @@
 *.vrb
 *.xdy
 *.tdo
+
+# LyX
+.lyx~
