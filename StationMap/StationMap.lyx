@@ -1,0 +1,666 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+
+\usepackage[dutch]{babel}
+
+
+\usepackage{fouriernc}\usepackage[detect-all,load-configurations=binary,separate-uncertainty=true,per-mode=symbol]{siunitx}
+
+
+
+
+
+
+
+
+
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\graphicspath{{Figures/}}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\thepage}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0pt}
+
+\newcommand{\hisparc}{\textsmaller{HiSPARC}\xspace}
+\newcommand{\kascade}{\textsmaller{KASCADE}\xspace}
+\newcommand{\sapphire}{\textsmaller{SAPPHiRE}\xspace}
+\newcommand{\jsparc}{\textsmaller{jSparc}\xspace}
+\newcommand{\hdf}{\textsmaller{HDF5}\xspace}
+\newcommand{\aires}{\textsmaller{AIRES}\xspace}
+\newcommand{\csv}{\textsmaller{CSV}\xspace}
+\newcommand{\python}{\textsmaller{PYTHON}\xspace}
+\newcommand{\corsika}{\textsmaller{CORSIKA}\xspace}
+\newcommand{\labview}{\textsmaller{LabVIEW}\xspace}
+\newcommand{\daq}{\textsmaller{DAQ}\xspace}
+\newcommand{\adc}{\textsmaller{ADC}\xspace}
+\newcommand{\hi}{\textsc{h i}\xspace}
+\newcommand{\hii}{\textsc{h ii}\xspace}
+\newcommand{\mip}{\textsmaller{MIP}\xspace}
+\newcommand{\hisparcii}{\textsmaller{HiSPARC II}\xspace}
+\newcommand{\hisparciii}{\textsmaller{HiSPARC III}\xspace}
+
+\DeclareSIUnit{\electronvolt}{\ensuremath{\mathrm{e\!\!\:V}}}
+
+\DeclareSIUnit{\unitsigma}{\ensuremath{\sigma}}
+\DeclareSIUnit{\mip}{\textsmaller{MIP}}
+\DeclareSIUnit{\adc}{\textsmaller{ADC}}
+
+\DeclareSIUnit{\gauss}{G}
+\DeclareSIUnit{\parsec}{pc}
+\DeclareSIUnit{\year}{yr}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing other 1.2
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 3cm
+\rightmargin 2cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language polish
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+De stationsplattegrond
+\end_layout
+
+\begin_layout Author
+N.G.
+ Schultheiss
+\end_layout
+
+\begin_layout Section
+Inleiding
+\end_layout
+
+\begin_layout Standard
+Op een HiSPARC II of HiSPARC III box kunnen 2 detectoren worden aangesloten.
+ Een HiSPARC station heeft altijd een HiSPARC master.
+ Op deze box wordt ook een GPS antanne aangesloten.
+ Sommige stations hebben ook een HiSPARC slave.
+ Hier kunnen ook twee detectoren op worden aangesloten.
+ Een HiSPARC station bestaat dus uit 2 of 4 detectoren en een GPS antenne.
+ Met de GPS antenne is de locatie van het station te bepalen.
+ Omdat dit met radiosignalen van satellieten gaat, is de tijd ook met de
+ GPS antenne te bepalen.
+ De plaats van de detectoren wordt ten opzichte van de GPS antenne vastgelegd.
+\end_layout
+
+\begin_layout Section
+Kaarten
+\end_layout
+
+\begin_layout Standard
+De GPS antenne wordt als oorsprong van het station gebruikt.
+ De plaats van de GPS antenne wordt via het internet naar de HiSPARC server
+ gestuurd.
+ De configuratie van het station is in een firefox, chrome of safari browser
+ op te halen op: 
+\family typewriter
+http://data.hisparc.nl/api/station/
+\family default
+{Stationsnummer
+\family typewriter
+}/config/
+\family default
+., op de plaats van {Stationsnummer} vul je het stationsnummer in.
+ Let op: Internet Explorer werkt niet! 
+\end_layout
+
+\begin_layout Standard
+Met enig zoeken zijn de Ooster Lengte (longitude) en Noorder Breedte (latitude),
+ beide in graden te vinden.
+ De hoogte (altitude) wordt in meter vanaf een gemiddelde elipsiode gemeten.
+ HiSPARC gebruikt de WGS 84 standaard, deze elipsiode ligt in Amsterdam
+ in de orde van 40m onder NAP (het Nieuw Amsterdams Peil).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Paragraph
+Opdracht 1:
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Bepaal hoever de GPS antenne van het te meten station boven de WGS 84 elipsiode
+ ligt en hoever dit boven NAP is.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="1">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="17cm">
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Meetapparatuur
+\end_layout
+
+\begin_layout Standard
+De volgende apparatuur is nodig:
+\end_layout
+
+\begin_layout Itemize
+Kompas
+\end_layout
+
+\begin_layout Itemize
+Meetlint (liefst langer dan 10m)
+\end_layout
+
+\begin_layout Itemize
+Veilgheidsmateriaal (harnas + zekeringslijn)
+\end_layout
+
+\begin_layout Subsection
+Veiligheid
+\end_layout
+
+\begin_layout Standard
+De meting moet volgens de richtlijnen van de ARBO worden uitgevoerd.
+ Meestal staat de opstelling op een plat dak.
+ Op dit dak zijn twee zones te onderscheiden:
+\end_layout
+
+\begin_layout Itemize
+Een deel in het midden van het dak dat wordt begrensd door een gele stippellijn.
+ Hier mag je je zonder zonder veiligheidsmateriaal bevinden.
+\end_layout
+
+\begin_layout Itemize
+Een deel tussen de gele stippellijn en de rand.
+ Hier moet je een veiligheidsharnas aan en ben je gezekerd met een lijn
+ aan bevestigingspunten op het dak.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Neem contact op met de gebouwenbeheerder op je school.
+ Deze dient op de hoogte te zijn van het practicum en heeft eventueel aanvullend
+e eisen! 
+\series default
+Het is aan te raden om met niet meer dan drie leerlingen onder begeleiding
+ van een TOA of docent het dak op te gaan.
+ De leerlingen doen de meting, de TOA of docent draagt zorg voor een veilige
+ meetsituatie.
+ Bij metingen nabij de rand zorgt een leerling voor de zekeringslijn, een
+ gezekerde leerling voor het meten bij de rand en een leerling voor het
+ meten binnen de gele stipellijn / noteren van meetgegevens.
+ De TOA of docent blijft dicht bij de leerling die zorgt voor de zekeringslijn
+ en let goed op.
+\end_layout
+
+\begin_layout Standard
+Bespreek van te voren -en dus niet op het dak- wie wat gaat doen.
+\end_layout
+
+\begin_layout Subsection
+De meting
+\end_layout
+
+\begin_layout Standard
+De detectoren liggen in een skiboxen.
+ Voordat de plaats van een detector gemeten kan worden moet de skibox geopend
+ worden.
+ Met behulp van diagionalen is het midden van de scitillator te bepalen.
+ De Scintillator is de rechthoekige plaat van 100 cm lang en 50 cm breed.
+ Deze plaat is lichtdicht ingepakt.
+ Let op dat de verpakking niet beschadigd wordt! We meten nu de afstand
+ van het midden van de scintillator tot de GPS antenne (een plastic paddestoeltj
+e).
+ Deze is in tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Meetgegevens"
+
+\end_inset
+
+ op te schrijven.
+\end_layout
+
+\begin_layout Standard
+Naast de afstand moeten er nog twee hoeken worden gemeten.
+ Hoek 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is de hoek tussen het noorden en het meetlint van de GPS antenne naar de
+ detector.
+ Staat de detector ten noorden van de GPS antenne dan meten we een waarde
+ van 
+\begin_inset Formula $0^{\mathrm{o}}$
+\end_inset
+
+, staat de detector ten oosten van de detector dan meten we 
+\begin_inset Formula $90^{\mathrm{o}}$
+\end_inset
+
+.
+ Hoek 
+\begin_inset Formula $\beta$
+\end_inset
+
+ is de hoek tussen het noorden en de lange zijde van de scintillator in
+ de richting van de PMT buis.
+ De PMT buis is te herkennen aan de elektrische aansluitingen.
+ Zit de PMT buis in het noorden dan is deze hoek 
+\begin_inset Formula $0\mathrm{^{o}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="4cm">
+<column alignment="center" valignment="top" width="4cm">
+<column alignment="center" valignment="top" width="4cm">
+<column alignment="center" valignment="top" width="4cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Detector
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Afstand [m]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\alpha$
+\end_inset
+
+ [
+\begin_inset Formula $^{\mathrm{o}}$
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\beta$
+\end_inset
+
+ [
+\begin_inset Formula $^{\mathrm{o}}$
+\end_inset
+
+]
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Meetgegevens"
+
+\end_inset
+
+Meetgegevens
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Opdracht 2:
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Meet de locatie van de detectoren en vul de waarden in tabel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Meetgegevens"
+
+\end_inset
+
+ in.
+\end_layout
+
+\begin_layout Standard
+Detector 1 en 2 zijn aangesloten op de HiSPARC master box, deze box is te
+ herkennen aan de GPS-aansluiting.
+ Detector 3 en 4 zijn aangesloten op de HiSPARC slave, zonder GPS-aansluiting.
+\end_layout
+
+\begin_layout Section
+Doorgeven van meetgegevens
+\end_layout
+
+\end_body
+\end_document
