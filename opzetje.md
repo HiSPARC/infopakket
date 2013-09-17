@@ -36,16 +36,15 @@ Wat kun je met je station doen?
 Taakverdeling / opzetje
 -----------------------
 
-(Hans) Formele brief
-(Hans) Introductie HiSPARC
-Lesbrief: (David) ADC calibratie
-Lesbrief: (Arne) GPS instellen
-Lesbrief: (David) Spanningen afregelen (MIP piek)
-Lesbrief: (Niek) Uitmeten detectorposities
-Lesbrief: (Norbert) Dagelijkse controle van het station
-Lesbrief: (David) Reproduceer grafieken uit data
-Lesbrief: (Arne / Niek) Interpreteren traces
-Lesbrief: (Niek) Showers, triggers en coïncidenties
-Lesbrief: (Norbert) Problemen met richtingbepaling twee detectoren
-Lesbrief: Correlaties (weer, dag/nacht, etc.)
-
+- (Hans) Formele brief
+- (Hans) Introductie HiSPARC
+- Lesbrief: (David) ADC calibratie
+- Lesbrief: (Arne) GPS instellen
+- Lesbrief: (David) Spanningen afregelen (MIP piek)
+- Lesbrief: (Niek) Uitmeten detectorposities
+- Lesbrief: (Norbert) Dagelijkse controle van het station
+- Lesbrief: (David) Reproduceer grafieken uit data
+- Lesbrief: (Arne / Niek) Interpreteren traces
+- Lesbrief: (Niek) Showers, triggers en coïncidenties
+- Lesbrief: (Norbert) Problemen met richtingbepaling twee detectoren
+- Lesbrief: Correlaties (weer, dag/nacht, etc.)
