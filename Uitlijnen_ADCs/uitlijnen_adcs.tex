@@ -34,7 +34,7 @@ voor het omzetten van de elektrische spanningen van de \pmts in een
 signaal dat de computer kan begrijpen.
 
 Iedere \SI{2.5}{\nano\second} wordt het signaal gemeten met een
-nauwkeurigheid van \num{2048} stapjes tussen ongeveer
+nauwkeurigheid van \num{4096} stapjes tussen ongeveer
 \SIrange{+0.113}{-2}{\volt}, afhankelijk van de elektronica.  Deze stapjes
 noemen we \emph{\adc counts}.  Het \emph{analoge} signaal wordt zo omgezet
 in een \emph{digitaal} signaal.  De chip die daarvoor verantwoordelijk is
@@ -49,9 +49,15 @@ de klokpuls omhoog gaat, de ander als de klokpuls omlaag gaat.  Zie
 
 \begin{figure}
 \centering
-\framebox{Samplen van het analoge signaal iedere 2.5 ns low and high
-timing}
-\caption{}
+\input{Figures/adc-sampling}
+\caption{Het samplen van het analoge signaal wordt uitgevoerd door twee
+\adcs.  De \adcs nemen om de beurt een sample en zetten het analoge
+signaal om in een digitaal signaal.  Omdat het digitale signaal slechts
+\num{4096} stapjes heeft, is het een \emph{benadering} van het analoge
+signaal.  Dit kun je zien aan de samples die niet exact op het analoge
+signaal liggen.  Eén van de \adcs (witte rondjes) wordt geklokt op de
+neergaande flank van het kloksignaal, de andere \adc (zwarte rondjes)
+wordt geklokt op de opgaande flank.}
 \label{fig:ADC-sampling}
 \end{figure}
 
