@@ -1,0 +1,141 @@
+\input{../style}
+
+\begin{document}
+
+\title{Uitlijnen van de \adcs}
+\author{D. B. R. A. Fokkema}
+\date{}
+
+\maketitle
+
+\section{De \hisparc uitleeselektronica}
+
+De \hisparc detectoren bestaan uit een rechthoekige \emph{scintillator}
+die via een driehoekige \emph{lichtgeleider} verbonden zijn met een
+\emph{fotobuis} (\pmt \footnote{\pmt staat voor PhotoMultiplier Tube
+(fotoversterkerbuis).}).  De fotobuis is verantwoordelijk voor de detectie
+van de kleine lichtflitsjes in de scintillator die worden veroorzaakt door
+geladen deeltjes uit de kosmische straling.  Deze lichtflitsjes worden
+omgezet in een kleine elektrische stroom.  Deze stroom wordt door een
+bekende weerstand geleid en de spanning over deze weerstand kan worden
+gemeten.  Hoe feller het lichtflitsje, hoe hoger de spanning
+(\figref{fig:schema-pmt}).
+
+\begin{figure}
+\centering
+\input{Figures/schema-pmt}
+\caption{Vereenvoudigd elektrisch schema van het uitlezen van een PMT.  Op
+de PMT staat een hoogspanning van ongeveer \SI{900}{\volt}, variërend van
+buis tot buis.  De stroom uit de PMT wordt via een bekende weerstand $R$
+naar de aarde geleid.  De spanning over deze weerstand wordt uitgelezen
+door de \adcs.}
+\label{fig:schema-pmt}
+\end{figure}
+
+De \pmts zijn via lange kabels verbonden met de uitleeselektronica van
+\hisparc (het `rode kastje').  De uitleeselektronica is verantwoordelijk
+voor het omzetten van de elektrische spanningen van de \pmts in een
+signaal dat de computer kan begrijpen.
+
+Iedere \SI{2.5}{\nano\second} wordt het signaal gemeten met een
+nauwkeurigheid van \num{4096} stapjes tussen ongeveer
+\SIrange{+0.113}{-2}{\volt}, afhankelijk van de elektronica.  Deze stapjes
+noemen we \emph{\adc counts}.  Het \emph{analoge} signaal wordt zo omgezet
+in een \emph{digitaal} signaal.  De chip die daarvoor verantwoordelijk is
+heet dan ook een \emph{Analog Digital Converter} (\adc).  Snelle \adcs
+zijn echter erg duur.  Daarom is ervoor gekozen om niet één \adc te
+gebruiken die samplet met \SI{2.5}{\nano\second}, maar twéé \adcs die
+ieder samplen met \SI{5}{\nano\second}.  Deze twee \adcs worden dan om en
+om gebruikt.  Een digitale klok met een frequentie van
+\SI{200}{\mega\hertz} regelt het uitlezen.  Eén \adc wordt uitgelezen als
+de klokpuls omhoog gaat, de ander als de klokpuls omlaag gaat.  Zie
+\figref{fig:ADC-sampling} voor een schematische voorstelling.
+
+\begin{figure}
+\centering
+\input{Figures/adc-sampling}
+\caption{Het samplen van het analoge signaal wordt uitgevoerd door twee
+\adcs.  De \adcs nemen om de beurt een sample en zetten het analoge
+signaal om in een digitaal signaal.  Omdat het digitale signaal slechts
+\num{4096} stapjes heeft, is het een \emph{benadering} van het analoge
+signaal.  Dit kun je zien aan de samples die niet exact op het analoge
+signaal liggen.  Eén van de \adcs (witte rondjes) wordt geklokt op de
+neergaande flank van het kloksignaal, de andere \adc (zwarte rondjes)
+wordt geklokt op de opgaande flank.}
+\label{fig:ADC-sampling}
+\end{figure}
+
+Het is belangrijk dat de twee \adcs zijn \emph{uitgelijnd}.  Dat wil
+zeggen: dat de \adcs het eens zijn over hoeveel \adc counts overeenkomen
+met, bijvoorbeeld, \SI{1}{\volt}.  Zijn de \adcs ten opzichte van elkaar
+verschoven, dan ontstaat een driehoekig digitaal signaal zoals weergegeven
+in \figref{fig:unaligned-adcs}.
+
+\begin{figure}
+\centering
+\input{Figures/unaligned-adcs}
+\caption{Wanneer de twee \adcs niet netjes zijn uitgelijnd, zien ze het
+analoge signaal met een verschuiving.  Hoewel iedere \adc het signaal
+netjes samplet, ziet de combinatie van de twee \adcs er slecht uit.}
+\label{fig:unaligned-adcs}
+\end{figure}
+
+
+\section{Uitlijnen van de \adcs}
+
+Het uitlijnen van de \adcs is een volautomatisch proces, maar moet wel
+door de gebruiker gestart worden.  Doorloop daarvoor het volgende
+stappenplan:
+\begin{enumerate}
+\item Zorg er voor dat het data acquisitie programma (\daq) draait.
+\item Stop de data acquisitie door op de knop \emph{STOP DAQ} te klikken
+(\figref{fig:stop-daq}).
+\item Als daarom gevraagd wordt, kies \emph{Expert Mode}
+(\figref{fig:expert-mode}).
+\item Als het programma weer draait, klik dan op de tab \emph{ADC
+alignment}, rechtsboven in beeld (\figref{fig:alignment-tab}).
+\item Klik op de \emph{Start Alignment} knop, rechtsboven
+(\figref{fig:start-alignment}).
+\item Nadat de procedure is afgerond, kies \emph{Yes} op de vraag:
+\emph{Do you want to save current (alignment) settings?}
+(\figref{fig:save-alignment-settings}).
+\item Klik op de knop \emph{DAQ MODE} (\figref{fig:start-daq}).
+\end{enumerate}
+
+\begin{figure}
+\centering
+\subfloat[]{\includegraphics[width=.3\linewidth]{stop-daq}
+  \label{fig:stop-daq}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{expert-mode}
+  \label{fig:expert-mode}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{alignment-tab}
+  \label{fig:alignment-tab}}
+
+\vspace{1em}
+
+\subfloat[]{\includegraphics[width=.3\linewidth]{start-alignment}
+  \label{fig:start-alignment}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{save-alignment-settings}
+  \label{fig:save-alignment-settings}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{start-daq}
+  \label{fig:start-daq}}
+\caption{Screenshots van de \daq software.  Deze verduidelijken de
+verschillende stappen voor het uitlijnen van de \adcs.  Zie de
+beschrijving in de lopende tekst.}
+\end{figure}
+
+Voor meer informatie over de bediening van de \daq software, zie
+\cite{software-handleiding}.
+
+
+\begin{thebibliography}{9}
+\bibitem{software-handleiding} Het \hisparc team, \emph{\hisparc software
+documentatie} (2009--2012),
+\url{http://docs.hisparc.nl/station-software/doc/}.
+\end{thebibliography}
+
+\end{document}

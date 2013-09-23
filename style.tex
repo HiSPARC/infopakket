@@ -5,7 +5,9 @@
 \usepackage[dutch]{babel}
 
 \usepackage{fouriernc}
-\usepackage[detect-all,load-configurations=binary,separate-uncertainty=true,per-mode=symbol]{siunitx}
+\usepackage[detect-all, load-configurations=binary,
+            separate-uncertainty=true, per-mode=symbol,
+            retain-explicit-plus, range-phrase={ tot }]{siunitx}
 
 \usepackage{setspace}
 \setstretch{1.2}
@@ -24,6 +26,10 @@
 
 \usepackage{graphicx}
 \graphicspath{{Figures/}}
+\usepackage{subfig}
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks,circuits.ee.IEC}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -34,6 +40,9 @@
 
 \usepackage{relsize}
 \usepackage{xspace}
+\usepackage{url}
+
+\newcommand{\figref}[1]{Figuur~\ref{#1}}
 
 \newcommand{\hisparc}{\textsmaller{HiSPARC}\xspace}
 \newcommand{\kascade}{\textsmaller{KASCADE}\xspace}
@@ -47,11 +56,15 @@
 \newcommand{\labview}{\textsmaller{LabVIEW}\xspace}
 \newcommand{\daq}{\textsmaller{DAQ}\xspace}
 \newcommand{\adc}{\textsmaller{ADC}\xspace}
+\newcommand{\adcs}{\textsmaller{ADC}s\xspace}
+\newcommand{\Adcs}{A\textsmaller{DC}s\xspace}
 \newcommand{\hi}{\textsc{h i}\xspace}
 \newcommand{\hii}{\textsc{h ii}\xspace}
 \newcommand{\mip}{\textsmaller{MIP}\xspace}
 \newcommand{\hisparcii}{\textsmaller{HiSPARC II}\xspace}
 \newcommand{\hisparciii}{\textsmaller{HiSPARC III}\xspace}
+\newcommand{\pmt}{\textsmaller{PMT}\xspace}
+\newcommand{\pmts}{\textsmaller{PMT}s\xspace}
 
 \DeclareSIUnit{\electronvolt}{\ensuremath{\mathrm{e\!\!\:V}}}
 

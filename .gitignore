@@ -35,6 +35,10 @@ Intro/intro.pdf
 *.vrb
 *.xdy
 *.tdo
+*.fls
+
+# VIM
+*.swp
 
 # LyX
 .lyx~
