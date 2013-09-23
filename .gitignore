@@ -1,3 +1,8 @@
+# Compiled pdfs
+Brief/brief.pdf
+Intro/intro.pdf
+
+# LateX
 *.acn
 *.acr
 *.alg
@@ -31,4 +36,9 @@
 *.xdy
 *.tdo
 *.fls
+
+# VIM
 *.swp
+
+# LyX
+.lyx~

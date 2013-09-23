@@ -1,0 +1,777 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+
+\usepackage[dutch]{babel}
+
+
+\usepackage{fouriernc}\usepackage[detect-all,load-configurations=binary,separate-uncertainty=true,per-mode=symbol]{siunitx}
+
+
+
+
+
+
+
+
+
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\graphicspath{{Figures/}}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\thepage}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0pt}
+
+\newcommand{\hisparc}{\textsmaller{HiSPARC}\xspace}
+\newcommand{\kascade}{\textsmaller{KASCADE}\xspace}
+\newcommand{\sapphire}{\textsmaller{SAPPHiRE}\xspace}
+\newcommand{\jsparc}{\textsmaller{jSparc}\xspace}
+\newcommand{\hdf}{\textsmaller{HDF5}\xspace}
+\newcommand{\aires}{\textsmaller{AIRES}\xspace}
+\newcommand{\csv}{\textsmaller{CSV}\xspace}
+\newcommand{\python}{\textsmaller{PYTHON}\xspace}
+\newcommand{\corsika}{\textsmaller{CORSIKA}\xspace}
+\newcommand{\labview}{\textsmaller{LabVIEW}\xspace}
+\newcommand{\daq}{\textsmaller{DAQ}\xspace}
+\newcommand{\adc}{\textsmaller{ADC}\xspace}
+\newcommand{\hi}{\textsc{h i}\xspace}
+\newcommand{\hii}{\textsc{h ii}\xspace}
+\newcommand{\mip}{\textsmaller{MIP}\xspace}
+\newcommand{\hisparcii}{\textsmaller{HiSPARC II}\xspace}
+\newcommand{\hisparciii}{\textsmaller{HiSPARC III}\xspace}
+
+\DeclareSIUnit{\electronvolt}{\ensuremath{\mathrm{e\!\!\:V}}}
+
+\DeclareSIUnit{\unitsigma}{\ensuremath{\sigma}}
+\DeclareSIUnit{\mip}{\textsmaller{MIP}}
+\DeclareSIUnit{\adc}{\textsmaller{ADC}}
+
+\DeclareSIUnit{\gauss}{G}
+\DeclareSIUnit{\parsec}{pc}
+\DeclareSIUnit{\year}{yr}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing other 1.2
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 3cm
+\rightmargin 2cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language polish
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Air showers, events en coïncidenties
+\end_layout
+
+\begin_layout Author
+N.G.
+ Schultheiss
+\end_layout
+
+\begin_layout Section
+Inleiding
+\end_layout
+
+\begin_layout Standard
+Kosmische deeltjes bestaat uit snel bewegende atoomkernen, neutrino's of
+ gamma fotonen.
+ Als de kosmische straling in de atmosfeer dringt ontstaan er interacties
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Achtergronden over deze interacties zijn op RouteNet te vinden in de modules
+ 
+\begin_inset Quotes pld
+\end_inset
+
+Deeltjes in het standaardmodel
+\begin_inset Quotes prd
+\end_inset
+
+ en 
+\begin_inset Quotes pld
+\end_inset
+
+Krachten in het standaard model
+\begin_inset Quotes prd
+\end_inset
+
+.
+ (
+\family typewriter
+\size footnotesize
+http://www.hisparc.nl/docent-student/lesmateriaal/routenet/
+\family default
+\size default
+)
+\end_layout
+
+\end_inset
+
+.
+ Deze interacties maken onder andere pionen.
+ Deze deeltjes vervallen weer naar muonen, elektronen en hun antideeltjes
+ of gamma fotonen.
+ Gamma fotonen kunnen splitsen in elektron en anti-elektronen en positronen.
+ De interactie tussen anti-elektronen en elektronen maakt twee nieuwe gamma
+ fotonen.
+ Als geladen deeltjes worden afgebogen ontstaat er ook (gamma) straling.
+ Deze processen gaan door totdat de energie te laag is voor paarvorming.
+\end_layout
+
+\begin_layout Standard
+Als een enkel kosmisch deeltje voldoende energie heeft, maakt dit deeltje
+ dus een enorme hoeveelheid deeltjes / straling op de grond.
+\end_layout
+
+\begin_layout Section
+Events
+\end_layout
+
+\begin_layout Standard
+Omdat er enorme hoeveelheden deeltjes op de grond ontstaat, kunnen we meten
+ dat er een deeltje in de atmosfeer is binnengedrongen als meerdere detectoren
+ nagenoeg tegelijk iets meten.
+ Een enkele detector op de grond meet naast deze kosmische straling ook
+ radioactief verval van stoffen op Aarde.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename Figures/8cee5cc97a.jpg
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Een HiSPARC box.
+ In de blokken PMT 1 en PMT 2 zijn twee gele ledjes te zien.
+ Deze lichten op als er straling door respectievelijk detector 1 of detector
+ 2 wordt gemeten.
+ In de praktjk worden de detectoren ongeveer iedere 5 seconden geraakt.
+ Achter de koelgaten is een witte led te zien.
+ Deze licht op als beide detectoren binnen een tijdsinterval straling waarnemen,
+ dit komt veel minder vaak voor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Het meten van events
+\end_layout
+
+\begin_layout Standard
+Met een HiSPARC box is de verhouding tussen achtergrondstraling en kosmische
+ straling te meten.
+ Uitgegaan wordt van het idee dat een oplichtende led in blok 1 of blok
+ 2 duidt op achtergrondstraling, ongeveer iedere 5ms licht het ledje op.
+ Wij zien dat als een constant brandende led.
+ Licht de witte led achter de koelgaten op, dan is kosmische straling gemeten.
+ De witte led gaat aan en uit.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Paragraph
+Opdracht 1:
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Bepaal 5 maal hoe vaak het witte ledje in 1 minuut oplicht en vul dit hieronder
+ in de tabel in.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{gem.}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Paragraph
+Opdracht 2:
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Bepaal naast het gemiddelde ook de maximale en de minimale waarde, leg uit
+ welke nauwkeurigheid je verwacht.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="1">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="17cm">
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De nauwkeurigheid is ook wiskundig te bepalen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Paragraph
+Opdracht 3:
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Wiskundig is de spreiding 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ uit te rekenen, bereken het gemiddelde van 
+\begin_inset Formula $N^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{gem}^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="17cm">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\shape italic
+De spreiding is nu te berekenen met 
+\shape default
+
+\begin_inset Formula $\sigma=\sqrt{N_{gem}^{2}-\left(N_{gem}\right)^{2}}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $N_{gem}$
+\end_inset
+
+ 
+\shape italic
+is al in opdracht 1 berekend.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_body
+\end_document
