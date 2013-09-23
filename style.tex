@@ -5,7 +5,9 @@
 \usepackage[dutch]{babel}
 
 \usepackage{fouriernc}
-\usepackage[detect-all,load-configurations=binary,separate-uncertainty=true,per-mode=symbol]{siunitx}
+\usepackage[detect-all, load-configurations=binary,
+            separate-uncertainty=true, per-mode=symbol,
+            retain-explicit-plus, range-phrase={ tot }]{siunitx}
 
 \usepackage{setspace}
 \setstretch{1.2}
@@ -24,6 +26,7 @@
 
 \usepackage{graphicx}
 \graphicspath{{Figures/}}
+\usepackage{subfig}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -51,6 +54,7 @@
 \newcommand{\daq}{\textsmaller{DAQ}\xspace}
 \newcommand{\adc}{\textsmaller{ADC}\xspace}
 \newcommand{\adcs}{\textsmaller{ADC}s\xspace}
+\newcommand{\Adcs}{A\textsmaller{DC}s\xspace}
 \newcommand{\hi}{\textsc{h i}\xspace}
 \newcommand{\hii}{\textsc{h ii}\xspace}
 \newcommand{\mip}{\textsmaller{MIP}\xspace}

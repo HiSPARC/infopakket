@@ -33,9 +33,91 @@ De \pmts zijn via lange kabels verbonden met de uitleeselektronica van
 voor het omzetten van de elektrische spanningen van de \pmts in een
 signaal dat de computer kan begrijpen.
 
+Iedere \SI{2.5}{\nano\second} wordt het signaal gemeten met een
+nauwkeurigheid van \num{2048} stapjes tussen ongeveer
+\SIrange{+0.113}{-2}{\volt}, afhankelijk van de elektronica.  Deze stapjes
+noemen we \emph{\adc counts}.  Het \emph{analoge} signaal wordt zo omgezet
+in een \emph{digitaal} signaal.  De chip die daarvoor verantwoordelijk is
+heet dan ook een \emph{Analog Digital Converter} (\adc).  Snelle \adcs
+zijn echter erg duur.  Daarom is ervoor gekozen om niet één \adc te
+gebruiken die samplet met \SI{2.5}{\nano\second}, maar twéé \adcs die
+ieder samplen met \SI{5}{\nano\second}.  Deze twee \adcs worden dan om en
+om gebruikt.  Een digitale klok met een frequentie van
+\SI{200}{\mega\hertz} regelt het uitlezen.  Eén \adc wordt uitgelezen als
+de klokpuls omhoog gaat, de ander als de klokpuls omlaag gaat.  Zie
+\figref{fig:ADC-sampling} voor een schematische voorstelling.
+
+\begin{figure}
+\centering
+\framebox{Samplen van het analoge signaal iedere 2.5 ns low and high
+timing}
+\caption{}
+\label{fig:ADC-sampling}
+\end{figure}
+
+Het is belangrijk dat de twee \adcs zijn \emph{uitgelijnd}.  Dat wil
+zeggen: dat de \adcs het eens zijn over hoeveel \adc counts overeenkomen
+met, bijvoorbeeld, \SI{1}{\volt}.  Zijn de \adcs ten opzichte van elkaar
+verschoven, dan ontstaat een driehoekig digitaal signaal zoals weergegeven
+in \figref{fig:unaligned-adcs}.
+
+\begin{figure}
+\centering
+\framebox{Unaligned ADCs}
+\caption{}
+\label{fig:unaligned-adcs}
+\end{figure}
+
+
 \section{Uitlijnen van de \adcs}
 
-\subsection{Stappenplan}
+Het uitlijnen van de \adcs is een volautomatisch proces, maar moet wel
+door de gebruiker gestart worden.  Doorloop daarvoor het volgende
+stappenplan:
+\begin{enumerate}
+\item Zorg er voor dat het data acquisitie programma (\daq) draait.
+\item Stop de data acquisitie door op de knop \emph{STOP DAQ} te klikken
+(\figref{fig:stop-daq}).
+\item Als daarom gevraagd wordt, kies \emph{Expert Mode}
+(\figref{fig:expert-mode}).
+\item Als het programma weer draait, klik dan op de tab \emph{ADC
+alignment}, rechtsboven in beeld (\figref{fig:alignment-tab}).
+\item Klik op de \emph{Start Alignment} knop, rechtsboven
+(\figref{fig:start-alignment}).
+\item Nadat de procedure is afgerond, kies \emph{Yes} op de vraag:
+\emph{Do you want to save current (alignment) settings?}
+(\figref{fig:save-alignment-settings}).
+\item Klik op de knop \emph{DAQ MODE} (\figref{fig:start-daq}).
+\end{enumerate}
+
+\begin{figure}
+\centering
+\subfloat[]{\includegraphics[width=.3\linewidth]{stop-daq}
+  \label{fig:stop-daq}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{expert-mode}
+  \label{fig:expert-mode}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{alignment-tab}
+  \label{fig:alignment-tab}}
+
+\vspace{1em}
+
+\subfloat[]{\includegraphics[width=.3\linewidth]{start-alignment}
+  \label{fig:start-alignment}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{save-alignment-settings}
+  \label{fig:save-alignment-settings}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{start-daq}
+  \label{fig:start-daq}}
+\caption{Screenshots van de \daq software.  Deze verduidelijken de
+verschillende stappen voor het uitlijnen van de \adcs.  Zie de
+beschrijving in de lopende tekst.}
+\end{figure}
+
+Voor meer informatie over de bediening van de \daq software, zie
+\cite{software-handleiding}.
 
 
 \begin{thebibliography}{9}
