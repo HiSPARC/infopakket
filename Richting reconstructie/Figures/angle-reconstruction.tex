@@ -1,0 +1,68 @@
+\tdplotsetmaincoords{50}{115}
+\pgfmathsetmacro{\axlen}{8}
+\pgfmathsetmacro{\slen}{8}
+\pgfmathsetmacro{\thetavec}{50}
+\pgfmathsetmacro{\phivec}{70}
+\pgfmathsetmacro{\phiovec}{30}
+\pgfmathsetmacro{\rlen}{\slen * sin(\thetavec) / cos(\phivec - \phiovec)}
+\pgfmathsetmacro{\splen}{\slen * sin(\thetavec) * sin(\thetavec)}
+\pgfmathsetmacro{\ylen}{\slen * sin(\thetavec) * cos(\thetavec)}
+\pgfmathsetmacro{\clen}{.5}
+
+\begin{sansmath}
+\begin{tikzpicture}[tdplot_main_coords, node distance=0pt, font=\sffamily]
+
+% Set coordinates
+\coordinate (O) at (0, 0, 0);
+\tdplotsetcoord{S}{\slen}{\thetavec}{\phivec}
+\tdplotsetcoord{D}{\rlen}{90}{\phiovec}
+\tdplotsetcoord{S'}{\splen}{\thetavec}{\phivec}
+
+% Draw axes
+\draw[thick,->] (0, 0, 0) -- (\axlen, 0, 0) node[anchor=north]{$x$};
+\draw[thick,->] (0, 0, 0) -- (0, \axlen, 0) node[anchor=west]{$y$};
+\draw[thick,->] (0, 0, 0) -- (0, 0, \axlen) node[anchor=south]{$z$};
+
+% Draw detector points
+\fill (O) circle (2pt);
+\node at (O) [anchor=east] {Detector 0};
+\fill (D) circle (2pt);
+\node at (D) [anchor=north] {Detector 1};
+
+% Draw labelled lines
+\draw[very thick] (O) -- (S');
+\path (O) -- (S') node [midway,below,sloped] {$c \Delta t_1$};
+\draw[dashed] (O) -- (Sxy) node [pos=.6,below,sloped] {$r'_1$};
+\draw (O) -- (D) node [midway,below,sloped] {$r_1$};
+
+% Draw phi angle arcs
+\tdplotdrawarc{(O)}{2}{0}{\phivec}{above left,fill=white}{$\phi$}
+\tdplotdrawarc{(O)}{2.5}{0}{\phiovec}{below}{$\phi_1$}
+\tdplotdrawarc{(O)}{3}{\phiovec}{\phivec}{below}{$\phi - \phi_1$}
+
+% Draw theta angle arcs and right angle square
+\tdplotsetthetaplanecoords{\phivec}
+\tdplotdrawarc[tdplot_rotated_coords]{(O)}{1.5}{0}{\thetavec}{above}{$\theta$}
+\tdplotdrawarc[tdplot_rotated_coords]{(Sxy)}{1.5}{-90 + \thetavec}{-90}{below right}{$\theta$}
+
+% Draw right angle square in rotated theta plane
+\tdplotsetrotatedcoords{\phivec-90}{90}{90-\thetavec}
+\draw[tdplot_rotated_coords] ($(S') + (\clen,0)$) -- +(0,-\clen) -- +(-\clen,-\clen);
+
+% Draw right angle on ground
+\tdplotsetrotatedcoords{\phivec-90}{0}{0}
+\draw[tdplot_rotated_coords] ($(Sxy) + (\clen,0)$) -- +(0,-\clen) -- +(-\clen,-\clen);
+
+% Draw shower front
+\tdplotsetrotatedcoords{\phivec}{\thetavec}{0}
+\fill[tdplot_rotated_coords,gray!50,opacity=.6] ($(S')-(\ylen,\ylen,0)$) -- +(2*\ylen,0,0) -- +(2*\ylen,2*\ylen,0) -- +(0,2*\ylen,0) -- cycle;
+\path[tdplot_rotated_coords] ($(S')-(0,\ylen,0)$) -- +(0,2*\ylen,0) node [midway,sloped,above,inner sep=30] {shower front};
+
+% Draw lines in front of shower front
+\draw[very thick] (S') -- ($(S')!2.2!(S)$) node [near end,above,sloped] {shower axis};
+\draw[very thick,-stealth] ($(S')!2.2!(S)$) -- ($(S')!1.6!(S)$);
+\draw[dashed] (D) -- (Sxy);
+\draw[dashed] (Sxy) -- (S');
+
+\end{tikzpicture}
+\end{sansmath}
