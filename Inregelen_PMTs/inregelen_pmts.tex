@@ -1,0 +1,99 @@
+\input{../style}
+
+\begin{document}
+
+\title{Inregelen \pmts}
+\author{D. B. R. A. Fokkema}
+\date{}
+
+\maketitle
+
+\section{Werking van een \pmt}
+
+Een fotoversterkbuis (photomultiplier tube, of \pmt) is een
+elektronenbuis die in staat is om hele kleine lichtflitsjes om te zetten
+in een elektrisch signaal.  Het is zelfs mogelijk om afzonderlijke fotonen
+te tellen.  Geladen deeltjes uit kosmische straling die door de \hisparc
+detectoren gaan verliezen energie in het materiaal van de detectoren.  In
+de scintillator wordt dat energieverlies omgezet in een zwak
+lichtschijnsel.  Dit paarsblauwe licht verspreidt zich door de detector
+weerkaatst zo veel mogelijk aan de randen en een deel komt terecht bij de
+\pmt, die het licht detecteert en een signaal afgeeft aan de \hisparc
+elektronica.
+
+Een \pmt maakt gebruik van het fotoelektrisch effect.  Dit effect werd
+verklaard door Einstein en hiervoor ontving hij in 1921 de
+Nobelprijs.\footnote{Veel mensen gaan er van uit dat hij de Nobelprijs
+ontving voor de relativiteitstheorie, maar dit klopt niet.}  Wanneer licht
+op een metaal schijnt, kunnen er elektronen worden losgeslagen uit het
+oppervlak.  Dit gebeurt wanneer de energie per foton hoger is dan de
+energie die een elektron nodig heeft om los te komen uit het metaal.  Deze
+drempelenergie is afhankelijk van het soort metaal.  De energie per foton
+wordt gegeven door
+\begin{equation}
+E_f = \frac{hc}{\lambda},
+\end{equation}
+met $E_f$ de energie van het foton, $h$ de constante van Planck, $c$ de
+lichtsnelheid en $\lambda$ de golflengte van het licht.  Zie ook Tabel 7
+en Tabel 35 in je Binas.
+
+De energie van een foton is dus omgekeerd evenredig met de golflengte:
+$E_f \propto 1/\lambda$.  Hoe kleiner de golflengte van het licht, hoe
+groter de energie per foton.  Dit betekent dat hoe `blauwer' het licht,
+hoe makkelijker een elektron wordt losgemaakt.  Is het licht \emph{te}
+`rood', dan lukt dat nooit.  Daarom hebben we een scintillator gekozen die
+een violet licht uitstraalt.
+
+\begin{figure}
+\centering
+\includegraphics{pmt-schematic}
+\caption{Schematische weergave van een \pmt.}
+\label{fig:pmt}
+\end{figure}
+
+De \pmt is een verzegelde glazen buis die vacuüm gemaakt
+is\figref{fig:pmt}.  De voorkant van een \pmt bestaat uit een dunne
+glaslaag.  Aan de binnenkant van het glas is een zeer dun metaallaagje
+opgedampt.  Het laagje is zó dun, dat het doorzichtig is.  Licht dat op de
+\pmt valt, gaat door het glas en raakt het metaal.  Het violette licht uit
+de scintillator heeft een $E_f$ die hoog genoeg is om elektronen vrij te
+maken uit het metaallaagje.  Om er voor te zorgen dat er veel elektronen
+beschikbaar zijn wordt het metaalplaatje op een grote negatieve spanning
+gezet.  De elektronen staan dan feitelijk te dringen om het metaal te
+verlaten.  Het metaallaagje heet dan ook de \emph{kathode}\footnote{In een
+vacuümbuis is de kathode de pool waar elektronen uit worden vrijgemaakt,
+zoals hier gebeurt.} van de \pmt.  De \emph{anode} van de fotobuis wordt
+geaard, waardoor er een sterk elektrisch veld in de buis ontstaat.  De
+elektronen versnellen richting de anode.  Om een grote versterkingsfactor
+te krijgen is de buis opgedeeld in meerdere trappen.  Iedere trap heeft
+een \emph{dynode}, een metalen plaatje met een iets minder negatieve
+spanning dan de voorgaande dynode.  Dus bij een \pmt met drie dynodes,
+zijn de spanningen bijvoorbeeld als volgt: kathode (\SI{-1000}{\volt}),
+eerste dynode (\SI{-750}{\volt}), tweede dynode (\SI{-500}{\volt}), derde
+dynode (\SI{-250}{\volt}) en kathode (\SI{0}{\volt}).  Zo blijven de
+elektronen versnellen van kathode, langs alle dynodes en uiteindelijk naar
+de anode.  De versterking treedt op zodra de elektronen een dynode raken.
+De grote snelheid waarmee een elektron het metaal intreedt maakt een
+aantal elektronen los.  Deze losgeslagen elektronen worden vervolgens
+versneld naar de volgende dynode.  Als per dynode per elektron
+bijvoorbeeld drie elektronen worden losgeslagen, dan is de totale
+versterking in een \pmt met tien dynodes gelijk aan $3^{10} \approx
+\num{60000}$.  De hoogspanning die over de \pmt staat bepaalt in grote
+mate de versterkingsfactor.  Hoe hoger de spanning, hoe groter de
+versterkingsfactor.  \hisparc \pmts werken gemiddeld bij spanningen tussen
+de \SIrange{850}{950}{\volt}.
+
+
+\section{Signaal uit \hisparc detectoren}
+\subsection{Pulshoogtehistogram}
+\subsection{Drempels}
+
+\section{Inregelen \pmts}
+
+
+\begin{thebibliography}{9}
+\bibitem{hamamatsu} Hamamatsu, \emph{Photomultiplier Tubes, Construction
+and Operating Characteristics Connections to External Circuits} (1997).
+\end{thebibliography}
+
+\end{document}
