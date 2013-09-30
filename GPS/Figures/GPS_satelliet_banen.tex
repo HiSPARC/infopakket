@@ -1,0 +1,86 @@
+% Keith Wolcott. http://www.ux1.eiu.edu/~kwolcott/3DTikzGraphics.pdf
+
+% GPS satellite orbits.
+\begin{tikzpicture}[scale=.77]
+\def\R{1.4} % sphere radius
+\def\orbitRadius{3.172*\R}
+\def\angEl{1} % elevation angle
+\def\x{0} % x coordinate of center
+\def\y{0} % y coordinate of center
+\def\z{0} % z coordinate of center
+% First tilt the orbit from the north
+% pole (rotate about the x-axis).
+\pgfmathsetmacro\psi{35}
+% Second, rotate around the y-axis.
+\pgfmathsetmacro\firstTheta{-135}
+% Third, rotate about the x-axis.
+\pgfmathsetmacro\phi{\angEl}
+\draw[color=red, fill=blue, opacity=.15]
+   (0, 0) circle (\orbitRadius);
+% Set the variables, theta, c = color, angVis,
+% and \thetaSatShift for each of 6 orbits.
+\foreach \theta/\c in{\firstTheta/red,
+   \firstTheta+60/blue,
+   \firstTheta+2*60/green,
+   \firstTheta+3*60/black,
+   \firstTheta+4*60/cyan,
+   \firstTheta+5*60/brown}{
+% Set the drawing plane affine transformation.
+\tikzset{xyplane/.estyle={cm={
+   cos(\theta),sin(\theta)*sin(\phi),
+   sin(\theta)*sin(\psi),cos(\psi)*cos(\phi)-
+   sin(\psi)*cos(\theta)*sin(\phi),(0, 0)}}}
+    % Draw the back half of the orbit.
+    \getFrontArcStartPosition\angle\anglex{
+       \psi}{\theta}{\phi}
+   \pgfmathtruncatemacro\angleInt{\angle}
+    \ifthenelse{\angleInt < -180}
+    {\pgfmathsetmacro\angleInt{\angleInt + 360}}
+    {}
+    \draw[xyplane, dashed, color=\c]
+       (\angleInt -180: \orbitRadius)
+       arc (\angleInt -180: \angle: \orbitRadius);
+}
+% Draw the earth.
+\tikzset{current plane/.estyle={cm={1,0,0,1,(0,0)}}}
+\filldraw[current plane][shift={(\x, \y)}]
+   [ball color=blue,opacity=.7] (0,0,0) circle (\R);
+\foreach \t in {-80,-60,...,80} {
+   \DrawLatitudeCircle[\R]{\t}{\x}{\y}}
+\foreach \t in {-5,-35,...,-175} {
+   \DrawLongitudeCircle[\R]{\t}{\x}{\y}}
+\pgfmathsetmacro\orbitBaseAngle{30}
+% Draw the front half of the orbit.
+\foreach \theta/\c in {\firstTheta/red,
+   \firstTheta+60/blue,
+   \firstTheta+2*60/green,
+   \firstTheta+3*60/black,
+   \firstTheta+4*60/cyan,
+   \firstTheta+5*60/brown}{
+% Set the drawing plane affine transformation again.
+   \tikzset{xyplane/.estyle={cm={cos(\theta),
+      sin(\theta)*sin(\phi),sin(\theta)*sin(\psi),
+      cos(\psi)*cos(\phi)-sin(\psi)*cos(\theta)*
+      sin(\phi),(0,0)}}}
+% Draw the front half of the orbit.
+\getFrontArcStartPosition\angle\anglex{
+   \psi}{\theta}{\phi}
+\pgfmathtruncatemacro\angleInt{\angle}
+\ifthenelse{\angleInt > 180}
+     {\pgfmathsetmacro\angleInt{\angleInt - 360}}
+     {}
+\draw[xyplane,very thick,color=\c]
+   (\angleInt:\orbitRadius) arc
+   (\angleInt:\angleInt+180:\orbitRadius);
+     % Draw the satellites.
+     \foreach \thetaSat in {\orbitBaseAngle,
+   \orbitBaseAngle + 30, \orbitBaseAngle + 135,
+   \orbitBaseAngle + 255} {
+          \pgfmathsetmacro\xsh{
+           (7/1)*\orbitRadius*cos(\thetaSat)}
+           \pgfmathsetmacro\ysh{
+    (7/1)*\orbitRadius*sin(\thetaSat)}
+          \draw[xyplane,color=\c,scale=1/7][shift=
+             {(\xsh,\ysh)}](-2,-1) grid (2,1);
+} }
+\end{tikzpicture}

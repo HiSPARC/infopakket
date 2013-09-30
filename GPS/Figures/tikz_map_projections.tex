@@ -1,0 +1,90 @@
+% Tomasz M. Trzeciak. http://www.texample.net/ tikz/examples/map-projections/
+
+\newcommand\pgfmathsinandcos[3]{
+    \pgfmathsetmacro#1{sin(#3)}
+    \pgfmathsetmacro#2{cos(#3)}
+}
+
+\newcommand\LongitudePlane[3][current plane]{
+    \pgfmathsinandcos\sinEl\cosEl{#2} % elevation
+    \pgfmathsinandcos\sint\cost{#3} % azimuth
+    \tikzset{#1/.estyle={cm={
+       \cost,\sint*\sinEl,0,\cosEl,(0,0)}}}
+}
+
+\newcommand\LatitudePlane[3][current plane]{
+    \pgfmathsinandcos\sinEl\cosEl{#2} % elevation
+    \pgfmathsinandcos\sint\cost{#3} % latitude
+    \pgfmathsetmacro\yshift{\cosEl*\sint}
+    \tikzset{#1/.estyle={cm={
+       \cost,0,0,\cost*\sinEl,(0,\yshift)}}} 
+}
+
+\newcommand\DrawLongitudeCircle[4][1]{
+    \LongitudePlane{\angEl}{#2}
+    \tikzset{current plane/.prefix style={scale=#1}}
+     % angle of "visibility"
+    \pgfmathsetmacro\angVis{
+       atan(sin(#2)*cos(\angEl)/sin(\angEl))} 
+    \draw[shift={(#3, #4)}][current plane]
+       (\angVis:1) arc (\angVis:\angVis+180:1);
+    \draw[shift={(#3, #4)}][current plane,dashed]
+       (\angVis-180:1)arc(\angVis-180:\angVis:1);
+}
+
+\newcommand\DrawLatitudeCircle[4][1]{
+    \LatitudePlane{\angEl}{#2}
+    \tikzset{current plane/.prefix style={scale=#1}}
+    \pgfmathsetmacro\sinVis{
+       sin(#2)/cos(#2)*sin(\angEl)/cos(\angEl)}
+    % angle of "visibility"
+    \pgfmathsetmacro\angVis{
+       asin(min(1,max(\sinVis,-1)))}
+    \draw[shift={(#3, #4)}][current plane]
+       (\angVis:1) arc (\angVis:-\angVis-180:1);
+    \draw[shift={(#3, #4)}][current plane,dashed]
+       (180-\angVis:1)arc(180-\angVis:\angVis:1);
+}
+
+\newcommand\getFrontArcStartPosition[5]{
+    % Theta must be between -180 and 180.
+    \pgfmathtruncatemacro\psiInt{#3}
+    \pgfmathtruncatemacro\thetaInt{#4}
+    \pgfmathtruncatemacro\phiInt{#5}
+    \pgfmathtruncatemacro\psiTemp{\psiInt}
+    \ifthenelse{\thetaInt < 0}
+    % Negate theta and negate the results at the end.
+        {\pgfmathtruncatemacro\thetaTemp{-\thetaInt}}
+        {\pgfmathtruncatemacro\thetaTemp{\thetaInt}}
+    \pgfmathtruncatemacro\phiTemp{\phiInt}
+    \pgfmathsetmacro\anglexTemp{atan(sin(\thetaTemp)/
+       (cos(\thetaTemp)*sin(\psiTemp)))}
+    \ifthenelse{\thetaTemp > 90}
+        {\pgfmathsetmacro\anglexTemp{\anglexTemp + 180}}
+        {}
+    \pgfmathsetmacro\result{atan(sin(\thetaTemp)*
+       cos(\phiTemp)*sin(\anglexTemp)/
+    (sin(\anglexTemp)*cos(\psiTemp)*sin(\phiTemp)
+    +cos(\anglexTemp)*cos(\phiTemp)*sin(\thetaTemp)))}
+    \pgfmathsetmacro\specialAngle{(cos(\phiTemp)*
+       cos(\phiTemp)-cos(\psiTemp)*cos(\psiTemp))/
+       (cos(\phiTemp)*cos(\phiTemp)*
+       sin(\psiTemp)*sin(\psiTemp))}
+    \ifthenelse{\phiInt < \psiInt}{
+        \pgfmathparse{sqrt(\specialAngle)}
+        \pgfmathsetmacro\specialAngle{
+           asin(-\pgfmathresult)+180}
+        \ifthenelse{\thetaTemp > \specialAngle}{
+            \pgfmathsetmacro\result{\result + 180}
+            \pgfmathsetmacro#1{\result}}
+        {
+            \pgfmathsetmacro#1{\result}}}
+    {}
+    % Negate the results if theta is negative.
+    \ifthenelse{\thetaInt < 0}{
+        \pgfmathsetmacro#1{-\result}
+        \pgfmathsetmacro#2{-\anglexTemp}}
+    {
+        \pgfmathsetmacro#1{\result}
+        \pgfmathsetmacro#2{\anglexTemp}}
+}
