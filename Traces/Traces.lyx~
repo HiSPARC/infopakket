@@ -329,21 +329,19 @@ Eenvoudige pulsvormen
 \end_layout
 
 \begin_layout Standard
-Het is mogelijk om de diagrammen per detector van een enel station te bekijken.
- In figuur 
+In figuur 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Eenvoudige-pulsen"
 
 \end_inset
 
- zijn de signalen van vier detectoren van Station 506 te zien.
+ zijn de signalen van vier detectoren te zien.
  De zwarte puls van detector 1 heeft een vrij snelle voorflank.
  Het verloop van de achterflank lijkt een halfwaardetijd te hebben (deze
  loopt exponentieel op).
  Bij de blauwe grafiek van detector 4 is iets soortgelijks aan de hand.
- Een deeltje lijkt dus herkend te worden aan een steile dalende flank die
- wordt gevolgd door een exponentieel oplopende achterflank.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -498,8 +496,8 @@ reference "fig:Iets-complexere-pulsen"
 
 \end_inset
 
- zijn de pulsen van detector 1 en 4 van Station 501 goed te zien (respectievelij
-k zwart en blauw).
+ zijn de pulsen van detector 1 en 4 goed te zien (respectievelijk zwart
+ en blauw).
 \end_layout
 
 \begin_layout Standard

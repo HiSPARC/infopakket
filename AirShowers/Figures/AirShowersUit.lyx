@@ -121,7 +121,7 @@
 \begin_body
 
 \begin_layout Title
-Air-showers, events en coïncidenties
+Docentenhandleiding air-showers, events en coïncidenties
 \end_layout
 
 \begin_layout Author
@@ -134,62 +134,24 @@ Inleiding
 \end_layout
 
 \begin_layout Standard
-Kosmische deeltjes bestaan uit snel bewegende atoomkernen, neutrino's of
- gamma fotonen.
- Het kosmische deeltje heeft voldoende energie om interacties aan te gaan
- met deeltjes in de atmosfeer
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Achtergronden over deze interacties zijn op RouteNet te vinden in de modules
- 
-\begin_inset Quotes pld
-\end_inset
-
-Deeltjes in het standaardmodel
-\begin_inset Quotes prd
-\end_inset
-
- en 
-\begin_inset Quotes pld
-\end_inset
-
-Krachten in het standaard model
-\begin_inset Quotes prd
-\end_inset
-
-.
- (
+Achtergrondmateriaal / voorbereiding is te vinden op 
 \family typewriter
-\size footnotesize
-http://www.hisparc.nl/docent-student/lesmateriaal/routenet/
+http://www.hisparc.nl/docent-student/lesmateriaal/routenetpad/
 \family default
-\size default
-)
-\end_layout
-
-\end_inset
-
-.
- Deze interacties maken onder andere pionen.
- Deze deeltjes vervallen weer naar muonen, elektronen en hun antideeltjes
- of gamma fotonen.
- Gamma fotonen kunnen in paren van een elektron en positron (een anti-elektron)
- worden omgezet.
- Bij de interactie tussen een positron en een elektron verdwijnen de deeltjes
- en wordt de vrijkomende energie in twee nieuwe gamma fotonen omgezet.
- In de atmosfeer komen veel elektronen voor.
- Als geladen deeltjes worden afgebogen ontstaat er ook (gamma) straling.
- Deze processen gaan door totdat de energie te laag is voor de creatie van
- een elektron / positron paar.
-\end_layout
-
-\begin_layout Standard
-Als een enkel kosmisch deeltje voldoende energie heeft, wordt een lawine
- van processen gestart.
- Deze air-shower heeft als resultaat een enorme hoeveelheid deeltjes / straling
- die de grond bereiken.
+ of 
+\family typewriter
+http://www.hisparc.nl/
+\family default
+ > docent-student > lesmateriaal > routenet.
+ In het hadronisch deel van de shower vinden sterke interacties plaats,
+ bij de overgang van het hadronisch naar het elektromagnetisch deel vinden
+ zwakke interacties plaats.
+ Het elektromagnetisch deel wordt gekenmerkt door creatie en annihilatie
+ van deeltjes en antideeltjes (fermionen).
+ Bij annihilatie ontstaan twee gamma-fotonen (impulsbehoud!).
+ Indien deze fotonen voldoende energie hebben kunnen weer deeltjes en antideeltj
+es gecreëerd worden.
+ 
 \end_layout
 
 \begin_layout Section
@@ -197,47 +159,23 @@ Events
 \end_layout
 
 \begin_layout Standard
-Omdat bij een air-shower enorme hoeveelheden deeltjes de grond bereiken,
- kunnen we meten of er een deeltje in de atmosfeer is binnengedrongen.
- Meerdere detectoren meten in dit geval nagenoeg tegelijk iets.
- Een enkele detector op de grond meet naast deze kosmische straling ook
- de straling van radioactief verval van stoffen op Aarde, een dergelijke
- meting wordt een 
+De metingen van een station vallen uiteen in twee groepen:
+\end_layout
+
+\begin_layout Itemize
+
 \shape italic
-single
+Singles: 
 \shape default
- genoemd.
- 
+Als een enkele detector een signaal geeft, wordt dit een single genoemd.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float figure
-placement h
-wide false
-sideways false
-status open
+\begin_layout Itemize
 
-\begin_layout Plain Layout
-\noindent
-\align center
-\begin_inset Graphics
-	filename Figures/8cee5cc97a.jpg
-	scale 150
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption
-
-\begin_layout Plain Layout
-Een HiSPARC master unit.
- In de blokken PMT 1 en PMT 2 zijn twee gele ledjes te zien.
- Deze lichten op als er straling door respectievelijk detector 1 of detector
- 2 wordt gemeten.
- In de praktijk worden de detectoren ongeveer iedere 
+\shape italic
+Events:
+\shape default
+ In het geval van een event geven twee detectoren binnen 
 \begin_inset ERT
 status open
 
@@ -245,26 +183,7 @@ status open
 
 
 \backslash
-SI{5}{
-\backslash
-milli
-\backslash
-second}
-\end_layout
-
-\end_inset
-
- geraakt.
- Achter de koelgaten is een witte led te zien.
- Deze licht op als beide detectoren binnen een tijdsinterval van 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-SI{1.5}{
+SI{1,5}{
 \backslash
 micro
 \backslash
@@ -273,21 +192,51 @@ second}
 
 \end_inset
 
- straling waarnemen, dit komt veel minder vaak voor.
+ een signaal boven de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{70}{
+\backslash
+milli
+\backslash
+volt}
 \end_layout
 
 \end_inset
 
+ of minimaal drie detectoren signaal boven de 
+\begin_inset ERT
+status open
 
+\begin_layout Plain Layout
+
+
+\backslash
+SI{30}{
+\backslash
+milli
+\backslash
+volt}
 \end_layout
 
 \end_inset
 
-
+ af.
 \end_layout
 
 \begin_layout Subsection
 De nauwkeurigheid van het meten van events
+\end_layout
+
+\begin_layout Standard
+Om een air-shower die wordt veroorzaakt door een primair kosmisch deeltje
+ te onderscheiden van een deeltje van de achtergrondstraling, wordt uitgegaan
+ van de volgende hypothese:
 \end_layout
 
 \begin_layout Standard
@@ -332,7 +281,7 @@ volt}
 \end_inset
 
  afgeven.
- Een vierplaatsstation wordt ook getriggerd als drie detectorenbinnen 
+ (Een vierplaatsstation wordt ook getriggerd als drie detectorenbinnen 
 \begin_inset ERT
 status open
 
@@ -366,11 +315,18 @@ volt}
 
 \end_inset
 
- afgeven.
- Als het station getriggerd wordt, licht er een witte led achter de koelgaten
+ afgeven.)
+\end_layout
+
+\begin_layout Standard
+Als het station getriggerd wordt, licht er een witte led achter de koelgaten
  van het HiSPARC kastje op.
  De tijd van het event is de tijd waarop aan de triggervoorwaarde is voldaan,
  dit is dus de tweede of derde tijd.
+\end_layout
+
+\begin_layout Standard
+Eerst worden het aantal singles en events vergeleken:
 \end_layout
 
 \begin_layout Standard
@@ -1152,7 +1108,24 @@ second}
 \begin_inset Text
 
 \begin_layout Plain Layout
+Het venster is 
+\begin_inset ERT
+status open
 
+\begin_layout Plain Layout
+
+
+\backslash
+SI{1,5}{
+\backslash
+micro
+\backslash
+second}
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -1163,7 +1136,24 @@ second}
 \begin_inset Text
 
 \begin_layout Plain Layout
+Gemiddeld komen de singles iedere 
+\begin_inset ERT
+status open
 
+\begin_layout Plain Layout
+
+
+\backslash
+SI{10}{
+\backslash
+milli
+\backslash
+second}
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -1174,6 +1164,10 @@ second}
 \begin_inset Text
 
 \begin_layout Plain Layout
+In een boxplot wordt de kans op een toevallige trigger 
+\begin_inset Formula $\frac{1,5\mu s}{10ms}100\%=0,0015\%$
+\end_inset
+
 
 \end_layout
 
