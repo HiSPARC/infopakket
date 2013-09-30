@@ -42,4 +42,4 @@ GPS/GPS.pdf
 *.swp
 
 # LyX
-.lyx~
+*.lyx~
