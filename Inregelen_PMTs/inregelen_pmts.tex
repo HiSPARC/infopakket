@@ -47,7 +47,8 @@ een violet licht uitstraalt.
 \begin{figure}
 \centering
 \includegraphics{pmt-schematic}
-\caption{Schematische weergave van een \pmt.}
+\caption{Schematische weergave van een \pmt.  Figuur overgenomen uit
+\cite{hamamatsu}.}
 \label{fig:pmt}
 \end{figure}
 
@@ -80,8 +81,15 @@ bijvoorbeeld drie elektronen worden losgeslagen, dan is de totale
 versterking in een \pmt met tien dynodes gelijk aan $3^{10} \approx
 \num{60000}$.  De hoogspanning die over de \pmt staat bepaalt in grote
 mate de versterkingsfactor.  Hoe hoger de spanning, hoe groter de
-versterkingsfactor.  \hisparc \pmts werken gemiddeld bij spanningen tussen
-de \SIrange{850}{950}{\volt}.
+versterkingsfactor.  De hoogspanning bepaalt namelijk enerzijds de
+versnelling van de elektronen en anderzijds het aantal elektronen dat
+staat te dringen om de dynode te verlaten.
+
+De \pmt die gebruikt wordt door \hisparc is een 9107B van Electron
+Tubes \cite{9107B}.  Deze heeft 11 dynodes en een typische versterking van
+\num{3e6} bij \SI{850}{\volt}.  Dat komt overeen met $\num{3.9}^{11}$.  Voor
+ieder elektron dat een dynode raakt worden er gemiddeld bijna vier
+elektronen vrijgemaakt.
 
 
 \section{Signaal uit \hisparc detectoren}
@@ -94,6 +102,8 @@ de \SIrange{850}{950}{\volt}.
 \begin{thebibliography}{9}
 \bibitem{hamamatsu} Hamamatsu, \emph{Photomultiplier Tubes, Construction
 and Operating Characteristics Connections to External Circuits} (1997).
+\bibitem{9107B} ET Enterprises, Ltd., \emph{9107B series data sheet}
+(2010), \url{http://my.et-enterprises.com/pdf/9107B.pdf}.
 \end{thebibliography}
 
 \end{document}

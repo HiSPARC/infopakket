@@ -5,9 +5,10 @@
 \usepackage[dutch]{babel}
 
 \usepackage{fouriernc}
-\usepackage[detect-all, load-configurations=binary,
-            separate-uncertainty=true, per-mode=symbol,
-            retain-explicit-plus, range-phrase={ tot }]{siunitx}
+\usepackage[detect-all, binary-units, separate-uncertainty=true,
+            per-mode=symbol, retain-explicit-plus, range-phrase={ tot },
+            list-final-separator={ en }, output-decimal-marker={,}]
+            {siunitx}
 
 \usepackage{setspace}
 \setstretch{1.2}
