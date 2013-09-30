@@ -136,7 +136,7 @@ Inleiding
 \begin_layout Standard
 Op een HiSPARC II of HiSPARC III box kunnen 2 detectoren worden aangesloten.
  Een HiSPARC station heeft altijd een HiSPARC master.
- Op deze box wordt ook een GPS antanne aangesloten.
+ Op deze box wordt ook een GPS antenne aangesloten.
  Sommige stations hebben ook een HiSPARC slave.
  Hier kunnen ook twee detectoren op worden aangesloten.
  Een HiSPARC station bestaat dus uit 2 of 4 detectoren en een GPS antenne.
