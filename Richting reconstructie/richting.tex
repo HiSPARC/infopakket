@@ -22,99 +22,120 @@ stations met vier detectorplaten handiger.
   
 
 
-\section{Richting Reconstructie}
+\section{Richting reconstructie met twee detectoren}
 
 Een EAS wordt op aarde geregistreerd door detectorplaten in een \hisparc-station. 
 Omdat de EAS niet bij elke detector tegelijk aankomt, is uit de tijdsverschillen 
 te reconstrueren uit welke richting de shower is gekomen. 
 Er zijn echter belangrijke verschillen tussen hoekreconstructie met een station met twee detectorplaten en een station met drie detectorplaten. 
-Bij een station met twee platen is de hoekreconstructie wat beperkter dan bij een station met vier platen. In figuur \ref{fig:showerfront2} kun je zien dat het showerfront twee detectorplaten passeert en het signaal van de tweede plaat  een $\Delta$t later arriveert. 
+Bij een station met twee platen is de hoekreconstructie wat beperkter dan bij een station met vier platen.
+In figuur \ref{fig:showerfront2} kun je zien dat het showerfront twee detectorplaten passeert en het signaal van de tweede plaat  een $\Delta$t later arriveert. 
 Uit verschil tussen tussen de aankomsttijd tussen de twee platen en de aanname dat het showerfront met de lichtsnelheid beweegt,
  kan eenvoudig de hoek van het showerfront met de platen uitgerekend worden. De berekende hoek $\phi$ geeft echter geen uitsluitsel over de richting vanwaar de lawine kwam.
  Een hoek berekening met deze grootheden zorgt dat de richting $\phi$ van de lawine rotatie symmetrisch is om de s-as, zoals te zien is in figuur \ref{fig:showerfront3}, 
-waar de shower, die eenzelfde hoek van inval heeft,  is getekend als van de shower van boven. 
+waar de shower, die eenzelfde hoek van inval heeft,  is getekend net als de shower van boven. 
 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[scale=0.50]{showerfront2}
-    \caption{Showerfront passeert de linker detector1. Een bepaalde tijd $\Delta$t later is het front bij de rechter detector. De shower reist met de lichtsnelheid en heeft dus schuin de afstand $c\Delta$t afgelegd.}
+    \caption{Bovenaanzicht. Showerfront passeert de linker detector 1. Een bepaalde tijd $\Delta$t later is het front bij de rechter detector.Het showerfront reist met de lichtsnelheid en heeft dus schuin de afstand $c\Delta$t afgelegd.}
    \label{fig:showerfront2}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[scale=0.50]{showerfront3}
-    \caption{Een shower vanuit richting $\phi t_{1}$ heeft dezelfde $c\Delta$t als een shower uit richting  $\phi t_{2}$. Met twee platen kun je de hoek vanwaar de shower komt dus niet bepalen. }
+    \caption{Een shower vanuit richting $\theta_{1}$ heeft dezelfde $c\Delta$t als een shower uit richting  $\theta_{2}$, die vanuit de aarde lijkt te komen.
+ Het inkomende showerfront is over alle hoeken tussen 0 en 2$\pi$ te roteren, waarbij de invalshoekhoek van de shower nog steeds klopt met bijhorende gemeten grootheden s en  $\Delta$t.  Met twee platen kun je de richting vanwaar de shower komt dus niet bepalen. }
    \label{fig:showerfront3}
 \end{figure}
 
-Een hoekbepaling heeft dus minimaal drie detectoren nodig
-In figuur \ref{fig:front} is een situatie weergegeven van een vlak showerfront
-waarvan de normaal (de shower as) een zenithoek ($\theta$) heeft met het (x,y)-vlak en een azimuthoek($\phi$) met de x-as.
+Een richtingbepaling van een showerfront heeft minimaal drie detectoren nodig. Wat logisch is, want om een vlak te tekenen zijn ook minstens drie punten in de ruimte nodig.
+Om wel een reconstructie van richting te maken is dus een derde detector nodig. Scholen, die een station met twee detectoren hebben, kunnen ook een event gebruiken wat een coïncidentie is met een event gemeten door een ander station in de buurt, zodat een ander station het derde benodigde punt kan leveren. 
 
-\begin{figure}[H]
+\section{Richting reconstructie met drie of meer detectoren}
+
+
+In figuur \ref{fig:frontthesis} is een situatie weergegeven van een vlak showerfront waarvan de normaal (de shower as) een zenithoek ($\theta$) heeft met het (x,y)-vlak en een azimuthoek($\phi$) met de x-as.
+
+\begin{figure}
     \centering
     %\includegraphics[scale=0.60]{front}
     \input{Figures/angle-reconstruction}
-    \caption{Showerfront passeert detector 1. Een bepaalde tijd $\Delta$t1 later is het front bij detector 0.  Figuur overgenomen uit  \cite{Fokkema}}\label{fig:front}
+  
+    \caption{Showerfront passeert detector 1. Een bepaalde tijd $\Delta t_1$ later is het front bij detector 0.  Figuur overgenomen uit  \cite{Fokkema}}
+  \label{fig:frontthesis}
 \end{figure}
 
-Het front passeert detector 1. Een bepaalde tijd $\Delta t_{1}$ later is het front bij detector 0. Op een gelijke wijze kan ook een $\Delta t_{2}$ worden bepaald, het tijdsverschil tussen detector 0 en detector 2. Voor de hoekreconstructie zijn dus minimaal drie detectoren nodig. In de HiSPARC-opstelling zijn dit òf de drie buitenste detectorplaten in een station, òf drie stations in een stationscluster. Al eerder is een dergelijke hoekreconstructie uitgevoerd met de volgende vergelijkingen, afgeleid door D. Fokkema \cite{Fokkema}:
+Het front passeert detector 1. Een bepaalde tijd $\Delta t_{1}$ later is het front bij detector 0. Op een gelijke wijze kan ook een $\Delta t_{2}$ worden bepaald, het tijdsverschil tussen detector 0 en detector 2. Voor de hoekreconstructie zijn dus minimaal drie detectoren nodig. In de HiSPARC-opstelling zijn dit òf de drie buitenste detectorplaten in een station, òf drie stations in een stationscluster. Al eerder is een dergelijke hoekreconstructie uitgevoerd met de volgende vergelijkingen, afgeleid door D. Fokkema \cite{Fokkema}.
+Verdere uitleg over de richting reconstructie van een shower is te vinden op site:
+ \url{http://www.hisparc.nl/docent-student/lesmateriaal/routenetpad/} onder "richting reconstructie primair deeltje".
 
-%check deze vergelijking op hoek grieks!!
+
 \begin{equation}
-	   \quad \tan(\phi)= \frac{r_1\Delta t_1\cos\phi_1-r_2\Delta t_2\cos \phi_2}{r_1\Delta t_1\sin\phi_1-r_2\Delta t_2\sin \phi_2}
+	   \quad \tan(\phi)= \frac{r_1\Delta t_2\cos\phi_1-r_2\Delta t_1\cos \phi_2}{r_2\Delta t_1\sin\phi_2-r_1\Delta t_2\sin \phi_1}
 \end{equation}
 
 \begin{equation}
 	    \quad \sin(\theta)= \frac{c\Delta t_1}{r_1\cos(\phi-\phi_1)}
 \end{equation}
 
-%($\mathbf{F}_{actie}=-\mathbf{F}_{reactie}$) 
-
-Hierin is $\phi_{1}$ de hoek tussen detector 0 en detector 1 en $r_{1}$ de afstand tussen deze detectoren. $\phi_{2}$ is de hoek tussen detector 0 en detector 2 en $r_{2}$ de afstand tussen deze detectoren. $c$ is de lichtsnelheid.
-
-%Voor en na de botsing is deze kracht 0N. Gedurende de botsing,
-%die voor beide objecten even lang duurt, zijn er twee even grote en
-%tegengestelde krachten. Als voorwerp I gedurende de botsing vertraagt,
-%versnelt voorwerp II. We kunnen deze (eenparig) versnelde bewegingen dus
-%nader bestuderen met de tweede wet van Newton:
+Hierin is $\phi_{1}$ de hoek tussen detector 0 en detector 1 en $r_{1}$ de afstand tussen deze detectoren. $\phi_{2}$ is de hoek tussen detector 0 en detector 2 en $r_{2}$ de afstand tussen deze detectoren. c is de lichtsnelheid.
 
 
 
+\begin{figure}
+    \centering
+    %\includegraphics[scale=0.60]{front}
+    \input{Figures/station-layout}
+    \caption{Opbouw van een vier detectorstation. De detectoren zijn hoekpunten, die  liggen op een gelijkzijdige driehoek op 10 m van elkaar.}
+    \label{fig:stationlayout} 
+\end{figure}
 
 
-\begin{equation}
-    \mathbf{F}=m\mathbf{a}
-\end{equation}
+\textbf{Opdracht 1} Richting bepaling van station 501.
+Bekijk tabel  \ref{tab:arrival} met een meting van de aankomsttijden van een showerfront bij drie detectoren.
+De aankomsttijden zijn gegeven in ns. \\
+Bereken hoek $\phi$ en hoek $\theta$ met behulp van de gevens in tabel \ref{tab:arrival}
 
-Meer tekst en na de botsing. Gedurende de botsing, die voor beide
-objecten even lang duurt, zijn er twee even grote en tegengestelde
-krachten. Als voorwerp I gedurende de botsing vertraagt, versnelt
-voorwerp II. We kunnen deze (eenparig) versnelde bewegingen dus nader
-bestuderen met de tweede wet van Newto.
 
-%\begin{figure}[H]
-%    \centering
-%    \includegraphics[scale=0.75]{vlak}
-%    \caption{De breking aan een plat vlak}\label{fig:front}
-%\end{figure}
+\begin{table}
+\begin{center}    
+\begin{tabular}{ |l |l  |}    
+\hline
+    Detector & aankomsttijd (ns)  \\ 
+\hline
+    1 & 0 \\
+ \hline
+    3 & 7.6  \\
+ \hline
+    4 & 9.2 \\ 
+\hline
+\end{tabular}
+    \caption{ aankomsttijden van een shower gedecteerd door station 501}
+ \label{tab:arrival}     
+\end{center} 
+\end{table}
 
-Gedurende de botsing, die voor beide objecten even lang duurt, zijn er
-twee even grote en \cite{klaasboekje} tegengestelde krachten. Als voorwerp I gedurende de
-botsing vertraagt, versnelt voorwerp II.
+\begin{center}
+\line(1,0){500}
+\\
+\line(1,0){500}
+\\
+\line(1,0){500}
+\\
+\line(1,0){500}
+\\
+\end{center}
+ 
+
+
 
 \begin{thebibliography}{9}
     \bibitem{Fokkema}
         D.B.R.A. Fokkema, \emph{The \hisparc Experiment, data acquisition and reconstruction of shower direction}, PhD. thesis 2012
 \end{thebibliography}
 
-%\footnote{Ik gebruik voor
-%de vector van de kracht "$\mathbf{F}$", de grootte wordt geschreven met
-%"$F$".} oefenen beide objecten in het systeem op ieder moment een even
-%grote maar tegengestelde kracht uit \footnote{Let op: Dit is een ander
-%situatie dan een object waarbij alle krachten die op dat object werken
-%in evenwicht zijn. Dit laatste is een bijzonder geval van de tweede wet
-%Newton.}.
+
 
 \end{document}
