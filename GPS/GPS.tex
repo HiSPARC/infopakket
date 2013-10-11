@@ -51,16 +51,19 @@ electronica.
 \section{Positie bepaling}
 
 Het bepalen van je eigen positie kan met behulp van het weten wat de
-afstanden zijn naar 3 andere locaties (niet niet op één lijn liggen),
-dit heet trilateratie. Je zal dan namelijk 1 plek vinden die die
-afstanden heeft tot de 3 andere punten. De radiosignalen die door de
-satellieten uitgezonden worden bevatten informatie over welke satelliet
-het zendt, zijn eigen lokatie, de banen van de andere satellieten en de tijd
-waarop het bericht verzonden is volgens de satelliet. Door te kijken
-naar het tijdverschil tussen het moment waarop een signaal verzonden is
-en waarop deze ontvangen wordt kan de afstand tot de satelliet bepaald
-worden. Door signalen van meerdere satellieten te combineren kan de
-exacte locatie van de ontvanger bepaald worden.
+afstanden zijn naar 3 andere locaties (die niet op één lijn liggen), dit
+heet trilateratie. Je zal dan namelijk 1 plek vinden die die afstanden
+heeft tot de 3 andere punten. De radiosignalen die door de satellieten
+uitgezonden worden bevatten informatie over welke satelliet het zendt,
+zijn eigen lokatie, de banen van de andere satellieten en de tijd waarop
+het bericht verzonden is volgens de satelliet. Door te kijken naar het
+tijdverschil tussen het moment waarop een signaal verzonden is en waarop
+deze ontvangen wordt kan de afstand tot de satelliet bepaald worden.
+Door signalen van drie satellieten te combineren kan de exacte locatie
+van de ontvanger bepaald worden. Om dit te doen moet wel de exacte tijd
+al bekend zijn, anders kloppen de berekende afstanden niet. Deze extra
+variabele kan ook opgelost worden door gebruik te maken van het signaal
+van een vierde satelliet.
 
 \begin{figure}
     \centering
@@ -106,7 +109,7 @@ hebben een fout van \SI{0.1}{\femto\second} per \SI{1}{\second}. \gps
 doet niet mee aan zomer- en wintertijd, en ook niet aan de
 schrikkelseconde\footnote{Een extra seconde die af en toe aan de tijd
 wordt toegevoegd ter correctie van het verschil tussen de zonnedag en de
-\SI{24}{hour} die als dag gezien wordt.}. Dit betekend dat de \gps
+\SI{24}{uur} die als dag gezien wordt.}. Dit betekend dat de \gps
 precies het aantal seconden sinds 1 January 1970 aangeeft. In het
 verleden werkten we met UTC tijd. Maar door de schrikkelseconden kan een
 tijdstempel twee keer voorkomen, daarom gebruiken we nu \gps-tijd.
@@ -155,21 +158,45 @@ en toe tijdens gebruik, deze instellingen te controleren. Verder moet de
 leggen zodat het mogelijk is de \gps als nauwkeurig tijdinstrument te
 gebruiken.
 
-Het \gps monitor programma (\dspmon) is te vinden onder onder \hisparc in
-het Start Menu. Als in alle tekstvelden een vraagteken staat en de
-indicatielampjes op grijs staan heeft het programma de \gps nog niet
-gevonden. Rechts onderin het venster kunt u rechts-klikken op ''No Com
-Port'' en de juiste COM poort\footnote{De COM poort identificeerd het
-apparaat waarmee de software praat.} selecteren. Ga ze één-voor-één af,
-er is er slechts één die zal werken.
+Het \gps monitor programma (\dspmon) is te vinden onder onder \hisparc
+in het Start Menu. Als in alle tekstvelden een vraagteken staat en de
+indicatielampjes op grijs staan, zoals in figuur \ref{fig:dspmon_main_nocom}, dan heeft
+het programma de \gps nog niet gevonden. Rechts onderin het venster kan
+door rechts-klikken op ''No Com Port'' de juiste COM poort\footnote{De
+COM poort identificeerd het apparaat waarmee de software praat.} gekozen
+worden. Ga ze één-voor-één af, er is er slechts één die zal werken.
+Mocht het voorkomen dat er geen COM poorten te kiezen zijn terwijl alles
+wel aangesloten zit, kijk dan in de online documentatie [link] over hoe
+dit opgelost kan worden. Als de goede COM poort gekozen is zal er meer
+informatie in het hoofdscherm verschijnen, dit is te zien in figuur
+\ref{fig:dspmon_main_com}
 
-Controleert u eerst alle instellingen van de \gps en zorg ervoor dat ze
-nauwkeurig overeenkomen met de volgende screenshots (Figuren
+\begin{figure}
+    \centering
+    \includegraphics[scale=.75]{dspmon_main_nocom}
+    \caption{Dit is het hoofdvenster van \dspmon als de COM poort niet
+    goed staat.}
+    \label{fig:dspmon_main_nocom}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=.75]{dspmon_main_com}
+    \caption{Het hoofdvenster van \dspmon met goed herkende \gps.}
+    \label{fig:dspmon_main_com}
+\end{figure}
+
+Controleer alle instellingen van de \gps en zorg ervoor dat ze
+nauwkeurig overeenkomen met de screenshots in de Figuren
 \ref{fig:dspmon_receiver}, \ref{fig:dspmon_timing},
-\ref{fig:dspmon_survey}, \ref{fig:dspmon_position},
-\ref{fig:dspmon_options}). Mocht u een instelling moeten veranderen,
-druk dan op de bijbehorende *Set* knop (soms meerdere per scherm).
+\ref{fig:dspmon_survey}, \ref{fig:dspmon_position} en
+\ref{fig:dspmon_options}. Onder de figuren staat beschreven waar de
+instellingen belangrijk voor zijn. Deze instellingen zijn in het
+programma te vinden onder het menu ''Setup''. Als een instelling
+aangepast moet worden, druk dan op de bijbehorende *Set* knop (soms
+meerdere per scherm) om de aanpassingen op te slaan en toe te passen.
 
+Als de \gps positie nog niet bepaald is moet deze met behulp van de Self-survey gevonden worden. De Self-survey kan gestart worden via het Control menu. Start hier de Self-survey en kom een dag later terug om het instellen af te maken.
 Vergeet niet na het bepalen van de positie om in de \hisparc \daq de
 \daq mode uit en weer aan te zetten om zo de nieuwe positie door te
 geven.
@@ -177,27 +204,35 @@ geven.
 \begin{figure}
     \centering
     \includegraphics[scale=.75]{dspmon_receiver}
-    \caption{In dit venster stelt u de opties in voor de \gps ontvanger. 
-    De belangrijkste optie is hier de Receiver Mode.}
+    \caption{In dit venster wordt gekozen hoe de \gps zich moet gedragen.
+    Voor \hisparc is het van belang dat de tijd heel nauwkeurig bepaald
+    wordt en staat de \gps vast vandaar dat we kiezen voor
+    ''Overdetermined Clock'' en ''Stationary''. De ''Elevation Mask''
+    geeft aan dat satellieten minimaal \SI{10}{degree} boven de grond
+    moeten zijn om mee genomen te worden. Dit is omdat het signaal van
+    lage satellieten eerder verstoord is door de atmosfeer.}
     \label{fig:dspmon_receiver}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[scale=.75]{dspmon_timing}
-    \caption{In dit venster stelt u de tijdsinstellingen in. Het is
-    zeer belangrijk om hier goed te controleren dat u \gps meet, en
-    geen UTC-tijd.}\footnote{In het verleden hadden we de lengte van de
-    self survey ingesteld op één uur, maar het blijkt dat we de
-    nauwkeurigheid van een dag nodig hebben.}
+    \caption{Hier worden de tijdsinstellingen gedaan. Het is zeer
+    belangrijk om hier goed te controleren dat de \gps in \gps tijd
+    meet, en geen UTC-tijd.}
     \label{fig:dspmon_timing}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[scale=.75]{dspmon_survey}
-    \caption{In dit venster zorgt u er voor dat de *self survey* lang
-    genoeg duurt (één dag, dus 86400 seconden).}
+    \caption{In dit venster wordt de *self survey* ingesteld. De
+    Self-Survey wordt gebruikt om de positie van de \gps te bepalen.
+    Hierbij middelt de \gps over alle posities gemeten tijdens de
+    self-survey. Het is belangrijk dat deze lang genoeg duurt, namelijk
+    één dag (dus \SI{86400}{\second}). Zoals aan het begin is gezegd
+    herhalen de posities van de \gps satellieten boven de aarde zich
+    ongeveer iedere \SI{24}{uur}.}
     \label{fig:dspmon_survey}
 \end{figure}
    
@@ -208,7 +243,7 @@ geven.
     de positie in te vullen, maar let hier mee op dat deze niet wordt
     vastgezet als definitieve positie. Het is veiliger om deze
     instellingen leeg te houden en de \gps zelf zijn positie te laten
-    bepalen.}
+    bepalen door middel van de self-survey.}
     \label{fig:dspmon_position}
 \end{figure}
 
@@ -216,10 +251,9 @@ geven.
     \centering
     \includegraphics[scale=.75]{dspmon_options}
     \caption{De \gps kent vele opties waarvan een aantal door de \hisparc
-    software worden gebruikt. Controleert u deze vinkjes goed.}
+    software worden gebruikt. Controleer deze vinkjes goed.}
     \label{fig:dspmon_options}
 \end{figure}
-
 
 
 \end{document}
