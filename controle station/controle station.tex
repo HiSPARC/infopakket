@@ -1,0 +1,55 @@
+\input{../style}
+
+\begin{document}
+
+\title{Dagelijkse controle van een station}
+\author{C.G.N. van Veen} 
+\date{}
+
+\maketitle
+
+\section{Stations}
+
+\hisparc heeft verschillende meetstations op scholen in heel Nederland staan. 
+Aangezien deze stations de hele dag meten en hun data verzenden naar de \hisparc database, moeten zij regelmatig gecontroleerd worden op correcte werking.
+Informatie over de status van een station is te vinden op \url {http://data.hisparc.nl}.
+Dit document geeft aan hoe te handelen als de status van een station niet optimaal is.
+
+\section{Status van een station controleren}
+
+Als contactpersoon van \hisparc bent u verantwoordelijk voor het onderhoud van het meetstation op uw school of instelling.
+Om de prestaties van het station bij te houden, kunt u eens per dag kijken op de site: \url  {http://data.hisparc.nl}, waarvan in figuur \ref{fig:frontweb} een screenshot te zien is.
+Op deze site staan alle stations, die in het netwerk van \hisparc zijn aangesloten, vermeldt. 
+De cirkels voor de stations geven met een kleurcode aan wat de status van een station is. Als de kleur van de cirkel voor het betreffende station groen is, dan is de status van het station 'in orde'. 
+Een gele cirkel geeft aan dat er een probleem is met het station. Een rode cirkel betekent dat er geen data van het station ontvangen wordt en dat het station dus niet werkt.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.60]{websitefront}
+    \caption{Vooraanzicht van de \hisparc website.}
+   \label{fig:frontweb}
+\end{figure}
+
+\section{Probleem met een station}
+
+In het geval van een gele cirkel, moet u klikken op de link van het desbetreffende station. Zie figuur \ref{fig:frontweb}.
+
+ \begin{figure}
+\centering
+ \includegraphics[scale=0.40]{websiteerror}
+ \label{fig:websiteproble}
+\caption{Screenshot van de status van een station. In het event histogram is duidelijk te zien dat het station niets meer meet
+na 14.00 uur. Ook is er in het Pulseheight histogram geen duidelijke MIP piek te zien.}
+\end{figure}
+
+
+
+
+\begin{thebibliography}{9}
+    \bibitem{Fokkema}
+        D.B.R.A. Fokkema, \emph{The \hisparc Experiment, data acquisition and reconstruction of shower direction}, PhD. thesis 2012
+\end{thebibliography}
+
+
+
+\end{document}
