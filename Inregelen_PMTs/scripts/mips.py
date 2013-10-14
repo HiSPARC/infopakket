@@ -37,8 +37,8 @@ subplot.histogram(n, bins)
 
 multiplot.show_xticklabels_for_all([(0, 0), (2, 0)])
 multiplot.show_yticklabels_for_all([(0, 0), (1, 0), (2, 0)])
-multiplot.set_xlabel('Number of particles')
-multiplot.set_ylabel('Counts')
+multiplot.set_xlabel('Aantal deeltjes')
+multiplot.set_ylabel('Aantal events')
 multiplot.set_ylimits_for_all(min=1, max=2e4)
 multiplot.set_xlimits_for_all(min=0, max=10.5)
 
