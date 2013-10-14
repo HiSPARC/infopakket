@@ -7,15 +7,17 @@ multiplot = MultiPlot(3, 1, axis='semilogy', width=r'.5\linewidth')
 #figure()
 subplot = multiplot.get_subplot_at(1, 0)
 subplot2 = multiplot.get_subplot_at(2, 0)
-x = linspace(0, 10, 50)
+x = linspace(0, 11, 100)
 th_signal = []
 signal = zeros(x.shape)
 for N in range(1, 15):
-    scale = 1. / N ** 3
+    scale = 100. / N ** 3
     pdf = 80 * scale * normpdf(x, N, sqrt(N) * .35)
 #    plot(x, pdf)
     subplot.plot(x, pdf, mark=None)
-    subplot2.plot(x, pdf, mark=None, linestyle='gray')
+    #subplot.add_pin('%d MIP' % N, 'above right', x=N, use_arrow=True,
+    #                style='lightgray')
+    subplot2.plot(x, pdf, mark=None, linestyle='lightgray')
     signal += pdf
     th_signal.extend(int(100 * scale) * [N])
 
@@ -28,16 +30,16 @@ subplot.plot(x, signal, mark=None)
 #figure()
 #hist(th_signal, bins=linspace(0, 10, 100), histtype='step')
 
-n, bins = histogram(th_signal, bins=linspace(0, 10, 100))
-n = where(n == 0, 1e-1, n)
+n, bins = histogram(th_signal, bins=linspace(0, 11, 100))
+n = where(n == 0, 1e-10, n)
 subplot = multiplot.get_subplot_at(0, 0)
 subplot.histogram(n, bins)
 
-multiplot.show_xticklabels(2, 0)
+multiplot.show_xticklabels_for_all([(0, 0), (2, 0)])
 multiplot.show_yticklabels_for_all([(0, 0), (1, 0), (2, 0)])
 multiplot.set_xlabel('Number of particles')
 multiplot.set_ylabel('Counts')
-multiplot.set_ylimits_for_all(min=1e-1, max=2e2)
-multiplot.set_xlimits_for_all(min=0, max=10)
+multiplot.set_ylimits_for_all(min=1, max=2e4)
+multiplot.set_xlimits_for_all(min=0, max=10.5)
 
-multiplot.save_as_pdf('preview')
+multiplot.save('spectrum_componenten')
