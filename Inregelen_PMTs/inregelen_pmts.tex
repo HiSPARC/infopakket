@@ -121,14 +121,16 @@ relatief laat tijdstip de detector bereikten.}
 \label{fig:traces}
 \end{figure}
 
+
+\subsection{Pulshoogtehistogram}
+
 Als je alle signalen uit een \hisparc detector bekijkt, dan zie je grote
 verschillen.  Dit komt doordate een event veroorzaakt kan worden door één,
-twee, drie, of zelfs méér geladen deeltjes die door de detector gaan
-(\figref{fig:spectrum_componenten}.  Ook ontstaan er hoogenergetische
-fotonen in air showers.  Deze fotonen geven, met een kleine kans, een
-relatief zwak signaal in de detectoren.  Maar omdat het aantal fotonen in
-een air shower enorm groot is zie je dit terug in signalen uit de \hisparc
-detectoren.
+twee, drie, of zelfs méér geladen deeltjes die door de detector gaan.  Ook
+ontstaan er hoogenergetische fotonen in air showers.  Deze fotonen geven,
+met een kleine kans, een relatief zwak signaal in de detectoren.  Maar
+omdat het aantal fotonen in een air shower enorm groot is zie je dit terug
+in signalen uit de \hisparc detectoren (\figref{fig:spectrum_componenten}).
 
 \begin{figure}
 \centering
@@ -146,8 +148,34 @@ deeltjescomponenten (grijs).}
 \end{figure}
 
 
-\subsection{Pulshoogtehistogram}
 \subsection{Drempels}
+
+Het is in een scintillatorplaat nooit volmaakt donker.  Er zal altijd een
+klein aantal fotonen op de \pmt vallen.  Verder staat er zó veel spanning
+op de \pmt dat er soms spontaan een elektron van een dynode wordt
+afgetrokken wat vervolgens leidt tot een klein, maar versterkt, signaal.
+Dit misleidende `signaal' noemen we \emph{ruis}.  Door een
+\emph{drempelwaarde} in te stellen is het mogelijk om de ruis te negeren.
+Alle signalen met een maximale piekwaarde \emph{lager} dan de
+drempelwaarde worden genegeerd.
+
+Laagenergetische air showers komen veel vaker voor dan hoogenergetische
+showers.  Bij laagenergetische showers bereiken maar zeer weinig deeltjes
+de grond.  Deze showers willen we het liefste niet detecteren, aangezien
+we te weinig informatie kunnen krijgen om de energie of richting van de
+shower te reconstrueren.  Helaas zijn deze showers zó talrijk dat een
+typische \hisparc detector honderden deeltjes per seconde meet.  Dit
+betekent dat het moeilijk wordt om hoogenergetische showers te herkennen.
+
+Door meer dan één detector te gebruiken in een station is het mogelijk om
+deze achtergrond te negeren.  De kans dat een laagenergetische shower meer
+dan één detector raakt is zeer klein.  Voor een hoogenergetische air
+shower is dat echter geen probleem.  De gemiddelde deeltjesdichtheid op de
+grond is dan zó hoog dat de kans dat er deeltjes door meer dan één
+detector gaan zeer groot is.
+
+
+
 
 \section{Inregelen \pmts}
 
