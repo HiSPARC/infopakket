@@ -135,17 +135,17 @@ Inleiding
 \end_layout
 
 \begin_layout Standard
-Een HiSPARC station bestaat uit twee of vier detectoren op het dak.
- Ieder paar detectoren is aangesloten op een HiSPARC II of HiSPARC III box.
- De HiSPARC boxen zijn in twee varianten beschikbaar, een master en een
+Een HiSPARC station bestaat uit twee of vier detectoren die op het dak staan.
+ Ieder paar detectoren is aangesloten op een HiSPARC II of HiSPARC III unit.
+ De HiSPARC units zijn in twee varianten beschikbaar, een master en een
  slave.
- Een HiSPARC station heeft altijd een HiSPARC master, op deze box wordt
+ Een HiSPARC station heeft altijd een HiSPARC master, op deze unit wordt
  ook een GPS antenne aangesloten.
  Sommige stations hebben naast een master ook een slave, master en slave
  werken samen als een eenheid.
  De master en eventuele slave van een station zijn aangesloten op een meetcomput
 er, die de metingen naar de HiSPARC server stuurt.
- Met de computer zijn de aangesloten boxen ook af te regelen.
+ Met de computer zijn de aangesloten units ook af te regelen.
 \end_layout
 
 \begin_layout Standard
@@ -174,14 +174,21 @@ Zoals gezegd wordt de GPS antenne als oorsprong van het station gebruikt.
  gestuurd.
  De configuratie van het station is in een Firefox, Chrome of Safari browser
  op te halen op: 
+\end_layout
+
+\begin_layout Standard
+
 \family typewriter
+\size small
 http://data.hisparc.nl/api/station/
 \family default
 {Stationsnummer
 \family typewriter
 }/config/
-\family default
-., op de plaats van {Stationsnummer} vul je het stationsnummer in.
+\end_layout
+
+\begin_layout Standard
+Op de plaats van {Stationsnummer} vul je het stationsnummer in.
  Let op: Internet Explorer werkt niet! 
 \end_layout
 
@@ -222,7 +229,7 @@ Bepaal hoever de GPS antenne van het te meten station boven de WGS 84 ellipsoïd
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="1">
 <features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="17cm">
+<column alignment="left" valignment="top" width="16.6cm">
 <row>
 <cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
@@ -315,7 +322,7 @@ Pen en papier om de metingen te noteren
 \end_layout
 
 \begin_layout Itemize
-Sleutels van de skiboxen
+Sleutels van de skiunits
 \end_layout
 
 \begin_layout Subsection
@@ -431,10 +438,10 @@ status open
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="4">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="4cm">
-<column alignment="center" valignment="top" width="4cm">
-<column alignment="center" valignment="top" width="4cm">
-<column alignment="center" valignment="top" width="4cm">
+<column alignment="center" valignment="top" width="3.5cm">
+<column alignment="center" valignment="top" width="3.5cm">
+<column alignment="center" valignment="top" width="3.5cm">
+<column alignment="center" valignment="top" width="3.5cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -687,8 +694,8 @@ reference "tab:Meetgegevens"
 \end_layout
 
 \begin_layout Standard
-Detector 1 en 2 zijn aangesloten op de HiSPARC master box, deze box is te
- herkennen aan de GPS-aansluiting.
+Detector 1 en 2 zijn aangesloten op de HiSPARC master unit, deze unit is
+ te herkennen aan de GPS-aansluiting.
  Detector 3 en 4 zijn als PMT 1 respectievelijk PMT 2 aangesloten op de
  HiSPARC slave (zonder GPS-aansluiting).
 \end_layout
