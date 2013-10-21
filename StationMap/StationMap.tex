@@ -11,45 +11,29 @@
 
 \section{Inleiding}
 
-Een HiSPARC station bestaat uit twee of vier detectoren die op het
-dak staan. Ieder paar detectoren is aangesloten op een HiSPARC II
-of HiSPARC III unit. De HiSPARC units zijn in twee varianten beschikbaar,
-een master en een slave. Een HiSPARC station heeft altijd een HiSPARC
-master, op deze unit wordt ook een GPS antenne aangesloten. Sommige
-stations hebben naast een master ook een slave, master en slave werken
-samen als een eenheid. De master en eventuele slave van een station
-zijn aangesloten op een meetcomputer, die de metingen naar de HiSPARC
-server stuurt. Met de computer zijn de aangesloten units ook af te
-regelen.
+Een HiSPARC station bestaat uit twee of vier detectoren die op het dak staan. Ieder paar detectoren is aangesloten op een HiSPARC II of HiSPARC III unit. De HiSPARC units zijn in twee varianten beschikbaar, een master en een slave. Een HiSPARC station heeft altijd een HiSPARC
+master, op deze unit wordt ook een GPS antenne aangesloten. Sommige stations hebben naast een master ook een slave, master en slave werken
+samen als een eenheid. De master en eventuele slave van een station zijn aangesloten op een meetcomputer, die de metingen naar de HiSPARC
+server stuurt. Met de computer zijn de aangesloten units ook af te regelen.
 
-Met de GPS antenne is de locatie van het station te bepalen. GPS-satellieten
-zenden radiosignalen uit, in dit signaal wordt de tijd van de satelliet
-tijdens het uitzenden op 1ns nauwkeurig meegestuurd. Met het verschil
-tussen de aankomsttijd van het signaal en de lokale tijd van de antenne
-zijn de afstanden uit rekenen. Deze tijd kunnen we ook gebruiken om
-vast te leggen wanneer de detectoren iets meten. 
+Met de GPS antenne is de locatie van het station te bepalen. GPS-satellieten zenden radiosignalen uit, in dit signaal wordt de tijd van de satelliet
+tijdens het uitzenden op 1ns nauwkeurig meegestuurd. Met het verschil tussen de aankomsttijd van het signaal en de lokale tijd van de antenne
+zijn de afstanden uit rekenen. Deze tijd kunnen we ook gebruiken om  vast te leggen wanneer de detectoren iets meten. 
 
-Omdat de antenne de plaats het station en de tijd van het station
-definieert, wordt de plaats van de detectoren ten opzichte van de
-GPS antenne vastgelegd.
+Omdat de antenne zowel de plaats als de tijd van het station definieert, wordt de plaats van de detectoren ten opzichte van de GPS antenne vastgelegd.
 
 
 \section{Kaarten}
 
-Zoals gezegd wordt de GPS antenne als oorsprong van het station gebruikt.
-De plaats van de GPS antenne wordt via het internet naar de HiSPARC
-server gestuurd. De configuratie van het station is in een Firefox,
+De plaats van de GPS antenne wordt via het internet naar de HiSPARC server gestuurd. De configuratie van het station is in een Firefox,
 Chrome of Safari browser op te halen op: 
 
 \texttt{\small{http://data.hisparc.nl/api/station/}}{\small{\{Stationsnummer}}\texttt{\small{\}/config/}}{\small \par}
 
-Op de plaats van \{Stationsnummer\} vul je het stationsnummer in.
-Let op: Internet Explorer werkt niet! 
+Op de plaats van \{Stationsnummer\} vul je het stationsnummer in. Let op: Internet Explorer werkt niet! 
 
-Met enig zoeken zijn de Oosterlengte (longitude) en Noorderbreedte
-(latitude), beide in graden te vinden. De hoogte (altitude) wordt
-in meter vanaf de WGS 84 ellipsoïde gemeten. Deze ellipsoïde ligt
-in Amsterdam tientallen meters onder NAP (het Nieuw Amsterdams Peil).
+Met enig zoeken zijn de Oosterlengte (longitude) en Noorderbreedte (latitude), beide in graden te vinden. De hoogte (altitude) wordt
+in meter vanaf de WGS 84 ellipsoïde gemeten. Deze ellipsoïde ligt in Amsterdam tientallen meters onder NAP (het Nieuw Amsterdams Peil).
 
 \begin{minipage}[t]{1\columnwidth}%
 
@@ -70,8 +54,6 @@ de WGS 84 ellipsoïde ligt en hoever dit boven NAP is.}
 \end{tabular}%
 \end{minipage}
 
-\newpage{}
-
 
 \section{Het meten van de opstelling}
 
@@ -89,51 +71,22 @@ Om de opstelling te meten hebben we het volgende nodig:
 
 \subsection{Veiligheid}
 
-De meting moet volgens de richtlijnen van de ARBO worden uitgevoerd.
-Meestal staat de opstelling op een plat dak. Op dit dak zijn twee
-zones te onderscheiden:
+De meting moet volgens de richtlijnen van de ARBO worden uitgevoerd. Meestal staat de opstelling op een plat dak. Op dit dak zijn twee zones te onderscheiden:
 \begin{itemize}
-\item Een deel in het midden van het dak dat wordt begrensd door een gele
-stippellijn. Hier mag je je zonder zonder veiligheidsmateriaal bevinden.
-\item Een deel tussen de gele stippellijn en de rand. Hier moet je een veiligheidsharnas
-aan en ben je gezekerd met een lijn aan bevestigingspunten op het
-dak.
+\item Een deel in het midden van het dak dat wordt begrensd door een gele stippellijn. Hier mag je je zonder zonder veiligheidsmateriaal bevinden.
+\item Een deel tussen de gele stippellijn en de rand. Hier moet je een veiligheidsharnas aan en ben je gezekerd met een lijn aan bevestigingspunten op het dak.
 \end{itemize}
-\textbf{Neem contact op met de gebouwenbeheerder op je school. Deze
-dient op de hoogte te zijn van het practicum en heeft eventueel aanvullende
-eisen! }Het is aan te raden om met niet meer dan drie leerlingen onder
-begeleiding van een TOA of docent het dak op te gaan. De leerlingen
-doen de meting, de TOA of docent draagt zorg voor een veilige meetsituatie.
-Bij metingen nabij de rand zorgt een leerling voor de zekeringslijn,
-een gezekerde leerling voor het meten bij de rand en een leerling
-voor het meten binnen de gele stippellijn / noteren van meetgegevens.
-De TOA of docent blijft dicht bij de leerling die zorgt voor de zekeringslijn
-en let goed op.\textbf{ Bespreek van te voren -en dus niet op het
-dak- wie wat gaat doen!}
+\textbf{Neem contact op met de gebouwenbeheerder op je school. Deze dient op de hoogte te zijn van het practicum en heeft eventueel aanvullende eisen! }Het is aan te raden om met niet meer dan drie leerlingen onder begeleiding van een TOA of docent het dak op te gaan. De leerlingen doen de meting, de TOA of docent draagt zorg voor een veilige meetsituatie. Bij metingen nabij de rand zorgt een leerling voor de zekeringslijn, een gezekerde leerling voor het meten bij de rand en een leerling voor het meten binnen de gele stippellijn / noteren van meetgegevens. De TOA of docent blijft dicht bij de leerling die zorgt voor de zekeringslijn en let goed op.\textbf{ Bespreek van te voren -en dus niet op het dak- wie wat gaat doen!}
 
 
 \subsection{De meting}
 
-De detectoren liggen in skiboxen. Voordat de plaats van een detector
-gemeten kan worden moet de skibox geopend worden. Met behulp van diagonalen
-is het midden van de scintillator te bepalen. De scintillator is de
-rechthoekige plaat van 100 cm lang en 50 cm breed. Deze plaat is lichtdicht
-ingepakt. Let op dat de verpakking niet beschadigd wordt! We meten
-nu de afstand van het midden van de scintillator tot de GPS antenne
-(een plastic paddestoeltje). Deze is in tabel \ref{tab:Meetgegevens}
-op te schrijven.
+De detectoren liggen in skiboxen. Voordat de plaats van een detector gemeten kan worden moet de skibox geopend worden. Met behulp van diagonalen is het midden van de scintillator te bepalen. De scintillator is de rechthoekige plaat van 100 cm lang en 50 cm breed. Deze plaat is lichtdicht ingepakt. Let op dat de verpakking niet beschadigd wordt! We meten nu de afstand van het midden van de scintillator tot de GPS antenne
+(een plastic paddestoeltje). Deze is in tabel \ref{tab:Meetgegevens} op te schrijven.
 
-Naast de afstand moeten er nog twee hoeken worden gemeten. Hoek $\alpha$
-is de hoek tussen het noorden en het meetlint van de GPS antenne naar
-de detector. Staat de detector ten noorden van de GPS antenne dan
-meten we een waarde van $0^{\mathrm{o}}$, staat de detector ten oosten
-van de detector dan meten we $90^{\mathrm{o}}$. Hoek $\beta$ is
-de hoek tussen het noorden en de lange zijde van de scintillator in
-de richting van de PMT buis naar het einde zonder PMT buis. De PMT
-buis is te herkennen aan de elektrische aansluitingen. Zit de PMT
-buis in het zuiden dan is deze hoek $0\mathrm{^{o}}$. Deze metingen
-kunnen natuurlijk een aantal malen worden uitgevoerd zodat toevallige
-fouten kunnen worden verkleind.
+Naast de afstand moeten er nog twee hoeken worden gemeten. Hoek $\alpha$ is de hoek tussen het noorden en het meetlint van de GPS antenne naar de detector. Staat de detector ten noorden van de GPS antenne dan meten we een waarde van $0^{\mathrm{o}}$, staat de detector ten oosten van de detector dan meten we $90^{\mathrm{o}}$. Hoek $\beta$ is de hoek tussen het noorden en de lange zijde van de scintillator in
+de richting van de PMT buis naar het einde zonder PMT buis. De PMT buis is te herkennen aan de elektrische aansluitingen. Zit de PMT
+buis in het zuiden dan is deze hoek $0\mathrm{^{o}}$. Deze metingen kunnen natuurlijk een aantal malen worden uitgevoerd zodat toevallige fouten kunnen worden verkleind.
 
 \begin{table}[h]
 \noindent \begin{centering}
@@ -156,21 +109,16 @@ Detector & Afstand {[}m{]} & $\alpha$ {[}$^{\mathrm{o}}${]} & $\beta$ {[}$^{\mat
 \caption{\label{tab:Meetgegevens}Meetgegevens}
 \end{table}
 
-
-
 \paragraph{Opdracht 2:}
 
 \textit{Meet de locatie van de detectoren en vul de waarden in tabel
 \ref{tab:Meetgegevens} in.}
 
-Detector 1 en 2 zijn aangesloten op de HiSPARC master unit, deze unit
-is te herkennen aan de GPS-aansluiting. Detector 3 en 4 zijn als PMT
+Detector 1 en 2 zijn aangesloten op de HiSPARC master unit, deze unit is te herkennen aan de GPS-aansluiting. Detector 3 en 4 zijn als PMT
 1 respectievelijk PMT 2 aangesloten op de HiSPARC slave (zonder GPS-aansluiting).
 
 
 \section{Doorgeven van meetgegevens}
 
-Hier moet nog een formulier voor komen. Mail-adres opgeven. Code wordt
-verzonden, hiermee wordt het formulier geopend. Naast de meetwaarden
-wordt het mail-adres opgeslagen.
+Hier moet nog een formulier voor komen. Mail-adres opgeven. Code wordt verzonden, hiermee wordt het formulier geopend. Naast de meetwaarden wordt het mail-adres opgeslagen.
 \end{document}
