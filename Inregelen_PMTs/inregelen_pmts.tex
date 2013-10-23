@@ -148,7 +148,7 @@ deeltjescomponenten (grijs).}
 \end{figure}
 
 
-\subsection{Drempels}
+\subsection{Drempels en triggervoorwaarden}
 
 Het is in een scintillatorplaat nooit volmaakt donker.  Er zal altijd een
 klein aantal fotonen op de \pmt vallen.  Verder staat er zó veel spanning
@@ -156,8 +156,8 @@ op de \pmt dat er soms spontaan een elektron van een dynode wordt
 afgetrokken wat vervolgens leidt tot een klein, maar versterkt, signaal.
 Dit misleidende `signaal' noemen we \emph{ruis}.  Door een
 \emph{drempelwaarde} in te stellen is het mogelijk om de ruis te negeren.
-Alle signalen met een maximale piekwaarde \emph{lager} dan de
-drempelwaarde worden genegeerd.
+Alle signalen met een piekwaarde \emph{lager} dan de drempelwaarde worden
+genegeerd.
 
 Laagenergetische air showers komen veel vaker voor dan hoogenergetische
 showers.  Bij laagenergetische showers bereiken maar zeer weinig deeltjes
@@ -172,9 +172,17 @@ deze achtergrond te negeren.  De kans dat een laagenergetische shower meer
 dan één detector raakt is zeer klein.  Voor een hoogenergetische air
 shower is dat echter geen probleem.  De gemiddelde deeltjesdichtheid op de
 grond is dan zó hoog dat de kans dat er deeltjes door meer dan één
-detector gaan zeer groot is.
+detector gaan zeer groot is.  We kunnen dus stellen dat als twee of meer
+detectoren tegelijkertijd deeltjes meten er zeer waarschijnlijk sprake is
+van een hoogenergetische air shower.  De \hisparc elektronica reageert
+alleen indien dit het geval is.  Dit heet een \emph{triggervoorwaarde}.
 
-
+De standaard triggervoorwaardes voor een twee-plaats opstelling is
+\emph{minimaal twee detectoren met een piekwaarde boven de
+\SI{30}{\milli\volt}} en voor een vier-plaats opstelling: \emph{minimaal
+twee detectoren met een piekwaarde boven de \SI{70}{\milli\volt} \emph{of}
+minimaal drie detectoren met een piekwaarde boven de
+\SI{30}{\milli\volt}}.
 
 
 \section{Inregelen \pmts}
