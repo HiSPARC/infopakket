@@ -112,12 +112,13 @@ meerdere deeltjes.
 \begin{figure}
 \centering
 \input{Figures/traces}
-\caption{Een signaal van een event in een \hisparc detector (station 501,
-detector 4, 1 maart 2012 om 01:54:04).  Het signaal bestaat uit een
-spanning uit een \pmt.  De (negatieve) spanning is recht evenredig met de
-lichtintensiteit die op het venster van de \pmt valt.  In de staart van
-het signaal zijn meerdere piekjes te zien.  Dit zijn deeltjes die op een
-relatief laat tijdstip de detector bereikten.}
+\caption{Een signaal van een event in een \hisparc
+detector. % Station 501, detector 4, 1 maart 2012 om 01:54:04.
+Het signaal bestaat uit een spanning uit een \pmt.  De (negatieve)
+spanning is recht evenredig met de lichtintensiteit die op het venster van
+de \pmt valt.  In de staart van het signaal zijn meerdere piekjes te zien.
+Dit zijn deeltjes die op een relatief laat tijdstip de detector
+bereikten.}
 \label{fig:traces}
 \end{figure}
 
@@ -180,12 +181,63 @@ alleen indien dit het geval is.  Dit heet een \emph{triggervoorwaarde}.
 De standaard triggervoorwaardes voor een twee-plaats opstelling is
 \emph{minimaal twee detectoren met een piekwaarde boven de
 \SI{30}{\milli\volt}} en voor een vier-plaats opstelling: \emph{minimaal
-twee detectoren met een piekwaarde boven de \SI{70}{\milli\volt} \emph{of}
+twee detectoren met een piekwaarde boven de \SI{70}{\milli\volt} óf
 minimaal drie detectoren met een piekwaarde boven de
 \SI{30}{\milli\volt}}.
 
 
 \section{Inregelen \pmts}
+
+De correcte afstelling van de hoogspanning van de \pmt kan worden
+gecontroleerd door een pulshoogtehistogram te bekijken
+(\figref{fig:afstelling_pmt}).  Hoe hoger de spanning, hoe verder het
+histogram naar rechts is verschoven.  We proberen om de bult van
+\SI{1}{\mip} bij een spanning van ongeveer \SI{200}{\milli\volt} te
+leggen.  In de linker plot is de spanning te laag, in de rechter plot te
+hoog.  De middelste plot laat het goede beeld zien.
+
+\begin{figure}
+\centering
+\pgfkeys{/artist/width/.initial=.37\linewidth}
+\input{Figures/afstelling_pmt}
+\caption{De correcte afstelling van de hoogspanning van de \pmt kan worden
+gecontroleerd door een pulshoogtehistogram te bekijken.  Hoe hoger de
+spanning, hoe verder het histogram naar rechts is verschoven.  We proberen
+om de bult van \SI{1}{\mip} bij een spanning van ongeveer
+\SI{200}{\milli\volt} te leggen.  In de linker plot is de spanning te
+laag, in de rechter plot te hoog.  De middelste plot laat het goede beeld
+zien.}
+\label{fig:afstelling_pmt}
+\end{figure}
+
+We kunnen de spanning op een snelle manier goed instellen.  We maken dan
+gebruik van een aantal \emph{tellers} in de \hisparc software.  Deze
+tellers laten zien hoeveel pulsen boven de drempelwaardes uitkomen.  Dit
+doen ze per detector, onafhankelijk van of er daadwerkelijk getriggerd
+wordt.  Dit betekent dat als slechts één detector een signaal hoger dan
+\SI{30}{\milli\volt} meet, dit meegeteld wordt.
+
+Aangezien de vorm van het signaal van \hisparc vrijwel gelijk is voor alle
+detectoren kunnen we de tellers gebruiken om te controleren of een
+detector goed is ingesteld.  We hebben daartoe één \hisparc detector met
+de hand goed afgesteld en de tellerwaardes genoteerd.  Als een andere
+detector op diezelfde waardes wordt afgesteld, blijkt de vorm van het
+signaal inderdaad goed overeen te komen en is deze detector óók goed
+afgesteld.  De procedure is dan als volgt:
+
+\begin{enumerate}
+\item Controleer dat de drempelwaardes zijn afgesteld op
+\SI{30}{\milli\volt} voor de \emph{low threshold} en \SI{70}{\milli\volt}
+voor de \emph{high threshold}.
+\item Stel de hoogspanning in op \SI{300}{\volt}.
+\item Verhoog de spanning nu zodanig dat de singles voor de \emph{low
+threshold} uitkomen op ongeveer 250, en voor de \emph{high threshold} op
+ongeveer 120.
+\item Laat de detector een tijdje meten en controleer dat de \SI{1}{\mip}
+bult uitkomt bij ongeveer \SI{200}{\milli\volt}.
+\end{enumerate}
+
+De detector is nu goed afgesteld.
 
 
 \begin{thebibliography}{9}
