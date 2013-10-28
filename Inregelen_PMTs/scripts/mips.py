@@ -1,5 +1,5 @@
 from pylab import *
-from artist import MultiPlot
+from artist import MultiPlot, Plot
 
 
 multiplot = MultiPlot(3, 1, axis='semilogy', width=r'.5\linewidth')
@@ -47,3 +47,34 @@ multiplot.set_ylimits_for_all(min=1, max=1e5)
 multiplot.set_xlimits_for_all(min=0, max=10.5)
 
 multiplot.save('spectrum_componenten')
+
+
+# Plot voor afstellen spanning
+multiplot = MultiPlot(1, 3, width=r'.4\linewidth')
+
+p = multiplot.get_subplot_at(0, 1)
+V = x * 200
+p.plot(V, where(V >= 30, signal, 1), mark=None)
+p.draw_vertical_line(200, linestyle='gray')
+p.set_label(r"$V_\mathrm{PMT}$ correct")
+
+p = multiplot.get_subplot_at(0, 2)
+V = x * 400
+p.plot(V, where(V >= 30, signal, 1), mark=None)
+p.draw_vertical_line(200, linestyle='gray')
+p.set_label(r"$V_\mathrm{PMT}$ te hoog")
+
+p = multiplot.get_subplot_at(0, 0)
+V = x * 35
+p.plot(V, where(V >= 30, signal, 1), mark=None)
+p.draw_vertical_line(200, linestyle='gray')
+p.set_label(r"$V_\mathrm{PMT}$ te laag")
+
+multiplot.set_xlabel(r"Pulseheight [\si{\milli\volt}]")
+multiplot.set_ylabel("Counts")
+multiplot.set_xlimits_for_all(min=0, max=1000)
+multiplot.set_ylimits_for_all(min=1)
+multiplot.show_xticklabels_for_all()
+multiplot.set_xticklabels_position(0, 1, 'top')
+multiplot.set_yticks_for_all(ticks=None)
+multiplot.save('afstelling_pmt')
