@@ -245,15 +245,29 @@ signaal inderdaad goed overeen te komen en is deze detector óók goed
 afgesteld.  De procedure is dan als volgt:
 
 \begin{enumerate}
+\item Onthoudt goed: klik na iedere aanpassing van een instelling in de
+software op \emph{apply settings}!
 \item Controleer dat de drempelwaardes zijn afgesteld op
 \SI{30}{\milli\volt} voor de \emph{low threshold} en \SI{70}{\milli\volt}
 voor de \emph{high threshold}.
 \item Stel de hoogspanning in op \SI{300}{\volt}.
-\item Verhoog de spanning nu zodanig dat de singles voor de \emph{low
-threshold} uitkomen op ongeveer 250, en voor de \emph{high threshold} op
-ongeveer 120.
-\item Laat de detector een tijdje meten en controleer dat de \SI{1}{\mip}
-bult uitkomt bij ongeveer \SI{200}{\milli\volt}.
+\item Verhoog de spanning nu zodanig dat het aantal singles voor de
+\emph{high threshold} ongeveer 120 is.  Meet minstens \SI{30}{\second}.
+\item Als de spanning goed is ingesteld, controleer dan nogmaals het
+aantal singles door minstens \SI{120}{\second} te meten.
+\item Pas de spanning eventueel nog aan in heel kleine stapjes.  De
+software kan geen kleiner stapjes maken dan ongeveer \SI{4}{\volt}.  Meet
+daarna minstens \emph{twee keer} en gebruik alleen de laatste meting.  De
+\pmts hebben namelijk even tijd nodig om `af te koelen' of `op te warmen'.
+\item Controleer dat het aantal singles voor de \emph{low threshold}
+grofweg uitkomt op 250.  Het mag minder dan een factor 2 afwijken.  Wijkt
+het méér af, neem dan contact op met de \hisparc clustercoördinator.
+\item Schakel over naar \daq mode.
+\item Er wordt gevraagd om de nieuwe instellingen te bewaren.  Klik op
+\emph{Yes}.
+\item Laat de detector een tijdje meten (ongeveer \SI{30}{\minute}) en
+controleer dat de \SI{1}{\mip} bult uitkomt bij ongeveer
+\SI{200}{\milli\volt}.
 \end{enumerate}
 
 De detector is nu goed afgesteld.
