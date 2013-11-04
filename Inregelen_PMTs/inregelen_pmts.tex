@@ -53,7 +53,7 @@ een violet licht uitstraalt.
 \end{figure}
 
 De \pmt is een verzegelde glazen buis die vacuüm gemaakt
-is\figref{fig:pmt}.  De voorkant van een \pmt bestaat uit een dunne
+is (\figref{fig:pmt}).  De voorkant van een \pmt bestaat uit een dunne
 glaslaag.  Aan de binnenkant van het glas is een zeer dun metaallaagje
 opgedampt.  Het laagje is zó dun, dat het doorzichtig is.  Licht dat op de
 \pmt valt, gaat door het glas en raakt het metaal.  Het violette licht uit
@@ -61,7 +61,7 @@ de scintillator heeft een $E_f$ die hoog genoeg is om elektronen vrij te
 maken uit het metaallaagje.  Om er voor te zorgen dat er veel elektronen
 beschikbaar zijn wordt het metaalplaatje op een grote negatieve spanning
 gezet.  De elektronen staan dan feitelijk te dringen om het metaal te
-verlaten.  Het metaallaagje heet dan ook de \emph{kathode}\footnote{In een
+verlaten.  Het metaallaagje heet de \emph{kathode}\footnote{In een
 vacuümbuis is de kathode de pool waar elektronen uit worden vrijgemaakt,
 zoals hier gebeurt.} van de \pmt.  De \emph{anode} van de fotobuis wordt
 geaard, waardoor er een sterk elektrisch veld in de buis ontstaat.  De
@@ -94,20 +94,21 @@ elektronen vrijgemaakt.
 
 \section{Signaal uit \hisparc detectoren}
 
-Het signaal uit de \pmt wordt via kabels met een lengte van
+Zodra een air shower een detector bereikt gaan één of meerdere deeltjes
+door de detector.  Dit veroorzaakt een pulsvormig signaal.  De relatief
+lange staart van het signaal wordt veroorzaakt door licht dat via een
+aantal reflecties alsnog bij de \pmt terecht komt, maar ook door deeltjes
+die een beetje achterliepen in de shower en vrij laat door de detector
+gaan.  Het signaal uit de \pmt wordt via kabels met een lengte van
 \SI{30}{\meter} naar de \hisparc elektronica geleid.  Alle kabels zijn
 precies even lang, om te zorgen dat het signaal uit alle detectoren op
-hetzelfde moment bij de elektronica aankomt.  Zodra een air shower een
-detector bereikt gaan één of meerdere deeltjes door de detector.  Dit
-veroorzaakt een pulsvormig signaal.  De relatief lange staart van het
-signaal wordt veroorzaakt door licht dat via een aantal reflecties alsnog
-bij de \pmt terecht komt, maar ook door deeltjes die een beetje
-achterliepen in de shower en vrij laat door de detector gaan.  In
-\figref{fig:traces} staat het signaal van een \hisparc event.  Het bestaat
-uit een flinke puls met wat kleinere pieken in de staart.  Dit signaal is
-veroorzaakt door meerdere deeltjes die (vrijwel) gelijktijdig door de
-detector gingen.  De eerste grote puls is een optelsom van het licht van
-meerdere deeltjes.
+hetzelfde moment bij de elektronica aankomt.
+
+In \figref{fig:traces} staat het signaal van een \hisparc event.  Het
+bestaat uit een flinke puls met wat kleinere pieken in de staart.  Dit
+signaal is veroorzaakt door meerdere deeltjes die (vrijwel) gelijktijdig
+door de detector gingen.  De eerste grote puls is een optelsom van het
+licht van meerdere deeltjes.
 
 \begin{figure}
 \centering
@@ -131,7 +132,24 @@ twee, drie, of zelfs méér geladen deeltjes die door de detector gaan.  Ook
 ontstaan er hoogenergetische fotonen in air showers.  Deze fotonen geven,
 met een kleine kans, een relatief zwak signaal in de detectoren.  Maar
 omdat het aantal fotonen in een air shower enorm groot is zie je dit terug
-in signalen uit de \hisparc detectoren (\figref{fig:spectrum_componenten}).
+in signalen uit de \hisparc detectoren.
+
+In \figref{fig:spectrum_componenten} is een histogram gemaakt van de
+componenten van het signaal uit een \hisparc detector.  Er kunnen 1, 2, 3,
+of meerdere deeltjes door een detector gaan.  Je zou dus kunnen verwachten
+dat in het signaal van een \hisparc detector de stappen duidelijk te zien
+zijn, zoals in de bovenste plot.  Doordat het energieverlies van geladen
+deeltjes een kansproces is, net als het precieze aantal fotonen dat
+uiteindelijk bij de \pmt uitkomt, is het signaal van bv. 2 deeltjes soms
+iets kleiner, en soms iets groter.  De componenten zijn dus verbreedt
+(middelste plot).  Verder is een afvallende distributie toegevoegd die de
+bijdrage van fotonen laat zien.  Fotonen geven over het algemeen een klein
+signaal, maar er zijn ontzettend veel fotonen die de plaat raken.  De
+energie van de fotonen is zó hoog (gammastraling) dat deze fotonen door
+het plastic dringen en door de detector gaan.  In de onderste plot is
+tenslotte het totale signaal (zwart) als een optelsom van de verschillende
+deeltjescomponenten (grijs) weergegeven.  Dit is het histogram dat op
+\url{http://data.hisparc.nl/} en in de \daq software wordt weergegeven.
 
 \begin{figure}
 \centering
@@ -178,10 +196,10 @@ detectoren tegelijkertijd deeltjes meten er zeer waarschijnlijk sprake is
 van een hoogenergetische air shower.  De \hisparc elektronica reageert
 alleen indien dit het geval is.  Dit heet een \emph{triggervoorwaarde}.
 
-De standaard triggervoorwaardes voor een twee-plaats opstelling is
+De standaard triggervoorwaarde voor een twee-plaats opstelling is
 \emph{minimaal twee detectoren met een piekwaarde boven de
 \SI{30}{\milli\volt}} en voor een vier-plaats opstelling: \emph{minimaal
-twee detectoren met een piekwaarde boven de \SI{70}{\milli\volt} óf
+twee detectoren met een piek\-waarde boven de \SI{70}{\milli\volt} óf
 minimaal drie detectoren met een piekwaarde boven de
 \SI{30}{\milli\volt}}.
 
@@ -191,10 +209,11 @@ minimaal drie detectoren met een piekwaarde boven de
 De correcte afstelling van de hoogspanning van de \pmt kan worden
 gecontroleerd door een pulshoogtehistogram te bekijken
 (\figref{fig:afstelling_pmt}).  Hoe hoger de spanning, hoe verder het
-histogram naar rechts is verschoven.  We proberen om de bult van
-\SI{1}{\mip} bij een spanning van ongeveer \SI{200}{\milli\volt} te
-leggen.  In de linker plot is de spanning te laag, in de rechter plot te
-hoog.  De middelste plot laat het goede beeld zien.
+histogram naar rechts is verschoven, omdat alle signalen meer worden
+versterkt.  We proberen om de bult van \SI{1}{\mip} bij een spanning van
+ongeveer \SI{200}{\milli\volt} te leggen.  In de linker plot is de
+spanning te laag, in de rechter plot te hoog.  De middelste plot laat het
+goede beeld zien.
 
 \begin{figure}
 \centering
