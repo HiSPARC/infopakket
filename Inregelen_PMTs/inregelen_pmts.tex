@@ -1,5 +1,7 @@
 \input{../style}
 
+%\tikzexternalize
+
 \begin{document}
 
 \title{Inregelen \pmts}
@@ -245,30 +247,73 @@ signaal inderdaad goed overeen te komen en is deze detector óók goed
 afgesteld.  De procedure is dan als volgt:
 
 \begin{enumerate}
+\item Allereerst: stop de \daq modus (\figref{fig:stopdaq}).
 \item Onthoudt goed: klik na iedere aanpassing van een instelling in de
-software op \emph{apply settings}!
+software op \emph{apply settings}! (\figref{fig:applysettings})
 \item Controleer dat de drempelwaardes zijn afgesteld op
 \SI{30}{\milli\volt} voor de \emph{low threshold} en \SI{70}{\milli\volt}
-voor de \emph{high threshold}.
-\item Stel de hoogspanning in op \SI{300}{\volt}.
+voor de \emph{high threshold} (\figref{fig:drempels}).
+\item Stel de hoogspanning in op \SI{300}{\volt} (\figref{fig:spanningen}).
+\item Het aantal singles kun je meten door over te schakelen naar het
+tabblad \emph{statistics} (\figref{fig:tabstatistics}).
 \item Verhoog de spanning nu zodanig dat het aantal singles voor de
 \emph{high threshold} ongeveer 120 is.  Meet minstens \SI{30}{\second}.
 \item Als de spanning goed is ingesteld, controleer dan nogmaals het
-aantal singles door minstens \SI{120}{\second} te meten.
+aantal singles door minstens \SI{120}{\second} te meten
+(\figref{fig:counters}).
 \item Pas de spanning eventueel nog aan in heel kleine stapjes.  De
 software kan geen kleiner stapjes maken dan ongeveer \SI{4}{\volt}.  Meet
 daarna minstens \emph{twee keer} en gebruik alleen de laatste meting.  De
 \pmts hebben namelijk even tijd nodig om `af te koelen' of `op te warmen'.
 \item Controleer dat het aantal singles voor de \emph{low threshold}
 grofweg uitkomt op 250.  Het mag minder dan een factor 2 afwijken.  Wijkt
-het méér af, neem dan contact op met de \hisparc clustercoördinator.
-\item Schakel over naar \daq mode.
+het méér af, neem dan contact op met de \hisparc clustercoördinator
+(\figref{fig:counters}).
+\item Schakel over naar \daq mode (\figref{fig:startdaq}).
 \item Er wordt gevraagd om de nieuwe instellingen te bewaren.  Klik op
-\emph{Yes}.
+\emph{Yes} (\figref{fig:savesettings}).
 \item Laat de detector een tijdje meten (ongeveer \SI{30}{\minute}) en
 controleer dat de \SI{1}{\mip} bult uitkomt bij ongeveer
-\SI{200}{\milli\volt}.
+\SIrange{150}{200}{\milli\volt} (\figref{fig:histogram}).
 \end{enumerate}
+
+\begin{figure}
+\centering
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-stopdaq}
+  \label{fig:stopdaq}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-applysettings}
+  \label{fig:applysettings}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-drempels}
+  \label{fig:drempels}}
+
+\vspace{1em}
+
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-spanningen}
+  \label{fig:spanningen}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-tabstatistics}
+  \label{fig:tabstatistics}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-counters}
+  \label{fig:counters}}
+
+\vspace{1em}
+
+\subfloat[]{\includegraphics[width=.3\linewidth]{start-daq}
+  \label{fig:startdaq}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-savesettings}
+  \label{fig:savesettings}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-histogram}
+  \label{fig:histogram}}
+
+\caption{Screenshots van de \daq software.  Deze verduidelijken de
+verschillende stappen voor het inregelen van de \pmts.  Zie de
+beschrijving in de lopende tekst.}
+\end{figure}
 
 De detector is nu goed afgesteld.
 
