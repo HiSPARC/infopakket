@@ -1,5 +1,40 @@
 \input{../style}
 
+\makeatletter
+\pgfdeclareshape{openthumb}{
+  \inheritsavedanchors[from=rectangle]
+  \inheritanchorborder[from=rectangle]
+  \inheritanchor[from=rectangle]{center}
+  \inheritanchor[from=rectangle]{base}
+  \inheritanchor[from=rectangle]{north}
+  \inheritanchor[from=rectangle]{north east}
+  \inheritanchor[from=rectangle]{east}
+  \inheritanchor[from=rectangle]{south east}
+  \inheritanchor[from=rectangle]{south}
+  \inheritanchor[from=rectangle]{south west}
+  \inheritanchor[from=rectangle]{west}
+  \inheritanchor[from=rectangle]{north west}
+  \backgroundpath{
+    %  store lower right in xa/ya and upper right in xb/yb
+    \southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+    \northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+    \pgfpathmoveto{\pgfpoint{\pgf@xa}{\pgf@ya}}
+    \pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@ya}}
+    \pgfpathmoveto{\pgfpoint{\pgf@xa}{\pgf@yb}}
+    \pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@yb}}
+ }
+}
+\makeatother
+
+\newcommand{\thumb}{
+\begin{tikzpicture}[remember picture,overlay,font=\sffamily]
+  \node[fill,text=white,anchor=north east,yshift=-1cm,text width=3cm,align=right] at (current page.north east) {Theorie\rule{.8cm}{0pt}};
+
+  \node[openthumb,draw,text=black,anchor=north east,yshift=-1.5cm-\thepage*.5cm,text width=2cm,align=right] at (current page.north east) {GC\rule{.8cm}{0pt}};
+\end{tikzpicture}
+}
+\fancyhead{\thumb}
+
 %\tikzexternalize
 
 \begin{document}
@@ -9,6 +44,7 @@
 \date{}
 
 \maketitle
+\thispagestyle{fancy}
 
 \section{Werking van een \pmt}
 
