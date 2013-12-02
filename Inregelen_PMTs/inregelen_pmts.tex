@@ -1,5 +1,7 @@
 \input{../style}
 
+\newcommand{\shorttitle}{IP}
+
 \usepackage{titling}
 
 \makeatletter
@@ -31,15 +33,16 @@
 \newcommand{\thumb}{
 \begin{tikzpicture}[remember picture,overlay,font=\sffamily]
   \pgfmathsetmacro{\seccolorstep}{100-(\thepage-1)*15};
-  \colorlet{seccolor}{red!\seccolorstep!white}
+  \colorlet{seccolor}{red!\seccolorstep!yellow}
+  \colorlet{seccolor}{red}
 
-  \node[red,fill,text=white,anchor=north
+  \node[seccolor,fill,text=white,anchor=north
   west,xshift=2cm,yshift=-1cm, minimum height=3em,
   %align=left, text width=8cm
   ] at (current page.north west) {\Huge
   Theorie};
 
-  \node[seccolor,fill,text=black,anchor=north
+  \node[seccolor,fill,text=white,anchor=north
   east,xshift=-1cm,yshift=-1cm, minimum height=3em] at (current page.north
   east) {\Huge \thetitle};
 
@@ -54,6 +57,7 @@
 \end{tikzpicture}
 }
 \fancyhead{\thumb}
+\fancyfoot[C]{\shorttitle\ -- \thepage}
 
 %\tikzexternalize
 
