@@ -4,22 +4,22 @@
 
 \usepackage{titling}
 
+\colorlet{seccolor}{red}
+
 \newcommand{\thumb}{
-\begin{tikzpicture}[remember picture,overlay,font=\sffamily]
-  \colorlet{seccolor}{red}
+\begin{tikzpicture}[remember picture, overlay,
+  titlebox/.append style={seccolor, fill, text=white, minimum height=3em,
+    font=\sffamily\Huge},
+  authorbox/.append style={minimum height=2em, font=\sffamily}]
 
-  \node[seccolor,fill,text=white,anchor=north
-  west,xshift=2cm,yshift=-1cm, minimum height=3em] at (current page.north
-  west) {\Huge
-  Theorie};
+  \node[titlebox, anchor=north west, shift={(2cm, -1cm)}] at
+    (current page.north west) {Theorie};
 
-  \node[seccolor,fill,text=white,anchor=north
-  east,xshift=-1cm,yshift=-1cm, minimum height=3em] at (current page.north
-  east) {\Huge \thetitle};
+  \node[titlebox, anchor=north east, shift={(-1cm, -1cm)}] at
+    (current page.north east) {\thetitle};
 
-  \node[anchor=north
-  east,xshift=-1cm,yshift=-2cm, minimum height=2em] at (current page.north
-  east) {\theauthor};
+  \node[authorbox, anchor=north east, shift={(-1cm, -2cm)}] at
+    (current page.north east) {\theauthor};
 
   \draw[seccolor] ($(current page.north east) + (-1cm, -.5cm)$) --
     ($(current page.south east) + (-1cm, .5cm)$);
