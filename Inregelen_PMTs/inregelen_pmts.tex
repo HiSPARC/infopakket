@@ -32,14 +32,11 @@
 
 \newcommand{\thumb}{
 \begin{tikzpicture}[remember picture,overlay,font=\sffamily]
-  \pgfmathsetmacro{\seccolorstep}{100-(\thepage-1)*15};
-  \colorlet{seccolor}{red!\seccolorstep!yellow}
   \colorlet{seccolor}{red}
 
   \node[seccolor,fill,text=white,anchor=north
-  west,xshift=2cm,yshift=-1cm, minimum height=3em,
-  %align=left, text width=8cm
-  ] at (current page.north west) {\Huge
+  west,xshift=2cm,yshift=-1cm, minimum height=3em] at (current page.north
+  west) {\Huge
   Theorie};
 
   \node[seccolor,fill,text=white,anchor=north
@@ -50,10 +47,11 @@
   east,xshift=-1cm,yshift=-2cm, minimum height=2em] at (current page.north
   east) {\theauthor};
 
-  \draw[seccolor] ($(current page.north east) + (-1cm, 0)$) -- +(0, -\paperheight);
+  \draw[seccolor] ($(current page.north east) + (-1cm, -.5cm)$) --
+    ($(current page.south east) + (-1cm, .5cm)$);
  
-  \fill[seccolor] ($(current page.north east) + (0, -2cm-\thepage*1cm)$)
-  rectangle +(-1cm, +.5cm);
+  \fill[seccolor] ($(current page.north east) + (-.5cm, -2cm-\thepage*1cm)$)
+  rectangle +(-.5cm, +.5cm);
 \end{tikzpicture}
 }
 \fancyhead{\thumb}
@@ -64,7 +62,7 @@
 \begin{document}
 \suppressfloats
 
-\title{Dagelijkse controle van het station}
+\title{Inregelen \pmts}
 \author{D. B. R. A. Fokkema}
 \date{}
 
