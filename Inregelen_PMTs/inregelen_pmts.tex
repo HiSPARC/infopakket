@@ -28,9 +28,10 @@
 
 \newcommand{\thumb}{
 \begin{tikzpicture}[remember picture,overlay,font=\sffamily]
-  \node[fill,text=white,anchor=north east,yshift=-1cm,text width=3cm,align=right] at (current page.north east) {Theorie\rule{.8cm}{0pt}};
-
-  \node[openthumb,draw,text=black,anchor=north east,yshift=-1.5cm-\thepage*.5cm,text width=2cm,align=right] at (current page.north east) {GC\rule{.8cm}{0pt}};
+  \draw ($(current page.north east) + (-1cm, 0)$) -- +(0, -\paperheight);
+  
+  \fill ($(current page.north east) + (0, -2cm-\thepage*1cm)$)
+  rectangle +(-1cm, +.5cm);
 \end{tikzpicture}
 }
 \fancyhead{\thumb}
@@ -45,6 +46,12 @@
 
 \maketitle
 \thispagestyle{fancy}
+\begin{tikzpicture}[remember picture,overlay,font=\sffamily]
+  \node[fill,text=white,anchor=north
+  east,xshift=-1cm,yshift=-1cm,align=center,minimum width=\paperwidth-1cm,
+  minimum height=1.5em] at (current page.north east)
+  {Theorie --- Inregelen \pmts};
+\end{tikzpicture}
 
 \section{Werking van een \pmt}
 
@@ -191,7 +198,7 @@ deeltjescomponenten (grijs) weergegeven.  Dit is het histogram dat op
 
 \begin{figure}
 \centering
-\input{Figures/spectrum_componenten}
+%\input{Figures/spectrum_componenten}
 \caption{Histogram van de componenten van het signaal uit een \hisparc
 detector.  Bovenste plot: er kunnen 1, 2, 3, of meerdere deeltjes door een
 detector gaan.  Middelste plot: doordat het energieverlies een kansproces
