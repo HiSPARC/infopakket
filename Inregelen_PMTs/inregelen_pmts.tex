@@ -39,19 +39,36 @@
 %\tikzexternalize
 
 \begin{document}
+\suppressfloats
 
 \title{Inregelen \pmts}
 \author{D. B. R. A. Fokkema}
 \date{}
 
-\maketitle
-\thispagestyle{fancy}
+%\maketitle
+%\thispagestyle{fancy}
+\let\endtitlepage\relax
+\makeatletter
+\begin{titlepage}
 \begin{tikzpicture}[remember picture,overlay,font=\sffamily]
-  \node[fill,text=white,anchor=north
-  east,xshift=-1cm,yshift=-1cm,align=center,minimum width=\paperwidth-1cm,
-  minimum height=1.5em] at (current page.north east)
-  {Theorie --- Inregelen \pmts};
+  \node[red!40,fill,text=white,anchor=north
+  west,xshift=1cm,yshift=-1cm, minimum height=2em] at (current page.north
+  west) {Theorie};
+
+  \node[green!40,fill,text=white,anchor=north
+  east,xshift=-1cm,yshift=-1cm, minimum height=2em] at (current page.north
+  east) {\Huge Inregelen \pmts};
+
+  \node[anchor=north
+  east,xshift=-1cm,yshift=-2cm, minimum height=2em] at (current page.north
+  east) {\@author};
+
+  \fill ($(current page.north east) + (0, -2cm-\thepage*1cm)$)
+  rectangle +(-1cm, +.5cm);
 \end{tikzpicture}
+\end{titlepage}
+\makeatother
+
 
 \section{Werking van een \pmt}
 
