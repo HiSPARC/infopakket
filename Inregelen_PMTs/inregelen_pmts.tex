@@ -1,5 +1,7 @@
 \input{../style}
 
+\usepackage{titling}
+
 \makeatletter
 \pgfdeclareshape{openthumb}{
   \inheritsavedanchors[from=rectangle]
@@ -31,6 +33,20 @@
   \pgfmathsetmacro{\seccolorstep}{100-(\thepage-1)*15};
   \colorlet{seccolor}{red!\seccolorstep!white}
 
+  \node[red,fill,text=white,anchor=north
+  west,xshift=2cm,yshift=-1cm, minimum height=3em,
+  %align=left, text width=8cm
+  ] at (current page.north west) {\Huge
+  Theorie};
+
+  \node[seccolor,fill,text=black,anchor=north
+  east,xshift=-1cm,yshift=-1cm, minimum height=3em] at (current page.north
+  east) {\Huge \thetitle};
+
+  \node[anchor=north
+  east,xshift=-1cm,yshift=-2cm, minimum height=2em] at (current page.north
+  east) {\theauthor};
+
   \draw[seccolor] ($(current page.north east) + (-1cm, 0)$) -- +(0, -\paperheight);
  
   \fill[seccolor] ($(current page.north east) + (0, -2cm-\thepage*1cm)$)
@@ -44,33 +60,31 @@
 \begin{document}
 \suppressfloats
 
-\title{Inregelen \pmts}
+\title{Dagelijkse controle van het station}
 \author{D. B. R. A. Fokkema}
 \date{}
 
 %\maketitle
 %\thispagestyle{fancy}
-\let\endtitlepage\relax
-\makeatletter
-\begin{titlepage}
-\begin{tikzpicture}[remember picture,overlay,font=\sffamily]
-  \node[red,fill,text=white,anchor=north
-  west,xshift=1cm,yshift=-1cm, minimum height=2em] at (current page.north
-  west) {\Huge Theorie};
-
-  \node[red,fill,text=black,anchor=north
-  east,xshift=-1cm,yshift=-1cm, minimum height=2em] at (current page.north
-  east) {\Huge Inregelen \pmts};
-
-  \node[anchor=north
-  east,xshift=-1cm,yshift=-2cm, minimum height=2em] at (current page.north
-  east) {\@author};
-
-  \fill[red] ($(current page.north east) + (0, -2cm-\thepage*1cm)$)
-  rectangle +(-1cm, +.5cm);
-\end{tikzpicture}
-\end{titlepage}
-\makeatother
+%\let\endtitlepage\relax
+%\begin{titlepage}
+%\begin{tikzpicture}[remember picture,overlay,font=\sffamily]
+%  \node[red,fill,text=white,anchor=north
+%  west,xshift=1cm,yshift=-1cm, minimum height=2em] at (current page.north
+%  west) {\Huge Theorie};
+%
+%  \node[red,fill,text=black,anchor=north
+%  east,xshift=-1cm,yshift=-1cm, minimum height=2em] at (current page.north
+%  east) {\Huge \thetitle};
+%
+%  \node[anchor=north
+%  east,xshift=-1cm,yshift=-2cm, minimum height=2em] at (current page.north
+%  east) {\theauthor};
+%
+%  \fill[red] ($(current page.north east) + (0, -2cm-\thepage*1cm)$)
+%  rectangle +(-1cm, +.5cm);
+%\end{tikzpicture}
+%\end{titlepage}
 
 
 \section{Werking van een \pmt}
