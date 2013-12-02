@@ -28,9 +28,12 @@
 
 \newcommand{\thumb}{
 \begin{tikzpicture}[remember picture,overlay,font=\sffamily]
-  \draw ($(current page.north east) + (-1cm, 0)$) -- +(0, -\paperheight);
-  
-  \fill ($(current page.north east) + (0, -2cm-\thepage*1cm)$)
+  \pgfmathsetmacro{\seccolorstep}{100-(\thepage-1)*15};
+  \colorlet{seccolor}{red!\seccolorstep!white}
+
+  \draw[seccolor] ($(current page.north east) + (-1cm, 0)$) -- +(0, -\paperheight);
+ 
+  \fill[seccolor] ($(current page.north east) + (0, -2cm-\thepage*1cm)$)
   rectangle +(-1cm, +.5cm);
 \end{tikzpicture}
 }
@@ -51,11 +54,11 @@
 \makeatletter
 \begin{titlepage}
 \begin{tikzpicture}[remember picture,overlay,font=\sffamily]
-  \node[red!40,fill,text=white,anchor=north
+  \node[red,fill,text=white,anchor=north
   west,xshift=1cm,yshift=-1cm, minimum height=2em] at (current page.north
-  west) {Theorie};
+  west) {\Huge Theorie};
 
-  \node[green!40,fill,text=white,anchor=north
+  \node[red,fill,text=black,anchor=north
   east,xshift=-1cm,yshift=-1cm, minimum height=2em] at (current page.north
   east) {\Huge Inregelen \pmts};
 
@@ -63,7 +66,7 @@
   east,xshift=-1cm,yshift=-2cm, minimum height=2em] at (current page.north
   east) {\@author};
 
-  \fill ($(current page.north east) + (0, -2cm-\thepage*1cm)$)
+  \fill[red] ($(current page.north east) + (0, -2cm-\thepage*1cm)$)
   rectangle +(-1cm, +.5cm);
 \end{tikzpicture}
 \end{titlepage}
