@@ -138,7 +138,7 @@ Iedere detector van een HiSPARC-station is uitgerust met een foto-versterker
  buis (PhotoMultiplier Tube: PMT).
  Als er geen deeltjes door de detector schieten, treedt er geen fluorescentie
  in de detector op en ontstaat er geen licht.
- Bijgevolg geeft de PMT-buis een elektrisch signaal van 
+ In dit geval geeft de PMT-buis een elektrisch signaal van 
 \begin_inset ERT
 status open
 
@@ -155,29 +155,31 @@ volt}
 
 \end_inset
 
- aan de HiSPARC II of HiSPARC III unit.
+ aan de HiSPARC unit.
  In de unit wordt het analoge signaal door middel van een Analoog Digitaal
- Converter (ADC) omgezet in een digitaal signaal.
- De grootte van dit signaal wordt uitgedrukt in ADCs, in dit geval gaat
- het om een getal zonder eenheid, de ADC count.
+ Converter omgezet in een digitaal signaal.
+ De grootte van dit signaal wordt uitgedrukt in ADCs, de ADC count (een
+ getal zonder eenheid).
 \end_layout
 
 \begin_layout Standard
 Als er een detectorsignaal gemeten wordt, wordt een reeks van deze ADCs
- van deze detector in de HiSPARC unit opgeslagen.
+ in de HiSPARC unit opgeslagen.
  Als er tegelijkertijd een tweede reeks, van een andere detector, wordt
  opgeslagen, worden alle reeksen ADCs van de HiSPARC unit naar de HiSPARC
  server gezonden.
  Met dergelijke reeks kan een diagram van het verloop van het signaal tegen
  de tijd worden gemaakt.
- In deze diagrammen zijn het maximale negatieve signaal, de pulshoogte,
+ In deze diagrammen zijn het negatieve maximale signaal, de pulshoogte,
  en het oppervlak, de pulsintegraal, te bepalen.
  Gedurende de dag worden alle pulshoogten en pulsintegralen van een station
  verzameld.
  Pulshoogte en pulsintegraal histogrammen zijn op te vragen op: 
 \family typewriter
-data.hisparc.nl
+\size small
+http://data.hisparc.nl/
 \family default
+\size default
  door op de stationsnaam te klikken.
  Rechtsboven beide histogrammen is een link waarmee de gegevens in een spreadshe
 et, zoals Excel
@@ -305,8 +307,8 @@ reference "fig:coincidence"
 \end_layout
 
 \begin_layout Standard
-Op de kaart zijn drie meetstations te zien, een rood, een bruin, een rood
- en een oranje station
+Op de kaart zijn drie meetstations te zien, een bruin, een rood en een oranje
+ station
 \begin_inset Foot
 status collapsed
 
@@ -322,6 +324,9 @@ De kleuren van de stations volgen de definitie van de kleurcode van weerstandjes
 .
  We zien dat alle stations meerdere pulsen hebben gegeven, dit komt omdat
  een station uit meerdere detectoren bestaat.
+ De hoogte van de pulsen is vergelijkbaar, bijgevolg is het midden van de
+ air-shower (zwarte vlek) even ver van alle stations.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -329,7 +334,7 @@ Eenvoudige pulsvormen
 \end_layout
 
 \begin_layout Standard
-Het is mogelijk om de diagrammen per detector van een enel station te bekijken.
+Het is mogelijk om de diagrammen per detector van een enkel station te bekijken.
  In figuur 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -338,7 +343,7 @@ reference "fig:Eenvoudige-pulsen"
 \end_inset
 
  zijn de signalen van vier detectoren van Station 506 te zien.
- De zwarte puls van detector 1 heeft een vrij snelle voorflank.
+ De zwarte puls van detector 1 heeft een vrij steile voorflank.
  Het verloop van de achterflank lijkt een halfwaardetijd te hebben (deze
  loopt exponentieel op).
  Bij de blauwe grafiek van detector 4 is iets soortgelijks aan de hand.
@@ -409,15 +414,15 @@ Opdracht 1:
 \begin_layout Plain Layout
 
 \shape italic
-Leg uit wat je kunt zeggen over de groene grafiek van detector 3 in figuur
- 
+De groene grafiek van detector 3 in figuur 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Eenvoudige-pulsen"
 
 \end_inset
 
-.
+ heeft een minder vloeiend verloop.
+ Stel een hypothese op waarmee dit minder vloeiende verloop kan worden verklaard.
  
 \end_layout
 
@@ -425,7 +430,7 @@ reference "fig:Eenvoudige-pulsen"
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="1">
 <features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="17cm">
+<column alignment="left" valignment="top" width="16.6cm">
 <row>
 <cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
@@ -477,6 +482,13 @@ reference "fig:Eenvoudige-pulsen"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -565,21 +577,22 @@ Opdracht 2:
 \begin_layout Plain Layout
 
 \shape italic
-Leg uit hoe de grafiek van detector 1 in figuur 
+Geef een verklaring voor het verloop van de grafiek van detector 1 in figuur
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Iets-complexere-pulsen"
 
 \end_inset
 
- te verklaren is.
+.
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="1">
 <features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="17cm">
+<column alignment="left" valignment="top" width="16.6cm">
 <row>
 <cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
@@ -637,6 +650,13 @@ reference "fig:Iets-complexere-pulsen"
 \end_layout
 
 \begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Box Frameless
 position "t"
 hor_pos "c"
@@ -672,7 +692,7 @@ reference "fig:Iets-complexere-pulsen"
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="1">
 <features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="17cm">
+<column alignment="left" valignment="top" width="16.6cm">
 <row>
 <cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
@@ -776,112 +796,7 @@ Ingewikkelde pulsvormen
 \end_layout
 
 \begin_layout Standard
-Dichtbij de zwarte vlek in het kaartje van figuur 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:coincidence"
-
-\end_inset
-
- treffen we meer deeltjes aan, hoe verder je van de zwarte vlek afkomt hoe
- minder deeltjes er zijn.
- De NKG-functie
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Deze functie is door Nishimura, Kamata en Greisen geformuleerd.
- Het aantal deeltjes hangt ook van de energie van het primaire kosmische
- deeltje af.
-\end_layout
-
-\end_inset
-
- beschrijft hoe aantal deeltjes per vierkante meter van de afstand tot de
- kern van de air-shower kan worden berekend.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Box Frameless
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-status open
-
-\begin_layout Paragraph
-Opdracht 4:
-\end_layout
-
-\begin_layout Plain Layout
-
-\shape italic
-Leg met het verloop van de pulsen uit dat het midden van de air-shower in
- de buurt van station 505 is.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="1">
-<features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="17cm">
-<row>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
+\begin_inset VSpace bigskip
 \end_inset
 
 
@@ -907,7 +822,7 @@ height_special "totalheight"
 status open
 
 \begin_layout Paragraph
-Opdracht 5:
+Opdracht 4:
 \end_layout
 
 \begin_layout Plain Layout
@@ -921,7 +836,7 @@ Leg met de pulsintegraal (het pulsoppervlak) uit waarom er waarschijnlijk
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="1">
 <features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="17cm">
+<column alignment="left" valignment="top" width="16.6cm">
 <row>
 <cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
@@ -979,6 +894,13 @@ Leg met de pulsintegraal (het pulsoppervlak) uit waarom er waarschijnlijk
 \end_layout
 
 \begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Het valt op dat detector 3 (groen) bijna geen puls geeft.
 \end_layout
 
@@ -997,7 +919,7 @@ height_special "totalheight"
 status open
 
 \begin_layout Paragraph
-Opdracht 6:
+Opdracht 5:
 \end_layout
 
 \begin_layout Plain Layout
@@ -1011,7 +933,7 @@ Verklaar waarom er binnen een station soms detectoren zijn die een aantal
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="1">
 <features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="17cm">
+<column alignment="left" valignment="top" width="16.6cm">
 <row>
 <cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text

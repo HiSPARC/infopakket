@@ -1,0 +1,328 @@
+\input{../style}
+
+%\tikzexternalize
+
+\begin{document}
+
+\title{Inregelen \pmts}
+\author{D. B. R. A. Fokkema}
+\date{}
+
+\maketitle
+
+\section{Werking van een \pmt}
+
+Een fotoversterkbuis (photomultiplier tube, of \pmt) is een
+elektronenbuis die in staat is om hele kleine lichtflitsjes om te zetten
+in een elektrisch signaal.  Het is zelfs mogelijk om afzonderlijke fotonen
+te tellen.  Geladen deeltjes uit kosmische straling die door de \hisparc
+detectoren gaan verliezen energie in het materiaal van de detectoren.  In
+de scintillator wordt dat energieverlies omgezet in een zwak
+lichtschijnsel.  Dit paarsblauwe licht verspreidt zich door de detector
+weerkaatst zo veel mogelijk aan de randen en een deel komt terecht bij de
+\pmt, die het licht detecteert en een signaal afgeeft aan de \hisparc
+elektronica.
+
+Een \pmt maakt gebruik van het fotoelektrisch effect.  Dit effect werd
+verklaard door Einstein en hiervoor ontving hij in 1921 de
+Nobelprijs.\footnote{Veel mensen gaan er van uit dat Einstein de Nobelprijs
+ontving voor de relativiteitstheorie, maar dit klopt niet.}  Wanneer licht
+op een metaal schijnt, kunnen er elektronen worden losgeslagen uit het
+oppervlak.  Dit gebeurt wanneer de energie per foton hoger is dan de
+energie die een elektron nodig heeft om los te komen uit het metaal.  Deze
+drempelenergie is afhankelijk van het soort metaal.  De energie per foton
+wordt gegeven door
+\begin{equation}
+E_f = \frac{hc}{\lambda},
+\end{equation}
+met $E_f$ de energie van het foton, $h$ de constante van Planck, $c$ de
+lichtsnelheid en $\lambda$ de golflengte van het licht.  Zie ook Tabel 7
+en Tabel 35 in je Binas.
+
+De energie van een foton is dus omgekeerd evenredig met de golflengte:
+$E_f \propto 1/\lambda$.  Hoe kleiner de golflengte van het licht, hoe
+groter de energie per foton.  Dit betekent dat hoe `blauwer' het licht,
+hoe makkelijker een elektron wordt losgemaakt.  Is het licht \emph{te}
+`rood', dan lukt dat nooit.  Daarom hebben we een scintillator gekozen die
+een violet licht uitstraalt.
+
+\begin{figure}
+\centering
+\includegraphics{pmt-schematic}
+\caption{Schematische weergave van een \pmt.  Figuur overgenomen uit
+\cite{hamamatsu}.}
+\label{fig:pmt}
+\end{figure}
+
+De \pmt is een verzegelde glazen buis die vacuüm gemaakt
+is (\figref{fig:pmt}).  De voorkant van een \pmt bestaat uit een dunne
+glaslaag.  Aan de binnenkant van het glas is een zeer dun metaallaagje
+opgedampt.  Het laagje is zó dun, dat het doorzichtig is.  Licht dat op de
+\pmt valt, gaat door het glas en raakt het metaal.  Het violette licht uit
+de scintillator heeft een $E_f$ die hoog genoeg is om elektronen vrij te
+maken uit het metaallaagje.  Om er voor te zorgen dat er veel elektronen
+beschikbaar zijn wordt het metaalplaatje op een grote negatieve spanning
+gezet.  De elektronen staan dan feitelijk te dringen om het metaal te
+verlaten.  Het metaallaagje heet de \emph{kathode}\footnote{In een
+vacuümbuis is de kathode de pool waar elektronen uit worden vrijgemaakt,
+zoals hier gebeurt.} van de \pmt.  De \emph{anode} van de fotobuis wordt
+geaard, waardoor er een sterk elektrisch veld in de buis ontstaat.  De
+elektronen versnellen richting de anode.  Om een grote versterkingsfactor
+te krijgen is de buis opgedeeld in meerdere trappen.  Iedere trap heeft
+een \emph{dynode}, een metalen plaatje met een iets minder negatieve
+spanning dan de voorgaande dynode.  Dus bij een \pmt met drie dynodes,
+zijn de spanningen bijvoorbeeld als volgt: kathode (\SI{-1000}{\volt}),
+eerste dynode (\SI{-750}{\volt}), tweede dynode (\SI{-500}{\volt}), derde
+dynode (\SI{-250}{\volt}) en kathode (\SI{0}{\volt}).  Zo blijven de
+elektronen versnellen van kathode, langs alle dynodes en uiteindelijk naar
+de anode.  De versterking treedt op zodra de elektronen een dynode raken.
+De grote snelheid waarmee een elektron het metaal intreedt maakt een
+aantal elektronen los.  Deze losgeslagen elektronen worden vervolgens
+versneld naar de volgende dynode.  Als per dynode per elektron
+bijvoorbeeld drie elektronen worden losgeslagen, dan is de totale
+versterking in een \pmt met tien dynodes gelijk aan $3^{10} \approx
+\num{60000}$.  De hoogspanning die over de \pmt staat bepaalt in grote
+mate de versterkingsfactor.  Hoe hoger de spanning, hoe groter de
+versterkingsfactor.  De hoogspanning bepaalt namelijk enerzijds de
+versnelling van de elektronen en anderzijds het aantal elektronen dat
+staat te dringen om de dynode te verlaten.
+
+De \pmt die gebruikt wordt door \hisparc is een 9107B van Electron
+Tubes \cite{9107B}.  Deze heeft 11 dynodes en een typische versterking van
+\num{3e6} bij \SI{850}{\volt}.  Dat komt overeen met $\num{3.9}^{11}$.  Voor
+ieder elektron dat een dynode raakt worden er gemiddeld bijna vier
+elektronen vrijgemaakt.
+
+
+\section{Signaal uit \hisparc detectoren}
+
+Zodra een air shower een detector bereikt gaan één of meerdere deeltjes
+door de detector.  Dit veroorzaakt een pulsvormig signaal.  De relatief
+lange staart van het signaal wordt veroorzaakt door licht dat via een
+aantal reflecties alsnog bij de \pmt terecht komt, maar ook door deeltjes
+die een beetje achterliepen in de shower en vrij laat door de detector
+gaan.  Het signaal uit de \pmt wordt via kabels met een lengte van
+\SI{30}{\meter} naar de \hisparc elektronica geleid.  Alle kabels zijn
+precies even lang, om te zorgen dat het signaal uit alle detectoren op
+hetzelfde moment bij de elektronica aankomt.
+
+In \figref{fig:traces} staat het signaal van een \hisparc event.  Het
+bestaat uit een flinke puls met wat kleinere pieken in de staart.  Dit
+signaal is veroorzaakt door meerdere deeltjes die (vrijwel) gelijktijdig
+door de detector gingen.  De eerste grote puls is een optelsom van het
+licht van meerdere deeltjes.
+
+\begin{figure}
+\centering
+\input{Figures/traces}
+\caption{Een signaal van een event in een \hisparc
+detector. % Station 501, detector 4, 1 maart 2012 om 01:54:04.
+Het signaal bestaat uit een spanning uit een \pmt.  De (negatieve)
+spanning is recht evenredig met de lichtintensiteit die op het venster van
+de \pmt valt.  In de staart van het signaal zijn meerdere piekjes te zien.
+Dit zijn deeltjes die op een relatief laat tijdstip de detector
+bereikten.}
+\label{fig:traces}
+\end{figure}
+
+
+\subsection{Pulshoogtehistogram}
+
+Als je alle signalen uit een \hisparc detector bekijkt, dan zie je grote
+verschillen.  Dit komt doordate een event veroorzaakt kan worden door één,
+twee, drie, of zelfs méér geladen deeltjes die door de detector gaan.  Ook
+ontstaan er hoogenergetische fotonen in air showers.  Deze fotonen geven,
+met een kleine kans, een relatief zwak signaal in de detectoren.  Maar
+omdat het aantal fotonen in een air shower enorm groot is zie je dit terug
+in signalen uit de \hisparc detectoren.
+
+In \figref{fig:spectrum_componenten} is een histogram gemaakt van de
+componenten van het signaal uit een \hisparc detector.  Er kunnen 1, 2, 3,
+of meerdere deeltjes door een detector gaan.  Je zou dus kunnen verwachten
+dat in het signaal van een \hisparc detector de stappen duidelijk te zien
+zijn, zoals in de bovenste plot.  Doordat het energieverlies van geladen
+deeltjes een kansproces is, net als het precieze aantal fotonen dat
+uiteindelijk bij de \pmt uitkomt, is het signaal van bv. 2 deeltjes soms
+iets kleiner, en soms iets groter.  De componenten zijn dus verbreedt
+(middelste plot).  Verder is een afvallende distributie toegevoegd die de
+bijdrage van fotonen laat zien.  Fotonen geven over het algemeen een klein
+signaal, maar er zijn ontzettend veel fotonen die de plaat raken.  De
+energie van de fotonen is zó hoog (gammastraling) dat deze fotonen door
+het plastic dringen en door de detector gaan.  In de onderste plot is
+tenslotte het totale signaal (zwart) als een optelsom van de verschillende
+deeltjescomponenten (grijs) weergegeven.  Dit is het histogram dat op
+\url{http://data.hisparc.nl/} en in de \daq software wordt weergegeven.
+
+\begin{figure}
+\centering
+\input{Figures/spectrum_componenten}
+\caption{Histogram van de componenten van het signaal uit een \hisparc
+detector.  Bovenste plot: er kunnen 1, 2, 3, of meerdere deeltjes door een
+detector gaan.  Middelste plot: doordat het energieverlies een kansproces
+is, evenals het aantal fotonen dat uiteindelijk bij de \pmt uitkomt, is
+het signaal van bv. 2 deeltjes soms iets kleiner, en soms iets groter.  De
+componenten zijn dus verbreedt.  Verder is een afvallende distributie
+toegevoegd die de bijdrage van fotonen laat zien.  Onderste plot: het
+totale signaal (zwart) is een optelsom van de verschillende
+deeltjescomponenten (grijs).}
+\label{fig:spectrum_componenten}
+\end{figure}
+
+
+\subsection{Drempels en triggervoorwaarden}
+
+Het is in een scintillatorplaat nooit volmaakt donker.  Er zal altijd een
+klein aantal fotonen op de \pmt vallen.  Verder staat er zó veel spanning
+op de \pmt dat er soms spontaan een elektron van een dynode wordt
+afgetrokken wat vervolgens leidt tot een klein, maar versterkt, signaal.
+Dit misleidende `signaal' noemen we \emph{ruis}.  Door een
+\emph{drempelwaarde} in te stellen is het mogelijk om de ruis te negeren.
+Alle signalen met een piekwaarde \emph{lager} dan de drempelwaarde worden
+genegeerd.
+
+Laagenergetische air showers komen veel vaker voor dan hoogenergetische
+showers.  Bij laagenergetische showers bereiken maar zeer weinig deeltjes
+de grond.  Deze showers willen we het liefste niet detecteren, aangezien
+we te weinig informatie kunnen krijgen om de energie of richting van de
+shower te reconstrueren.  Helaas zijn deze showers zó talrijk dat een
+typische \hisparc detector honderden deeltjes per seconde meet.  Dit
+betekent dat het moeilijk wordt om hoogenergetische showers te herkennen.
+
+Door meer dan één detector te gebruiken in een station is het mogelijk om
+deze achtergrond te negeren.  De kans dat een laagenergetische shower meer
+dan één detector raakt is zeer klein.  Voor een hoogenergetische air
+shower is dat echter geen probleem.  De gemiddelde deeltjesdichtheid op de
+grond is dan zó hoog dat de kans dat er deeltjes door meer dan één
+detector gaan zeer groot is.  We kunnen dus stellen dat als twee of meer
+detectoren tegelijkertijd deeltjes meten er zeer waarschijnlijk sprake is
+van een hoogenergetische air shower.  De \hisparc elektronica reageert
+alleen indien dit het geval is.  Dit heet een \emph{triggervoorwaarde}.
+
+De standaard triggervoorwaarde voor een twee-plaats opstelling is
+\emph{minimaal twee detectoren met een piekwaarde boven de
+\SI{30}{\milli\volt}} en voor een vier-plaats opstelling: \emph{minimaal
+twee detectoren met een piek\-waarde boven de \SI{70}{\milli\volt} óf
+minimaal drie detectoren met een piekwaarde boven de
+\SI{30}{\milli\volt}}.
+
+
+\section{Inregelen \pmts}
+
+De correcte afstelling van de hoogspanning van de \pmt kan worden
+gecontroleerd door een pulshoogtehistogram te bekijken
+(\figref{fig:afstelling_pmt}).  Hoe hoger de spanning, hoe verder het
+histogram naar rechts is verschoven, omdat alle signalen meer worden
+versterkt.  We proberen om de bult van \SI{1}{\mip} bij een spanning van
+ongeveer \SI{200}{\milli\volt} te leggen.  In de linker plot is de
+spanning te laag, in de rechter plot te hoog.  De middelste plot laat het
+goede beeld zien.
+
+\begin{figure}
+\centering
+\pgfkeys{/artist/width/.initial=.37\linewidth}
+\input{Figures/afstelling_pmt}
+\caption{De correcte afstelling van de hoogspanning van de \pmt kan worden
+gecontroleerd door een pulshoogtehistogram te bekijken.  Hoe hoger de
+spanning, hoe verder het histogram naar rechts is verschoven.  We proberen
+om de bult van \SI{1}{\mip} bij een spanning van ongeveer
+\SI{200}{\milli\volt} te leggen.  In de linker plot is de spanning te
+laag, in de rechter plot te hoog.  De middelste plot laat het goede beeld
+zien.}
+\label{fig:afstelling_pmt}
+\end{figure}
+
+We kunnen de spanning op een snelle manier goed instellen.  We maken dan
+gebruik van een aantal \emph{tellers} in de \hisparc software.  Deze
+tellers laten zien hoeveel pulsen boven de drempelwaardes uitkomen.  Dit
+doen ze per detector, onafhankelijk van of er daadwerkelijk getriggerd
+wordt.  Dit betekent dat als slechts één detector een signaal hoger dan
+\SI{30}{\milli\volt} meet, dit meegeteld wordt.
+
+Aangezien de vorm van het signaal van \hisparc vrijwel gelijk is voor alle
+detectoren kunnen we de tellers gebruiken om te controleren of een
+detector goed is ingesteld.  We hebben daartoe één \hisparc detector met
+de hand goed afgesteld en de tellerwaardes genoteerd.  Als een andere
+detector op diezelfde waardes wordt afgesteld, blijkt de vorm van het
+signaal inderdaad goed overeen te komen en is deze detector óók goed
+afgesteld.  De procedure is dan als volgt:
+
+\begin{enumerate}
+\item Allereerst: stop de \daq modus (\figref{fig:stopdaq}).
+\item Onthoudt goed: klik na iedere aanpassing van een instelling in de
+software op \emph{apply settings}! (\figref{fig:applysettings})
+\item Controleer dat de drempelwaardes zijn afgesteld op
+\SI{30}{\milli\volt} voor de \emph{low threshold} en \SI{70}{\milli\volt}
+voor de \emph{high threshold} (\figref{fig:drempels}).
+\item Stel de hoogspanning in op \SI{300}{\volt} (\figref{fig:spanningen}).
+\item Het aantal singles kun je meten door over te schakelen naar het
+tabblad \emph{statistics} (\figref{fig:tabstatistics}).
+\item Verhoog de spanning nu zodanig dat het aantal singles voor de
+\emph{high threshold} ongeveer 120 is.  Meet minstens \SI{30}{\second}.
+\item Als de spanning goed is ingesteld, controleer dan nogmaals het
+aantal singles door minstens \SI{120}{\second} te meten
+(\figref{fig:counters}).
+\item Pas de spanning eventueel nog aan in heel kleine stapjes.  De
+software kan geen kleiner stapjes maken dan ongeveer \SI{4}{\volt}.  Meet
+daarna minstens \emph{twee keer} en gebruik alleen de laatste meting.  De
+\pmts hebben namelijk even tijd nodig om `af te koelen' of `op te warmen'.
+\item Controleer dat het aantal singles voor de \emph{low threshold}
+grofweg uitkomt op 250.  Het mag minder dan een factor 2 afwijken.  Wijkt
+het méér af, neem dan contact op met de \hisparc clustercoördinator
+(\figref{fig:counters}).
+\item Schakel over naar \daq mode (\figref{fig:startdaq}).
+\item Er wordt gevraagd om de nieuwe instellingen te bewaren.  Klik op
+\emph{Yes} (\figref{fig:savesettings}).
+\item Laat de detector een tijdje meten (ongeveer \SI{30}{\minute}) en
+controleer dat de \SI{1}{\mip} bult uitkomt bij ongeveer
+\SIrange{150}{200}{\milli\volt} (\figref{fig:histogram}).
+\end{enumerate}
+
+\begin{figure}
+\centering
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-stopdaq}
+  \label{fig:stopdaq}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-applysettings}
+  \label{fig:applysettings}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-drempels}
+  \label{fig:drempels}}
+
+\vspace{1em}
+
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-spanningen}
+  \label{fig:spanningen}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-tabstatistics}
+  \label{fig:tabstatistics}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-counters}
+  \label{fig:counters}}
+
+\vspace{1em}
+
+\subfloat[]{\includegraphics[width=.3\linewidth]{start-daq}
+  \label{fig:startdaq}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-savesettings}
+  \label{fig:savesettings}}
+\hfill
+\subfloat[]{\includegraphics[width=.3\linewidth]{screenshot-histogram}
+  \label{fig:histogram}}
+
+\caption{Screenshots van de \daq software.  Deze verduidelijken de
+verschillende stappen voor het inregelen van de \pmts.  Zie de
+beschrijving in de lopende tekst.}
+\end{figure}
+
+De detector is nu goed afgesteld.
+
+
+\begin{thebibliography}{9}
+\bibitem{hamamatsu} Hamamatsu, \emph{Photomultiplier Tubes, Construction
+and Operating Characteristics Connections to External Circuits} (1997).
+\bibitem{9107B} ET Enterprises, Ltd., \emph{9107B series data sheet}
+(2010), \url{http://my.et-enterprises.com/pdf/9107B.pdf}.
+\end{thebibliography}
+
+\end{document}

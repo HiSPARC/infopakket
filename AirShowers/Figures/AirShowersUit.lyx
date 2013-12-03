@@ -136,21 +136,62 @@ Inleiding
 \begin_layout Standard
 Achtergrondmateriaal / voorbereiding is te vinden op 
 \family typewriter
+\size small
 http://www.hisparc.nl/docent-student/lesmateriaal/routenetpad/
 \family default
+\size default
  of 
 \family typewriter
+\size small
 http://www.hisparc.nl/
 \family default
+\size default
  > docent-student > lesmateriaal > routenet.
- In het hadronisch deel van de shower vinden sterke interacties plaats,
- bij de overgang van het hadronisch naar het elektromagnetisch deel vinden
- zwakke interacties plaats.
+ Zie bijvoorbeeld de modules:
+\end_layout
+
+\begin_layout Itemize
+Compton
+\end_layout
+
+\begin_layout Itemize
+Tsjerenkov
+\end_layout
+
+\begin_layout Itemize
+Relativiteit (na Michelson en Morley)
+\end_layout
+
+\begin_layout Itemize
+Deeltjes in het standaardmodel
+\end_layout
+
+\begin_layout Itemize
+Krachten in het standaardmodel
+\end_layout
+
+\begin_layout Standard
+In het hadronisch deel van de shower vinden sterke interacties plaats, bij
+ de overgang van het hadronisch naar het elektromagnetisch deel vinden zwakke
+ interacties plaats.
  Het elektromagnetisch deel wordt gekenmerkt door creatie en annihilatie
  van deeltjes en antideeltjes (fermionen).
- Bij annihilatie ontstaan twee gamma-fotonen (impulsbehoud!).
+ Bij annihilatie ontstaan 
+\shape italic
+twee
+\shape default
+ gamma-fotonen (impulsbehoud!), de energie wordt dus verdeeld over de fotonen
+ (denk aan 
+\begin_inset Formula $E=mc^{2}$
+\end_inset
+
+).
  Indien deze fotonen voldoende energie hebben kunnen weer deeltjes en antideeltj
-es gecreëerd worden.
+es gecreëerd worden (
+\begin_inset Formula $E=mc^{2}$
+\end_inset
+
+ andersom).
  
 \end_layout
 
@@ -175,7 +216,7 @@ Als een enkele detector een signaal geeft, wordt dit een single genoemd.
 \shape italic
 Events:
 \shape default
- In het geval van een event geven twee detectoren binnen 
+ In het geval van een event geven minimaal twee detectoren binnen 
 \begin_inset ERT
 status open
 
@@ -209,7 +250,7 @@ volt}
 
 \end_inset
 
- of minimaal drie detectoren signaal boven de 
+ of minimaal drie detectoren een signaal boven de 
 \begin_inset ERT
 status open
 
@@ -650,6 +691,13 @@ Wiskundig is de spreiding
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="7">
 <features tabularvalignment="middle">
@@ -798,6 +846,13 @@ Wiskundig is de spreiding
 </row>
 </lyxtabular>
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
 \end_inset
 
 
