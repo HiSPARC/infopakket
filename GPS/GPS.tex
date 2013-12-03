@@ -8,17 +8,27 @@
 
 \maketitle
 
-\section{Het \gps systeem}\label{sec:gps_systeem}
+\section{\gps bij \hisparc}\label{sec:gps_hisparc}
+
+Bij \hisparc is het belangrijk dat we van ieder meetstation weten waar
+het zich bevindt en precies op welk moment het iets meet. Voor zowel de
+tijd als positie bepaling gebruiken we \gps. In dit document wordt
+uitgelegd wat \gps is, waarom we het gebruiken, en hoe de \gps bij een
+\hisparc meetstations moet worden afgesteld en gekalibreerd en waarom we
+voor bepaalde instellingen hebben gekozen.
+
+
+\section{Het Global Positioning System}\label{sec:gps}
 
 \gps staat voor Global Positioning System wat vertaald naar wereldwijd
 satellietplaatsbepaling systeem. Het is dus een groep satellieten die
 radiosignalen uitzenden die het wereldwijd mogelijk maken om te bepalen
-waar je bent. Het Amerikaanse project is in 1973 begonnen. Het uitvinden
-van het systeem wordt toegekend aan Roger L. Easton, Bradford Parkinson
-en Ivan A. Getting. Sinds 1994 is het systeem actief. \gps bestaat
-momenteel uit 31 satellieten die in banen rond de aarde zijn gebracht.
-In \figref{fig:GPSBlockIIIA} is een voorbeeld tekening van zo'n \gps
-satelliet. Elke \gps satelliet zit in een baan van ongeveer
+waar je bent \cite{gps2013gov}. Het Amerikaanse project is in 1973
+begonnen. Het uitvinden van het systeem wordt toegekend aan Roger L.
+Easton \cite{easton2006who}. Sinds 1994 is het systeem actief. \gps
+bestaat momenteel uit 31 satellieten die in banen rond de aarde zijn
+gebracht. In \figref{fig:GPSBlockIIIA} is een voorbeeld tekening van
+zo'n \gps satelliet. Elke \gps satelliet zit in een baan van ongeveer
 \SI{20200}{\kilo\meter} boven de aarde. Zo gaat de satelliet elke 12 uur
 om de aarde en zal die elke 24 uur boven de zelfde plek op aarde zijn.
 Er zijn ook een aantal tegenhangers van \gps ontwikkeld, namelijk het
@@ -31,70 +41,44 @@ electronica.
 \begin{figure}
     \centering
     \includegraphics[scale=0.75]{GPS_Block_IIIA}
-    \caption{Concept tekening van de nieuwe volgende generatie \gps
-    satellieten genaamd \gps Block IIIA. De eerste hiervan wordt in 2014
-    gelanceerd. Deze zullen een aantal nieuwe signalen uitzenden en meer
-    zendkracht hebben, dit zal leiden tot hogere nauwkeurigheid voor de
-    gebruikers.}
+    \caption{Concept tekening van de volgende generatie \gps satellieten
+    genaamd \gps Block IIIA. De eerste hiervan wordt in 2014 gelanceerd.
+    Deze zullen een aantal nieuwe signalen uitzenden en meer zendkracht
+    hebben, dit zal leiden tot hogere nauwkeurigheid voor de gebruikers.}
     \label{fig:GPSBlockIIIA}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[scale=1]{GPS_satelliet_banen}
-    % http://www.ux1.eiu.edu/~kwolcott/3DTikzGraphics.pdf
-    \caption{Dit is een schematische weergaven van de banen van de \gps
-    satellieten in hun banen rond de aarde.}
+    % Thanks to: http://www.ux1.eiu.edu/~kwolcott/3DTikzGraphics.pdf
+    \caption{Dit is een schematische weergave van de banen van de \gps
+    satellieten rond de aarde. De satellieten zijn verdeeld over 6
+    verschillende banen.}
     \label{fig:GPS_satelliet_banen}
 \end{figure}
 
 
-\section{Positie bepaling}
-
-Het bepalen van je eigen positie kan met behulp van het weten wat de
-afstanden zijn naar 3 andere locaties (die niet op één lijn liggen), dit
-heet trilateratie. Je zal dan namelijk 1 plek vinden die die afstanden
-heeft tot de 3 andere punten. De radiosignalen die door de satellieten
-uitgezonden worden bevatten informatie over welke satelliet het zendt,
-zijn eigen lokatie, de banen van de andere satellieten en de tijd waarop
-het bericht verzonden is volgens de satelliet. Door te kijken naar het
-tijdverschil tussen het moment waarop een signaal verzonden is en waarop
-deze ontvangen wordt, kan de afstand tot de satelliet bepaald worden.
-Door signalen van drie satellieten te combineren kan de exacte locatie
-van de ontvanger bepaald worden. Om dit te doen moet de exacte tijd al
-bekend zijn, anders kloppen de berekende afstanden niet. Deze extra
-variabele kan ook opgelost worden door gebruik te maken van het signaal
-van een vierde satelliet.
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=.5]{Trilateratie}
-    \caption{Dit is een schematische weergaven van trilateratie.}
-    \label{fig:Trilateratie}
-\end{figure}
-
-
 \section{Klokken}
-% http://www.staff.science.uu.nl/~gent0113/wettijd/
 
 Vroeger gebruikte men de zon en sterren om een ruwe schatting te maken
-van de tijd. Vanaf de dertiende eeuw werd er in Europa gebruik
-gemaakt van mechanische uurwerken, maar deze waren zo onnauwkeurig dat
-ze iedere dag aan de hand van de zon moesten worden bijgesteld. In 1656
-werd door Christiaan Huygens het slingeruurwerk uitgevonden, deze was
-tot op een aantal seconden nauwkeurig over een aantal dagen. Zo'n 10
-jaar later ontwierp hij een klok met een spiraalveer die in kleinere
-uurwerken gebruikt kon worden, zo kon men ook een nauwkeurigere tijd bij
-zich dragen.
+van de tijd \cite{gent2003wet}. Vanaf de dertiende eeuw werd er in
+Europa gebruik gemaakt van mechanische uurwerken, maar deze waren zo
+onnauwkeurig dat ze iedere dag aan de hand van de zon moesten worden
+bijgesteld. In 1656 werd door Christiaan Huygens het slingeruurwerk
+uitgevonden, deze was tot op een aantal seconden nauwkeurig over een
+aantal dagen. Zo'n 10 jaar later ontwierp hij een klok met een
+spiraalveer die in kleinere uurwerken gebruikt kon worden, zo kon men
+ook een nauwkeurigere tijd bij zich dragen.
 
 Het bijstellen van de openbare klokken werd binnen een stad vaak door
-een lokale klokkenmaker gedaan. Dit betekende dat er tussen de meeste
-steden wel een tijdverschil was. Naarmate de klokken nauwkeuriger
-werden werd het interessanter om betere tijd afspraken te maken binnen
-een land. Zo werd in veel Europese landen de middelbare zonnetijd
-gebruikt. In Nederland was daar nog weerstand tegen omdat niet elke
-gemeente over de financiële middelen beschikte om de nauwkeurigere
-klokken aan te schaffen.
+een lokale klokkenmaker gedaan, er was dus geen algemene tijd. Dit
+betekende dat er tussen de meeste steden een tijdverschil was. Naarmate
+de klokken nauwkeuriger werden werd het interessanter om betere tijd
+afspraken te maken binnen een land. Zo werd in veel Europese landen de
+middelbare zonnetijd gebruikt. In Nederland was daar nog weerstand tegen
+omdat niet elke gemeente over de financiële middelen beschikte om de
+nauwkeurigere klokken aan te schaffen.
 
 Mogelijkheden voor snellere communicatie over langere afstanden
 (telegraaf) en sneller reizen (spoorwegen) maakte het halverwege de
@@ -102,18 +86,128 @@ negentiende eeuw noodzakelijk om bijna overal in Nederland de middelbare
 tijd van Amsterdam aan te houden. Toch was er nog lang onenigheid over
 welke tijd precies aangehouden moest worden. Uiteindelijk werd in 1908
 een wet aangenomen in Nederland, die stelde ''De wettelijke tijd in
-Nederland is de middelbare zonnetijd van Amsterdam''. Later kwamen er
-Europese en wereldwijde afspraken over tijdzones, zomer- en wintertijd.
+Nederland is de middelbare zonnetijd van Amsterdam'' (Staatsblad
+1908/236). Later kwamen er Europese en wereldwijde afspraken over
+tijdzones, zomer- en wintertijd.
 
-Tegenwoordig wordt tijd bijgehouden door atoomklokken. Deze klokken
-hebben een fout van \SI{0.1}{\femto\second} per \SI{1}{\second}. \gps
-doet niet mee aan zomer- en wintertijd, en ook niet aan de
+Tegenwoordig wordt tijd bijgehouden door atoomklokken, uitgevonden door
+de Amerikaanse National Institute of Standards and Technology (NIST).
+Het NIST heeft een klok die zo nauwkeurig dat die in na 100 miljoen jaar
+nog geen seconde verkeerd zal lopen \cite{nist2013ces}. \gps doet niet
+mee aan zomer- en wintertijd, en ook niet aan de
 schrikkelseconde\footnote{Een extra seconde die af en toe aan de tijd
 wordt toegevoegd ter correctie van het verschil tussen de zonnedag en de
 \SI{24}{uur} die als dag gezien wordt.}. Dit betekent dat de \gps
 precies het aantal seconden sinds 1 January 1970 aangeeft. In het
 verleden werkten we met UTC tijd. Maar door de schrikkelseconden kan een
 tijdstempel twee keer voorkomen, daarom gebruiken we nu \gps-tijd.
+
+
+\section{Tijd en positie bepaling}
+
+Bij \hisparc is het belangrijk dat we van ieder meetstation weten waar
+het zich bevindt en precies op welk moment het iets meet. Deze gegevens
+zijn namelijk nodig om te bepalen of verschillende meetstations dezelfde
+shower hebben gemeten hebben en voor het uitvoeren van richting en
+energie reconstructie. De meetstations liggen te ver uit elkaar om de
+onderlinge posities met een meetlint en kompas te bepalen. Ook is het
+niet mogelijk om de stations zo aan elkaar te koppelen dat hun klokken
+tot op een aantal nanoseconden nauwkeurig gelijk staan.
+
+Het bepalen van je eigen positie in 3 dimensies kan met behulp van het
+weten wat de afstanden zijn naar 3 bekende locaties, dit heet
+trilateratie. Je zal dan namelijk 2 mogelijke plekken vinden, waarvan er
+maar 1 logisch is, die die afstanden heeft tot de 3 andere punten.
+
+Hieronder zijn de vergelijkingen te zien, die hier belangrijk zijn, als
+eerst voor 1 dimensie, dan 2 en daarna 3. Er komt steeds een extra
+onbekende bij, maar ook een vergelijking, waardoor het op te lossen
+blijft. Stel je voor dat je op een lijn staat (x-as) en de absolute
+afstand ($d_1$) tussen jou en een ander punt ($x_1$) op dezelfde lijn
+weet, dan kan je x vinden door deze vergelijking op te lossen:
+
+\begin{equation}
+    \label{eq:1d_trilateratie}
+    \begin{array}{rcl}
+         d_1^2 = (x_1-x)^2 \\
+    \end{array}
+\end{equation}
+
+Hier zijn twee oplossingen voor, namelijk $x = x_1+d_1$ en $x =
+x_1-d_1$. In 2 dimensies komt er een tweede onbekende coördinaat bij
+($y$), als je hier weer alleen de afstand tot een ander punt weet is de
+oplossing voor $x$ en $y$ en cirkel rond punt $x_1, y_1$ met straal
+$d_1$. Hier is dus een extra punt en afstand nodig om je plek te
+vinden. Dit geeft de volgende vergelijking:
+
+\begin{equation}
+    \label{eq:2d_trailateratie}
+    \begin{array}{rcl}
+         d_1^2 = (x_1-x)^2+(y_1-y)^2 \\
+         d_2^2 = (x_2-x)^2+(y_2-y)^2 \\
+    \end{array}
+\end{equation}
+
+In 3 dimensies willen we ook een $z$ positie en kijken we naar de
+kruispunten tussen bollen. In de volgende vergelijking
+(\ref{eq:trilateratie}) is dit te zien, hier zijn alleen $x$, $y$ en $z$
+nog onbekend. En ook hier vindt je 2 mogelijke oplossingen
+
+\begin{equation}
+    \label{eq:trilateratie}
+    \begin{array}{rcl}
+         d_1^2 = (x_1-x)^2+(y_1-y)^2+(z_1-z)^2 \\
+         d_2^2 = (x_2-x)^2+(y_2-y)^2+(z_2-z)^2 \\
+         d_3^2 = (x_3-x)^2+(y_3-y)^2+(z_3-z)^2 \\
+    \end{array}
+\end{equation}
+
+Bij \gps wordt er geen meetlint tussen de ontvanger en de satelliet
+gespannen om achter deze afstanden te komen, maar kijkt de ontvanger
+naar het tijdverschil tussen de tijd waarop de \gps satelliet het
+signaal uitzendt en de tijd waarop hij dit signaal ontvangt
+\cite{blewitt1997gps}. Als dit tijdverschil vermenigvuldigd wordt met de
+lichtsnelheid (radiosignalen gaan met de lichtsnelheid) heb je een
+afstand. De \gps satellieten zenden ook een datapakket uit waarmee de
+posities van alle \gps satellieten op een bepaalde tijd te bepalen valt.
+De \gps satelliet positie is dus een functie van de tijd waarop een
+satelliet zijn signaal uitzend.
+
+Het enige wat nog niet zeker is is of de tijd op de klok van de
+ontvanger correct is. Om deze extra onbekende op te lossen is dus het
+signaal van een 4e satelliet nodig. Het stelsel van vergelijkingen wat
+opgelost moet worden is dus te zien in vergelijking \ref{eq:gps_stelsel}.
+
+\begin{equation}
+    \label{eq:gps_stelsel}
+    \begin{array}{rcl}
+        d_1^2 = (c(t_{s,1}-t_{r,1}))^2 = (x_1-x)^2+(y_1-y)^2+(z_1-z)^2 \\
+        d_2^2 = (c(t_{s,2}-t_{r,2}))^2 = (x_2-x)^2+(y_2-y)^2+(z_2-z)^2 \\
+        d_3^2 = (c(t_{s,3}-t_{r,3}))^2 = (x_3-x)^2+(y_3-y)^2+(z_3-z)^2 \\
+        d_4^2 = (c(t_{s,4}-t_{r,4}))^2 = (x_4-x)^2+(y_4-y)^2+(z_4-z)^2 \\
+    \end{array}
+\end{equation}
+
+Eigenlijk volgen hier ook 2 mogelijke locaties uit, maar meestal bevindt
+de ontvanger zich op de Aarde, en zal de oplossing het dichtst bij de
+Aarde correct zijn. Deze situatie is in 2D geschetst in
+\figref{fig:Trilateratie}.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=.6]{Trilateratie}
+    \caption{Dit is een schematische weergave van trilateratie met \gps
+             signalen. In dit voorbeeld is de y-as weggelaten. De
+             satellieten ($S_{1,2}$) sturen signalen uit waar hun tijd
+             en posities in zitten. De posities van de satellieten zijn
+             dus bekend. De afstanden $d_{1,2}$ zijn te bepalen met
+             behulp van het tijdverschil tussen $t_{verzonden}$ en
+             $t_{ontvangst}$, als de tijd bij de ontvanger niet accuraat
+             is is een extra satelliet nodig. Met deze afstanden zijn
+             twee punten te vinden die die afstanden tot de satellieten
+             hebben, maar er is er maar één op de Aarde!}
+    \label{fig:Trilateratie}
+\end{figure}
 
 
 \section{Tijd bepaling}
@@ -131,46 +225,48 @@ meerdere satellieten kunnen deze effecten uitgemiddeld worden.
 
 Elke \gps satelliet heeft een zeer nauwkeurige cesium of rubidium
 atoomklok aan boord, deze kan heel nauwkeurig de tijd bijhouden. Hoewel
-de \gps satellieten heel nauwkeurig tijd bij kunnen houden hebben ze wel last
-van relativiteit. De klokken in \gps satellieten lijken langzamer te gaan
-vanuit ons gezien, doordat ze rond de aarde gaan met zo'n
+de \gps satellieten heel nauwkeurig tijd bij kunnen houden hebben ze wel
+last van relativiteit. De klokken in \gps satellieten lijken langzamer
+te gaan vanuit ons gezien, doordat ze rond de aarde gaan met zo'n
 \SI{14000}{\kilo\meter\per\hour}, maar door de kromming van de ruimte
-door de zwaartekracht van de aarde lijkt het juist alsof de klokken in de
-\gps satellieten sneller gaan dan op de aarde! Per dag betekend dit dat
-de klokken in de satelliet zo'n \SI{38}{\micro\second} op ons voorlopen,
-hier wordt natuurlijk voor gecorrigeerd. Dit levert uiteindelijk een
-signaal op waarmee we tot \SI{10}{\nano\second} nauwkeurig het begin van
-een seconde kunnen aangeven op aarde. De meeste \gps modules geven een
-PPS af, een Pulse Per Second, dus elke seconde geven ze aan dat die
-seconden begonnen is. In de \hisparc electronica wordt deze PPS gebruikt
-om de interne klok te synchroniseren. Tussen de hele seconden wordt de
-tijd bij gehouden met een \SI{200}{\mega\hertz} klok. Deze klok wordt op
-een slimme manier gebruikt wat uiteindelijk leidt tot een nauwkeurigheid
-van $\sigma_t\sim\SI{4.5}{\nano\second}$.
-% http://www.phys.lsu.edu/mog/mog9/node9.html
+door de zwaartekracht van de aarde lijkt het juist alsof de klokken in
+de \gps satellieten sneller gaan dan op de aarde! Per dag betekend dit
+dat de klokken in de satelliet zo'n \SI{38}{\micro\second} op ons
+voorlopen, hier wordt natuurlijk voor gecorrigeerd \cite{ashby1997gen}.
+Dit levert uiteindelijk een signaal op waarmee we tot
+\SI{10}{\nano\second} nauwkeurig het begin van een seconde kunnen
+aangeven op aarde. De meeste \gps modules geven een PPS af, een Pulse
+Per Second, dus elke seconde geven ze aan dat die seconden begonnen is.
+In de \hisparc electronica wordt deze PPS gebruikt om de interne klok te
+synchroniseren. Tussen de hele seconden wordt de tijd bij gehouden met
+een \SI{200}{\mega\hertz} klok. Deze klok wordt op een slimme manier
+gebruikt wat uiteindelijk leidt tot een nauwkeurigheid van
+$\sigma_t\sim\SI{4.5}{\nano\second}$ \cite{trimble2007res}.
 
 
 \section{Instellingen}
 
 De \hisparc Master heeft een ingebouwde \gps module. De instellingen van
 de \gps worden in het kastje opgeslagen. Het is belangrijk om vóór en af
-en toe tijdens gebruik, deze instellingen te controleren. Verder moet de
-\gps een zogenoemde ''self-survey'' uitvoeren om zijn positie vast te
+en toe tijdens gebruik, deze instellingen te controleren. Vooraf moet de
+\gps een zogenoemde \emph{Self-Survey} uitvoeren om zijn positie vast te
 leggen zodat het mogelijk is de \gps als nauwkeurig tijdinstrument te
 gebruiken.
 
 Het \gps monitor programma (\dspmon) is te vinden onder onder \hisparc
 in het Start Menu. Als in alle tekstvelden een vraagteken staat en de
-indicatielampjes op grijs staan, zoals in figuur \ref{fig:dspmon_main_nocom}, dan heeft
-het programma de \gps nog niet gevonden. Rechts onderin het venster kan
-door rechts-klikken op ''No Com Port'' de juiste COM poort\footnote{De
-COM poort identificeerd het apparaat waarmee de software praat.} gekozen
-worden. Ga ze één-voor-één af, er is er slechts één die zal werken.
-Mocht het voorkomen dat er geen COM poorten te kiezen zijn terwijl alles
-wel aangesloten zit, kijk dan in de online documentatie [link] over hoe
-dit opgelost kan worden. Als de goede COM poort gekozen is zal er meer
-informatie in het hoofdscherm verschijnen, zie figuur
-\ref{fig:dspmon_main_com}.
+indicatielampjes op grijs staan, zoals in
+\figref{fig:dspmon_main_nocom}, dan heeft het programma de \gps nog niet
+gevonden. Rechts onderin het venster kan door rechts-klikken op \emph{No
+Com Port} de juiste COM poort\footnote{De COM poort identificeerd het
+apparaat waarmee de software praat.} gekozen worden. Ga ze één-voor-één
+af, er is er slechts één die zal werken. Mocht het voorkomen dat er geen
+COM poorten te kiezen zijn terwijl alles wel aangesloten zit, kijk dan
+in de online
+documentatie\footnote{\url{http://docs.hisparc.nl/maintenance/known-
+issues.html#com-port-to- high}} over hoe dit opgelost kan worden. Als de
+goede COM poort gekozen is zal er meer informatie in het hoofdscherm
+verschijnen, zie \figref{fig:dspmon_main_com}.
 
 \begin{figure}
     \centering
@@ -183,26 +279,30 @@ informatie in het hoofdscherm verschijnen, zie figuur
 \begin{figure}
     \centering
     \includegraphics[scale=.5]{dspmon_main_com}
-    \caption{Het hoofdvenster van \dspmon met goed herkende \gps.}
+    \caption{Het hoofdvenster van \dspmon met goed herkende \gps, en
+             signaal van 6 satellieten.}
     \label{fig:dspmon_main_com}
 \end{figure}
 
-Controleer alle instellingen van de \gps en zorg ervoor dat ze
-nauwkeurig overeenkomen met de screenshots in de figuren
-\ref{fig:dspmon_receiver}, \ref{fig:dspmon_timing},
-\ref{fig:dspmon_survey}, \ref{fig:dspmon_position} en
-\ref{fig:dspmon_options}. Onder de figuren staat beschreven waar de
-instellingen belangrijk voor zijn. Deze instellingen zijn in het
-programma te vinden onder het menu ''Setup''. Als een instelling
-aangepast moet worden, druk dan op de bijbehorende *Set* knop (soms
-meerdere per scherm) om de aanpassingen op te slaan en toe te passen.
+Controleer alle instellingen van de \gps (onder het \emph{Setup} menu in
+\dspmon) en zorg ervoor dat ze nauwkeurig overeenkomen met de
+screenshots in de figuren \ref{fig:dspmon_receiver},
+\ref{fig:dspmon_timing}, \ref{fig:dspmon_survey},
+\ref{fig:dspmon_position} en \ref{fig:dspmon_options}. Onder de figuren
+staat beschreven waar de instellingen belangrijk voor zijn. Deze
+instellingen zijn in het programma te vinden onder het menu
+\emph{Setup}. Als een instelling aangepast moet worden, druk dan op de
+bijbehorende \emph{Set} knop (soms meerdere per scherm) om de
+aanpassingen op te slaan en toe te passen.
 
-Als de \gps positie nog niet bepaald is moet deze met behulp van de
-Self-survey gevonden worden. De Self-survey kan gestart worden via het
-Control menu. Start hier de Self-survey en kom een dag later terug om
-het instellen af te maken! Vergeet niet na het bepalen van de positie om
-in de \hisparc \daq de \daq mode uit en weer aan te zetten om zo de
-nieuwe positie door te geven.
+Als de \gps antenne positie nog niet bepaald is moet deze met behulp van
+de Self-Survey gevonden worden. De Self-Survey kan gestart worden via
+het Control menu. Start hier de Self-Survey (na deze ingesteld te hebben
+zoals in \figref{fig:dspmon_survey}) en kom een dag later terug om het
+instellen af te maken! Vergeet niet na het bepalen van de positie om in
+de \hisparc \daq de \daq mode uit en weer aan te zetten om zo de nieuwe
+positie door te geven. Bij het aanzetten van de \daq mode wordt namelijk
+de configuratie van het meetstation verstuurd naar de server.
 
 \begin{figure}
     \centering
@@ -210,9 +310,9 @@ nieuwe positie door te geven.
     \caption{In dit venster wordt gekozen hoe de \gps zich moet gedragen.
     Voor \hisparc is het van belang dat de tijd heel nauwkeurig bepaald
     wordt en staat de \gps vast. Vandaar dat we kiezen voor
-    ''Overdetermined Clock'' en ''Stationary''. De ''Elevation Mask''
-    geeft aan dat satellieten minimaal \SI{10}{degree} boven de grond
-    moeten zijn om mee genomen te worden, omdat het signaal van
+    \emph{Overdetermined Clock} en \emph{Stationary}. De \emph{Elevation
+    Mask} geeft aan dat satellieten minimaal \SI{10}{degree} boven de
+    grond moeten zijn om meegenomen te worden, omdat het signaal van
     lage satellieten eerder verstoord is door de atmosfeer.}
     \label{fig:dspmon_receiver}
 \end{figure}
@@ -229,14 +329,15 @@ nieuwe positie door te geven.
 \begin{figure}
     \centering
     \includegraphics[scale=.5]{dspmon_survey}
-    \caption{In dit venster wordt de *self survey* ingesteld. De
-    Self-Survey wordt gebruikt om de positie van de \gps te bepalen.
-    Hierbij middelt de \gps over alle posities gemeten tijdens de
-    self-survey. Het is belangrijk dat deze lang genoeg duurt, namelijk
-    één dag (dus \SI{86400}{\second}). In paragraaf
-    \ref{sec:gps_systeem} is uitgelegd dat de posities
-    van de \gps satellieten zich iedere ongeveer iedere
-    \SI{24}{uur} herhalen boven de aarde zich.}
+    \caption{In dit venster worden instellingen voor de
+             \emph{Self-Survey} gemaakt. De Self-Survey wordt gebruikt
+             om de positie van de \gps te bepalen. Hierbij middelt de
+             \gps over alle posities gemeten tijdens de Self-Survey. Het
+             is belangrijk dat deze lang genoeg duurt, namelijk één dag
+             (dus \SI{86400}{\second}). In paragraaf \ref{sec:gps} is
+             uitgelegd dat de posities van de \gps satellieten zich
+             iedere ongeveer iedere \SI{24}{uur} herhalen boven de aarde
+             zich.}
     \label{fig:dspmon_survey}
 \end{figure}
    
@@ -247,7 +348,7 @@ nieuwe positie door te geven.
     de positie in te vullen, maar let hier mee op dat deze niet wordt
     vastgezet als definitieve positie. Het is veiliger om deze
     instellingen leeg te houden en de \gps zelf zijn positie te laten
-    bepalen door middel van de self-survey.}
+    bepalen door middel van de Self-Survey.}
     \label{fig:dspmon_position}
 \end{figure}
 
@@ -259,6 +360,16 @@ nieuwe positie door te geven.
     \label{fig:dspmon_options}
 \end{figure}
 
+Na het instellen van de \gps en het doorlopen van de Self-Survey is in
+de \hisparc \daq als het goed is de \gps positie te zien en kan je in
+het Satellites tabblad de signaal sterktes van de satellieten zien. Dit
+is een grafiek waarin de kleur de sterkte van het signaal aangeeft, de
+y-as het satelliet nummer en de x-as de tijd (tot 2 dagen in het
+verleden). Na verloop van tijd zal er dus een grafiek zijn opgebouwd
+waarin je goed kan zien hoe \gps signalen zich gedragen over het verloop
+van de dag. In \figref{fig:hisparcdaq_satellites} is hier een voorbeeld
+van te zien.
+
 \begin{figure}
     \centering
     \includegraphics[scale=.4]{hisparcdaq_satellites}
@@ -267,5 +378,41 @@ nieuwe positie door te geven.
     signaal zich iedere 24 uur herhaald.}
     \label{fig:hisparcdaq_satellites}
 \end{figure}
+
+\begin{thebibliography}{9}
+    \bibitem{gps2013gov} National Coordination Office (NCO), \emph{Basics
+    of the GPS Technique: Observation Equations} (2013),\\
+    \url{http://www.gps.gov/}.
+
+    \bibitem{easton2006who} R. Easton, \emph{Who invented the Global
+    Positioning System?} (2006),\\
+    \url{http://www.thespacereview.com/article/626/1}.
+
+    \bibitem{gent2003wet} R.H. van Gent, \emph{De wettelijke
+    tijdregeling in Nederland} (2003--2009),\\
+    \url{http://www.staff.science.uu.nl/~gent0113/wettijd/wettijd.htm}.
+
+    \bibitem{software-software-doc} Het \hisparc team, \emph{\hisparc
+    software documentatie} (2009--2012),\\
+    \url{http://docs.hisparc.nl/station-software/doc/}.
+
+    \bibitem{blewitt1997gps} G. Blewitt, \emph{Basics of the GPS
+    Technique: Observation Equations} (1997),\\
+    \url{http://www.nbmg.unr.edu/Staff/pdfs/Blewitt%20Basics%20of%20GPS.
+    pdf}.
+
+    \bibitem{ashby1997gen} N. Ashby, \emph{General relativity in the
+    global positioning system} (1997),\\
+    \url{http://www.phys.lsu.edu/mog/mog9/node9.html}.
+
+    \bibitem{nist2013ces} R. Easton, \emph{NIST-F1 Cesium Fountain
+    Atomic Clock} (2013),\\
+    \url{http://www.nist.gov/pml/div688/grp50/primary-frequency-
+    standards.cfm}.
+
+    \bibitem{trimble2007res} Trimble, \emph{Resolution-T Data Sheet}
+    (2007),\\
+    \url{http://trl.trimble.com/docushare/dsweb/Get/Document-550777/}.
+\end{thebibliography}
 
 \end{document}
