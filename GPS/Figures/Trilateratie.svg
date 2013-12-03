@@ -33,44 +33,40 @@
         <!-- Center circles -->
         <circle cx="240" cy="151" r="3" />
         <circle cx="438" cy="151" r="3" />
-        <circle cx="338" cy="397" r="3" />
-        <circle cx="340" cy="225" r="3" />
+        <circle cx="359" cy="65" r="6" />
+        <circle cx="359" cy="237" r="6" />
 
         <!-- Large circles -->
         <circle cx="240" cy="151" r="147" />
-        <circle cx="438" cy="151" r="147" />
-        <circle cx="338" cy="397" r="198" />
+        <circle cx="438" cy="151" r="117" />
+        <circle cx="240" cy="1710" r="1470" />
 
         <!-- Straight lines -->
         <line x1="238" y1="149" x2="142" y2="41" />
-        <line x1="438" y1="149" x2="450" y2="6" />
-        <line x1="340" y1="397" x2="520" y2="321" />
-        <line x1="336" y1="226" x2="90" y2="282" />
+        <line x1="438" y1="149" x2="450" y2="36" />
+        <line x1="359" y1="236" x2="370" y2="282" />
 
         <!-- Text -->
         <text y="165">
             <tspan x="219">S1</tspan>
-            <tspan x="219" dy="25" class="small">(x1, y1, z1, t1)</tspan>
+            <tspan x="219" dy="25" class="small">(x1, z1, t1)</tspan>
         </text>
         <text x="190" y="65">
-            r1
+            d1
         </text>
         <text y="157">
             <tspan x="464">S2</tspan>
-            <tspan x="464" dy="25" class="small">(x2, y2, z2, t2)</tspan>
+            <tspan x="464" dy="25" class="small">(x2, z2, t2)</tspan>
         </text>
         <text x="465" y="90">
-            r2
+            d2
         </text>
-        <text y="431">
-            <tspan x="333">S3</tspan>
-            <tspan x="333" dy="25" class="small">(x3, y3, z3, t3)</tspan>
+        <text y="302">
+            <tspan x="405">Ontvanger</tspan>
+            <tspan x="405" dy="25" class="small">(x, z, t)</tspan>
         </text>
-        <text x="440" y="375">
-            r3
-        </text>
-        <text x="75" y="302">
-            Ontvanger
+        <text x="75" y="322">
+            Aarde
         </text>
     </g>
 </svg>
