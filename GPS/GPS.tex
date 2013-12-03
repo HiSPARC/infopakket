@@ -10,21 +10,19 @@
 
 \section{Het \gps systeem}
 
-\gps staat voor Global Positioning System wat vertaald naar wereldwijd
-satellietplaatsbepaling systeem. Het is dus een groep satellieten die
-radiosignalen uitzenden die het wereldwijd mogelijk maken om te bepalen
-waar je bent. Het Amerikaanse project is in 1973 begonnen, het uitvinden
+\gps staat voor Global Positioning System; een satelliet systeem voor wereldwijde plaatsbepaling. Het bestaat uit een groep satellieten die radiosignalen uitzendt waarmee het mogelijk is om wereldwijd te bepalen
+waar je bent. Het Amerikaanse project is in 1973 begonnen. De uitvinding
 van het systeem wordt toegekend aan Roger L. Easton, Bradford Parkinson
 en Ivan A. Getting. Sinds 1994 is het systeem actief. \gps bestaat
-momenteel uit 31 satellieten die in banen rond de aarde zijn gebracht.
+momenteel uit 31 satellieten die elk in een baan rond de aarde zijn gebracht.
 In \figref{fig:GPSBlockIIIA} is een voorbeeld tekening van zo'n \gps
-satelliet. Elke \gps satelliet zit in een baan van ongeveer
-\SI{20200}{\kilo\meter} boven de aarde. Zo gaat de satelliet elke 12 uur
-om de aarde en zal die elke 24 uur boven de zelfde plek op aarde zijn.
+satelliet weergegeven. Elke \gps satelliet zit in een baan van ongeveer
+\SI{20200}{\kilo\meter} boven de aarde. Elke satelliet cirkelt in 12 uur
+om de aarde en zal daardoor (de aarde draait immers zelf ook) elke 24 uur boven dezelfde plek op aarde zijn.
 Er zijn ook een aantal tegenhangers van \gps ontwikkeld, namelijk het
 Russische GLONASS en het Europeese Galileo\footnote{Dit systeem is nog
 niet compleet, maar wordt verwacht binnen een paar jaar operationeel te
-zijn.}. Tegenwoordig wordt \gps door bijna iedereen gebruikt, zo zitten
+zijn.}. Tegenwoordig wordt \gps door bijna iedereen gebruikt. Zo zitten
 er \gps ontvangers in onder andere telefoons, auto's en ook de \hisparc
 electronica.
 
@@ -50,12 +48,10 @@ electronica.
 
 \section{Positie bepaling}
 
-Het bepalen van je eigen positie kan met behulp van het weten wat de
-afstanden zijn naar 3 andere locaties (niet niet op één lijn liggen),
-dit heet trilateratie. Je zal dan namelijk 1 plek vinden die die
-afstanden heeft tot de 3 andere punten. De radiosignalen die door de
+Je eigen positie kun je bepalen als je weet wat de
+afstanden zijn naar 3 andere locaties (die niet op één lijn liggen). Deze methode heet trilateratie. Er is namelijk maar 1 plek die precies deze 3 afstanden heeft ten opzichte van de 3 andere locaties, zie \figref{fig:Trilateratie}. De radiosignalen die door de
 satellieten uitgezonden worden bevatten informatie over welke satelliet
-het zendt, zijn eigen lokatie, de banen van de andere satellieten en de tijd
+het zendt, zijn eigen locatie, de banen van de andere satellieten en de tijd
 waarop het bericht verzonden is volgens de satelliet. Door te kijken
 naar het tijdverschil tussen het moment waarop een signaal verzonden is
 en waarop deze ontvangen wordt kan de afstand tot de satelliet bepaald
