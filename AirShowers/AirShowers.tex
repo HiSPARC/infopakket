@@ -49,13 +49,14 @@ genoemd.
 \includegraphics[scale=1.5]{Figures/8cee5cc97a}
 \par\end{centering}
 
-\caption{De HiSPARC master unit, foto uit {[}1{]}. In de blokken PMT 1 en PMT
-2 zijn twee gele ledjes te zien. Deze lichten op als er straling door
-respectievelijk detector 1 of detector 2 wordt gemeten. In de praktijk
-worden de detectoren ongeveer iedere \SI{10}{\milli\second} geraakt.
-Achter de koelgaten is een witte led te zien. Deze licht op als beide
-detectoren binnen een tijdsinterval van \SI{1.5}{\micro\second} straling
-waarnemen, dit komt veel minder vaak voor.}
+\caption{De HiSPARC master unit, foto uit \cite{nikhefhisparc}. In de
+         blokken PMT 1 en PMT 2 zijn twee gele ledjes te zien. Deze
+         lichten op als er straling door respectievelijk detector 1 of
+         detector 2 wordt gemeten. In de praktijk worden de detectoren
+         ongeveer iedere \SI{10}{\milli\second} geraakt. Achter de
+         koelgaten is een witte led te zien. Deze licht op als beide
+         detectoren binnen een tijdsinterval van \SI{1.5}{\micro\second}
+         straling waarnemen, dit komt veel minder vaak voor.}
 \end{figure}
 
 
@@ -203,14 +204,14 @@ tweede radioactief verval binnen \SI{1.5}{\micro\second} van de eerste
 radioactief verval optreed:}
 
 \begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
+    \tabularnewline
+    \hline 
+    \tabularnewline
+    \hline 
+    \tabularnewline
+    \hline 
+    \tabularnewline
+    \hline 
 \end{tabular}%
 \end{minipage}
 
@@ -218,12 +219,11 @@ radioactief verval optreed:}
 
 
 Een nettere manier om deze kans te berekenen is in 1838 door Siméon
-Poisson {[}2{]} gepubliceerd:
+Poisson \cite{wiki} gepubliceerd:
 
 \begin{equation}
 P_{k}=\frac{\lambda^{k}}{k!}e^{-\lambda}
 \end{equation}
-
 
 Hierin is $k=1$ als een tweede detector precies éénmaal getriggerd
 wordt. $\lambda$ is hier de frequentie van de achtergrondstraling
@@ -237,14 +237,14 @@ maal de duur van het triggervenster $\left(\lambda=f_{single}*T_{venster}\right)
 afwijkt van de met de Poisson-formule berekende waarde $P_{k=1}$.}
 
 \begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
+    \tabularnewline
+    \hline 
+    \tabularnewline
+    \hline 
+    \tabularnewline
+    \hline 
+    \tabularnewline
+    \hline 
 \end{tabular}%
 \end{minipage}
 
@@ -307,52 +307,15 @@ $P_{trigger}=1-P_{k=0}$ &  &  &  &  &  &  & \tabularnewline
 
 
 \begin{figure}[h]
+    \paragraph{Opdracht 9:}
 
-\paragraph{Opdracht 9:}
+    \textit{Maak het diagram van de kans op een toevallige trigger als
+    functie van de duur van het triggervenster.\bigskip{}}
 
-\textit{Maak het diagram van de kans op een toevallige trigger als
-functie van de duur van het triggervenster.\bigskip{}
-}
-
-\begin{tabular}{|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|}
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
-\end{tabular}
+    \begin{tikzpicture}
+        [gridlines/.style={color=gray,very thin}]
+        \draw [gridlines, step=.5cm] (0,0) grid (\textwidth,8cm);
+    \end{tikzpicture}
 \end{figure}
 
 
@@ -533,61 +496,18 @@ Met deze gegevens is een diagram voor de triggerkans als functie van
 de deeltjesdichtheid te maken.
 
 \begin{figure}[h]
+    \paragraph{Opdracht 15:}
+    \textit{Maak het diagram van de triggerkans als functie van de
+            deeltjesdichtheid, voor een station met twee en een station
+            met vier detectoren.}
+    \bigskip{}
+    \begin{tikzpicture}
+        [gridlines/.style={color=gray,very thin}]
+        \draw [gridlines, step=.5cm] (0,0) grid (\textwidth,8cm);
+    \end{tikzpicture}
+    \bigskip{}
 
-\paragraph{Opdracht 15:}
-
-\textit{Maak het diagram voor een station met twee en een station
-met vier detectoren.\bigskip{}
-}
-
-\begin{tabular}{|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|}
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
-\end{tabular}
-
-\bigskip{}
-
-
-\caption{Het diagram van de triggerkans als functie van $\rho$}
+    \caption{Het diagram van de triggerkans als functie van $\rho$}
 \end{figure}
 
 
@@ -613,7 +533,7 @@ Tussen stations onderling geldt een nauwkeurigheid van \SI{15}{\nano\second}.
 Omdat de afstand tussen de stations bekend is, is er een vrij klein
 tijdvenster waarbinnen de detectoren deeltjes kunnen meten. Met de
 afstanden tussen de stations en de triggertijden is het zelfs mogelijk
-om de richting van de air-shower te bepalen {[}3{]}.
+om de richting van de air-shower te bepalen \cite{veen2013richting}.
 
 \bigskip{}
 
@@ -627,19 +547,18 @@ Dit venster hangt af van de afstand tussen de stations en de lichtsnelheid.
 De air-shower geeft het grootste tijdverschil als deze horizontaal
 door de opstelling beweegt. Een dergelijke air-shower wordt gegenereerd
 door een primair kosmisch deeltje met een extreem grote energie. In
-de praktijk komen deze air-showers zelden voor. }
+de praktijk komen deze air-showers zelden voor.}
 
 \textit{Bereken de grootte van het triggervenster in de volgende gevallen:}
 
 \bigskip{}
 
-
 \begin{tabular}{|c|>{\centering}p{1.5cm}|>{\centering}p{1.5cm}|>{\centering}p{1.5cm}|>{\centering}p{1.5cm}|}
-\hline 
-Afstand tussen de stations {[}m{]} & 100 & 200 & 500 & 1000\tabularnewline
-\hline 
-Duur van het triggervenster {[}ns{]} &  &  &  & \tabularnewline
-\hline 
+    \hline 
+    Afstand tussen de stations {[}m{]} & 100 & 200 & 500 & 1000\tabularnewline
+    \hline 
+    Duur van het triggervenster {[}ns{]} &  &  &  & \tabularnewline
+    \hline 
 \end{tabular}%
 \end{minipage}
 
@@ -695,13 +614,13 @@ tot de lijsten leeg zijn.
 verschillijsten van b en c, etc. Met deze lijsten zijn histogrammen
 te maken. 
 \end{itemize}
-We weten dat stations niet nauwkeuriger kunnen meten dan \SI{2,5}{\nano\second}.
-Karl Pearson (1857-1936) {[}4{]} ontwikkelde een methode om met lijsten
-gebeurtenissen een histogram te maken. In dit geval gaan we uit van
-het aantal verschiltijden (de frequentie van verschiltijden) tussen
-twee grenzen (de bin-waarden). Een reeks grenzen levert een reeks
-frequenties op. Hiermee is een histogram of staafdiagram te maken.
-We kunnen de grenzen bijvoorbeeld zo vastleggen:
+We weten dat stations niet nauwkeuriger kunnen meten dan
+\SI{2,5}{\nano\second}. Karl Pearson (1857-1936) \cite{wiki} ontwikkelde
+een methode om met lijsten gebeurtenissen een histogram te maken. In dit
+geval gaan we uit van het aantal verschiltijden (de frequentie van
+verschiltijden) tussen twee grenzen (de bin-waarden). Een reeks grenzen
+levert een reeks frequenties op. Hiermee is een histogram of
+staafdiagram te maken. We kunnen de grenzen bijvoorbeeld zo vastleggen:
 
 \bigskip{}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
@@ -713,7 +632,6 @@ Frequentie &  &  &  &  &  &  &  & \tabularnewline
 \end{tabular}
 
 \bigskip{}
-
 
 Het maken van een dergelijke tabel is een behoorlijke klus met een
 spreadsheet programma. Het uiteindelijke histogram is langs de horizontale
@@ -741,23 +659,27 @@ het totale aantal verschiltijden (coïncidenties) (N) en de minimale
 ($t_{min}$) en maximale ($t_{max}$) bin-waarde bekend zijn:}
 
 \begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
+    \tabularnewline
+    \hline 
+    \tabularnewline
+    \hline 
+    \tabularnewline
+    \hline 
+    \tabularnewline
+    \hline 
 \end{tabular}%
 \end{minipage}
 
 
-\section*{Referenties}
+\begin{thebibliography}{9}
+    \bibitem{nikhefhisparc} Nikhef, \emph{\hisparc Electronica},\\
+    \url{https://www.nikhef.nl/wetenschap-techniek/technische-afdelingen/elektronicatechnologie/projecten/}.
 
-{[}1{]} https://www.nikhef.nl/wetenschap-techniek/technische-afdelingen/elektronicatechnologie/projecten/
+    \bibitem{wiki} Wikipedia, \\
+    \url{http://www.wikipedia.org}.
 
-{[}2{]}, {[}4{]} wikipedia
+    \bibitem{veen2013richting} C.G.N. van Veen, \emph{Richting
+    Reconstructie} (2013).
+\end{thebibliography}
 
-{[}3{]} Richting Reconstructie, C.G.N. van Veen
 \end{document}
