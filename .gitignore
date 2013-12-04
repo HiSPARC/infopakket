@@ -41,3 +41,6 @@
 
 # LyX
 *.lyx~
+
+# fig
+*.fig.bak
