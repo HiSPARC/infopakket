@@ -1,0 +1,59 @@
+% !TeX root = thesis.tex
+
+\begin{tikzpicture}
+    [ font=\sffamily, x=.75cm, y=.75cm,
+      hisparc/.style={draw},
+    ]
+    \foreach \sx / \sy / \angle in {-5/0/90, 5/0/-90, 0/2.89/0, 0/8.66/0} {
+        \begin{scope}[hisparc, shift={(\sx,\sy)}, rotate=\angle]
+            \draw[rounded corners=2.25pt]
+                (-.4, .7) .. controls (0, .75) ..  (.4, .7) -- 
+                (.35, -1.7) ..  controls(0, -1.72) ..  (-.35, -1.7) --
+                cycle;
+            \draw (-.25, .5) rectangle (.25, -.5);
+            \draw (-.25, -.5) -- (-.02, -1) --(.02, -1) -- (.25, -.5);
+            \fill (-.02, -1) rectangle (.02, -1.2);
+            \draw (0, 0) circle (.1);
+        \end{scope}
+    }
+    \draw[fill] (0, 0) circle (.10) node [below] {GPS};
+    \node[color=gray] at (-.75, 8.66) {\Large 1};
+    \node[color=gray] at (-.75, 2.89) {\Large 2};
+    \node[color=gray] at (-5, .75) {\Large 3};
+    \node[color=gray] at (5, .75) {\Large 4};
+
+    \coordinate (A) at (-5, 0);
+    \coordinate (B) at (5, 0);
+    \coordinate (A') at ($ (A)!.8cm!-90:(B) $);
+    \coordinate (B') at ($ (B)!.8cm!90:(A) $);
+    \draw (A) -- ($ (A)!1.1!(A') $);
+    \draw (B) -- ($ (B)!1.1!(B') $);
+    \draw[<->] (A') -- (B') node [midway, below] {\SI{10}{\meter}};
+
+    \coordinate (D) at (0, 8.66);
+    \coordinate (C') at ($ (A)!.8cm!90:(D) $);
+    \coordinate (D') at ($ (D)!.8cm!-90:(A) $);
+    \draw (A) -- ($ (A)!1.1!(C') $);
+    \draw (D) -- ($ (D)!1.1!(D') $);
+    \draw[<->] (C') -- (D') node [midway, above, sloped] {\SI{10}{\meter}};
+
+    \coordinate (E) at (0, 0);
+    \coordinate (F) at (0, 2.89);
+    \coordinate (D'') at ($ (D)!.8cm!90:(E) $);
+    \coordinate (E') at ($ (E)!.8cm!-90:(D) $);
+    \coordinate (F') at ($ (F)!.8cm!-90:(D) $);
+    \draw (E) -- ($ (E)!1.1!(E') $);
+    \draw (F) -- ($ (F)!1.1!(F') $);
+    \draw (D) -- ($ (D)!1.1!(D'') $);
+    \draw[<->] (E') -- (F') node [midway, below, sloped]
+        {\SI{2.89}{\meter}};
+    \draw[<->] (F') -- (D'') node [midway, below, sloped]
+        {\SI{5.77}{\meter}};
+
+    \draw[dashed,gray] (A) -- (B);
+    \draw[dashed,gray] (A) -- (D);
+    \draw[dashed,gray] (A) -- (F);
+    \draw[dashed,gray] (B) -- (D);
+    \draw[dashed,gray] (B) -- (F);
+    \draw[dashed,gray] (F) -- (D);
+\end{tikzpicture}

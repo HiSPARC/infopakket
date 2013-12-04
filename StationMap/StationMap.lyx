@@ -135,6 +135,18 @@ Inleiding
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
+Op een HiSPARC II of HiSPARC III box kunnen 2 detectoren worden aangesloten.
+ Een HiSPARC station heeft altijd een HiSPARC master.
+ Op deze box wordt ook een GPS antenne aangesloten.
+ Sommige stations hebben ook een HiSPARC slave.
+ Hier kunnen ook twee detectoren op worden aangesloten.
+ Een HiSPARC station bestaat dus uit 2 of 4 detectoren en een GPS antenne.
+ Met de GPS antenne is de locatie van het station te bepalen.
+ Omdat dit met radiosignalen van satellieten gaat, is de tijd ook met de
+ GPS antenne te bepalen.
+ De plaats van de detectoren wordt ten opzichte van de GPS antenne vastgelegd.
+=======
 Een HiSPARC station bestaat uit twee of vier detectoren die op het dak staan.
  Ieder paar detectoren is aangesloten op een HiSPARC II of HiSPARC III unit.
  De HiSPARC units zijn in twee varianten beschikbaar, een master en een
@@ -162,6 +174,7 @@ Met de GPS antenne is de locatie van het station te bepalen.
 \begin_layout Standard
 Omdat de antenne de plaats het station en de tijd van het station definieert,
  wordt de plaats van de detectoren ten opzichte van de GPS antenne vastgelegd.
+>>>>>>> master
 \end_layout
 
 \begin_layout Section
