@@ -1,6 +1,7 @@
 # Compiled pdfs
 Brief/brief.pdf
 Intro/intro.pdf
+GPS/GPS.pdf
 
 # LateX
 *.acn
@@ -41,4 +42,4 @@ Intro/intro.pdf
 *.swp
 
 # LyX
-.lyx~
+*.lyx~

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Derived from https://commons.wikimedia.org/wiki/File:3spheres.svg -->
+
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns="http://www.w3.org/2000/svg"
+     id="svg2"
+     version="1.1">
+
+    <style type="text/css">
+        circle {
+            stroke: #000000;
+            fill: none;
+            stroke-width: 2;}
+
+        line {
+            stroke: #000000;}
+        
+        text {
+            font-size: 22px;
+            text-anchor: middle;
+            font-family: "Latin Modern Sans";}
+
+        text .small {
+            font-size: 17px;}
+    </style>
+
+    <defs id="defs4" />
+
+    <g>
+        <!-- Center circles -->
+        <circle cx="240" cy="151" r="3" />
+        <circle cx="438" cy="151" r="3" />
+        <circle cx="359" cy="65" r="6" />
+        <circle cx="359" cy="237" r="6" />
+
+        <!-- Large circles -->
+        <circle cx="240" cy="151" r="147" />
+        <circle cx="438" cy="151" r="117" />
+        <circle cx="240" cy="1710" r="1470" />
+
+        <!-- Straight lines -->
+        <line x1="238" y1="149" x2="142" y2="41" />
+        <line x1="438" y1="149" x2="450" y2="36" />
+        <line x1="359" y1="236" x2="370" y2="282" />
+
+        <!-- Text -->
+        <text y="165">
+            <tspan x="219">S1</tspan>
+            <tspan x="219" dy="25" class="small">(x1, z1, t1)</tspan>
+        </text>
+        <text x="190" y="65">
+            d1
+        </text>
+        <text y="157">
+            <tspan x="464">S2</tspan>
+            <tspan x="464" dy="25" class="small">(x2, z2, t2)</tspan>
+        </text>
+        <text x="465" y="90">
+            d2
+        </text>
+        <text y="302">
+            <tspan x="405">Ontvanger</tspan>
+            <tspan x="405" dy="25" class="small">(x, z, t)</tspan>
+        </text>
+        <text x="75" y="322">
+            Aarde
+        </text>
+    </g>
+</svg>

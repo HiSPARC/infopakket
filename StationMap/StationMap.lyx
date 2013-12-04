@@ -125,7 +125,8 @@ De stationsplattegrond
 \end_layout
 
 \begin_layout Author
-N.G.
+A.
+ de Laat, N.G.
  Schultheiss
 \end_layout
 
@@ -134,6 +135,7 @@ Inleiding
 \end_layout
 
 \begin_layout Standard
+<<<<<<< HEAD
 Op een HiSPARC II of HiSPARC III box kunnen 2 detectoren worden aangesloten.
  Een HiSPARC station heeft altijd een HiSPARC master.
  Op deze box wordt ook een GPS antenne aangesloten.
@@ -144,6 +146,35 @@ Op een HiSPARC II of HiSPARC III box kunnen 2 detectoren worden aangesloten.
  Omdat dit met radiosignalen van satellieten gaat, is de tijd ook met de
  GPS antenne te bepalen.
  De plaats van de detectoren wordt ten opzichte van de GPS antenne vastgelegd.
+=======
+Een HiSPARC station bestaat uit twee of vier detectoren die op het dak staan.
+ Ieder paar detectoren is aangesloten op een HiSPARC II of HiSPARC III unit.
+ De HiSPARC units zijn in twee varianten beschikbaar, een master en een
+ slave.
+ Een HiSPARC station heeft altijd een HiSPARC master, op deze unit wordt
+ ook een GPS antenne aangesloten.
+ Sommige stations hebben naast een master ook een slave, master en slave
+ werken samen als een eenheid.
+ De master en eventuele slave van een station zijn aangesloten op een meetcomput
+er, die de metingen naar de HiSPARC server stuurt.
+ Met de computer zijn de aangesloten units ook af te regelen.
+\end_layout
+
+\begin_layout Standard
+Met de GPS antenne is de locatie van het station te bepalen.
+ GPS-satellieten zenden radiosignalen uit, in dit signaal wordt de tijd
+ van de satelliet tijdens het uitzenden op 1ns nauwkeurig meegestuurd.
+ Met het verschil tussen de aankomsttijd van het signaal en de lokale tijd
+ van de antenne zijn de afstanden uit rekenen.
+ Deze tijd kunnen we ook gebruiken om vast te leggen wanneer de detectoren
+ iets meten.
+ 
+\end_layout
+
+\begin_layout Standard
+Omdat de antenne de plaats het station en de tijd van het station definieert,
+ wordt de plaats van de detectoren ten opzichte van de GPS antenne vastgelegd.
+>>>>>>> master
 \end_layout
 
 \begin_layout Section
@@ -151,28 +182,35 @@ Kaarten
 \end_layout
 
 \begin_layout Standard
-De GPS antenne wordt als oorsprong van het station gebruikt.
+Zoals gezegd wordt de GPS antenne als oorsprong van het station gebruikt.
  De plaats van de GPS antenne wordt via het internet naar de HiSPARC server
  gestuurd.
- De configuratie van het station is in een firefox, chrome of safari browser
+ De configuratie van het station is in een Firefox, Chrome of Safari browser
  op te halen op: 
+\end_layout
+
+\begin_layout Standard
+
 \family typewriter
+\size small
 http://data.hisparc.nl/api/station/
 \family default
 {Stationsnummer
 \family typewriter
 }/config/
-\family default
-., op de plaats van {Stationsnummer} vul je het stationsnummer in.
+\end_layout
+
+\begin_layout Standard
+Op de plaats van {Stationsnummer} vul je het stationsnummer in.
  Let op: Internet Explorer werkt niet! 
 \end_layout
 
 \begin_layout Standard
-Met enig zoeken zijn de Ooster Lengte (longitude) en Noorder Breedte (latitude),
+Met enig zoeken zijn de Oosterlengte (longitude) en Noorderbreedte (latitude),
  beide in graden te vinden.
- De hoogte (altitude) wordt in meter vanaf een gemiddelde elipsiode gemeten.
- HiSPARC gebruikt de WGS 84 standaard, deze elipsiode ligt in Amsterdam
- in de orde van 40m onder NAP (het Nieuw Amsterdams Peil).
+ De hoogte (altitude) wordt in meter vanaf de WGS 84 ellipsoïde gemeten.
+ Deze ellipsoïde ligt in Amsterdam tientallen meters onder NAP (het Nieuw
+ Amsterdams Peil).
 \end_layout
 
 \begin_layout Standard
@@ -196,7 +234,7 @@ Opdracht 1:
 \begin_layout Plain Layout
 
 \shape italic
-Bepaal hoever de GPS antenne van het te meten station boven de WGS 84 elipsiode
+Bepaal hoever de GPS antenne van het te meten station boven de WGS 84 ellipsoïde
  ligt en hoever dit boven NAP is.
 \end_layout
 
@@ -204,7 +242,7 @@ Bepaal hoever de GPS antenne van het te meten station boven de WGS 84 elipsiode
 \begin_inset Tabular
 <lyxtabular version="3" rows="4" columns="1">
 <features tabularvalignment="middle">
-<column alignment="left" valignment="top" width="17cm">
+<column alignment="left" valignment="top" width="16.6cm">
 <row>
 <cell alignment="left" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
@@ -261,12 +299,23 @@ Bepaal hoever de GPS antenne van het te meten station boven de WGS 84 elipsiode
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
-Meetapparatuur
+Het meten van de opstelling
+\end_layout
+
+\begin_layout Subsection
+Benodigdheden
 \end_layout
 
 \begin_layout Standard
-De volgende apparatuur is nodig:
+Om de opstelling te meten hebben we het volgende nodig:
 \end_layout
 
 \begin_layout Itemize
@@ -278,7 +327,15 @@ Meetlint (liefst langer dan 10m)
 \end_layout
 
 \begin_layout Itemize
-Veilgheidsmateriaal (harnas + zekeringslijn)
+Veiligheidsmateriaal (harnas + zekeringslijn)
+\end_layout
+
+\begin_layout Itemize
+Pen en papier om de metingen te noteren
+\end_layout
+
+\begin_layout Itemize
+Sleutels van de skiunits
 \end_layout
 
 \begin_layout Subsection
@@ -315,13 +372,12 @@ Het is aan te raden om met niet meer dan drie leerlingen onder begeleiding
  meetsituatie.
  Bij metingen nabij de rand zorgt een leerling voor de zekeringslijn, een
  gezekerde leerling voor het meten bij de rand en een leerling voor het
- meten binnen de gele stipellijn / noteren van meetgegevens.
+ meten binnen de gele stippellijn / noteren van meetgegevens.
  De TOA of docent blijft dicht bij de leerling die zorgt voor de zekeringslijn
  en let goed op.
-\end_layout
 
-\begin_layout Standard
-Bespreek van te voren -en dus niet op het dak- wie wat gaat doen.
+\series bold
+ Bespreek van te voren -en dus niet op het dak- wie wat gaat doen!
 \end_layout
 
 \begin_layout Subsection
@@ -329,11 +385,11 @@ De meting
 \end_layout
 
 \begin_layout Standard
-De detectoren liggen in een skiboxen.
+De detectoren liggen in skiboxen.
  Voordat de plaats van een detector gemeten kan worden moet de skibox geopend
  worden.
- Met behulp van diagionalen is het midden van de scitillator te bepalen.
- De Scintillator is de rechthoekige plaat van 100 cm lang en 50 cm breed.
+ Met behulp van diagonalen is het midden van de scintillator te bepalen.
+ De scintillator is de rechthoekige plaat van 100 cm lang en 50 cm breed.
  Deze plaat is lichtdicht ingepakt.
  Let op dat de verpakking niet beschadigd wordt! We meten nu de afstand
  van het midden van de scintillator tot de GPS antenne (een plastic paddestoeltj
@@ -371,13 +427,15 @@ Naast de afstand moeten er nog twee hoeken worden gemeten.
 \end_inset
 
  is de hoek tussen het noorden en de lange zijde van de scintillator in
- de richting van de PMT buis.
+ de richting van de PMT buis naar het einde zonder PMT buis.
  De PMT buis is te herkennen aan de elektrische aansluitingen.
- Zit de PMT buis in het noorden dan is deze hoek 
+ Zit de PMT buis in het zuiden dan is deze hoek 
 \begin_inset Formula $0\mathrm{^{o}}$
 \end_inset
 
 .
+ Deze metingen kunnen natuurlijk een aantal malen worden uitgevoerd zodat
+ toevallige fouten kunnen worden verkleind.
 \end_layout
 
 \begin_layout Standard
@@ -393,10 +451,10 @@ status open
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="4">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top" width="4cm">
-<column alignment="center" valignment="top" width="4cm">
-<column alignment="center" valignment="top" width="4cm">
-<column alignment="center" valignment="top" width="4cm">
+<column alignment="center" valignment="top" width="3.5cm">
+<column alignment="center" valignment="top" width="3.5cm">
+<column alignment="center" valignment="top" width="3.5cm">
+<column alignment="center" valignment="top" width="3.5cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -626,10 +684,6 @@ Meetgegevens
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -653,13 +707,21 @@ reference "tab:Meetgegevens"
 \end_layout
 
 \begin_layout Standard
-Detector 1 en 2 zijn aangesloten op de HiSPARC master box, deze box is te
- herkennen aan de GPS-aansluiting.
- Detector 3 en 4 zijn aangesloten op de HiSPARC slave, zonder GPS-aansluiting.
+Detector 1 en 2 zijn aangesloten op de HiSPARC master unit, deze unit is
+ te herkennen aan de GPS-aansluiting.
+ Detector 3 en 4 zijn als PMT 1 respectievelijk PMT 2 aangesloten op de
+ HiSPARC slave (zonder GPS-aansluiting).
 \end_layout
 
 \begin_layout Section
 Doorgeven van meetgegevens
+\end_layout
+
+\begin_layout Standard
+Hier moet nog een formulier voor komen.
+ Mail-adres opgeven.
+ Code wordt verzonden, hiermee wordt het formulier geopend.
+ Naast de meetwaarden wordt het mail-adres opgeslagen.
 \end_layout
 
 \end_body

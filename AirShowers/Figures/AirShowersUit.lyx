@@ -1,0 +1,1488 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+
+\usepackage[dutch]{babel}
+
+
+\usepackage{fouriernc}\usepackage[detect-all,load-configurations=binary,separate-uncertainty=true,per-mode=symbol]{siunitx}
+
+
+
+
+
+
+
+
+
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\graphicspath{{Figures/}}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\rhead{\thepage}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0pt}
+
+\newcommand{\hisparc}{\textsmaller{HiSPARC}\xspace}
+\newcommand{\kascade}{\textsmaller{KASCADE}\xspace}
+\newcommand{\sapphire}{\textsmaller{SAPPHiRE}\xspace}
+\newcommand{\jsparc}{\textsmaller{jSparc}\xspace}
+\newcommand{\hdf}{\textsmaller{HDF5}\xspace}
+\newcommand{\aires}{\textsmaller{AIRES}\xspace}
+\newcommand{\csv}{\textsmaller{CSV}\xspace}
+\newcommand{\python}{\textsmaller{PYTHON}\xspace}
+\newcommand{\corsika}{\textsmaller{CORSIKA}\xspace}
+\newcommand{\labview}{\textsmaller{LabVIEW}\xspace}
+\newcommand{\daq}{\textsmaller{DAQ}\xspace}
+\newcommand{\adc}{\textsmaller{ADC}\xspace}
+\newcommand{\hi}{\textsc{h i}\xspace}
+\newcommand{\hii}{\textsc{h ii}\xspace}
+\newcommand{\mip}{\textsmaller{MIP}\xspace}
+\newcommand{\hisparcii}{\textsmaller{HiSPARC II}\xspace}
+\newcommand{\hisparciii}{\textsmaller{HiSPARC III}\xspace}
+
+\DeclareSIUnit{\electronvolt}{\ensuremath{\mathrm{e\!\!\:V}}}
+
+\DeclareSIUnit{\unitsigma}{\ensuremath{\sigma}}
+\DeclareSIUnit{\mip}{\textsmaller{MIP}}
+\DeclareSIUnit{\adc}{\textsmaller{ADC}}
+
+\DeclareSIUnit{\gauss}{G}
+\DeclareSIUnit{\parsec}{pc}
+\DeclareSIUnit{\year}{yr}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language dutch
+\language_package default
+\inputencoding utf8
+\fontencoding T1
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing other 1.2
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 0
+\use_mathdots 0
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 3cm
+\rightmargin 2cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language polish
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Docentenhandleiding air-showers, events en coïncidenties
+\end_layout
+
+\begin_layout Author
+N.G.
+ Schultheiss
+\end_layout
+
+\begin_layout Section
+Inleiding
+\end_layout
+
+\begin_layout Standard
+Achtergrondmateriaal / voorbereiding is te vinden op 
+\family typewriter
+\size small
+http://www.hisparc.nl/docent-student/lesmateriaal/routenetpad/
+\family default
+\size default
+ of 
+\family typewriter
+\size small
+http://www.hisparc.nl/
+\family default
+\size default
+ > docent-student > lesmateriaal > routenet.
+ Zie bijvoorbeeld de modules:
+\end_layout
+
+\begin_layout Itemize
+Compton
+\end_layout
+
+\begin_layout Itemize
+Tsjerenkov
+\end_layout
+
+\begin_layout Itemize
+Relativiteit (na Michelson en Morley)
+\end_layout
+
+\begin_layout Itemize
+Deeltjes in het standaardmodel
+\end_layout
+
+\begin_layout Itemize
+Krachten in het standaardmodel
+\end_layout
+
+\begin_layout Standard
+In het hadronisch deel van de shower vinden sterke interacties plaats, bij
+ de overgang van het hadronisch naar het elektromagnetisch deel vinden zwakke
+ interacties plaats.
+ Het elektromagnetisch deel wordt gekenmerkt door creatie en annihilatie
+ van deeltjes en antideeltjes (fermionen).
+ Bij annihilatie ontstaan 
+\shape italic
+twee
+\shape default
+ gamma-fotonen (impulsbehoud!), de energie wordt dus verdeeld over de fotonen
+ (denk aan 
+\begin_inset Formula $E=mc^{2}$
+\end_inset
+
+).
+ Indien deze fotonen voldoende energie hebben kunnen weer deeltjes en antideeltj
+es gecreëerd worden (
+\begin_inset Formula $E=mc^{2}$
+\end_inset
+
+ andersom).
+ 
+\end_layout
+
+\begin_layout Section
+Events
+\end_layout
+
+\begin_layout Standard
+De metingen van een station vallen uiteen in twee groepen:
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+Singles: 
+\shape default
+Als een enkele detector een signaal geeft, wordt dit een single genoemd.
+\end_layout
+
+\begin_layout Itemize
+
+\shape italic
+Events:
+\shape default
+ In het geval van een event geven minimaal twee detectoren binnen 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{1,5}{
+\backslash
+micro
+\backslash
+second}
+\end_layout
+
+\end_inset
+
+ een signaal boven de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{70}{
+\backslash
+milli
+\backslash
+volt}
+\end_layout
+
+\end_inset
+
+ of minimaal drie detectoren een signaal boven de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{30}{
+\backslash
+milli
+\backslash
+volt}
+\end_layout
+
+\end_inset
+
+ af.
+\end_layout
+
+\begin_layout Subsection
+De nauwkeurigheid van het meten van events
+\end_layout
+
+\begin_layout Standard
+Om een air-shower die wordt veroorzaakt door een primair kosmisch deeltje
+ te onderscheiden van een deeltje van de achtergrondstraling, wordt uitgegaan
+ van de volgende hypothese:
+\end_layout
+
+\begin_layout Standard
+Een 
+\shape italic
+event
+\shape default
+ vindt plaats als het station getriggerd wordt.
+ Bij een tweeplaatsstation wordt het station getriggerd als beide detectoren
+ binnen 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{1,5}{
+\backslash
+micro
+\backslash
+second}
+\end_layout
+
+\end_inset
+
+ een signaal hoger dan 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{70}{
+\backslash
+milli
+\backslash
+volt}
+\end_layout
+
+\end_inset
+
+ afgeven.
+ (Een vierplaatsstation wordt ook getriggerd als drie detectorenbinnen 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{1,5}{
+\backslash
+micro
+\backslash
+second}
+\end_layout
+
+\end_inset
+
+ een signaal hoger dan 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{30}{
+\backslash
+milli
+\backslash
+volt}
+\end_layout
+
+\end_inset
+
+ afgeven.)
+\end_layout
+
+\begin_layout Standard
+Als het station getriggerd wordt, licht er een witte led achter de koelgaten
+ van het HiSPARC kastje op.
+ De tijd van het event is de tijd waarop aan de triggervoorwaarde is voldaan,
+ dit is dus de tweede of derde tijd.
+\end_layout
+
+\begin_layout Standard
+Eerst worden het aantal singles en events vergeleken:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Paragraph
+Opdracht 1:
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Bepaal 5 maal hoe vaak het witte ledje in 1 minuut oplicht en vul dit hieronder
+ in de tabel in.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{gem.}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Paragraph
+Opdracht 2:
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Bepaal naast het gemiddelde ook de maximale en de minimale waarde, leg uit
+ welke nauwkeurigheid je verwacht.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="1">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="17cm">
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De nauwkeurigheid (spreiding) is ook wiskundig te bepalen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Paragraph
+Opdracht 3:
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Wiskundig is de spreiding 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ uit te rekenen, bereken eerst het gemiddelde van 
+\begin_inset Formula $N^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<column alignment="center" valignment="top" width="2cm">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{gem}^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="1">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="17cm">
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\shape italic
+De spreiding is nu te berekenen met 
+\shape default
+
+\begin_inset Formula $\sigma=\sqrt{N_{gem}^{2}-\left(N_{gem}\right)^{2}}$
+\end_inset
+
+, 
+\shape italic
+dit is dus de wortel uit het gemiddelde van de kwadraten min het kwadraat
+ van het gemiddelde.
+ 
+\shape default
+(
+\begin_inset Formula $N_{gem}$
+\end_inset
+
+ 
+\shape italic
+is al in opdracht 1 berekend.)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Paragraph
+Opdracht 4:
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Vergelijk de waarden die je bij opdracht 2 en 3 hebt gevonden en beredeneer
+ hoe deze van elkaar afhangen.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="1">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="17cm">
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Controle van de hypothese
+\end_layout
+
+\begin_layout Standard
+Het signaal van een enkele detector wordt gezien als achtergrondstraling.
+ De gelijktijdige signalen van twee detectoren wijzen op een event.
+ Beide delen van de hypthese zijn natuurlijk te onderzoeken.
+\end_layout
+
+\begin_layout Subsubsection
+Het signaal van een enkele detector wordt gezien als achtergrondstraling.
+\end_layout
+
+\begin_layout Standard
+Hoe groot is de kans dat het station wordt getriggerd door achtergrondstraling?
+ De detector geeft alleen een signaal af als er een deeltje door de detector
+ gaat.
+ Om van een shower te spreken moeten de deeltjes binnen 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{1.5}{
+\backslash
+micro
+\backslash
+second}
+\end_layout
+
+\end_inset
+
+ gedetecteerd worden.
+ De achtergrondstraling zorgt dat er ongeveer iedere 10ms een deeltje door
+ een detector van 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{0.500}{
+\backslash
+meter}
+\end_layout
+
+\end_inset
+
+ bij 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{1.000}{
+\backslash
+meter}
+\end_layout
+
+\end_inset
+
+ schiet
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Als er op school een Geigerteller is, kan de achtergrondstraling ook worden
+ gemeten.
+ Naast het aantal pulsen per seconde is ook het oppervlak van de detector
+ van belang.
+\end_layout
+
+\end_inset
+
+.
+ Als deze netjes verdeeld zouden zijn, is de kans op een tweede toevallig
+ gemeten deeltje van de achtergrondstraling binnen 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{1.5}{
+\backslash
+micro
+\backslash
+second}
+\end_layout
+
+\end_inset
+
+ te berekenen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Paragraph
+Opdracht 5:
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Bereken hoe groot de kans is dat er een tweede shower binnen 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{1.5}{
+\backslash
+micro
+\backslash
+second}
+\end_layout
+
+\end_inset
+
+ van de eerste shower optreed:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="1">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="17cm">
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Het venster is 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{1,5}{
+\backslash
+micro
+\backslash
+second}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Gemiddeld komen de singles iedere 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{10}{
+\backslash
+milli
+\backslash
+second}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+In een boxplot wordt de kans op een toevallige trigger 
+\begin_inset Formula $\frac{1,5\mu s}{10ms}100\%=0,0015\%$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+De gelijktijdige signalen van twee detectoren wijzen op een event.
+\end_layout
+
+\begin_layout Standard
+Een experimenteel onderzoek leidt hier het snelst tot inzicht.
+ Eerst wordt een plattegrond gemaakt van het station.
+ Een station met twee detectoren bestaat uit een vierkant waarop op schaal
+ twee rechthoeken in zijn getekend.
+ We maken bijvoorbeeld een plattegrond van het station op een A4 van 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{21}{
+\backslash
+centi
+\backslash
+meter}
+\end_layout
+
+\end_inset
+
+ bij 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{27.9}{
+\backslash
+centi
+\backslash
+meter}
+\end_layout
+
+\end_inset
+
+.
+ Deze past in de deksel van een papierdoos.
+ Op de plattegond zijn de scintillatorplaten van 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{0.500}{
+\backslash
+meter}
+\end_layout
+
+\end_inset
+
+ bij 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{1.000}{
+\backslash
+meter}
+\end_layout
+
+\end_inset
+
+ op schaal getekend.
+ De afstand tussen de detectoren ligt in de orde van 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{10}{
+\backslash
+meter}
+\end_layout
+
+\end_inset
+
+.
+ De detectoren nemen we op de plattegrond bijvoorbeeld 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{2,0}{
+\backslash
+centi
+\backslash
+meter}
+\end_layout
+
+\end_inset
+
+ bij 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SI{1,0}{
+\backslash
+centi
+\backslash
+meter}
+\end_layout
+
+\end_inset
+
+ (Schaal 1:50).
+ Aangezien de doos een oppervlak van 
+\begin_inset Formula $586\mathrm{cm^{2}}$
+\end_inset
+
+ heeft, komen 146 erwten op deze schaal in de doos overeen met een dichtheid
+ van 1 deeltje per 
+\begin_inset Formula $\mathrm{m{}^{2}}$
+\end_inset
+
+.
+ Door de doos te schudden verspreiden we de erwten zo gelijkmatig mogelijk.
+ Als er in twee hokjes een of meer erwten liggen, is het station getriggerd.
+ Let op dat je niet iedere keer schudt tot er 
+\begin_inset Quotes pld
+\end_inset
+
+toevallig
+\begin_inset Quotes prd
+\end_inset
+
+ een trigger wordt afgegeven.
+ Dit is een aantal malen te herhalen en we kunnen opschrijven of het 
+\begin_inset Quotes pld
+\end_inset
+
+station
+\begin_inset Quotes prd
+\end_inset
+
+ getriggerd wordt of niet.
+ 292 erwten in de doos komen overeen met een dichtheid van 2 deeltjes per
+ 
+\begin_inset Formula $\mathrm{m}^{2}$
+\end_inset
+
+, etc.
+ De kans dat het station getriggerd wordt, is op deze wijze uit te zetten
+ als functie van de dichtheid.
+ Let op, één detector kan per keer maximaal een tiental deeltjes meten,
+ hierna wordt de PMT overstuurd.
+ In de praktijk heeft het dus geen zin om meer dan 1460 erwten in de doos
+ te doen.
+ (Bij veel deeltjes is het ook mogelijk om over te stappen op bijvoorbeeld
+ couscous.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Paragraph
+Opdracht 6:
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+Voer het experiment uit en bepaal de kans dat het station wordt getriggerd
+ als functie van de dichtheid van de kosmische straling op het oppervlak.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+-toets?
+\end_layout
+
+\begin_layout Section
+Coïncidenties
+\end_layout
+
+\begin_layout Standard
+Een event vindt plaats als twee of meerdere detectoren van een station nagenoeg
+ tegelijkertijd worden getriggerd.
+ Dit gebeurt al met relatief kleine air-showers.
+ Een grotere air-shower kan deeltjes over een groter oppervlak verspreiden.
+ In dit grotere oppervlak kunnen meerdere stations liggen.
+ Als meerdere stations nagenoeg tegelijk worden getriggerd, spreken we van
+ een coïncidentie.
+ Als een coïncidentie door een enkele air-shower wordt veroorzaakt, moeten
+ de metingen aan een aantal randvoorwaarden voldoen.
+ Zoals bekend kunnen deeltjes niet sneller dan de lichtsnelheid in vacuum
+ bewegen.
+ In de praktijk zenden deeltjes in air-showers Tsjerenkov-straling uit,
+ ze bewegen dus sneller dan de lichtsnelheid in lucht.
+ Als een station getriggerd wordt, wordt deze tijd in ns nauwkeurig opgeslagen.
+ 
+\end_layout
+
+\end_body
+\end_document

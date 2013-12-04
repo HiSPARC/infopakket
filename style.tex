@@ -4,10 +4,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage[dutch]{babel}
 
+\usepackage[font={small,sf},labelfont={bf},labelsep=endash]{caption}
 \usepackage{fouriernc}
-\usepackage[detect-all, load-configurations=binary,
-            separate-uncertainty=true, per-mode=symbol,
-            retain-explicit-plus, range-phrase={ tot }]{siunitx}
+\usepackage[detect-all, binary-units, separate-uncertainty=true,
+            per-mode=symbol, retain-explicit-plus, range-phrase={ tot },
+            list-final-separator={ en }, output-decimal-marker={,}]
+            {siunitx}
 
 \usepackage{setspace}
 \setstretch{1.2}
@@ -16,7 +18,7 @@
 \setlength{\parindent}{0pt}
 
 \usepackage{geometry}
-\geometry{marginparwidth=0.5cm, verbose, a4paper, tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
+\geometry{a4paper, vmargin=3cm, hmargin=2cm, head=14pt}
 
 \usepackage{float}
 
@@ -29,8 +31,10 @@
 \usepackage{subfig}
 
 \usepackage{tikz}
-\usetikzlibrary{plotmarks,circuits.ee.IEC}
 \usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usetikzlibrary{plotmarks,circuits.ee.IEC,pgfplots.groupplots,external}
+\pgfplotsset{compat=1.3}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
