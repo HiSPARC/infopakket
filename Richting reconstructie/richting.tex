@@ -10,129 +10,175 @@
 
 \section{Introductie}
 
-HiSPARC heeft verschillende meetstations op scholen in heel Nederland staan. 
-Met deze meetstations kunnen Extensive Air Showers (EAS) geanalyseerd worden.
-De stations varieren in het aantal detectorplaten en de vorm waarin
-die platen zijn opgesteld. De  stations hebben twee of vier platen.
-De vormen waarin de platen van de stations zijn opgesteld varieren van een driehoek,
-parallellogram tot twee detectorplaten naast elkaar. Met alle stations zijn EAS te meten, 
-maar voor de bepaling van de richting van een EAS zijn 
+\hisparc heeft verschillende meetstations op scholen in heel Nederland
+staan. Met deze meetstations kunnen Extensive Air Showers (EAS)
+geanalyseerd worden. De stations variëren in het aantal detectorplaten
+en de vorm waarin die detectoren zijn opgesteld. De stations hebben twee
+of vier detectoren. Bij een station met vier detectoren kan de vorm een
+driehoek (zie straks \figref{fig:stationlayout}), parallellogram of
+vierkant zijn. Bij een station met twee detectoren liggen ze naast
+elkaar, waarbij de afstand soms kan variëren. Met alle stations zijn EAS
+te meten, maar voor de bepaling van de richting van een EAS zijn
 stations met vier detectorplaten handiger.
-  
+
+
 \section{Richting reconstructie met twee detectoren}
 
-Een EAS wordt op aarde geregistreerd door detectorplaten in een \hisparc-station. 
-Iedere detector heeft een eigen detectietijd voor de EAS. Uit deze tijdsverschillen is te reconstrueren uit welke richting 
-de shower is gekomen. Er zijn echter belangrijke verschillen tussen hoekreconstructie met een station met twee
- detectorplaten en een station met vier detectorplaten. 
-Bij een station met twee platen is de hoekreconstructie wat beperkter dan bij een station met vier platen.
-In figuur \ref{fig:showerfront2} kun je zien dat het showerfront twee detectorplaten passeert en het signaal van de tweede plaat  een $\Delta$t later arriveert. 
-Uit verschil tussen tussen de aankomsttijd tussen de twee platen en de aanname dat het showerfront met de lichtsnelheid beweegt,
- kan eenvoudig de hoek van het showerfront met de platen uitgerekend worden. De berekende hoek $\phi$ geeft echter geen uitsluitsel over de richting vanwaar de lawine kwam.
- Een hoek berekening met deze grootheden zorgt dat de richting $\phi$ van de lawine rotatie symmetrisch is om de s-as, zoals te zien is in figuur \ref{fig:showerfront3}, 
-waar de shower, die eenzelfde hoek van inval heeft,  is getekend net als de shower van boven. 
+Een EAS wordt op aarde geregistreerd door detectorplaten in een
+\hisparc-station. Iedere detector heeft een eigen detectietijd voor de
+EAS. Uit deze tijdsverschillen is te reconstrueren uit welke richting de
+shower is gekomen. Er zijn echter belangrijke verschillen tussen
+hoekreconstructie met een station met twee detectorplaten en een station
+met vier detectorplaten. Bij een station met twee platen is de
+hoekreconstructie wat beperkter dan bij een station met vier platen. In
+\figref{fig:showerfront2} kun je zien dat het \emph{shower front} twee
+detectorplaten passeert en het signaal van de tweede plaat een $\Delta t$
+later arriveert. Uit verschil tussen tussen de aankomsttijd tussen de
+twee platen en de aanname dat het \emph{shower front} met de
+lichtsnelheid beweegt, kan eenvoudig de hoek van het \emph{shower front}
+met de platen uitgerekend worden. De berekende hoek $\phi$ geeft echter
+geen uitsluitsel over de richting vanwaar de lawine kwam. Een hoek
+berekening met deze grootheden zorgt dat de richting $\phi$ van de
+lawine rotatie symmetrisch is om de s-as, zoals te zien is in
+\figref{fig:showerfront3}, waar de shower, die eenzelfde hoek van inval
+heeft, is getekend net als de shower van boven. 
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.50]{showerfront2}
-    \caption{Bovenaanzicht. Showerfront passeert de linker detector 1. Een bepaalde tijd $\Delta$t later is het front bij de rechter detector.Het showerfront reist met de lichtsnelheid en heeft dus schuin de afstand $c\Delta$t afgelegd.}
+    \caption{Het \emph{shower front} (stippellijn) passeert de linker
+             detector (grijs vlak) eerst. Een bepaalde tijd $\Delta t$
+             later is het front bij de rechter detector. Het front reist
+             met de lichtsnelheid en heeft dus schuin de afstand
+             $c\Delta t$ afgelegd. Eronder staan de signalen die de
+             detectoren meten, die in de rechter detector komt dus
+             $\Delta t$ later, en kan een andere sterkte hebben.}
    \label{fig:showerfront2}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.50]{showerfront3}
-    \caption{Een shower vanuit richting $\theta_{1}$ heeft dezelfde $c\Delta$t als een shower uit richting  $\theta_{2}$, die vanuit de aarde lijkt te komen.
- Het inkomende showerfront is over alle hoeken tussen 0 en 2$\pi$ te roteren om as s, waarbij de invalshoekhoek van de shower nog steeds klopt met bijhorende gemeten grootheden s en  $\Delta$t.  Met twee platen kun je de richting vanwaar de shower komt dus niet bepalen. }
+    \caption{Een shower vanuit richting $\theta_1$ heeft dezelfde
+             $c\Delta t$ als een shower uit richting $\theta_2$, die
+             vanuit de aarde lijkt te komen. Het inkomende \emph{shower
+             front} is over alle hoeken tussen 0 en 2$\pi$ te roteren om
+             s-as, waarbij de invalshoekhoek van de shower nog steeds
+             klopt met bijhorende gemeten grootheden $s$ en $\Delta t$.
+             Met twee platen kun je de richting vanwaar de shower komt
+             dus niet bepalen.}
    \label{fig:showerfront3}
 \end{figure}
 
-Een richtingbepaling van een showerfront heeft minimaal drie detectoren nodig. Wat logisch is, want om een vlak te tekenen zijn ook minstens drie punten in de ruimte nodig.
-Om wel een reconstructie van richting te maken is dus een derde detector nodig. Scholen, die een station met twee detectoren hebben, kunnen ook een event gebruiken wat een coïncidentie is met een event gemeten door een ander station in de buurt, zodat een ander station het derde benodigde punt kan leveren. 
+Een richtingbepaling van een \emph{shower front} heeft minimaal drie
+detectoren nodig. Wat logisch is, want om een vlak te tekenen zijn ook
+minstens drie punten in de ruimte nodig. Om wel een reconstructie van
+richting te maken is dus een derde detector nodig. Scholen, die een
+station met twee detectoren hebben, kunnen ook een event gebruiken wat
+een coïncidentie is met een event gemeten door een ander station in de
+buurt, zodat een ander station het derde benodigde punt kan leveren. 
+
 
 \section{Richting reconstructie met drie of meer detectoren}
 
-
-In figuur \ref{fig:frontthesis} is een situatie weergegeven van een vlak showerfront waarvan de normaal (de shower as) een zenithoek ($\theta$) heeft met het (x,y)-vlak en een azimuthoek($\phi$) met de x-as.
+In \figref{fig:frontthesis} is een situatie weergegeven van een vlak
+\emph{shower front} waarvan de normaal (de shower as) een zenithoek
+($\theta$) heeft met het (x,y)-vlak en een azimuthoek($\phi$) met de
+x-as.
 
 \begin{figure}
     \centering
     %\includegraphics[scale=0.60]{front}
     \input{Figures/angle-reconstruction}
-  
-    \caption{Showerfront passeert detector 1. Een bepaalde tijd $\Delta t_1$ later is het front bij detector 0.  Figuur overgenomen uit  \cite{Fokkema}}
+    \caption{Het \emph{shower front} beweegt langs de \emph{shower as}
+             bereikt detector 1. Een bepaalde tijd $\Delta t_1$ later is
+             het front bij detector 0. Figuur overgenomen uit
+             \cite{Fokkema}.}
   \label{fig:frontthesis}
 \end{figure}
 
-Het front passeert detector 1. Een bepaalde tijd $\Delta t_{1}$ later is het front bij detector 0. Op een gelijke wijze kan ook een $\Delta t_{2}$ worden bepaald, het tijdsverschil tussen detector 0 en detector 2. Voor de hoekreconstructie zijn dus minimaal drie detectoren nodig. In de HiSPARC-opstelling zijn dit òf de drie buitenste detectorplaten in een station, òf drie stations in een stationscluster. Al eerder is een dergelijke hoekreconstructie uitgevoerd met de volgende vergelijkingen, afgeleid door D. Fokkema \cite{Fokkema}.
-Verdere uitleg over de richting reconstructie van een shower is te vinden op site:
- \url{http://www.hisparc.nl/docent-student/lesmateriaal/routenetpad/} onder "richting reconstructie primair deeltje".
-
+Het front passeert detector 1. Een bepaalde tijd $\Delta t_1$ later is
+het front bij detector 0. Op een gelijke wijze kan ook een $\Delta t_2$
+worden bepaald, het tijdsverschil tussen detector 0 en detector 2. Voor
+de hoekreconstructie zijn minimaal drie detectoren nodig. In de
+\hisparc-opstelling zijn dit òf de drie buitenste detectorplaten in een
+station, òf drie stations die dezelfde EAS meten. Al eerder is een
+dergelijke hoekreconstructie uitgevoerd met de volgende vergelijkingen,
+afgeleid door D. Fokkema \cite{Fokkema}. Verdere uitleg over de richting
+reconstructie van een shower is te vinden in
+RouteNet\footnote{Te vinden op de site:
+\url{http://www.hisparc.nl/docent-student/lesmateriaal/routenetpad/}}
+onder "Richting reconstructie primair deeltje".
 
 \begin{equation}
-	   \quad \tan(\phi)= \frac{r_1\Delta t_2\cos\phi_1-r_2\Delta t_1\cos \phi_2}{r_2\Delta t_1\sin\phi_2-r_1\Delta t_2\sin \phi_1}
+   \quad\tan(\phi) = \frac{r_1\Delta t_2\cos\phi_1-r_2\Delta t_1\cos\phi_2}
+                          {r_2\Delta t_1\sin\phi_2-r_1\Delta t_2\sin\phi_1}
 \end{equation}
 
 \begin{equation}
-	    \quad \sin(\theta)= \frac{c\Delta t_1}{r_1\cos(\phi-\phi_1)}
+    \quad\sin(\theta) = \frac{c\Delta t_1}{r_1\cos(\phi-\phi_1)}
 \end{equation}
 
-Hierin is $\phi_{1}$ de hoek tussen detector 0 en detector 1 en $r_{1}$ de afstand tussen deze detectoren. $\phi_{2}$ is de hoek tussen detector 0 en detector 2 en $r_{2}$ de afstand tussen deze detectoren. c is de lichtsnelheid.
-
-
+Hierin is $\phi_1$ de hoek tussen de detector 0 en detector 1 en $r_1$ de
+afstand tussen deze detectoren. $\phi_2$ is de hoek tussen detector 0 en
+detector 2 en $r_2$ de afstand tussen deze detectoren. $c$ is de
+lichtsnelheid.
 
 \begin{figure}
     \centering
     %\includegraphics[scale=0.60]{front}
     \input{Figures/station-layout}
-    \caption{Opbouw van een vier detectorstation. De detectoren zijn hoekpunten, die  liggen op een gelijkzijdige driehoek op 10 m van elkaar.}
+    \caption{Opbouw van een vier detectorstation. De detectoren op de
+             hoekpunten liggen op een gelijkzijdige driehoek met zijdes
+             van \SI{10}{\meter}. De detectoren zijn ook genummerd, dit
+             wordt bepaald door hoe ze aan de \hisparc electronica
+             verbonden zijn.}
     \label{fig:stationlayout} 
 \end{figure}
 
-
-\textbf{Opdracht 1} Richting bepaling van station 501.
-Bekijk tabel  \ref{tab:arrival} met een meting van de aankomsttijden van een showerfront bij drie detectoren van én station.
-De aankomsttijden zijn gegeven in ns. \\
-Bereken hoek $\phi$ en hoek $\theta$ met behulp van de gevens in tabel \ref{tab:arrival}
-
-
-\begin{table}
-\begin{center}    
-\begin{tabular}{ |l |l  |}    
-\hline
-    Detector & aankomsttijd (ns)  \\ 
-\hline
-    1 & 0 \\
- \hline
-    3 & 7.6  \\
- \hline
-    4 & 9.2 \\ 
-\hline
-\end{tabular}
-    \caption{ aankomsttijden van een shower gedecteerd door station 501}
- \label{tab:arrival}     
-\end{center} 
-\end{table}
+\textbf{Opdracht 1} Richting bepaling van station 501. Bekijk tabel
+\ref{tab:arrival} met een meting van de aankomsttijden van een
+\emph{shower front} bij drie detectoren van één station. De
+aankomsttijden zijn gegeven in ns. \\
+Bereken hoek $\phi$ en hoek $\theta$ met behulp van de gevens in tabel
+\ref{tab:arrival}.
 
 \begin{center}
-\line(1,0){500}
-\\
-\line(1,0){500}
-\\
-\line(1,0){500}
-\\
-\line(1,0){500}
-\\
+    \rule{\textwidth}{0.3mm}
+    \\
+    \rule{\textwidth}{0.3mm}
+    \\
+    \rule{\textwidth}{0.3mm}
+    \\
+    \rule{\textwidth}{0.3mm}
+    \\
 \end{center}
+
+\begin{table}
+    \centering
+    \begin{tabular}{ |l |l |}    
+        \hline
+        Detector & Aankomsttijd \\ 
+        \hline
+        1 & \SI{0.0}{\nano\second} \\
+        \hline
+        3 & \SI{7.6}{\nano\second} \\
+        \hline
+        4 & \SI{9.2}{\nano\second} \\ 
+        \hline
+    \end{tabular}
+    \caption{Aankomsttijden van een shower gedecteerd door station 501.
+             detector 2 is weggelaten om dat het nauwkeuriger is de
+             hoekpunten van de driehoek te gebruiken.}
+    \label{tab:arrival}
+\end{table}
  
-
-
 
 \begin{thebibliography}{9}
     \bibitem{Fokkema}
-        D.B.R.A. Fokkema, \emph{The \hisparc Experiment, data acquisition and reconstruction of shower direction}, PhD. thesis 2012
+        D.B.R.A. Fokkema, \emph{The \hisparc Experiment, data
+        acquisition and reconstruction of shower direction}, PhD. thesis
+        2012
 \end{thebibliography}
-
-
 
 \end{document}
