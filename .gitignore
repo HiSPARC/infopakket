@@ -1,7 +1,5 @@
 # Compiled pdfs
-Brief/brief.pdf
-Intro/intro.pdf
-GPS/GPS.pdf
+*/*.pdf
 
 # LateX
 *.acn
