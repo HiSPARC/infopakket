@@ -10,11 +10,14 @@
 
 \section{Inleiding}
 
-Iedere detector van een HiSPARC-station is uitgerust met een foto-versterker
+Elke detector van een HiSPARC-station is uitgerust met een foto-versterker
 buis (PhotoMultiplier Tube: PMT). Als er geen deeltjes door de detector
 schieten, treedt er geen fluorescentie in de detector op en ontstaat
 er geen licht. In dit geval geeft de PMT-buis een elektrisch signaal
-van \SI{0}{\milli\volt} aan de HiSPARC unit. In de unit wordt het
+van \SI{0}{\milli\volt} aan de HiSPARC unit. Als er wel deeltjes door de detector
+schieten, treedt er fluorescentie in de detector op en ontstaat
+er licht. Dan geeft de PMT-buis een elektrisch signaal
+af waarvan het aantal mV afhangt van het aantal deeltjes dat door de detector is gegaan. In de HiSPARC unit wordt het
 analoge signaal door middel van een Analoog Digitaal Converter omgezet
 in een digitaal signaal. De grootte van dit signaal wordt uitgedrukt
 in ADCs, de ADC count (een getal zonder eenheid).
@@ -24,8 +27,8 @@ ADCs in de HiSPARC unit opgeslagen. Als er tegelijkertijd een tweede
 reeks, van een andere detector, wordt opgeslagen, worden alle reeksen
 ADCs van de HiSPARC unit naar de HiSPARC server gezonden. Met dergelijke
 reeks kan een diagram van het verloop van het signaal tegen de tijd
-worden gemaakt. In deze diagrammen zijn het negatieve maximale signaal,
-de pulshoogte, en het oppervlak, de pulsintegraal, te bepalen. Gedurende
+worden gemaakt. In deze diagrammen zijn van het negatieve maximale signaal
+de pulshoogte en het oppervlak, de pulsintegraal, te bepalen. Gedurende
 de dag worden alle pulshoogten en pulsintegralen van een station verzameld.
 Pulshoogte en pulsintegraal histogrammen zijn op te vragen op: \texttt{\small http://data.hisparc.nl/}
 door op de stationsnaam te klikken. Rechtsboven beide histogrammen
@@ -56,7 +59,7 @@ ophalen met jSparc%
 sessie worden gebruikt, het is ook mogelijk om een willekeurige set
 pulsen op te halen op: \texttt{http://data.hisparc.nl/media/jsparc/jsparc.html}.%
 }. In deze module gaan we uit van de set pulsen die met de stations
-uit figuur \ref{fig:coincidence} zijn gemeten.
+uit Figuur \ref{fig:coincidence} zijn gemeten.
 
 Op de kaart zijn drie meetstations te zien, een bruin, een rood en
 een oranje station%
@@ -64,15 +67,15 @@ een oranje station%
 weerstandjes: bruin: 1, rood: 2, oranje: 3, geel: 4, groen: 5, blauw:
 6, violet: 7, etc. %
 }. We zien dat alle stations meerdere pulsen hebben gegeven, dit komt
-omdat een station uit meerdere detectoren bestaat. De hoogte van de
-pulsen is vergelijkbaar, bijgevolg is het midden van de air-shower
-(zwarte vlek) even ver van alle stations. 
+omdat een station uit meerdere detectoren bestaat. De hoogtes van de
+pulsen zijn vergelijkbaar, bijgevolg is het midden van de air-shower
+(zwarte vlek in Figuur \ref{fig:coincidence}) even ver van alle stations. 
 
 
 \subsection{Eenvoudige pulsvormen}
 
 Het is mogelijk om de diagrammen per detector van een enkel station
-te bekijken. In figuur \ref{fig:Eenvoudige-pulsen} zijn de signalen
+te bekijken. In Figuur \ref{fig:Eenvoudige-pulsen} zijn de signalen
 van vier detectoren van Station 506 te zien. De zwarte puls van detector
 1 heeft een vrij steile voorflank. Het verloop van de achterflank
 lijkt een halfwaardetijd te hebben (deze loopt exponentieel op). Bij
@@ -93,9 +96,9 @@ die wordt gevolgd door een exponentieel oplopende achterflank.
 
 \paragraph{Opdracht 1:}
 
-\textit{De groene grafiek van detector 3 in figuur \ref{fig:Eenvoudige-pulsen}
+De groene grafiek van detector 3 in figuur \ref{fig:Eenvoudige-pulsen}
 heeft een minder vloeiend verloop. Stel een hypothese op waarmee dit
-minder vloeiende verloop kan worden verklaard. }
+minder vloeiende verloop kan worden verklaard.
 
 \begin{tabular}{>{\raggedright}p{16.6cm}}
 \tabularnewline
@@ -113,8 +116,8 @@ minder vloeiende verloop kan worden verklaard. }
 
 
 Meestal zien de grafieken er niet zo mooi uit als in figuur \ref{fig:Eenvoudige-pulsen}.
-In figuur \ref{fig:Iets-complexere-pulsen} zijn de pulsen van detector
-1 en 4 van Station 501 goed te zien (respectievelijk zwart en blauw).
+In figuur \ref{fig:Iets-complexere-pulsen} zijn andere pulsen van detector
+1 en 4 van Station 501 te zien (respectievelijk zwart en blauw).
 
 \begin{figure}[h]
 \noindent \begin{centering}
@@ -129,8 +132,8 @@ In figuur \ref{fig:Iets-complexere-pulsen} zijn de pulsen van detector
 
 \paragraph{Opdracht 2:}
 
-\textit{Geef een verklaring voor het verloop van de grafiek van detector
-1 in figuur \ref{fig:Iets-complexere-pulsen}.}
+Geef een verklaring voor het verloop van de grafiek van detector
+1 in figuur \ref{fig:Iets-complexere-pulsen}.
 
 \begin{tabular}{>{\raggedright}p{16.6cm}}
 \tabularnewline
@@ -151,8 +154,8 @@ In figuur \ref{fig:Iets-complexere-pulsen} zijn de pulsen van detector
 
 \paragraph{Opdracht 3:}
 
-\textit{Bereken de afstand tussen de waargenomen deeltjes in de grafiek
-van detector 1 in figuur \ref{fig:Iets-complexere-pulsen}.}
+Bereken de afstand tussen de waargenomen deeltjes in de grafiek
+van detector 1 (zwart) in figuur \ref{fig:Iets-complexere-pulsen}.
 
 \begin{tabular}{>{\raggedright}p{16.6cm}}
 \tabularnewline
@@ -181,16 +184,16 @@ van detector 1 in figuur \ref{fig:Iets-complexere-pulsen}.}
 \bigskip{}
 
 
-Het valt op dat de pulshoogte van detector 2 (rood) kleiner is dan
+In Figuur \ref{fig:Ingewikkelde-pulsvormen} valt het op dat de pulshoogte van detector 2 (rood) kleiner is dan
 detector 1 (zwart).
 
 \begin{minipage}[t]{1\columnwidth}%
 
 \paragraph{Opdracht 4:}
 
-\textit{Leg met de pulsintegraal (het pulsoppervlak) uit waarom er
+Leg met de pulsintegraal (het pulsoppervlak) uit waarom er
 waarschijnlijk evenveel deeltjes door detector 1 als door detector
-2 zijn gegaan.}
+2 zijn gegaan.
 
 \begin{tabular}{>{\raggedright}p{16.6cm}}
 \tabularnewline
@@ -207,15 +210,15 @@ waarschijnlijk evenveel deeltjes door detector 1 als door detector
 \bigskip{}
 
 
-Het valt op dat detector 3 (groen) bijna geen puls geeft.
+In Figuur \ref{fig:Ingewikkelde-pulsvormen} valt het verder op dat detector 3 (groen) bijna geen puls geeft.
 
 \begin{minipage}[t]{1\columnwidth}%
 
 \paragraph{Opdracht 5:}
 
-\textit{Verklaar waarom er binnen een station soms detectoren zijn
+Verklaar waarom er binnen een station soms detectoren zijn
 die een aantal deeltjes meten terwijl ander detectoren (bijna) niets
-meten.}
+meten.
 
 \begin{tabular}{>{\raggedright}p{16.6cm}}
 \tabularnewline
