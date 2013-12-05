@@ -10,72 +10,71 @@
 
 \section{Inleiding}
 
-Elke detector van een HiSPARC-station is uitgerust met een foto-versterker
-buis (PhotoMultiplier Tube: PMT). Als er geen deeltjes door de detector
-schieten, treedt er geen fluorescentie in de detector op en ontstaat
-er geen licht. In dit geval geeft de PMT-buis een elektrisch signaal
-van \SI{0}{\milli\volt} aan de HiSPARC unit. Als er wel deeltjes door de detector
-schieten, treedt er fluorescentie in de detector op en ontstaat
-er licht. Dan geeft de PMT-buis een elektrisch signaal
-af waarvan het aantal mV afhangt van het aantal deeltjes dat door de detector is gegaan. In de HiSPARC unit wordt het
-analoge signaal door middel van een Analoog Digitaal Converter omgezet
-in een digitaal signaal. De grootte van dit signaal wordt uitgedrukt
-in ADCs, de ADC count (een getal zonder eenheid).
+Elke detector van een \hisparc-station is uitgerust met een
+foto-versterker buis (PhotoMultiplier Tube: \pmt). Als er geen deeltjes
+door de detector schieten, treedt er geen fluorescentie in de detector
+op en ontstaat er geen licht. In dit geval geeft de PMT-buis een
+elektrisch signaal van \SI{0}{\milli\volt} aan de \hisparc unit. Als er
+wel deeltjes door de detector schieten, treedt er fluorescentie in de
+detector op en ontstaat er licht. Dan geeft de PMT-buis een elektrisch
+signaal af waarvan het aantal mV afhangt van het aantal deeltjes dat
+door de detector is gegaan. In de \hisparc unit wordt het analoge
+signaal door middel van een Analoog Digitaal Converter (\adc) omgezet in
+een digitaal signaal. De grootte van dit signaal wordt uitgedrukt in
+\adcs, de \adc count (een getal zonder eenheid).
 
-Als er een detectorsignaal gemeten wordt, wordt een reeks van deze
-ADCs in de HiSPARC unit opgeslagen. Als er tegelijkertijd een tweede
-reeks, van een andere detector, wordt opgeslagen, worden alle reeksen
-ADCs van de HiSPARC unit naar de HiSPARC server gezonden. Met dergelijke
-reeks kan een diagram van het verloop van het signaal tegen de tijd
-worden gemaakt. In deze diagrammen zijn van het negatieve maximale signaal
-de pulshoogte en het oppervlak, de pulsintegraal, te bepalen. Gedurende
-de dag worden alle pulshoogten en pulsintegralen van een station verzameld.
-Pulshoogte en pulsintegraal histogrammen zijn op te vragen op: \texttt{\small http://data.hisparc.nl/}
-door op de stationsnaam te klikken. Rechtsboven beide histogrammen
-is een link waarmee de gegevens in een spreadsheet, zoals Excel,
-te laden zijn. 
+Als er een detectorsignaal gemeten wordt, wordt een reeks van deze \adcs
+in de \hisparc unit opgeslagen. Als er tegelijkertijd een tweede reeks,
+van een andere detector, wordt opgeslagen, worden alle reeksen \adcs van
+de \hisparc unit naar de \hisparc server gezonden. Met dergelijke reeks
+kan een diagram van het verloop van het signaal tegen de tijd worden
+gemaakt. In deze diagrammen zijn van het negatieve maximale signaal de
+pulshoogte en het oppervlak, de pulsintegraal, te bepalen. Gedurende de
+dag worden alle pulshoogten en pulsintegralen van een station verzameld.
+Pulshoogte en pulsintegraal histogrammen zijn op te vragen op:
+\url{http://data.hisparc.nl/} door op de stationsnaam te klikken.
+Rechtsboven beide histogrammen is een link waarmee de gegevens in een
+spreadsheet, zoals Excel, te laden zijn. 
 
 
 \section{De pulsvorm}
 
 
-\subsection{Pulsen ophalen uit de HiSPARC data opslag}
+\subsection{Pulsen ophalen uit de \hisparc data opslag}
 
-\begin{figure}[h]
-\noindent \begin{centering}
-\begin{tabular}{cc}
-\includegraphics[scale=0.33]{Figures/kaart} & \includegraphics[scale=0.65]{Figures/Coincidence}\tabularnewline
-\end{tabular}
-\par\end{centering}
-
-\caption{\label{fig:coincidence}De plattegrond met de locaties van de meetstations
-en de gemeten pulsen per station.}
+\begin{figure}[ht]
+    \centering
+    \subfloat{\includegraphics[scale=0.33]{Figures/kaart}}
+    \subfloat{\includegraphics[scale=0.65]{Figures/Coincidence}}
+    \caption{De plattegrond met de locaties van de meetstations
+             en de gemeten pulsen per station.}
+    \label{fig:coincidence}
 \end{figure}
 
-
-In de praktijk kunnen we een set pulsen voor een willekeurige gebeurtenis
-ophalen met jSparc%
-\footnote{Het interactieve practicum jSparc kan in de les na aanvraag van een
-sessie worden gebruikt, het is ook mogelijk om een willekeurige set
-pulsen op te halen op: \texttt{http://data.hisparc.nl/media/jsparc/jsparc.html}.%
+In de praktijk kunnen we een set pulsen voor een willekeurige
+gebeurtenis ophalen met \jsparc%
+\footnote{Het interactieve practicum \jsparc kan in de les na aanvraag
+van een sessie worden gebruikt, het is ook mogelijk om een willekeurige
+set pulsen op te halen op:
+\url{http://data.hisparc.nl/media/jsparc/jsparc.html}.%
 }. In deze module gaan we uit van de set pulsen die met de stations
-uit Figuur \ref{fig:coincidence} zijn gemeten.
+uit \figref{fig:coincidence} zijn gemeten.
 
-Op de kaart zijn drie meetstations te zien, een bruin, een rood en
-een oranje station%
-\footnote{De kleuren van de stations volgen de definitie van de kleurcode van
-weerstandjes: bruin: 1, rood: 2, oranje: 3, geel: 4, groen: 5, blauw:
-6, violet: 7, etc. %
+Op de kaart zijn drie meetstations te zien, een bruin, een rood en een
+oranje station%
+\footnote{De kleuren van de stations volgen de definitie van de
+kleurcode van weerstandjes: bruin: 1, rood: 2, oranje: 3, geel: 4,
+groen: 5, blauw: 6, violet: 7, etc. %
 }. We zien dat alle stations meerdere pulsen hebben gegeven, dit komt
 omdat een station uit meerdere detectoren bestaat. De hoogtes van de
 pulsen zijn vergelijkbaar, bijgevolg is het midden van de air-shower
-(zwarte vlek in Figuur \ref{fig:coincidence}) even ver van alle stations. 
+(zwarte vlek in \figref{fig:coincidence}) even ver van alle stations. 
 
 
 \subsection{Eenvoudige pulsvormen}
 
 Het is mogelijk om de diagrammen per detector van een enkel station
-te bekijken. In Figuur \ref{fig:Eenvoudige-pulsen} zijn de signalen
+te bekijken. In \figref{fig:Eenvoudige-pulsen} zijn de signalen
 van vier detectoren van Station 506 te zien. De zwarte puls van detector
 1 heeft een vrij steile voorflank. Het verloop van de achterflank
 lijkt een halfwaardetijd te hebben (deze loopt exponentieel op). Bij
@@ -83,12 +82,11 @@ de blauwe grafiek van detector 4 is iets soortgelijks aan de hand.
 Een deeltje lijkt dus herkend te worden aan een steile dalende flank
 die wordt gevolgd door een exponentieel oplopende achterflank.
 
-\begin{figure}[h]
-\noindent \begin{centering}
-\includegraphics[scale=0.65]{Figures/Traces506}
-\par\end{centering}
-
-\caption{\label{fig:Eenvoudige-pulsen}Eenvoudige pulsen}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.65]{Figures/Traces506}
+    \caption{Eenvoudige pulsen}
+    \label{fig:Eenvoudige-pulsen}
 \end{figure}
 
 
@@ -96,35 +94,31 @@ die wordt gevolgd door een exponentieel oplopende achterflank.
 
 \paragraph{Opdracht 1:}
 
-De groene grafiek van detector 3 in figuur \ref{fig:Eenvoudige-pulsen}
+De groene grafiek van detector 3 in \figref{fig:Eenvoudige-pulsen}
 heeft een minder vloeiend verloop. Stel een hypothese op waarmee dit
 minder vloeiende verloop kan worden verklaard.
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}
 
 \bigskip{}
 
 
-Meestal zien de grafieken er niet zo mooi uit als in figuur \ref{fig:Eenvoudige-pulsen}.
-In figuur \ref{fig:Iets-complexere-pulsen} zijn andere pulsen van detector
-1 en 4 van Station 501 te zien (respectievelijk zwart en blauw).
+Meestal zien de grafieken er niet zo mooi uit als in
+\figref{fig:Eenvoudige-pulsen}. In \figref{fig:Iets-complexere-pulsen}
+zijn andere pulsen van detector 1 en 4 van Station 501 te zien
+(respectievelijk zwart en blauw).
 
-\begin{figure}[h]
-\noindent \begin{centering}
-\includegraphics[scale=0.65]{Figures/Traces501}
-\par\end{centering}
-
-\caption{\label{fig:Iets-complexere-pulsen}Iets complexere pulsen}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.65]{Figures/Traces501}
+    \caption{Iets complexere pulsen}
+    \label{fig:Iets-complexere-pulsen}
 \end{figure}
 
 
@@ -133,18 +127,14 @@ In figuur \ref{fig:Iets-complexere-pulsen} zijn andere pulsen van detector
 \paragraph{Opdracht 2:}
 
 Geef een verklaring voor het verloop van de grafiek van detector
-1 in figuur \ref{fig:Iets-complexere-pulsen}.
+1 in \figref{fig:Iets-complexere-pulsen}.
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}
 
 \bigskip{}
@@ -155,37 +145,31 @@ Geef een verklaring voor het verloop van de grafiek van detector
 \paragraph{Opdracht 3:}
 
 Bereken de afstand tussen de waargenomen deeltjes in de grafiek
-van detector 1 (zwart) in figuur \ref{fig:Iets-complexere-pulsen}.
+van detector 1 (zwart) in \figref{fig:Iets-complexere-pulsen}.
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}
 
 
 \subsection{Ingewikkelde pulsvormen}
 
-\begin{figure}[h]
-\noindent \begin{centering}
-\includegraphics[scale=0.65]{Figures/Traces505}
-\par\end{centering}
-
-\caption{\label{fig:Ingewikkelde-pulsvormen}Ingewikkelde pulsvormen}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.65]{Figures/Traces505}
+    \caption{Ingewikkelde pulsvormen}
+    \label{fig:Ingewikkelde-pulsvormen}
 \end{figure}
 
 
 \bigskip{}
 
-
-In Figuur \ref{fig:Ingewikkelde-pulsvormen} valt het op dat de pulshoogte van detector 2 (rood) kleiner is dan
-detector 1 (zwart).
+In \figref{fig:Ingewikkelde-pulsvormen} valt het op dat de pulshoogte
+van detector 2 (rood) kleiner is dan detector 1 (zwart).
 
 \begin{minipage}[t]{1\columnwidth}%
 
@@ -195,22 +179,19 @@ Leg met de pulsintegraal (het pulsoppervlak) uit waarom er
 waarschijnlijk evenveel deeltjes door detector 1 als door detector
 2 zijn gegaan.
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}
 
 \bigskip{}
 
 
-In Figuur \ref{fig:Ingewikkelde-pulsvormen} valt het verder op dat detector 3 (groen) bijna geen puls geeft.
+In \figref{fig:Ingewikkelde-pulsvormen} valt het verder op dat detector
+3 (groen) bijna geen puls geeft.
 
 \begin{minipage}[t]{1\columnwidth}%
 
@@ -220,15 +201,11 @@ Verklaar waarom er binnen een station soms detectoren zijn
 die een aantal deeltjes meten terwijl ander detectoren (bijna) niets
 meten.
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}
 \end{document}
