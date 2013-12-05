@@ -10,22 +10,21 @@
 
 \section{Introductie}
 
-\hisparc heeft verschillende meetstations op scholen in heel Nederland
+\hisparc heeft meetstations op verschillende scholen in heel Nederland
 staan. Met deze meetstations kunnen Extensive Air Showers (EAS)
 geanalyseerd worden. De stations variëren in het aantal detectorplaten
 en de vorm waarin die detectoren zijn opgesteld. De stations hebben twee
 of vier detectoren. Bij een station met vier detectoren kan de vorm een
-driehoek (zie straks \figref{fig:stationlayout}), parallellogram of
+driehoek (zie verderop \figref{fig:stationlayout}), parallellogram of
 vierkant zijn. Bij een station met twee detectoren liggen ze naast
 elkaar, waarbij de afstand soms kan variëren. Met alle stations zijn EAS
-te meten, maar voor de bepaling van de richting van een EAS zijn
-stations met vier detectorplaten handiger.
+te meten, maar stations met vier detectorplaten geven meer informatie over de richting van een EAS.
 
 
 \section{Richting reconstructie met twee detectoren}
 
 Een EAS wordt op aarde geregistreerd door detectorplaten in een
-\hisparc-station. Iedere detector heeft een eigen detectietijd voor de
+\hisparc-station. Elke detector heeft een eigen detectietijd voor de
 EAS. Uit deze tijdsverschillen is te reconstrueren uit welke richting de
 shower is gekomen. Er zijn echter belangrijke verschillen tussen
 hoekreconstructie met een station met twee detectorplaten en een station
@@ -35,13 +34,11 @@ hoekreconstructie wat beperkter dan bij een station met vier platen. In
 detectorplaten passeert en het signaal van de tweede plaat een $\Delta t$
 later arriveert. Uit verschil tussen tussen de aankomsttijd tussen de
 twee platen en de aanname dat het \emph{shower front} met de
-lichtsnelheid beweegt, kan eenvoudig de hoek van het \emph{shower front}
-met de platen uitgerekend worden. De berekende hoek $\phi$ geeft echter
-geen uitsluitsel over de richting vanwaar de lawine kwam. Een hoek
-berekening met deze grootheden zorgt dat de richting $\phi$ van de
-lawine rotatie symmetrisch is om de s-as, zoals te zien is in
-\figref{fig:showerfront3}, waar de shower, die eenzelfde hoek van inval
-heeft, is getekend net als de shower van boven. 
+lichtsnelheid beweegt, kan eenvoudig een hoek van het \emph{shower front}
+met de platen uitgerekend worden. Deze hoek geeft echter
+geen uitsluitsel over de richting vanwaar de lawine kwam. De berekende hoek
+is namelijk rotatie symmetrisch om de $s$-as, zie
+\figref{fig:showerfront3}. 
 
 \begin{figure}
     \centering
@@ -71,11 +68,10 @@ heeft, is getekend net als de shower van boven.
 \end{figure}
 
 Een richtingbepaling van een \emph{shower front} heeft minimaal drie
-detectoren nodig. Wat logisch is, want om een vlak te tekenen zijn ook
-minstens drie punten in de ruimte nodig. Om wel een reconstructie van
+detectoren nodig. Dat komt omdat een vlak pas volledig is bepaald door drie punten van het vlak. Om een reconstructie van
 richting te maken is dus een derde detector nodig. Scholen, die een
 station met twee detectoren hebben, kunnen ook een event gebruiken wat
-een coïncidentie is met een event gemeten door een ander station in de
+in coïncidentie is (dus vrijwel gelijktijdig gebeurt) met een event gemeten door een ander station in de
 buurt, zodat een ander station het derde benodigde punt kan leveren. 
 
 
@@ -98,11 +94,10 @@ x-as.
 \end{figure}
 
 Het front passeert detector 1. Een bepaalde tijd $\Delta t_1$ later is
-het front bij detector 0. Op een gelijke wijze kan ook een $\Delta t_2$
-worden bepaald, het tijdsverschil tussen detector 0 en detector 2. Voor
+het front bij detector 0. Evenzo is $\Delta t_2$ het tijdsverschil tussen detector 0 en detector 2. Voor
 de hoekreconstructie zijn minimaal drie detectoren nodig. In de
-\hisparc-opstelling zijn dit òf de drie buitenste detectorplaten in een
-station, òf drie stations die dezelfde EAS meten. Al eerder is een
+\hisparc-opstelling zijn dit \'of de drie buitenste detectorplaten van een
+station \'of drie stations die dezelfde EAS meten. Al eerder is een
 dergelijke hoekreconstructie uitgevoerd met de volgende vergelijkingen,
 afgeleid door D. Fokkema \cite{Fokkema}. Verdere uitleg over de richting
 reconstructie van een shower is te vinden in
@@ -136,25 +131,6 @@ lichtsnelheid.
     \label{fig:stationlayout} 
 \end{figure}
 
-\textbf{Opdracht 1} Richting bepaling van station 501. Bekijk tabel
-\ref{tab:arrival} met een meting van de aankomsttijden van een
-\emph{shower front} bij drie detectoren van één station. De
-aankomsttijden zijn gegeven in ns. De detectoren van het station zijn
-opgesteld zoals in \figref{fig:stationlayout}.\\
-Bereken hoek $\phi$ en hoek $\theta$ met behulp van de gevens in tabel
-\ref{tab:arrival}.
-
-\begin{center}
-    \rule{\textwidth}{0.3mm}
-    \\
-    \rule{\textwidth}{0.3mm}
-    \\
-    \rule{\textwidth}{0.3mm}
-    \\
-    \rule{\textwidth}{0.3mm}
-    \\
-\end{center}
-
 \begin{table}
     \centering
     \begin{tabular}{ |l |l |}    
@@ -173,6 +149,24 @@ Bereken hoek $\phi$ en hoek $\theta$ met behulp van de gevens in tabel
              hoekpunten van de driehoek te gebruiken.}
     \label{tab:arrival}
 \end{table}
+\newpage
+\textbf{Opdracht 1} Richting bepaling met een station. Bekijk tabel
+\ref{tab:arrival} met een meting van de aankomsttijden van een
+\emph{shower front} bij drie detectoren van één station. De
+aankomsttijden zijn gegeven in ns. De detectoren van het station zijn
+opgesteld zoals in \figref{fig:stationlayout}. Bereken hoek $\phi$ en hoek $\theta$ met behulp van de gegevens in tabel
+\ref{tab:arrival}.
+\begin{center}
+    \rule{\textwidth}{0.3mm}
+    \\
+    \rule{\textwidth}{0.3mm}
+    \\
+    \rule{\textwidth}{0.3mm}
+    \\
+    \rule{\textwidth}{0.3mm}
+    \\
+\end{center}
+
  
 
 \begin{thebibliography}{9}
