@@ -1,7 +1,5 @@
 # Compiled pdfs
-Brief/brief.pdf
-Intro/intro.pdf
-GPS/GPS.pdf
+*/*.pdf
 
 # LateX
 *.acn
@@ -43,3 +41,6 @@ GPS/GPS.pdf
 
 # LyX
 *.lyx~
+
+# fig
+*.fig.bak

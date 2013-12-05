@@ -1,4 +1,5 @@
 \input{../style}
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
 
 \begin{document}
 
@@ -44,20 +45,20 @@ meet naast deze kosmische straling ook de straling van radioactief
 verval van stoffen op Aarde, een dergelijke meting wordt een \textit{single}
 genoemd. 
 
-\begin{figure}[h]
-\noindent \begin{centering}
-\includegraphics[scale=1.5]{Figures/8cee5cc97a}
-\par\end{centering}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=1.5]{8cee5cc97a}
+\end{centering}
 
-\caption{De HiSPARC master unit, foto uit {[}1{]}. In de blokken PMT 1 en PMT
-2 zijn twee gele ledjes te zien. Deze lichten op als er straling door
-respectievelijk detector 1 of detector 2 wordt gemeten. In de praktijk
-worden de detectoren ongeveer iedere \SI{10}{\milli\second} geraakt.
-Achter de koelgaten is een witte led te zien. Deze licht op als beide
-detectoren binnen een tijdsinterval van \SI{1.5}{\micro\second} straling
-waarnemen, dit komt veel minder vaak voor.}
+\caption{De HiSPARC master unit, foto uit \cite{nikhefhisparc}. In de
+         blokken PMT 1 en PMT 2 zijn twee gele ledjes te zien. Deze
+         lichten op als er straling door respectievelijk detector 1 of
+         detector 2 wordt gemeten. In de praktijk worden de detectoren
+         ongeveer iedere \SI{10}{\milli\second} geraakt. Achter de
+         koelgaten is een witte led te zien. Deze licht op als beide
+         detectoren binnen een tijdsinterval van \SI{1.5}{\micro\second}
+         straling waarnemen, dit komt veel minder vaak voor.}
 \end{figure}
-
 
 
 \subsection{De nauwkeurigheid van het meten van events}
@@ -79,9 +80,11 @@ de tweede of derde tijd van een single.
 \textit{Bepaal 5 maal hoe vaak het witte ledje in 1 minuut oplicht
 en vul dit hieronder in de tabel in.}
 
-\begin{tabular}{|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
+\begin{tabular}{|x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
+                |x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
+                |x{.11\textwidth}|}
 \cline{2-7} 
-\multicolumn{1}{>{\centering}p{2cm}|}{} & 1 & 2 & 3 & 4 & 5 & $N_{gem.}$\tabularnewline
+\multicolumn{1}{x{.11\textwidth}|}{} & 1 & 2 & 3 & 4 & 5 & $N_{gem.}$\\
 \hline 
 $N$ &  &  &  &  &  & \tabularnewline
 \hline 
@@ -90,7 +93,6 @@ $N$ &  &  &  &  &  & \tabularnewline
 
 \bigskip{}
 
-
 \begin{minipage}[t]{1\columnwidth}%
 
 \paragraph{Opdracht 2:}
@@ -98,16 +100,12 @@ $N$ &  &  &  &  &  & \tabularnewline
 \textit{Bepaal naast het gemiddelde ook de maximale en de minimale
 waarde, leg uit welke nauwkeurigheid je verwacht.}
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}
 
 \bigskip{}
@@ -125,25 +123,23 @@ eerst het gemiddelde van $N^{2}$.}
 \bigskip{}
 
 
-\begin{tabular}{|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
+\begin{tabular}{|x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
+                |x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
+                |x{.11\textwidth}|}
 \cline{2-7} 
-\multicolumn{1}{>{\centering}p{2cm}|}{} & 1 & 2 & 3 & 4 & 5 & $\left(N^{2}\right)_{gem}$\tabularnewline
+\multicolumn{1}{x{.11\textwidth}|}{} & 1 & 2 & 3 & 4 & 5 & $\left(N^{2}\right)_{gem}$\\
 \hline 
-$N^{2}$ &  &  &  &  &  & \tabularnewline
+$N^{2}$ &  &  &  &  &  & \\
 \hline 
 \end{tabular}
 
 \bigskip{}
 
+\textit{De spreiding is nu te berekenen met
+$\sigma=\sqrt{\left(N^{2}\right)_{gem}-\left(N_{gem}\right)^{2}}$ dit is
+dus de wortel uit het gemiddelde van de kwadraten min het kwadraat van
+het gemiddelde ($N_{gem}$ is al in opdracht 1 berekend).}
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\textit{De spreiding is nu te berekenen met }$\sigma=\sqrt{\left(N^{2}\right)_{gem}-\left(N_{gem}\right)^{2}}$,
-\textit{dit is dus de wortel uit het gemiddelde van de kwadraten min
-het kwadraat van het gemiddelde. }($N_{gem}$ \textit{is al in opdracht
-1 berekend.)}\tabularnewline
-\tabularnewline
-\hline 
-\end{tabular}%
 \end{minipage}
 
 \bigskip{}
@@ -156,16 +152,12 @@ het kwadraat van het gemiddelde. }($N_{gem}$ \textit{is al in opdracht
 \textit{Welke conclusie mag je trekken als je de waarden die je bij
 opdracht 2 en 3 hebt gevonden vergelijkt?}
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}
 
 
@@ -202,28 +194,22 @@ het triggervenster van \SI{1.5}{\micro\second} te berekenen.
 tweede radioactief verval binnen \SI{1.5}{\micro\second} van de eerste
 radioactief verval optreed:}
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}
 
 \bigskip{}
 
-
 Een nettere manier om deze kans te berekenen is in 1838 door Siméon
-Poisson {[}2{]} gepubliceerd:
+Poisson \cite{wiki} gepubliceerd:
 
 \begin{equation}
-P_{k}=\frac{\lambda^{k}}{k!}e^{-\lambda}
+    P_{k}=\frac{\lambda^{k}}{k!}e^{-\lambda}
 \end{equation}
-
 
 Hierin is $k=1$ als een tweede detector precies éénmaal getriggerd
 wordt. $\lambda$ is hier de frequentie van de achtergrondstraling
@@ -236,20 +222,15 @@ maal de duur van het triggervenster $\left(\lambda=f_{single}*T_{venster}\right)
 \textit{Laat zien dat de met de boxplot berekende waarde nauwelijks
 afwijkt van de met de Poisson-formule berekende waarde $P_{k=1}$.}
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}
 
 \bigskip{}
-
 
 Eventueel geldt bij een toevallige trigger ook $k=2$, $k=3$ etc.
 In het algemeen nemen we $k>0$ (met $k\mathbb{\in N}$). De kans
@@ -263,20 +244,15 @@ dat er GEEN toevallige trigger optreedt is $P_{k=0}$.
 kans op een toevallige trigger ook te berekenen. (De kans op een trigger
 plus de kans op geen trigger is 100\%.) Bereken deze kans:}
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}
 
 \bigskip{}
-
 
 De duur van het triggervenster is van belang als we naar de kans op
 toevallige triggers kijken. We kunnen een grafiek maken van de kans
@@ -294,7 +270,9 @@ af:}
 \bigskip{}
 
 
-\begin{tabular}{|c|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|}
+\begin{tabular}{|x{.20\textwidth}|x{.07\textwidth}|x{.07\textwidth}
+                |x{.07\textwidth}|x{.07\textwidth}|x{.07\textwidth}
+                |x{.07\textwidth}|x{.07\textwidth}|}
 \hline 
 $T_{venster}$ {[}$\mu\mathrm{s}${]} & 1,5 & 3,0 & 7,5 & 15 & 30 & 75 & 150\tabularnewline
 \hline 
@@ -306,53 +284,16 @@ $P_{trigger}=1-P_{k=0}$ &  &  &  &  &  &  & \tabularnewline
 \bigskip{}
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
+    \paragraph{Opdracht 9:}
 
-\paragraph{Opdracht 9:}
+    \textit{Maak het diagram van de kans op een toevallige trigger als
+    functie van de duur van het triggervenster.\bigskip{}}
 
-\textit{Maak het diagram van de kans op een toevallige trigger als
-functie van de duur van het triggervenster.\bigskip{}
-}
-
-\begin{tabular}{|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|}
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
-\end{tabular}
+    \begin{tikzpicture}
+        [gridlines/.style={color=gray,very thin}]
+        \draw [gridlines, step=.5cm] (0,0) grid (\textwidth,8cm);
+    \end{tikzpicture}
 \end{figure}
 
 
@@ -371,23 +312,18 @@ meer.
 bij een station met 4 detectoren en een triggervenster van \SI{1.5}{\micro\second}
 (Denk aan het aantal mogelijke combinaties!):}
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}
 
 \bigskip{}
 
-
-
-\subsubsection{De gelijktijdige signalen van twee detectoren wijzen op een air-shower.}
+\subsubsection{De gelijktijdige signalen van twee detectoren wijzen op
+               een air-shower.}
 
 Een experimenteel onderzoek leidt hier het snelst tot inzicht. In
 figuur \ref{fig:Meetstations} is een plattegrond te zien. Hierop
@@ -396,19 +332,15 @@ te zien. De plattegrond past in de deksel van een papierdoos. Op de
 plattegrond zijn de scintillatorplaten van \SI{0.500}{\meter} bij
 \SI{1.000}{\meter} op schaal getekend. 
 
-\noindent \begin{center}
 \begin{figure}[p]
-\noindent \begin{centering}
-\includegraphics[width=15.833cm]{Figures/station}
-\par\end{centering}
-
-\caption{\label{fig:Meetstations}Een meetstation met twee detectoren en een
-meetstation met vier detectoren.}
+    \centering
+    \includegraphics[width=15.833cm]{station}
+    \caption{Een meetstation met twee detectoren en een
+    meetstation met vier detectoren.}
+    \label{fig:Meetstations}
 \end{figure}
 
-\par\end{center}
-
-\begin{minipage}[t]{1\columnwidth}%
+\begin{minipage}[t]{\columnwidth}%
 
 \paragraph{Opdracht 11:}
 
@@ -416,17 +348,14 @@ meetstation met vier detectoren.}
 werkelijkheid komt dit overeen met een oppervlak in $\mathrm{m^{2}}$,
 dit tweede oppervlak is te berekenen.}
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}\bigskip{}
+
 We willen de kans bepalen dat een air-shower gedetecteerd wordt. Deze
 hangt kans hangt af van de deeltjesdichtheid $\rho$, het aantal deeltjes
 per $\mathrm{m^{2}}$ in de air-shower. Deze deeltjes simuleren we
@@ -440,14 +369,14 @@ met korreltjes couscous.
 
 \bigskip{}
 
-
-\begin{tabular}{|>{\centering}p{3cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
-\hline 
-$\rho_{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10\tabularnewline
-\hline 
-Aantal korreltjes in de doos &  &  &  &  & \tabularnewline
-\hline 
-\end{tabular}%
+\begin{tabular}{|x{.3\textwidth}|x{.1\textwidth}|x{.1\textwidth}
+                |x{.1\textwidth}|x{.1\textwidth}|x{.1\textwidth}|}
+    \hline 
+    $\rho_{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10 \\
+    \hline 
+    Aantal korreltjes in de doos &  &  &  &  & \\
+    \hline 
+    \end{tabular}%
 \end{minipage}
 
 \bigskip{}
@@ -462,12 +391,12 @@ aantal korreltjes en bereken de massa couscous die nodig is.
 
 \bigskip{}
 
-
-\begin{tabular}{|>{\centering}p{3cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
+\begin{tabular}{|x{.3\textwidth}|x{.1\textwidth}|x{.1\textwidth}
+                |x{.1\textwidth}|x{.1\textwidth}|x{.1\textwidth}|}
 \hline 
-$\rho_{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10\tabularnewline
+$\rho_{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10 \\
 \hline 
-Massa couscous in de doos &  &  &  &  & \tabularnewline
+Massa couscous in de doos &  &  &  &  & \\
 \hline 
 \end{tabular}%
 \end{minipage}
@@ -532,62 +461,19 @@ triggerkans &  &  &  &  &  &  &  &  &  & \tabularnewline
 Met deze gegevens is een diagram voor de triggerkans als functie van
 de deeltjesdichtheid te maken.
 
-\begin{figure}[h]
+\begin{figure}[ht]
+    \paragraph{Opdracht 15:}
+    \textit{Maak het diagram van de triggerkans als functie van de
+            deeltjesdichtheid, voor een station met twee en een station
+            met vier detectoren.}
+    \bigskip{}
+    \begin{tikzpicture}
+        [gridlines/.style={color=gray,very thin}]
+        \draw [gridlines, step=.5cm] (0,0) grid (\textwidth,8cm);
+    \end{tikzpicture}
+    \bigskip{}
 
-\paragraph{Opdracht 15:}
-
-\textit{Maak het diagram voor een station met twee en een station
-met vier detectoren.\bigskip{}
-}
-
-\begin{tabular}{|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|>{\centering}p{0.1cm}|}
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
- &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \tabularnewline
-\hline 
-\end{tabular}
-
-\bigskip{}
-
-
-\caption{Het diagram van de triggerkans als functie van $\rho$}
+    \caption{Het diagram van de triggerkans als functie van $\rho$}
 \end{figure}
 
 
@@ -613,7 +499,7 @@ Tussen stations onderling geldt een nauwkeurigheid van \SI{15}{\nano\second}.
 Omdat de afstand tussen de stations bekend is, is er een vrij klein
 tijdvenster waarbinnen de detectoren deeltjes kunnen meten. Met de
 afstanden tussen de stations en de triggertijden is het zelfs mogelijk
-om de richting van de air-shower te bepalen {[}3{]}.
+om de richting van de air-shower te bepalen \cite{veen2013richting}.
 
 \bigskip{}
 
@@ -627,23 +513,20 @@ Dit venster hangt af van de afstand tussen de stations en de lichtsnelheid.
 De air-shower geeft het grootste tijdverschil als deze horizontaal
 door de opstelling beweegt. Een dergelijke air-shower wordt gegenereerd
 door een primair kosmisch deeltje met een extreem grote energie. In
-de praktijk komen deze air-showers zelden voor. }
+de praktijk komen deze air-showers zelden voor.}
 
 \textit{Bereken de grootte van het triggervenster in de volgende gevallen:}
 
 \bigskip{}
 
-
 \begin{tabular}{|c|>{\centering}p{1.5cm}|>{\centering}p{1.5cm}|>{\centering}p{1.5cm}|>{\centering}p{1.5cm}|}
-\hline 
-Afstand tussen de stations {[}m{]} & 100 & 200 & 500 & 1000\tabularnewline
-\hline 
-Duur van het triggervenster {[}ns{]} &  &  &  & \tabularnewline
-\hline 
+    \hline 
+    Afstand tussen de stations {[}m{]} & 100 & 200 & 500 & 1000\tabularnewline
+    \hline 
+    Duur van het triggervenster {[}ns{]} &  &  &  & \tabularnewline
+    \hline 
 \end{tabular}%
 \end{minipage}
-
-\newpage{}
 
 
 \subsection{Tijdsverschillen tussen stations}
@@ -695,25 +578,24 @@ tot de lijsten leeg zijn.
 verschillijsten van b en c, etc. Met deze lijsten zijn histogrammen
 te maken. 
 \end{itemize}
-We weten dat stations niet nauwkeuriger kunnen meten dan \SI{2,5}{\nano\second}.
-Karl Pearson (1857-1936) {[}4{]} ontwikkelde een methode om met lijsten
-gebeurtenissen een histogram te maken. In dit geval gaan we uit van
-het aantal verschiltijden (de frequentie van verschiltijden) tussen
-twee grenzen (de bin-waarden). Een reeks grenzen levert een reeks
-frequenties op. Hiermee is een histogram of staafdiagram te maken.
-We kunnen de grenzen bijvoorbeeld zo vastleggen:
+We weten dat stations niet nauwkeuriger kunnen meten dan
+\SI{2,5}{\nano\second}. Karl Pearson (1857-1936) \cite{wiki} ontwikkelde
+een methode om met lijsten gebeurtenissen een histogram te maken. In dit
+geval gaan we uit van het aantal verschiltijden (de frequentie van
+verschiltijden) tussen twee grenzen (de bin-waarden). Een reeks grenzen
+levert een reeks frequenties op. Hiermee is een histogram of
+staafdiagram te maken. We kunnen de grenzen bijvoorbeeld zo vastleggen:
 
 \bigskip{}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline 
-Bin-waarde {[}ns{]} & eerder & -7,5 tot 5 & -5 tot -2,5 & -2,5 tot 0 & 0 tot 2,5 & 2,5 tot 5 & 5 tot 7,5 & later\tabularnewline
+Bin-waarde {[}ns{]} & eerder & -7,5 tot -5 & -5 tot -2,5 & -2,5 tot 0 & 0 tot 2,5 & 2,5 tot 5 & 5 tot 7,5 & later\tabularnewline
 \hline 
 Frequentie &  &  &  &  &  &  &  & \tabularnewline
 \hline 
 \end{tabular}
 
 \bigskip{}
-
 
 Het maken van een dergelijke tabel is een behoorlijke klus met een
 spreadsheet programma. Het uiteindelijke histogram is langs de horizontale
@@ -740,24 +622,25 @@ in de tijd.}
 het totale aantal verschiltijden (coïncidenties) (N) en de minimale
 ($t_{min}$) en maximale ($t_{max}$) bin-waarde bekend zijn:}
 
-\begin{tabular}{>{\raggedright}p{16.6cm}}
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\tabularnewline
-\hline 
-\end{tabular}%
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
 \end{minipage}
 
 
-\section*{Referenties}
+\begin{thebibliography}{9}
+    \bibitem{nikhefhisparc} Nikhef, \emph{\hisparc Electronica},\\
+    \url{https://www.nikhef.nl/wetenschap-techniek/technische-afdelingen/
+         elektronicatechnologie/projecten/}.
 
-{[}1{]} https://www.nikhef.nl/wetenschap-techniek/technische-afdelingen/elektronicatechnologie/projecten/
+    \bibitem{wiki} Wikipedia, \\
+    \url{http://www.wikipedia.org}.
 
-{[}2{]}, {[}4{]} wikipedia
+    \bibitem{veen2013richting} C.G.N. van Veen, \emph{Richting
+    Reconstructie} (2013).
+\end{thebibliography}
 
-{[}3{]} Richting Reconstructie, C.G.N. van Veen
 \end{document}
