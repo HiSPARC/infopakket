@@ -75,14 +75,14 @@ de tweede of derde tijd van een single.
 
 \paragraph{Opdracht 1:}
 
-\textit{Bepaal hoe vaak het witte ledje in 1 minuut oplicht. Doe dit 5 keer
-en vul dit hieronder in de tabel in.}
+Bepaal hoe vaak het witte ledje in 1 minuut oplicht. Doe dit 5 keer
+en vul de resultaten hieronder in de tabel in.
 
 \begin{tabular}{|x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
                 |x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
                 |x{.11\textwidth}|}
     \cline{2-7} 
-    \multicolumn{1}{c|}{} & 1 & 2 & 3 & 4 & 5 & $N_{gem.}$\\
+    \multicolumn{1}{c|}{} & 1 & 2 & 3 & 4 & 5 & $N_\textrm{gem}$\\
     \hline 
     $N$ &  &  &  &  &  & \tabularnewline
     \hline 
@@ -95,8 +95,8 @@ en vul dit hieronder in de tabel in.}
 
 \paragraph{Opdracht 2:}
 
-\textit{Bepaal naast het gemiddelde ook de maximale en de minimale
-waarde. Leg uit welke nauwkeurigheid je verwacht.}
+Bepaal naast het gemiddelde ook de maximale en de minimale
+waarde. Leg uit welke nauwkeurigheid je verwacht.
 
 \begin{center}
     \rule{\textwidth}{0.3mm}\\
@@ -115,7 +115,7 @@ De nauwkeurigheid is ook wiskundig te bepalen. daartoe gaan we de spreiding $\si
 
 \paragraph{Opdracht 3:}
 
-\textit{Bereken het gemiddelde van $N^{2}$.}
+Bereken het gemiddelde van $N^{2}$.
 
 \bigskip{}
 
@@ -124,7 +124,7 @@ De nauwkeurigheid is ook wiskundig te bepalen. daartoe gaan we de spreiding $\si
                 |x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
                 |x{.11\textwidth}|}
     \cline{2-7} 
-    \multicolumn{1}{c|}{} & 1 & 2 & 3 & 4 & 5 & $\left(N^{2}\right)_{gem}$\\
+    \multicolumn{1}{c|}{} & 1 & 2 & 3 & 4 & 5 & $\left(N^{2}\right)_\textrm{gem}$\\
     \hline 
     $N^{2}$ &  &  &  &  &  & \\
     \hline 
@@ -133,9 +133,9 @@ De nauwkeurigheid is ook wiskundig te bepalen. daartoe gaan we de spreiding $\si
 \bigskip{}
 
 De spreiding is nu te berekenen met
-$\sigma=\sqrt{\left(N^{2}\right)_{gem}-\left(N_{gem}\right)^{2}}$ dit is
+$\sigma=\sqrt{\left(N^{2}\right)_\textrm{gem}-\left(N_\textrm{gem}\right)^{2}}$ dit is
 dus de wortel uit het gemiddelde van de kwadraten min het kwadraat van
-het gemiddelde ($N_{gem}$ is al in opdracht 1 berekend).
+het gemiddelde ($N_\textrm{gem}$ is al in opdracht 1 berekend).
 
 \end{minipage}
 
@@ -146,8 +146,8 @@ het gemiddelde ($N_{gem}$ is al in opdracht 1 berekend).
 
 \paragraph{Opdracht 4:}
 
-\textit{Welke conclusie mag je trekken als je de waarden die je bij
-opdracht 2 en 3 hebt gevonden vergelijkt?}
+Welke conclusie mag je trekken als je de waarden die je bij
+opdracht 2 en 3 hebt gevonden vergelijkt?
 
 \begin{center}
     \rule{\textwidth}{0.3mm}\\
@@ -187,9 +187,9 @@ het triggervenster van \SI{1.5}{\micro\second} te berekenen.
 
 \paragraph{Opdracht 5:}
 
-\textit{Bereken (met een boxplot) hoe groot de kans is dat er een
+Bereken (met een boxplot) hoe groot de kans is dat er een
 tweede radioactief verval binnen \SI{1.5}{\micro\second} van de eerste
-radioactief verval optreed:}
+radioactief verval optreedt.
 
 \begin{center}
     \rule{\textwidth}{0.3mm}\\
@@ -210,14 +210,14 @@ Poisson \cite{wiki} gepubliceerd:
 
 Hierin is $k=1$ als een tweede detector precies éénmaal getriggerd
 wordt. $\lambda$ is hier de frequentie van de achtergrondstraling
-maal de duur van het triggervenster $\left(\lambda=f_{single}*T_{venster}\right)$. 
+maal de duur van het triggervenster $\left(\lambda=f_{single}*T_\textrm{venster}\right)$. 
 
 \begin{minipage}[t]{1\columnwidth}%
 
 \paragraph{Opdracht 6:}
 
-\textit{Laat zien dat de met de boxplot berekende waarde nauwelijks
-afwijkt van de met de Poisson-formule berekende waarde $P_{k=1}$.}
+Laat zien dat de met de boxplot berekende waarde nauwelijks
+afwijkt van de met de Poisson-formule berekende waarde $P_{k=1}$.
 
 \begin{center}
     \rule{\textwidth}{0.3mm}\\
@@ -237,9 +237,9 @@ dat er GEEN toevallige trigger optreedt is $P_{k=0}$.
 
 \paragraph{Opdracht 7:}
 
-\textit{Met de kans dat er geen toevallige trigger optreed, is de
+Met de kans dat er geen toevallige trigger optreed, is de
 kans op een toevallige trigger ook te berekenen. (De kans op een trigger
-plus de kans op geen trigger is 100\%.) Bereken deze kans:}
+plus de kans op geen trigger is 100\%.) Bereken deze kans.
 
 \begin{center}
     \rule{\textwidth}{0.3mm}\\
@@ -254,15 +254,15 @@ plus de kans op geen trigger is 100\%.) Bereken deze kans:}
 De duur van het triggervenster is van belang als we naar de kans op
 toevallige triggers kijken. We kunnen een grafiek maken van de kans
 op een toevallige trigger als functie van de duur van het triggervenster
-$T_{venster}$. Er geldt: $\lambda=f_{single}*T_{venster}$, en dit
-geval wordt dit: $\lambda=100*T_{venster}$$ $. 
+$T_\textrm{venster}$. Er geldt: $\lambda=f_{single}*T_\textrm{venster}$, en dit
+geval wordt dit: $\lambda=100*T_\textrm{venster}$$ $. 
 
 \begin{minipage}[t]{1\columnwidth}%
 
 \paragraph{Opdracht 8:}
 
-\textit{Maak de onderstaande tabel voor een station met twee detectoren
-af:}
+Maak de onderstaande tabel voor een station met twee detectoren
+af.
 
 \bigskip{}
 
@@ -271,9 +271,9 @@ af:}
                 |x{.07\textwidth}|x{.07\textwidth}|x{.07\textwidth}
                 |x{.07\textwidth}|x{.07\textwidth}|}
     \hline 
-    $T_{venster}$ {[}$\mu\mathrm{s}${]} & 1,5 & 3,0 & 7,5 & 15 & 30 & 75 & 150\tabularnewline
+    $T_\textrm{venster}$ {[}$\mu\mathrm{s}${]} & 1,5 & 3,0 & 7,5 & 15 & 30 & 75 & 150\tabularnewline
     \hline 
-    $P_{trigger}=1-P_{k=0}$ &  &  &  &  &  &  & \tabularnewline
+    $P_\textrm{trigger}=1-P_{k=0}$ &  &  &  &  &  &  & \tabularnewline
     \hline 
 \end{tabular}
 \end{minipage}
@@ -284,8 +284,8 @@ af:}
 \begin{figure}[ht]
     \paragraph{Opdracht 9:}
 
-    \textit{Maak het diagram van de kans op een toevallige trigger als
-    functie van de duur van het triggervenster.\bigskip{}}
+    Maak het diagram van de kans op een toevallige trigger als
+    functie van de duur van het triggervenster.\bigskip{}
 
     \begin{tikzpicture}
         [gridlines/.style={color=gray,very thin}]
@@ -305,9 +305,9 @@ meer.
 
 \paragraph{Opdracht 10:}
 
-\textit{Beredeneer hoe groot de kans op een toevallige trigger is
+Beredeneer hoe groot de kans op een toevallige trigger is
 bij een station met 4 detectoren en een triggervenster van \SI{1.5}{\micro\second}
-(Denk aan het aantal mogelijke combinaties!):}
+(Denk aan het aantal mogelijke combinaties!).
 
 \begin{center}
     \rule{\textwidth}{0.3mm}\\
@@ -341,9 +341,9 @@ plattegrond zijn de scintillatorplaten van \SI{0.500}{\meter} bij
 
 \paragraph{Opdracht 11:}
 
-\textit{Bepaal het oppervlak in de doos in $\mathrm{cm^{2}}$. In
+Bepaal het oppervlak in de doos in $\mathrm{cm^{2}}$. In
 werkelijkheid komt dit overeen met een oppervlak in $\mathrm{m^{2}}$,
-dit tweede oppervlak is te berekenen.}
+dit tweede oppervlak is te berekenen.
 
 \begin{center}
     \rule{\textwidth}{0.3mm}\\
@@ -362,14 +362,14 @@ met korreltjes couscous.
 
 \paragraph{Opdracht 12:}
 
-\textit{Bereken hoeveel deeltjes nodig zijn:}
+Bereken hoeveel deeltjes nodig zijn.
 
 \bigskip{}
 
 \begin{tabular}{|x{.3\textwidth}|x{.1\textwidth}|x{.1\textwidth}
                 |x{.1\textwidth}|x{.1\textwidth}|x{.1\textwidth}|}
     \hline 
-    $\rho_{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10 \\
+    $\rho_\textrm{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10 \\
     \hline 
     Aantal korreltjes in de doos &  &  &  &  & \\
     \hline 
@@ -384,14 +384,14 @@ aantal korreltjes en bereken de massa couscous die nodig is.
 
 \paragraph{Opdracht 13:}
 
-\textit{Bereken de massa couscous:}
+Bereken de massa couscous.
 
 \bigskip{}
 
 \begin{tabular}{|x{.3\textwidth}|x{.1\textwidth}|x{.1\textwidth}
                 |x{.1\textwidth}|x{.1\textwidth}|x{.1\textwidth}|}
     \hline 
-    $\rho_{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10 \\
+    $\rho_\textrm{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10 \\
     \hline 
     Massa couscous in de doos &  &  &  &  & \\
     \hline 
@@ -414,8 +414,8 @@ kunnen aanvinken of het ,,station'' getriggerd wordt of niet. Let op,
 
 \paragraph{Opdracht 14:}
 
-\textit{Voer het experiment een aantal keren uit en bepaal de kans
-dat het station getriggerd wordt.}
+Voer het experiment een aantal keren uit en bepaal de kans
+dat het station getriggerd wordt.
 
 \bigskip{}
 
@@ -462,9 +462,9 @@ de deeltjesdichtheid te maken.
 
 \begin{figure}[ht]
     \paragraph{Opdracht 15:}
-    \textit{Maak het diagram van de triggerkans als functie van de
+    Maak het diagram van de triggerkans als functie van de
             deeltjesdichtheid, voor een station met twee en een station
-            met vier detectoren.}
+            met vier detectoren.
     \bigskip{}
     \begin{tikzpicture}
         [gridlines/.style={color=gray,very thin}]
@@ -472,7 +472,7 @@ de deeltjesdichtheid te maken.
     \end{tikzpicture}
     \bigskip{}
 
-    \caption{Het diagram van de triggerkans als functie van de deeltjesdichtheid $\rho$}
+    \caption{Het diagram van de triggerkans als functie van de deeltjesdichtheid $\rho$.}
 \end{figure}
 
 
@@ -507,14 +507,14 @@ om de richting van de air-shower te bepalen \cite{veen2013richting}.
 
 \paragraph{Opdracht 16}
 
-\textit{Ook bij coïncidenties kan een triggervenster worden gebruikt.
+Ook bij coïncidenties kan een triggervenster worden gebruikt.
 Dit venster hangt af van de afstand tussen de stations en de lichtsnelheid.
 De air-shower geeft het grootste tijdverschil als deze horizontaal
 door de opstelling beweegt. Een dergelijke air-shower wordt gegenereerd
 door een primair kosmisch deeltje met een extreem grote energie. In
-de praktijk komen deze air-showers zelden voor.}
+de praktijk komen deze air-showers zelden voor.
 
-\textit{Bereken de grootte van het triggervenster in de volgende gevallen:}
+Bereken de grootte van het triggervenster in de volgende gevallen:
 
 \bigskip{}
 
@@ -619,7 +619,7 @@ in de tijd.}
 
 \textit{Bedenk een methode om de bin-breedte handig te kiezen als
 het totale aantal verschiltijden (coïncidenties) (N) en de minimale
-($t_{min}$) en maximale ($t_{max}$) bin-waarde bekend zijn:}
+($t_\textrm{min}$) en maximale ($t_\textrm{max}$) bin-waarde bekend zijn:}
 
 \begin{center}
     \rule{\textwidth}{0.3mm}\\
