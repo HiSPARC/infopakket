@@ -10,10 +10,10 @@
 
 \section{\gps bij \hisparc}\label{sec:gps_hisparc}
 
-Bij \hisparc is het belangrijk dat we van ieder meetstation weten waar
-het zich bevindt en precies op welk moment het iets meet. Voor zowel de
+Bij \hisparc is het belangrijk dat we van ieder meetstation precies weten waar
+het zich bevindt en op welk moment het iets meet. Voor zowel de
 tijd als positie bepaling gebruiken we \gps. In dit document wordt
-uitgelegd wat \gps is, waarom we het gebruiken, en hoe de \gps bij een
+uitgelegd wat \gps is, waarom we het gebruiken, hoe de \gps bij een
 \hisparc meetstations moet worden afgesteld en gekalibreerd en waarom we
 voor bepaalde instellingen hebben gekozen.
 
@@ -33,7 +33,7 @@ ongeveer \SI{20200}{\kilo\meter} boven de aarde. Elke satelliet cirkelt
 in 12 uur om de aarde en zal daardoor (de aarde draait immers zelf ook)
 elke 24 uur boven dezelfde plek op aarde zijn. Er zijn ook een aantal
 tegenhangers van \gps ontwikkeld, namelijk het Russische GLONASS en het
-Europeese Galileo\footnote{Dit systeem is nog niet compleet, maar wordt
+Europese Galileo\footnote{Dit systeem is nog niet compleet, maar wordt
 verwacht binnen een paar jaar operationeel te zijn.}. Tegenwoordig wordt
 \gps door bijna iedereen gebruikt. Zo zitten er \gps ontvangers in onder
 andere telefoons, auto's en ook de \hisparc electronica.
@@ -44,7 +44,7 @@ andere telefoons, auto's en ook de \hisparc electronica.
     \caption{Concept tekening van de volgende generatie \gps satellieten
     genaamd \gps Block IIIA. De eerste hiervan wordt in 2014 gelanceerd.
     Deze zullen een aantal nieuwe signalen uitzenden en meer zendkracht
-    hebben, dit zal leiden tot hogere nauwkeurigheid voor de gebruikers.}
+    hebben. Dit moet leiden tot hogere nauwkeurigheid voor de gebruikers.}
     \label{fig:GPSBlockIIIA}
 \end{figure}
 
@@ -64,17 +64,17 @@ andere telefoons, auto's en ook de \hisparc electronica.
 Vroeger gebruikte men de zon en sterren om een ruwe schatting te maken
 van de tijd \cite{gent2003wet}. Vanaf de dertiende eeuw werd er in
 Europa gebruik gemaakt van mechanische uurwerken, maar deze waren zo
-onnauwkeurig dat ze iedere dag aan de hand van de zon moesten worden
+onnauwkeurig dat ze elke dag aan de hand van de stand van de zon moesten worden
 bijgesteld. In 1656 werd door Christiaan Huygens het slingeruurwerk
-uitgevonden, deze was tot op een aantal seconden nauwkeurig over een
+uitgevonden. Deze was tot op een aantal seconden nauwkeurig over een
 aantal dagen. Zo'n 10 jaar later ontwierp hij een klok met een
-spiraalveer die in kleinere uurwerken gebruikt kon worden, zo kon men
+spiraalveer die in kleinere uurwerken gebruikt kon worden; zo kon men
 ook een nauwkeurigere tijd bij zich dragen.
 
 Het bijstellen van de openbare klokken werd binnen een stad vaak door
-een lokale klokkenmaker gedaan, er was dus geen algemene tijd. Dit
+een lokale klokkenmaker gedaan; er was nog geen algemene tijd. Dit
 betekende dat er tussen de meeste steden een tijdverschil was. Naarmate
-de klokken nauwkeuriger werden werd het interessanter om betere tijd
+de nauwkeurigheid van de klokken toenam werd het interessanter om betere tijd
 afspraken te maken binnen een land. Zo werd in veel Europese landen de
 middelbare zonnetijd gebruikt. In Nederland was daar nog weerstand tegen
 omdat niet elke gemeente over de financiële middelen beschikte om de
@@ -90,17 +90,19 @@ Nederland is de middelbare zonnetijd van Amsterdam'' (Staatsblad
 1908/236). Later kwamen er Europese en wereldwijde afspraken over
 tijdzones, zomer- en wintertijd.
 
-Tegenwoordig wordt tijd bijgehouden door atoomklokken, uitgevonden door
+Tegenwoordig wordt de tijd bijgehouden door atoomklokken, uitgevonden door
 de Amerikaanse National Institute of Standards and Technology (NIST).
-Het NIST heeft een klok die zo nauwkeurig dat die in na 100 miljoen jaar
-nog geen seconde verkeerd zal lopen \cite{nist2013ces}. \gps doet niet
+Het NIST heeft een klok die zo nauwkeurig is dat het in 100 miljoen jaar
+nog geen seconde verkeerd zal lopen \cite{nist2013ces}.
+
+\gps doet niet
 mee aan zomer- en wintertijd, en ook niet aan de
 schrikkelseconde\footnote{Een extra seconde die af en toe aan de tijd
 wordt toegevoegd ter correctie van het verschil tussen de zonnedag en de
 \SI{24}{uur} die als dag gezien wordt.}. Dit betekent dat de \gps
 precies het aantal seconden sinds 1 January 1970 aangeeft. In het
-verleden werkten we met UTC tijd. Maar door de schrikkelseconden kan een
-tijdstempel twee keer voorkomen, daarom gebruiken we nu \gps-tijd.
+verleden werkte \hisparc met UTC-tijd, maar dat had als nadeel dat vanwege de schrikkelseconden een
+tijdstempel twee keer kon voorkomen. Daarom wordt voor \hisparc nu gebruik gemaakt van \gps-tijd.
 
 
 \section{Tijd en positie bepaling}
@@ -114,45 +116,33 @@ onderlinge posities met een meetlint en kompas te bepalen. Ook is het
 niet mogelijk om de stations zo aan elkaar te koppelen dat hun klokken
 tot op een aantal nanoseconden nauwkeurig gelijk staan.
 
-Het bepalen van je eigen positie in 3 dimensies kan met behulp van het
-weten wat de afstanden zijn naar 3 bekende locaties, dit heet
-trilateratie. Je zal dan namelijk 2 mogelijke plekken vinden, waarvan er
-maar 1 logisch is, die die afstanden heeft tot de 3 andere punten.
+Je eigen positie in 3 dimensies kun je bepalen als je de afstanden weet ten opzichte van 3 bekende posities. Deze methode heet
+trilateratie. Je zal dan namelijk 2 mogelijke posities vinden die precies die 3 afstanden heeft tot de andere posities. Van deze twee posities is er maar \'e\'en logisch.
 
-Hieronder zijn de vergelijkingen te zien, die hier belangrijk zijn, als
-eerst voor 1 dimensie, dan 2 en daarna 3. Er komt steeds een extra
-onbekende bij, maar ook een vergelijking, waardoor het op te lossen
-blijft. Stel je voor dat je op een lijn staat (x-as) en de absolute
-afstand ($d_1$) tussen jou en een ander punt ($x_1$) op dezelfde lijn
-weet, dan kan je x vinden door deze vergelijking op te lossen:
-
+Hieronder zijn de vergelijkingen te zien die horen bij de trilateratie methode. Eerst voor 1, dan voor 2 en tenslotte voor 3 dimensies. Er komt steeds een onbekende coördinaat bij. Omdat er ook steeds een vergelijking bij komt is het stelsel vergelijkingen telkens op te lossen. Voor het 1 dimensionale geval kun je veronderstellen dat je ergens op een lijn staat, bijvoorbeeld de $x$-as. Jouw onbekende positie is dan $x$. Als je de absolute
+afstand $d_1$ tussen jou en een ander punt $x_1$ op dezelfde lijn
+weet, dan kan je $x$ vinden door de volgende vergelijking op te lossen:
 \begin{equation}
     \label{eq:1d_trilateratie}
     \begin{array}{rcl}
          d_1^2 = (x_1-x)^2 \\
     \end{array}
 \end{equation}
-
 Hier zijn twee oplossingen voor, namelijk $x = x_1+d_1$ en $x =
-x_1-d_1$. In 2 dimensies komt er een tweede onbekende coördinaat bij
-($y$), als je hier weer alleen de afstand tot een ander punt weet is de
-oplossing voor $x$ en $y$ en cirkel rond punt $x_1, y_1$ met straal
-$d_1$. Hier is dus een extra punt en afstand nodig om je plek te
-vinden. Dit geeft de volgende vergelijking:
-
+x_1-d_1$. 
+In 2 dimensies komt er een tweede onbekende coördinaat bij, $y$. Als je alleen de afstand $d_1$ tot een ander punt weet is de
+oplossing voor $x$ en $y$ een cirkel met middelpunt $(x_1, y_1)$ en straal
+$d_1$. De afstand $d_2$ tot een tweede punt $(x_2, y_2)$ is dus noodzakelijk om je positie te
+bepalen. Dan onstaat het volgende stelsel vergelijkingen:
 \begin{equation}
-    \label{eq:2d_trailateratie}
+    \label{eq:2d_trilateratie}
     \begin{array}{rcl}
          d_1^2 = (x_1-x)^2+(y_1-y)^2 \\
          d_2^2 = (x_2-x)^2+(y_2-y)^2 \\
     \end{array}
 \end{equation}
-
-In 3 dimensies willen we ook een $z$ positie en kijken we naar de
-kruispunten tussen bollen. In de volgende vergelijking
-(\ref{eq:trilateratie}) is dit te zien, hier zijn alleen $x$, $y$ en $z$
-nog onbekend. En ook hier vindt je 2 mogelijke oplossingen
-
+Het stelsel heeft twee mogelijke oplossingen (de snijpunten van de twee cirkels).
+In 3 dimensies willen we ook onze $z$ coördinaat bepalen. Het stelsel vergelijkingen wordt dan:
 \begin{equation}
     \label{eq:trilateratie}
     \begin{array}{rcl}
@@ -161,23 +151,21 @@ nog onbekend. En ook hier vindt je 2 mogelijke oplossingen
          d_3^2 = (x_3-x)^2+(y_3-y)^2+(z_3-z)^2 \\
     \end{array}
 \end{equation}
+In deze 3 vergelijkingen zijn $x$, $y$ en $z$
+de 3 onbekenden. Ook nu zijn er 2 mogelijke oplossingen (de snijpunten van 3 bollen). 
 
-Bij \gps wordt er geen meetlint tussen de ontvanger en de satelliet
-gespannen om achter deze afstanden te komen, maar kijkt de ontvanger
+Bij \gps wordt, uiteraard, geen meetlint tussen de ontvanger en de satelliet
+gespannen om achter de 3 benodigde afstanden te komen. In plaats daarvan kijkt de ontvanger
 naar het tijdverschil tussen de tijd waarop de \gps satelliet het
 signaal uitzendt en de tijd waarop hij dit signaal ontvangt
 \cite{blewitt1997gps}. Als dit tijdverschil vermenigvuldigd wordt met de
 lichtsnelheid (radiosignalen gaan met de lichtsnelheid) heb je een
 afstand. De \gps satellieten zenden ook een datapakket uit waarmee de
 posities van alle \gps satellieten op een bepaalde tijd te bepalen valt.
-De \gps satelliet positie is dus een functie van de tijd waarop een
-satelliet zijn signaal uitzend.
-
-Het enige wat nog niet zeker is is of de tijd op de klok van de
-ontvanger correct is. Om deze extra onbekende op te lossen is dus het
-signaal van een 4e satelliet nodig. Het stelsel van vergelijkingen wat
-opgelost moet worden is dus te zien in vergelijking \ref{eq:gps_stelsel}.
-
+De positie van een \gps satelliet hangt dus af van de tijd waarop een
+satelliet een signaal uitzend. Het is echter nog onzeker of de tijd op de klok van de
+ontvanger correct is. Om deze extra onbekende op te lossen is het
+signaal van een 4e satelliet nodig. Het stelsel van vergelijkingen wordt daardoor als volgt:
 \begin{equation}
     \label{eq:gps_stelsel}
     \begin{array}{rcl}
@@ -187,22 +175,21 @@ opgelost moet worden is dus te zien in vergelijking \ref{eq:gps_stelsel}.
         d_4^2 = (c(t_{s,4}-t_{r,4}))^2 = (x_4-x)^2+(y_4-y)^2+(z_4-z)^2 \\
     \end{array}
 \end{equation}
-
-Eigenlijk volgen hier ook 2 mogelijke locaties uit, maar meestal bevindt
+Eigenlijk volgen hier ook 2 mogelijke posities uit, maar meestal bevindt
 de ontvanger zich op de Aarde, en zal de oplossing het dichtst bij de
-Aarde correct zijn. Deze situatie is in 2D geschetst in
+Aarde is dan logischerwijs de correcte oplossing. Deze situatie is in 2D geschetst in
 \figref{fig:Trilateratie}.
 
 \begin{figure}
     \centering
     \includegraphics[scale=.6]{Trilateratie}
     \caption{Dit is een schematische weergave van trilateratie met \gps
-             signalen. In dit voorbeeld is de y-as weggelaten. De
+             signalen. In dit voorbeeld is de $y$-as weggelaten. De
              satellieten ($S_{1,2}$) sturen signalen uit waar hun tijd
              en posities in zitten. De posities van de satellieten zijn
              dus bekend. De afstanden $d_{1,2}$ zijn te bepalen met
-             behulp van het tijdverschil tussen $t_{verzonden}$ en
-             $t_{ontvangst}$, als de tijd bij de ontvanger niet accuraat
+             behulp van het tijdverschil tussen $t_\textrm{verzonden}$ en
+             $t_\textrm{ontvangst}$, als de tijd bij de ontvanger niet accuraat
              is is een extra satelliet nodig. Met deze afstanden zijn
              twee punten te vinden die die afstanden tot de satellieten
              hebben, maar er is er maar één op de Aarde!}
@@ -224,15 +211,10 @@ verschillende stukken van de atmosfeer, door dus gebruik te maken van
 meerdere satellieten kunnen deze effecten uitgemiddeld worden.
 
 Elke \gps satelliet heeft een zeer nauwkeurige cesium of rubidium
-atoomklok aan boord, deze kan heel nauwkeurig de tijd bijhouden. Hoewel
-de \gps satellieten heel nauwkeurig tijd bij kunnen houden hebben ze wel
-last van relativiteit. De klokken in \gps satellieten lijken langzamer
-te gaan vanuit ons gezien, doordat ze rond de aarde gaan met zo'n
-\SI{14000}{\kilo\meter\per\hour}, maar door de kromming van de ruimte
-door de zwaartekracht van de aarde lijkt het juist alsof de klokken in
-de \gps satellieten sneller gaan dan op de aarde! Per dag betekend dit
-dat de klokken in de satelliet zo'n \SI{38}{\micro\second} op ons
-voorlopen, hier wordt natuurlijk voor gecorrigeerd \cite{ashby1997gen}.
+atoomklok aan boord die heel nauwkeurig de tijd kan bijhouden. ook nauwkeurige atoomklokken zijn onderworpen aan de wetten van de relativiteitstheorie. Enerzijds worden de klokken in \gps satellieten iets vertraagd, omdat ze rond de aarde bewegen met zo'n
+\SI{14000}{\kilo\meter\per\hour}. Anderzijds worden de klokken in \gps satellieten iets versneld, vanwege de kromming van de ruimte
+door de zwaartekracht. Netto lopen de klokken in de \gps satellieten per dag zo'n \SI{38}{\micro\second} op ons
+voor. Hier wordt natuurlijk voor gecorrigeerd \cite{ashby1997gen}.
 Dit levert uiteindelijk een signaal op waarmee we tot
 \SI{10}{\nano\second} nauwkeurig het begin van een seconde kunnen
 aangeven op aarde. De meeste \gps modules geven een PPS af, een Pulse
@@ -247,14 +229,14 @@ $\sigma_t\sim\SI{4.5}{\nano\second}$ \cite{trimble2007res}.
 \section{Instellingen}
 
 De \hisparc Master heeft een ingebouwde \gps module. De instellingen van
-de \gps worden in het kastje opgeslagen. Het is belangrijk om vóór en af
+de \gps worden in het kastje opgeslagen. Het is belangrijk om vóór gebruik, en af
 en toe tijdens gebruik, deze instellingen te controleren. Vooraf moet de
 \gps een zogenoemde \emph{Self-Survey} uitvoeren om zijn positie vast te
 leggen zodat het mogelijk is de \gps als nauwkeurig tijdinstrument te
 gebruiken.
 
 Het \gps monitor programma (\dspmon) is te vinden onder onder \hisparc
-in het Start Menu. Als in alle tekstvelden een vraagteken staat en de
+in het \emph{Start} menu. Als in alle tekstvelden een vraagteken staat en de
 indicatielampjes op grijs staan, zoals in
 \figref{fig:dspmon_main_nocom}, dan heeft het programma de \gps nog niet
 gevonden. Rechts onderin het venster kan door rechts-klikken op \emph{No
@@ -297,7 +279,7 @@ aanpassingen op te slaan en toe te passen.
 
 Als de \gps antenne positie nog niet bepaald is moet deze met behulp van
 de Self-Survey gevonden worden. De Self-Survey kan gestart worden via
-het Control menu. Start hier de Self-Survey (na deze ingesteld te hebben
+het \emph{Control} menu. Start hier de Self-Survey (na deze ingesteld te hebben
 zoals in \figref{fig:dspmon_survey}) en kom een dag later terug om het
 instellen af te maken! Vergeet niet na het bepalen van de positie om in
 de \hisparc \daq de \daq mode uit en weer aan te zetten om zo de nieuwe
@@ -311,7 +293,7 @@ de configuratie van het meetstation verstuurd naar de server.
     Voor \hisparc is het van belang dat de tijd heel nauwkeurig bepaald
     wordt en staat de \gps vast. Vandaar dat we kiezen voor
     \emph{Overdetermined Clock} en \emph{Stationary}. De \emph{Elevation
-    Mask} geeft aan dat satellieten minimaal \SI{10}{degree} boven de
+    Mask} geeft aan dat satellieten minimaal \SI{10}{ degree} boven de
     grond moeten zijn om meegenomen te worden, omdat het signaal van
     lage satellieten eerder verstoord is door de atmosfeer.}
     \label{fig:dspmon_receiver}
@@ -364,7 +346,7 @@ Na het instellen van de \gps en het doorlopen van de Self-Survey is in
 de \hisparc \daq als het goed is de \gps positie te zien en kan je in
 het Satellites tabblad de signaal sterktes van de satellieten zien. Dit
 is een grafiek waarin de kleur de sterkte van het signaal aangeeft, de
-y-as het satelliet nummer en de x-as de tijd (tot 2 dagen in het
+$y$-as het satelliet nummer en de $x$-as de tijd (tot 2 dagen in het
 verleden). Na verloop van tijd zal er dus een grafiek zijn opgebouwd
 waarin je goed kan zien hoe \gps signalen zich gedragen over het verloop
 van de dag. In \figref{fig:hisparcdaq_satellites} is hier een voorbeeld
