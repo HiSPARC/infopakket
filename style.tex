@@ -1,4 +1,4 @@
-\documentclass[oneside, 11pt]{article}
+\documentclass[twoside, 11pt]{article}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -33,20 +33,16 @@
 \usepackage{tikz}
 \usepackage{tikz-3dplot}
 \usepackage{pgfplots}
-\usetikzlibrary{plotmarks,circuits.ee.IEC,pgfplots.groupplots,external}
+\usetikzlibrary{plotmarks,circuits.ee.IEC,pgfplots.groupplots,external,calc}
 \pgfplotsset{compat=1.3}
 
 \usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{\thepage}
-\renewcommand{\footrulewidth}{0pt}
-\renewcommand{\headrulewidth}{0pt}
 
 \usepackage{relsize}
 \usepackage{xspace}
 \usepackage{url}
 \usepackage{sansmath}
+\usepackage{titling}
 
 \newcommand{\figref}[1]{Figuur~\ref{#1}}
 
@@ -84,3 +80,86 @@
 \DeclareSIUnit{\parsec}{pc}
 \DeclareSIUnit{\year}{yr}
 
+
+%% Document style definitions
+
+% macros and commands
+\newcommand{\shorttitle}[1]{\def\theshorttitle{#1}}
+\newcommand{\docindex}[1]{\def\thedocindex{#1}}
+\newcommand{\version}[1]{\def\theversion{#1}}
+\newcommand{\setsectionstyle}[2]{
+  \colorlet{seccolor}{#1}
+  \def\thesectiontitle{#2}
+}
+
+\newcommand{\setdocumentstyle}[4]{
+  \setsectionstyle{#1}{#2}
+  \docindex{#3}
+  \shorttitle{#4}
+}
+
+\newcommand{\doctheorie}[2]{\setdocumentstyle{red}{Theorie}{#1}{#2}}
+
+% style definitions
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[O]{\rightthumb}
+\fancyhead[E]{\leftthumb}
+\fancyfoot[C]{\theshorttitle\ -- \thepage}
+\fancyfoot[LE,RO]{\textcolor{gray}{\smaller Versie \theversion}}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0pt}
+
+\pgfmathsetlengthmacro\stylemarginsep{+1cm}
+
+\newcommand{\rightthumb}{
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[seccolor]
+    ($(current page.north east) + (-\stylemarginsep, -.5cm)$) --
+    ($(current page.south east) + (-\stylemarginsep, .5cm)$);
+
+  \fill[seccolor]
+    ($(current page.north east) +
+      (-\stylemarginsep, -2cm -\thedocindex * .5cm)$)
+      rectangle +(.5cm, -.5cm);
+\end{tikzpicture}
+}
+
+\newcommand{\leftthumb}{
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[seccolor]
+    ($(current page.north west) + (\stylemarginsep, -.5cm)$) --
+    ($(current page.south west) + (\stylemarginsep, .5cm)$);
+
+  \fill[seccolor]
+    ($(current page.north west) +
+      (\stylemarginsep, -2cm -\thedocindex * .5cm)$)
+      rectangle +(-.5cm, -.5cm);
+\end{tikzpicture}
+}
+
+\renewcommand{\maketitle}{
+  \suppressfloats
+
+  \begin{titlepage}
+  \thispagestyle{fancy}
+  \let\endtitlepage\relax
+  \begin{tikzpicture}[remember picture, overlay,
+    titlebox/.append style={seccolor, fill, text=white, minimum height=1cm,
+      font=\sffamily\huge, draw=none},
+    authorbox/.append style={minimum height=.5cm, font=\sffamily}]
+
+    \node[titlebox, anchor=north west, shift={(2cm, -1cm)}] at
+      (current page.north west) {\thesectiontitle};
+
+    \node[anchor=north west, shift={(1.83cm, -2cm)}] at
+      (current page.north west) {\includegraphics[scale=.8]{../HiSPARC_header}};
+
+    \node[titlebox, anchor=north east, shift={(-\stylemarginsep, -1cm)}] at
+      (current page.north east) {\thetitle};
+
+    \node[authorbox, anchor=north east, shift={(-\stylemarginsep, -2cm)}] at
+      (current page.north east) {\theauthor};
+  \end{tikzpicture}
+  \end{titlepage}
+}
