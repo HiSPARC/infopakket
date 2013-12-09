@@ -30,6 +30,7 @@
 \graphicspath{{Figures/}}
 \usepackage{subfig}
 
+\usepackage[svgnames]{xcolor}
 \usepackage{tikz}
 \usepackage{tikz-3dplot}
 \usepackage{pgfplots}
@@ -98,7 +99,14 @@
   \shorttitle{#4}
 }
 
-\newcommand{\doctheorie}[2]{\setdocumentstyle{red}{Theorie}{#1}{#2}}
+\newcommand{\docalgemeen}[2]{\setdocumentstyle{red}{Algemeen}{#1}{#2}}
+\newcommand{\docinstallatie}[2]{\setdocumentstyle{Gold}{Installatie}{#1}{#2}}
+\newcommand{\docdetector}[2]{\setdocumentstyle{blue}{Detector}{#1}{#2}}
+\newcommand{\docweerstation}[2]{\setdocumentstyle{LightSlateGray}{Weerstation}{#1}{#2}}
+\newcommand{\docbliksem}[2]{\setdocumentstyle{orange}{Bliksem}{#1}{#2}}
+\newcommand{\docanalyse}[2]{\setdocumentstyle{DarkViolet}{Data-analyse}{#1}{#2}}
+\newcommand{\docwerkblad}[2]{\setdocumentstyle{ForestGreen}{Werkblad}{#1}{#2}}
+\newcommand{\docdocent}[2]{\setdocumentstyle{DarkKhaki}{Docent}{#1}{#2}}
 
 % style definitions
 \pagestyle{fancy}
