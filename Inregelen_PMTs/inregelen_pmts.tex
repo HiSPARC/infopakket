@@ -20,6 +20,29 @@
 
 \fancyhead{\thumb}
 \fancyfoot[C]{\theshorttitle\ -- \thepage}
+
+\renewcommand{\maketitle}{
+  \suppressfloats
+
+  \begin{titlepage}
+  \thispagestyle{fancy}
+  \let\endtitlepage\relax
+  \begin{tikzpicture}[remember picture, overlay,
+    titlebox/.append style={seccolor, fill, text=white, minimum height=1cm,
+      font=\sffamily\huge, draw=none},
+    authorbox/.append style={minimum height=.5cm, font=\sffamily}]
+
+    \node[titlebox, anchor=north west, shift={(2cm, -1cm)}] at
+      (current page.north west) {Theorie};
+
+    \node[titlebox, anchor=north east, shift={(-\stylerightmargin, -1cm)}] at
+      (current page.north east) {\thetitle};
+
+    \node[authorbox, anchor=north east, shift={(-\stylerightmargin, -2cm)}] at
+      (current page.north east) {\theauthor};
+  \end{tikzpicture}
+  \end{titlepage}
+}
 % end part
 
 
@@ -33,26 +56,8 @@
 
 
 \begin{document}
-\suppressfloats
 
-\begin{titlepage}
-\thispagestyle{fancy}
-\let\endtitlepage\relax
-\begin{tikzpicture}[remember picture, overlay,
-  titlebox/.append style={seccolor, fill, text=white, minimum height=1cm,
-    font=\sffamily\huge, draw=none},
-  authorbox/.append style={minimum height=.5cm, font=\sffamily}]
-
-  \node[titlebox, anchor=north west, shift={(2cm, -1cm)}] at
-    (current page.north west) {Theorie};
-
-  \node[titlebox, anchor=north east, shift={(-\stylerightmargin, -1cm)}] at
-    (current page.north east) {\thetitle};
-
-  \node[authorbox, anchor=north east, shift={(-\stylerightmargin, -2cm)}] at
-    (current page.north east) {\theauthor};
-\end{tikzpicture}
-\end{titlepage}
+\maketitle
 
 \section{Werking van een \pmt}
 
