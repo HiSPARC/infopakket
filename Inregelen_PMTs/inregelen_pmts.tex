@@ -3,12 +3,18 @@
 % This part will be refactored into style.tex
 \newcommand{\shorttitle}[1]{\def\theshorttitle{#1}}
 \newcommand{\docindex}[1]{\def\thedocindex{#1}}
-
 \newcommand{\setsectionstyle}[2]{
   \colorlet{seccolor}{#1}
   \def\thesectiontitle{#2}
 }
-\newcommand{\doctheorie}{\setsectionstyle{red}{Theorie}}
+
+\newcommand{\setdocumentstyle}[4]{
+  \setsectionstyle{#1}{#2}
+  \docindex{#3}
+  \shorttitle{#4}
+}
+
+\newcommand{\doctheorie}[2]{\setdocumentstyle{red}{Theorie}{#1}{#2}}
 
 \pgfmathsetlengthmacro\stylerightmargin{+1cm}
 \newcommand{\thumb}{
@@ -55,9 +61,7 @@
 \title{Inregelen \pmts}
 \author{D. B. R. A. Fokkema}
 \date{}
-\doctheorie
-\shorttitle{IP}
-\docindex{1}
+\doctheorie{1}{IP}
 
 
 \begin{document}
