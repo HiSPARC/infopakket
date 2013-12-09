@@ -83,6 +83,7 @@
 % macros and commands
 \newcommand{\shorttitle}[1]{\def\theshorttitle{#1}}
 \newcommand{\docindex}[1]{\def\thedocindex{#1}}
+\newcommand{\version}[1]{\def\theversion{#1}}
 \newcommand{\setsectionstyle}[2]{
   \colorlet{seccolor}{#1}
   \def\thesectiontitle{#2}
@@ -101,6 +102,7 @@
 \fancyhf{}
 \fancyhead{\thumb}
 \fancyfoot[C]{\theshorttitle\ -- \thepage}
+\fancyfoot[R]{\color{gray}\smaller Versie \theversion}
 \renewcommand{\footrulewidth}{0pt}
 \renewcommand{\headrulewidth}{0pt}
 
