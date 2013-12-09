@@ -1,13 +1,8 @@
 \input{../style}
 
-\newcommand{\shorttitle}{IP}
-\newcommand{\docindex}{1}
-
-\colorlet{seccolor}{red}
-
-\title{Inregelen \pmts}
-\author{D. B. R. A. Fokkema}
-\date{}
+% This part will be refactored into style.tex
+\newcommand{\shorttitle}[1]{\def\theshorttitle{#1}}
+\newcommand{\docindex}[1]{\def\thedocindex{#1}}
 
 \pgfmathsetlengthmacro\stylerightmargin{+1cm}
 \newcommand{\thumb}{
@@ -18,12 +13,23 @@
  
   \fill[seccolor]
     ($(current page.north east) +
-    (-\stylerightmargin, -2cm -\docindex * .5cm)$) rectangle +(.5cm, -.5cm);
+      (-\stylerightmargin, -2cm -\thedocindex * .5cm)$)
+      rectangle +(.5cm, -.5cm);
 \end{tikzpicture}
 }
 
 \fancyhead{\thumb}
-\fancyfoot[C]{\shorttitle\ -- \thepage}
+\fancyfoot[C]{\theshorttitle\ -- \thepage}
+% end part
+
+
+\colorlet{seccolor}{red}
+
+\title{Inregelen \pmts}
+\author{D. B. R. A. Fokkema}
+\date{}
+\shorttitle{IP}
+\docindex{1}
 
 
 \begin{document}
