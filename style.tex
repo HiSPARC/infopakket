@@ -18,7 +18,7 @@
 \setlength{\parindent}{0pt}
 
 \usepackage{geometry}
-\geometry{a4paper, vmargin=3cm, hmargin=2cm, head=14pt}
+\geometry{a4paper, vmargin=3cm, inner=3cm, outer=2cm, head=14pt}
 
 \usepackage{float}
 
@@ -149,10 +149,10 @@
       font=\sffamily\huge, draw=none},
     authorbox/.append style={minimum height=.5cm, font=\sffamily}]
 
-    \node[titlebox, anchor=north west, shift={(2cm, -1cm)}] at
+    \node[titlebox, anchor=north west, shift={(3cm, -1cm)}] at
       (current page.north west) {\thesectiontitle};
 
-    \node[anchor=north west, shift={(1.83cm, -2cm)}] at
+    \node[anchor=north west, shift={(2.83cm, -2cm)}] at
       (current page.north west) {\includegraphics[scale=.8]{../HiSPARC_header}};
 
     \node[titlebox, anchor=north east, shift={(-\stylemarginsep, -1cm)}] at
