@@ -120,29 +120,34 @@
 \renewcommand{\headrulewidth}{0pt}
 
 \pgfmathsetlengthmacro\stylemarginsep{+1cm}
+\pgfmathsetlengthmacro\stylethumbsep{+.75cm}
 
 \newcommand{\rightthumb}{
 \begin{tikzpicture}[remember picture, overlay]
+  % vertical line
   \draw[seccolor]
     ($(current page.north east) + (-\stylemarginsep, -.5cm)$) --
     ($(current page.south east) + (-\stylemarginsep, .5cm)$);
 
+  % thumb
   \fill[seccolor]
     ($(current page.north east) +
-      (-\stylemarginsep, -2cm -\thedocindex * .5cm)$)
+      (-\stylemarginsep, -2cm -\thedocindex * \stylethumbsep)$)
       rectangle +(.5cm, -.5cm);
 \end{tikzpicture}
 }
 
 \newcommand{\leftthumb}{
 \begin{tikzpicture}[remember picture, overlay]
+  % vertical line
   \draw[seccolor]
     ($(current page.north west) + (\stylemarginsep, -.5cm)$) --
     ($(current page.south west) + (\stylemarginsep, .5cm)$);
 
+  % thumb
   \fill[seccolor]
     ($(current page.north west) +
-      (\stylemarginsep, -2cm -\thedocindex * .5cm)$)
+      (\stylemarginsep, -2cm -\thedocindex * \stylethumbsep)$)
       rectangle +(-.5cm, -.5cm);
 \end{tikzpicture}
 }
