@@ -4,6 +4,12 @@
 \newcommand{\shorttitle}[1]{\def\theshorttitle{#1}}
 \newcommand{\docindex}[1]{\def\thedocindex{#1}}
 
+\newcommand{\setsectionstyle}[2]{
+  \colorlet{seccolor}{#1}
+  \def\thesectiontitle{#2}
+}
+\newcommand{\doctheorie}{\setsectionstyle{red}{Theorie}}
+
 \pgfmathsetlengthmacro\stylerightmargin{+1cm}
 \newcommand{\thumb}{
 \begin{tikzpicture}[remember picture, overlay]
@@ -33,7 +39,7 @@
     authorbox/.append style={minimum height=.5cm, font=\sffamily}]
 
     \node[titlebox, anchor=north west, shift={(2cm, -1cm)}] at
-      (current page.north west) {Theorie};
+      (current page.north west) {\thesectiontitle};
 
     \node[titlebox, anchor=north east, shift={(-\stylerightmargin, -1cm)}] at
       (current page.north east) {\thetitle};
@@ -46,11 +52,10 @@
 % end part
 
 
-\colorlet{seccolor}{red}
-
 \title{Inregelen \pmts}
 \author{D. B. R. A. Fokkema}
 \date{}
+\doctheorie
 \shorttitle{IP}
 \docindex{1}
 
