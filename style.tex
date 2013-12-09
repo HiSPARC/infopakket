@@ -35,11 +35,6 @@
 \pgfplotsset{compat=1.3}
 
 \usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{\thepage}
-\renewcommand{\footrulewidth}{0pt}
-\renewcommand{\headrulewidth}{0pt}
 
 \usepackage{relsize}
 \usepackage{xspace}
@@ -82,3 +77,66 @@
 \DeclareSIUnit{\parsec}{pc}
 \DeclareSIUnit{\year}{yr}
 
+
+%% Document style definitions
+
+% macros and commands
+\newcommand{\shorttitle}[1]{\def\theshorttitle{#1}}
+\newcommand{\docindex}[1]{\def\thedocindex{#1}}
+\newcommand{\setsectionstyle}[2]{
+  \colorlet{seccolor}{#1}
+  \def\thesectiontitle{#2}
+}
+
+\newcommand{\setdocumentstyle}[4]{
+  \setsectionstyle{#1}{#2}
+  \docindex{#3}
+  \shorttitle{#4}
+}
+
+\newcommand{\doctheorie}[2]{\setdocumentstyle{red}{Theorie}{#1}{#2}}
+
+% style definitions
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead{\thumb}
+\fancyfoot[C]{\theshorttitle\ -- \thepage}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrulewidth}{0pt}
+
+\pgfmathsetlengthmacro\stylerightmargin{+1cm}
+\newcommand{\thumb}{
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[seccolor]
+    ($(current page.north east) + (-\stylerightmargin, -.5cm)$) --
+    ($(current page.south east) + (-\stylerightmargin, .5cm)$);
+
+  \fill[seccolor]
+    ($(current page.north east) +
+      (-\stylerightmargin, -2cm -\thedocindex * .5cm)$)
+      rectangle +(.5cm, -.5cm);
+\end{tikzpicture}
+}
+
+\renewcommand{\maketitle}{
+  \suppressfloats
+
+  \begin{titlepage}
+  \thispagestyle{fancy}
+  \let\endtitlepage\relax
+  \begin{tikzpicture}[remember picture, overlay,
+    titlebox/.append style={seccolor, fill, text=white, minimum height=1cm,
+      font=\sffamily\huge, draw=none},
+    authorbox/.append style={minimum height=.5cm, font=\sffamily}]
+
+    \node[titlebox, anchor=north west, shift={(2cm, -1cm)}] at
+      (current page.north west) {\thesectiontitle};
+
+    \node[titlebox, anchor=north east, shift={(-\stylerightmargin, -1cm)}] at
+      (current page.north east) {\thetitle};
+
+    \node[authorbox, anchor=north east, shift={(-\stylerightmargin, -2cm)}] at
+      (current page.north east) {\theauthor};
+  \end{tikzpicture}
+  \end{titlepage}
+}
