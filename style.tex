@@ -1,4 +1,4 @@
-\documentclass[oneside, 11pt]{article}
+\documentclass[twoside, 11pt]{article}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -100,23 +100,38 @@
 % style definitions
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead{\thumb}
+\fancyhead[O]{\rightthumb}
+\fancyhead[E]{\leftthumb}
 \fancyfoot[C]{\theshorttitle\ -- \thepage}
-\fancyfoot[R]{\color{gray}\smaller Versie \theversion}
+\fancyfoot[LE,RO]{\color{gray}\smaller Versie \theversion}
 \renewcommand{\footrulewidth}{0pt}
 \renewcommand{\headrulewidth}{0pt}
 
-\pgfmathsetlengthmacro\stylerightmargin{+1cm}
-\newcommand{\thumb}{
+\pgfmathsetlengthmacro\stylemarginsep{+1cm}
+
+\newcommand{\rightthumb}{
 \begin{tikzpicture}[remember picture, overlay]
   \draw[seccolor]
-    ($(current page.north east) + (-\stylerightmargin, -.5cm)$) --
-    ($(current page.south east) + (-\stylerightmargin, .5cm)$);
+    ($(current page.north east) + (-\stylemarginsep, -.5cm)$) --
+    ($(current page.south east) + (-\stylemarginsep, .5cm)$);
 
   \fill[seccolor]
     ($(current page.north east) +
-      (-\stylerightmargin, -2cm -\thedocindex * .5cm)$)
+      (-\stylemarginsep, -2cm -\thedocindex * .5cm)$)
       rectangle +(.5cm, -.5cm);
+\end{tikzpicture}
+}
+
+\newcommand{\leftthumb}{
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[seccolor]
+    ($(current page.north west) + (\stylemarginsep, -.5cm)$) --
+    ($(current page.south west) + (\stylemarginsep, .5cm)$);
+
+  \fill[seccolor]
+    ($(current page.north west) +
+      (\stylemarginsep, -2cm -\thedocindex * .5cm)$)
+      rectangle +(-.5cm, -.5cm);
 \end{tikzpicture}
 }
 
@@ -137,10 +152,10 @@
     \node[anchor=north west, shift={(1.83cm, -2cm)}] at
       (current page.north west) {\includegraphics[scale=.8]{../HiSPARC_header}};
 
-    \node[titlebox, anchor=north east, shift={(-\stylerightmargin, -1cm)}] at
+    \node[titlebox, anchor=north east, shift={(-\stylemarginsep, -1cm)}] at
       (current page.north east) {\thetitle};
 
-    \node[authorbox, anchor=north east, shift={(-\stylerightmargin, -2cm)}] at
+    \node[authorbox, anchor=north east, shift={(-\stylemarginsep, -2cm)}] at
       (current page.north east) {\theauthor};
   \end{tikzpicture}
   \end{titlepage}
