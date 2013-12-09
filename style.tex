@@ -17,7 +17,7 @@
 \setlength{\parindent}{0pt}
 
 \usepackage{geometry}
-\geometry{a4paper, vmargin=3cm, hmargin=2cm, head=14pt, footskip=35pt}
+\geometry{a4paper, vmargin=3cm, hmargin=2cm, head=14pt}
 
 \usepackage{float}
 
@@ -103,7 +103,6 @@
 \fancyhead{\thumb}
 \fancyfoot[C]{\theshorttitle\ -- \thepage}
 \fancyfoot[R]{\color{gray}\smaller Versie \theversion}
-\fancyfoot[L]{\includegraphics[height=30pt]{../HiSPARC_header}}
 \renewcommand{\footrulewidth}{0pt}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -134,6 +133,9 @@
 
     \node[titlebox, anchor=north west, shift={(2cm, -1cm)}] at
       (current page.north west) {\thesectiontitle};
+
+    \node[anchor=north west, shift={(1.83cm, -2cm)}] at
+      (current page.north west) {\includegraphics{../HiSPARC_header}};
 
     \node[titlebox, anchor=north east, shift={(-\stylerightmargin, -1cm)}] at
       (current page.north east) {\thetitle};
