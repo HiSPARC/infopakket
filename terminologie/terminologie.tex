@@ -1,0 +1,246 @@
+\input{../style}
+
+\title{Terminologie}
+\author{A.P.L.S. de Laat}
+\docalgemeen{1}{TL}
+\version{1.0}
+
+\begin{document}
+
+\maketitle
+
+\section{Overzicht}
+
+Dit is een overzicht van veel gebruikte termen bij \hisparc, met een
+korte omschrijving of voorbeeld. In dien verschillend staan de termen er
+zowel in het Nederlands als Engels, omdat veel van de documentatie en
+delen van de website in het Engels zijn.
+
+
+\subsection{\hisparc -- High School Project on Astrophysics Research
+            with Cosmics}
+
+\hisparc is een outreach en onderzoeks project waarbij metingen worden
+uitgevoerd aan de deeltjeslawine geïnitieerd door kosmische straling uit
+het heelal.
+
+
+\section{Hardware/Organisatie}
+
+
+\subsection{Cluster}
+
+Voor een goed overzicht zijn stations gegroepeerd in clusters van alle
+stations die rond een centraal punt liggen. Meestal vormen alle stations
+rond grote steden een cluster. Dit maakt het eenvoudig om stations te
+vinden die dicht bij een ander station liggen. Voorbeelden van clusters
+in Nederlands zijn Utrecht, Nijmegen en Leiden.
+
+
+\subsection{Subcluster}
+
+De grote clusters zijn ook opgedeeld in subclusters, dit zijn vaak alle
+stations in een stad of dorp. Voorbeelden hiervan zijn Science Park in
+cluster Amsterdam en Hengelo in cluster Enschede.
+
+
+\subsection{Station}
+
+Een station is een meetstation, dus 2 of 4 detectoren die met elkaar
+verbonden zijn aan een pc. Ieder station heeft een uniek nummer waarmee
+die geïdentificeerd wordt. Een voorbeeld hiervan is station 101 op het
+St. Michael College in Zaanstad.
+
+
+\subsection{Detector}
+
+Een detector bestaat uit scintillatiemateriaal waar een fotobuis aan
+bevestigd is die de signalen doorgeeft aan de \hisparc electronica. Deze
+detectoren zijn meestal geplaatst in ski-boxen op de daken van
+deelnemende scholen. Soms wordt er verwezen naar een detector als
+\emph{de skibox}
+
+
+\subsection{Scintillatorplaat -- Scintillator}
+
+Het scintillatorplaat is het gene dat energie absorbeert van geladen
+deeltjes die erdoorheen bewegen. Deze energie wordt omgezet in licht dat
+uitgezonden wordt. Bij \hisparc gebruiken we een plastic scintillator,
+dit is een plastic met daarin een fluor die zorgt voor de licht emissie.
+
+
+\subsection{Foto versterker buis -- Photo Multiplier Tube (PMT)}
+
+Een foto versterker buis kan de fotonen uit de scintillator omzetten in
+een meetbaar elektrisch signaal voor de \hisparc electronica.
+
+
+\subsection{\hisparc electronica -- \hisparc electronics}
+
+Dit zijn de electronica kastjes waar de foto buizen en \gps antenne aan
+verbonden zijn. De electronica leest de signalen uit zet de signalen van
+de foto buizen om naar digitale waarden en controleert of er een air
+shower heeft plaatsgevonden. Ook voorziet die metingen van tijdstempels
+met behulp van de interne \gps module.
+
+
+\subsection{Master \& Slave}
+
+Elk station heef een Master, dat is de \hisparc electronica die twee
+detectoren uitleest en verbonden is met de \gps antenne. Sommige
+stations hebben vier detectoren, in dat geval is er een tweede \hisparc
+electronica kastje, de Slave, die de andere twee detectoren uitleest. De
+Slave is verbonden met de Master om samen te kijken naar air showers.
+
+
+\subsection{\gps module}
+
+Dit zit in elke Master en verwerkt de signalen van de \gps antenne. Dit
+wordt gebruikt voor de nauwkeurige positie bepaling en voor de
+tijdstempels van events.
+
+
+\section{Data}
+
+
+\subsection{Aankomsttijden -- Arrival time}
+
+Dit is de tijd waarop het eerste signaal van deeltjes in een detector
+gezien wordt bij een detectie. Zo is de volgorde te bepalen waarop de
+verschillende detectoren geraakt zijn, daarmee kan gereconstrueerd worden
+uit welke richting de deeltjeslawine kwam.
+
+
+\subsection{Detectie -- Event}
+
+Als een station getriggerd wordt door een deeltjeslawine spreek je van
+een detectie.
+
+
+\subsection{Detectie frequentie -- Event rate}
+
+Dit geeft aan hoe vaak (gemiddeld) per seconde een detectie plaats vindt.
+
+
+\subsection{Coïncidentie -- Coincidence}
+
+Als meerdere stations een detectie kort na elkaar doen is het
+waarschijnlijk dat ze dezelfde deeltjeslawine gedetecteerd hebben. In
+zo'n geval wordt er gesproken over een coïncidentie.
+
+
+\subsection{Histogram -- Histogram}
+
+...
+
+
+\subsection{Minimaal ioniserend deeltje -- Minimum Ionizing Particle (MIP)}
+
+...
+
+
+\subsection{Drempel -- Threshold}
+
+De drempel waarde is sterkte van een signaal dat nodig is zodat de
+\hisparc electronica het erkent als een significant signaal. Pas als
+meerdere detectoren een sterk signaal geven zal er een detectie zijn.
+Dit wordt gebruikt om zwakke achtergrond straling is ruis te filteren.
+
+
+\subsection{Nullijn -- Baseline}
+
+Dit is de sterkte van het signaal als er niks te zien is, dus geen
+deeltjes door de detector gaan/
+
+
+\subsection{Pulshoogte -- Pulseheight}
+
+De pulshoogte is het verschil tussen de nullijn en de maximale signaal
+sterkte.
+
+
+\subsection{Pulsintegraal -- Pulseintegral}
+
+De puls integraal is de oppervlakte van het signaal onder de nullijn.
+Dit is een maat voor het aantal deeltjes dat bij een detectie door de
+detector gingen.
+
+
+\subsection{Nanoseconde -- Nanosecond (ns)}
+
+Om de aankomsttijden heel nauwkeurig te bepalen werken we op het niveau
+van nanoseconden, dit is een zeer precieze tijd meting, een nanoseconde
+is gelijk aan \SI{1e-9}{\second} or $\frac{1}{1000000000} s$.
+
+
+\subsection{Zenit -- Zenith}
+
+De zenit is het punt recht boven de waarnemer. Als we spreken over een
+zenit hoek is het de hoek tussen een punt aan de hemel en het punt recht
+omhoog.
+
+
+\subsection{Azimut -- Azimuth}
+
+Dit is de kompasrichting van een punt, dus de hoek tussen het noorden en
+het punt, met de klok mee draaiend.
+
+
+\section{Fysica}
+
+
+\subsection{Kosmische straling -- Cosmic rays}
+
+Geladen deeltjes, atoomkernen en fotonen die met hoge snelheid door
+het heelal bewegen.
+
+
+\subsection{Deeltjeslawine -- Air shower}
+
+Een kaskade van deeltjes die met vrijwel de lichtsnelheid richting de
+Aarde bewegen. Deze kaskade wordt geïnitieerd door de botsing tussen een
+hoog energetische kosmische straling en atomen in de atmosfeer.
+
+
+\section{Software}
+
+
+\subsection{\sapphire}
+
+Een \python framework om analyses met \hisparc data uit te voeren:
+\url{https://pypi.python.org/pypi/hisparc-sapphire/}.
+
+
+\subsection{\jsparc}
+
+Een JavaScript bibliotheek om websites te maken die met \hisparc data
+werken.
+
+
+\subsection{GitHub}
+
+Een website voor software ontwikkeling. Hier is de broncode voor de
+\hisparc software te vinden: \url{http://www.github.com/HiSPARC/}.
+
+
+\subsection{\hisparc publieke database -- \hisparc Public Database}
+
+Via deze site is toegang tot de \hisparc data mogelijk. De website toont
+voor iedere dag een samenvatting van de data van een station. Ook zijn
+hier de metingen en andere gegevens op te vragen. De site is te bereiken
+via: \url{http://data.hisparc.nl/}.
+
+
+\subsection{Nagios}
+
+De status monitor die in de gaten houdt hoe het gaat met de stations.
+Als er problemen optreden verstuurd deze automatisch mailtjes om men er
+van op de hoogte te brengen.
+
+
+\subsection{\hdf}
+
+\hdf is een bestandsformaat dat we gebruiken om data in op te slaan.
+
+
+\end{document}

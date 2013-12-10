@@ -1,0 +1,75 @@
+\documentclass[12pt]{letter}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[dutch]{babel}
+
+\usepackage{fouriernc}
+\usepackage[detect-all, binary-units, separate-uncertainty=true,
+            per-mode=symbol, retain-explicit-plus, range-phrase={ tot },
+            list-final-separator={ en }, output-decimal-marker={,}]
+            {siunitx}
+
+\usepackage{setspace}
+\setstretch{1.2}
+
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\usepackage{geometry}
+\geometry{a4paper, vmargin=3cm, inner=3cm, outer=2cm, head=14pt}
+
+\usepackage{float}
+
+\usepackage{graphicx}
+\graphicspath{{Figures/}}
+
+\usepackage[svgnames]{xcolor}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usetikzlibrary{plotmarks,circuits.ee.IEC,pgfplots.groupplots,external,calc}
+\pgfplotsset{compat=1.3}
+
+\usepackage{fancyhdr}
+
+\usepackage{relsize}
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{sansmath}
+
+\newcommand{\figref}[1]{Figuur~\ref{#1}}
+
+\newcommand{\hisparc}{\textsmaller{HiSPARC}\xspace}
+\newcommand{\kascade}{\textsmaller{KASCADE}\xspace}
+\newcommand{\sapphire}{\textsmaller{SAPPHiRE}\xspace}
+\newcommand{\jsparc}{\textsmaller{jSparc}\xspace}
+\newcommand{\hdf}{\textsmaller{HDF5}\xspace}
+\newcommand{\aires}{\textsmaller{AIRES}\xspace}
+\newcommand{\csv}{\textsmaller{CSV}\xspace}
+\newcommand{\python}{\textsmaller{PYTHON}\xspace}
+\newcommand{\corsika}{\textsmaller{CORSIKA}\xspace}
+\newcommand{\labview}{\textsmaller{LabVIEW}\xspace}
+\newcommand{\dspmon}{\textsmaller{DSPMon}\xspace}
+\newcommand{\daq}{\textsmaller{DAQ}\xspace}
+\newcommand{\adc}{\textsmaller{ADC}\xspace}
+\newcommand{\adcs}{\textsmaller{ADC}s\xspace}
+\newcommand{\Adcs}{A\textsmaller{DC}s\xspace}
+\newcommand{\hi}{\textsc{h i}\xspace}
+\newcommand{\hii}{\textsc{h ii}\xspace}
+\newcommand{\mip}{\textsmaller{MIP}\xspace}
+\newcommand{\hisparcii}{\textsmaller{HiSPARC II}\xspace}
+\newcommand{\hisparciii}{\textsmaller{HiSPARC III}\xspace}
+\newcommand{\pmt}{\textsmaller{PMT}\xspace}
+\newcommand{\pmts}{\textsmaller{PMT}s\xspace}
+\newcommand{\gps}{\textsmaller{GPS}\xspace}
+
+\DeclareSIUnit{\electronvolt}{\ensuremath{\mathrm{e\!\!\:V}}}
+
+\DeclareSIUnit{\unitsigma}{\ensuremath{\sigma}}
+\DeclareSIUnit{\mip}{\textsmaller{MIP}}
+\DeclareSIUnit{\adc}{\textsmaller{ADC}}
+
+\DeclareSIUnit{\gauss}{G}
+\DeclareSIUnit{\parsec}{pc}
+\DeclareSIUnit{\year}{yr}
