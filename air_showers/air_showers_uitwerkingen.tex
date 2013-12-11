@@ -1,4 +1,5 @@
 \input{../style}
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
 
 \title{Uitwerkingen: Air-showers, events en coïncidenties}
 \author{N.G. Schultheiss}
@@ -54,13 +55,15 @@ en vul de resultaten hieronder in de tabel in.
 \smallskip{}
 
 
-\begin{tabular}{|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
+\begin{tabular}{|x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
+                |x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
+                |x{.11\textwidth}|}
     \cline{2-7} 
-    \multicolumn{1}{c|}{} & 1 & 2 & 3 & 4 & 5 & $N_\textrm{gem}$\tabularnewline
+    \multicolumn{1}{c|}{} & 1 & 2 & 3 & 4 & 5 & $N_\textrm{gem}$\\
     \hline 
     $N$ &  &  &  &  &  & \tabularnewline
     \hline 
-\end{tabular}
+\end{tabular}%
 
 \smallskip{}
 
@@ -93,14 +96,16 @@ Bereken het gemiddelde van $N^{2}$.
 
 \bigskip{}
 
-
-\begin{tabular}{|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
+\begin{tabular}{|x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
+                |x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
+                |x{.11\textwidth}|}
     \cline{2-7} 
-    \multicolumn{1}{c|}{} & 1 & 2 & 3 & 4 & 5 & $\left(N^{2}\right)_\textrm{gem}$\tabularnewline
+    \multicolumn{1}{c|}{} & 1 & 2 & 3 & 4 & 5 & $\left(N^{2}\right)_\textrm{gem}$\\
     \hline 
-    $N^{2}$ &  &  &  &  &  & \tabularnewline
+    $N^{2}$ &  &  &  &  &  & \\
     \hline 
 \end{tabular}
+
 
 \bigskip{}
 
@@ -196,14 +201,15 @@ af.
 
 \bigskip{}
 
-
-\begin{tabular}{|c|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1.2cm}|}
-\hline 
-$T_\textrm{venster}$ {[}$\mu\mathrm{s}${]} & 1,5 & 3,0 & 7,5 & 15 & 30 & 75 & 150\tabularnewline
-\hline 
-$P_{k}$ {[}$\%${]} & 0.15  & 0.30 & 0.75 & 1.5 & 3,0 & 7.2 & 14\tabularnewline
-\hline 
-\end{tabular}%
+\begin{tabular}{|x{.20\textwidth}|x{.07\textwidth}|x{.07\textwidth}
+                |x{.07\textwidth}|x{.07\textwidth}|x{.07\textwidth}
+                |x{.07\textwidth}|x{.07\textwidth}|}
+    \hline 
+    $T_\textrm{venster}$ {[}$\mu\mathrm{s}${]} & 1,5 & 3,0 & 7,5 & 15 & 30 & 75 & 150\tabularnewline
+    \hline 
+    $P_\textrm{trigger}=1-P_{k=0}$ & 0.15  & 0.30 & 0.75 & 1.5 & 3,0 & 7.2 & 14\tabularnewline
+    \hline 
+\end{tabular}
 \end{minipage}
 
 \bigskip{}
@@ -279,12 +285,12 @@ Bereken hoeveel deeltjes nodig zijn.
 
 \smallskip{}
 
-
-\begin{tabular}{|>{\centering}p{3cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
+\begin{tabular}{|x{.3\textwidth}|x{.1\textwidth}|x{.1\textwidth}
+                |x{.1\textwidth}|x{.1\textwidth}|x{.1\textwidth}|}
     \hline 
-    $\rho_\textrm{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10\tabularnewline
+    $\rho_\textrm{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10 \\
     \hline 
-    Aantal korreltjes in de doos &  &  &  &  & \tabularnewline
+    Aantal korreltjes in de doos &  &  &  &  & \\
     \hline 
 \end{tabular}
 
@@ -303,11 +309,12 @@ een voorbeeldberekening worden verlangt.%
 
 Bereken de massa couscous:\smallskip{}
 
-\begin{tabular}{|>{\centering}p{3cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|>{\centering}p{2cm}|}
+\begin{tabular}{|x{.3\textwidth}|x{.1\textwidth}|x{.1\textwidth}
+                |x{.1\textwidth}|x{.1\textwidth}|x{.1\textwidth}|}
     \hline 
-    $\rho_\textrm{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10\tabularnewline
+    $\rho_\textrm{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10 \\
     \hline 
-    Massa couscous in de doos &  &  &  &  & \tabularnewline
+    Massa couscous in de doos &  &  &  &  & \\
     \hline 
 \end{tabular}
 
@@ -428,7 +435,7 @@ $t=\frac{s}{c}$
     \hline 
     Duur van het triggervenster {[}ns{]} & $3,33*10^{2}$ & $6,67*10^{2}$ & $1,67*10^{3}$ & $3,33*10^{3}$\tabularnewline
     \hline 
-    \end{tabular}
+\end{tabular}
 \end{minipage}
 
 \bigskip{}
