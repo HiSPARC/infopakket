@@ -2,7 +2,7 @@
 
 TEXFILES=$(wildcard *.tex)
 TARGETS=$(patsubst %.tex,%.pdf,$(TEXFILES))
-DIRECTORIES=$(dir $(wildcard */))
+TEX_DIRECTORIES=$(sort $(dir $(wildcard */*.tex)))
 
 # '-recursive' rules are based on a Makefile by Santiago Gonzalez Gancedo
 # https://github.com/sangonz/latex_makefile
@@ -14,21 +14,21 @@ distclean: clean distclean-recursive
 clean: clean-recursive
 
 latexmk-recursive:
-	for dir in $(DIRECTORIES); do \
+	for dir in $(TEX_DIRECTORIES); do \
         if ls $$dir/*.tex &> /dev/null; then \
             cd $$dir; \
             latexmk -quiet -pdf *.tex; \
             cd ..; fi; done
 
 distclean-recursive:
-	for dir in $(DIRECTORIES); do \
+	for dir in $(TEX_DIRECTORIES); do \
         if ls $$dir/*.tex &> /dev/null; then \
             cd $$dir; \
             rm -f *.pdf; \
             cd ..; fi; done
 
 clean-recursive:
-	for dir in $(DIRECTORIES); do \
+	for dir in $(TEX_DIRECTORIES); do \
         if ls $$dir/*.tex &> /dev/null; then \
             cd $$dir; \
             rm -f *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg \
@@ -45,13 +45,15 @@ gh-pages:
 	git rm -rf .
 	git clean -dxf
 	git checkout HEAD .nojekyll .gitignore
-	git checkout master index.html
-	git checkout master Makefile
-	git checkout master $(DIRECTORIES)
+	git checkout make-gh-pages index.html images styles
+	git checkout make-gh-pages Makefile
+	git checkout make-gh-pages style.tex style_brief.tex HiSPARC_header.pdf
+	git checkout make-gh-pages $(TEX_DIRECTORIES)
 	$(MAKE) all
 	mkdir pdf
 	mv -fv */*.pdf pdf/
-	rm -rf $(DIRECTORIES)
+	rm -rf $(TEX_DIRECTORIES)
+	rm -f style.tex style_brief.tex HiSPARC_header.pdf
 	#git add -A
 	#git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
 	#git checkout master
