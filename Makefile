@@ -40,23 +40,23 @@ clean-recursive:
 # Add to allow only from master branch: ifeq ($(strip $(shell git branch --list | grep \*\ master | wc -l)), 1)
 
 gh-pages:
-#ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
+ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	git checkout gh-pages
 	git rm -rf .
 	git clean -dxf
 	git checkout HEAD .nojekyll .gitignore
-	git checkout make-gh-pages index.html images styles
-	git checkout make-gh-pages Makefile
-	git checkout make-gh-pages style.tex style_brief.tex HiSPARC_header.pdf
-	git checkout make-gh-pages $(TEX_DIRECTORIES)
+	git checkout master index.html images styles
+	git checkout master Makefile
+	git checkout master style.tex style_brief.tex HiSPARC_header.pdf
+	git checkout master $(TEX_DIRECTORIES)
 	$(MAKE) all
 	mkdir pdf
 	mv -fv */*.pdf pdf/
 	rm -rf $(TEX_DIRECTORIES)
 	rm -f style.tex style_brief.tex HiSPARC_header.pdf
-	#git add -A
-	#git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
-	#git checkout master
-#else
-#	$(error Working tree is not clean, please commit all changes.)
-#endif
+	git add -A
+	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
+	git checkout master
+else
+	$(error Working tree is not clean, please commit all changes.)
+endif
