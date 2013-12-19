@@ -1,9 +1,28 @@
 How to contribute
 =================
 
-All documents are writen in LaTeX. This file provides LaTeX code
+All documents are written in LaTeX. This file provides LaTeX code
 examples to demonstrate proper code style. Using a consistent style
 makes it easier for other to read and understand the source files.
+
+To submit new documents or suggest changes to existing ones you can
+create create a Pull Request or Issue on GitHub. If you do not have a
+GitHub account you can send documents (preferably as .tex, other
+document types are allowed for the initial submit) to info@hisparc.nl.
+
+
+Directory structure
+===================
+
+The main directory contains the common files; the style, HiSPARC logo,
+gh-pages files. Each document is inside a directory with a recognisable
+lowercase and underscored name (e.g. `richting_reconstructie`). Inside
+each of those is the .tex file and a directory called Figures which
+contains all figures used in the document.
+
+
+Document structure
+==================
 
 
 Preamble
