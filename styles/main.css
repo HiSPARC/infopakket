@@ -31,10 +31,7 @@ html {
     width: 50%;}
 
 h2 {
-    margin-top: 25px;}
-
-p {
-    line-height: 1.8em;}
+    margin-top: 0px;}
 
 a {
     color: #0060B9;
@@ -47,3 +44,38 @@ a:visited {
 a:hover {
     color: #002141;
     text-decoration: none;}
+
+.category{
+    display: inline;
+    border-radius: 5px;}
+
+p {
+    line-height: 1.8em;
+    border-left-style: solid;
+    border-left-width: 3px;
+    padding: 7px;
+    margin: 0;}
+
+h3 {
+    color: white;
+    font-weight: normal;
+    display: inline-block;
+    margin-bottom: 0px;
+    padding: 5px;}
+
+#algemeen h3 {background-color: red;}
+#algemeen p {border-color: red;}
+#installatie h3 {background-color: Gold;}
+#installatie p {border-color: Gold;}
+#detector h3 {background-color: blue;}
+#detector p {border-color: blue;}
+#weerstation h3 {background-color: LightSlateGray;}
+#weerstation p {border-color: LightSlateGray;}
+#bliksem h3 {background-color: orange;}
+#bliksem p {border-color: orange;}
+#analyse h3 {background-color: DarkViolet;}
+#analyse p {border-color: DarkViolet;}
+#werkblad h3 {background-color: ForestGreen;}
+#werkblad p {border-color: ForestGreen;}
+#docent h3 {background-color: DarkKhaki;}
+#docent p {border-color: DarkKhaki;}
