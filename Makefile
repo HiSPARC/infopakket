@@ -10,32 +10,29 @@ TEX_DIRECTORIES=$(sort $(dir $(wildcard */*.tex)))
 # which was based on Makesfiles by Tadeusz Pietraszek
 
 all: latexmk-recursive
-distclean: clean distclean-recursive
+distclean: distclean-recursive
 clean: clean-recursive
 
 latexmk-recursive:
 	for dir in $(TEX_DIRECTORIES); do \
-        if ls $$dir/*.tex &> /dev/null; then \
-            cd $$dir; \
-            latexmk -quiet -pdf *.tex; \
-            cd ..; fi; done
+		cd $$dir; \
+		latexmk -quiet -pdf *.tex; \
+		cd ..; \
+	done
 
 distclean-recursive:
 	for dir in $(TEX_DIRECTORIES); do \
-        if ls $$dir/*.tex &> /dev/null; then \
-            cd $$dir; \
-            rm -f *.pdf; \
-            cd ..; fi; done
+		cd $$dir; \
+		latexmk -quiet -C *.tex; \
+		cd ..; \
+	done
 
 clean-recursive:
 	for dir in $(TEX_DIRECTORIES); do \
-        if ls $$dir/*.tex &> /dev/null; then \
-            cd $$dir; \
-            rm -f *.aux *.log *.bbl *.blg *.brf *.cb *.ind *.idx *.ilg \
-                  *.inx *.ps *.dvi *.toc *.out *.lot *~ *.lof *.ttt *.fff \
-                  *.mp *.mpo *.1 *.synctex *.synctex.gz *.fdb_latexmk *.fls; \
-            cd ..; fi; done
-
+		cd $$dir; \
+		latexmk -quiet -c *.tex; \
+		cd ..; \
+	done
 
 # Add to allow only from master branch: ifeq ($(strip $(shell git branch --list | grep \*\ master | wc -l)), 1)
 
