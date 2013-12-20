@@ -11,13 +11,13 @@
 
 \section{Toegang tot \hisparc gegevens}
 
-De data opslag van \hisparc meetgegevens op het \nikhef bestaat uit een
-paar databases. Als eerst is er de ruwe dataopslag. Daarin worden
-metingen opgeslagen zodra ze naar het \nikhef worden gestuurd. Daarnaast
-is er nog een afgeleide database. In de afgeleide database zijn al een
-aantal analyses op de meetgegevens uitgevoerd. Met name de aankomst
-tijden van de shower in verschillende detectoren en het aantal deeltjes
-in een detector.
+De data opslag van \hisparc meetgegevens gebeurt op het Nikhef en
+bestaat uit een paar databases. Als eerst is er de ruwe dataopslag.
+Daarin worden metingen opgeslagen zodra ze naar het Nikhef worden
+gestuurd. Daarnaast is er nog een afgeleide database. In de afgeleide
+database zijn al een aantal analyses op de meetgegevens uitgevoerd. Met
+name de aankomst tijden van de shower in verschillende detectoren en het
+aantal deeltjes in een detector.
 
 Toegang tot \hisparc meetgegevens is vrij voor iedereen. Het downloaden
 van de ruwe data is niet heel eenvoudig, bovendien raden we dat ook niet
@@ -37,7 +37,8 @@ maken.
 \jsparc is de JavaScript bibliotheek die het makkelijker maakt om met
 \hisparc data te werken. Zo biedt de bibliotheek een eenvoudige functie
 om gegevens op te halen van de \hisparc server en deze gelijk om te
-zetten tot een formaat dat begrijpelijk is voor JavaScript.
+zetten tot een formaat dat begrijpelijk is voor JavaScript. De broncode
+is hier te vinden: \url{https://www.github.com/hisparc/jsparc/}.
 
 
 \section{Data retrieval}
@@ -48,16 +49,17 @@ kan data opgehaald en bestudeerd worden. Aan het \hisparc logo (rechts
 boven) is te herkennen of de pagina data van de \hisparc server aan het
 ophalen is, dan is het logo namelijk geanimeerd. Als eerst haalt de
 pagina een up-to-date lijst van \hisparc stations op, dit gaat zo snel
-dat het logo maar heel kort geanimeerd is.
+dat het logo maar heel kort geanimeerd is. Onder het logo is een knop om bij de documentatie van de pagina te komen: \url{http://doc.hisparc.nl/jsparc/}.
 
 
-\subsection{Downloading data}
+\subsection{Downloaden van data}
 
-Het Download data formulier staat men toe een \hisparc station, een
-start- en einddatum, en het data type te selecteren. Door te drukken op
-\emph{Get Data!} wordt de data dan gedownload. Zodra de nieuwe data is
-geladen, verschijnt er een nieuwe sectie op de pagina die een overzicht
-weergeeft van alle datasets die geladen zijn. Het is mogelijk meerdere
+Het Download data formulier, zie \figref{fig:get_data}, staat men toe
+een \hisparc station, een start- en einddatum, en het data type te
+selecteren. Door te drukken op \emph{Get Data!} wordt de data dan
+gedownload. Zodra de nieuwe data is geladen, verschijnt er een nieuwe
+sectie op de pagina die een overzicht weergeeft van alle datasets die
+geladen zijn, zie \figref{fig:data_overview}. Het is mogelijk meerdere
 datasets te laden door het Download data formulier opnieuw te gebruiken
 met andere instellingen. Met het rechter formulier; \emph{Load local
 file} kan men eigen of eerder gedownloade .csv bestanden (tab
@@ -65,7 +67,7 @@ gescheiden) inladen. Deze verschijnen dan ook in het overzicht.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.75]{get_data}
+    \includegraphics[scale=0.4]{get_data}
     \caption{Gedeelte van de website waar data mee gedownload of
              ingeladen kan worden.}
     \label{fig:get_data}
@@ -73,9 +75,9 @@ gescheiden) inladen. Deze verschijnen dan ook in het overzicht.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.75]{data_overview}
+    \includegraphics[scale=0.4]{data_overview}
     \caption{Overzicht van de ingeladen datasets.}
-    \label{fig:get_data}
+    \label{fig:data_overview}
 \end{figure}
 
 Met de geladen datasets kunnen verschillende acties uitgevoerd worden.
@@ -104,15 +106,23 @@ laatste is er nog de \emph{time series}. Hierbij is de x-as de tijd (en
 datum) en kan een variabele voor de y-as gekozen worden.
 
 Als de keuzes gemaakt zijn kan de plot gemaakt worden door op
-\emph{Create Plot} te drukken. Als de opties aangepast worden kan een
-nieuwe plot gemaakt worden door weer op die knop te drukken.
+\emph{Create Plot} te drukken, zie \figref{fig:plot}. Als de opties
+aangepast worden kan een nieuwe plot gemaakt worden door weer op die
+knop te drukken.
+
+In sommige gevallen zal je meerdere kleuren zien de grafiek dat komt
+doordat bepaalde variabelen door meerdere sensoren of detectoren gemeten
+worden. Met kleur codes wordt dan aangeven om welke detector het gaat.
+In het geval van \hisparc metingen is zwart detector 1, rood detector 2,
+groen detector 3 en blauw detector 4. Bij weermetingen met meerdere
+sensoren is zwart de binnen sensor en rood de buiten sensor.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.75]{plot}
+    \includegraphics[scale=0.4]{plot}
     \caption{Voorbeeld van een plot. Hier is de luchtdruk op de y-as
              uitgezet tegen de tijdstempel op de x-as.}
-    \label{fig:get_data}
+    \label{fig:plot}
 \end{figure}
 
 
@@ -121,11 +131,57 @@ nieuwe plot gemaakt worden door weer op die knop te drukken.
 Als meerdere datasets zijn opgehaald met overlappende tijdperiodes is
 het mogelijk om deze tegen elkaar te plotten. Kies hiervoor een dataset
 in kolom \emph{Choice 1} en de ander in \emph{Choice 2}. De variabelen
-verschijnen dan naast elkaar zodat uit beide een keuze gemaakt kan
-worden voor de x- en y-assen.
+verschijnen dan naast elkaar, zie \figref{fig:plot_options}. Nu kan uit
+beide een keuze gemaakt kan worden voor de x- en y-assen. De
+interpolatie vindt plaats op basis van de tijdstempels van de gegevens.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{plot_options}
+    \caption{Meerdere datasets kiezen uit het overzicht.}
+    \label{fig:plot_options}
+\end{figure}
 
 
-\begin{thebibliography}{9}
-\end{thebibliography}
+\subsection{Gegevens inkijken}\label{subsec:gegevens}
+
+Door op de knop \emph{show} te drukken in het overzicht van de datasets
+verschijnt een tabel met op elke rij in kolommen verdeelt de waardes van
+een meting, zie \figref{fig:data_preview} voor een voorbeeld. Niet alle
+rijen worden direct getoond, het kost de browser namelijk te veel tijd
+om duizenden regels te tonen, dus eerst worden er zo'n 30 getoond, door
+op de middelste regel te klikken ('click to show more') kan er meer
+ingekeken worden. Hier is ook duidelijk te zien dat sommige kolommen
+meerdere waarden hebben, omdat die door meerdere sensoren of detectoren
+gemeten is. Hier gelden dezelfde kleur aanduidingen als bij de grafieken.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{data_preview}
+    \caption{Overzicht van de meetwaarden in een dataset.}
+    \label{fig:data_preview}
+\end{figure}
+
+
+\subsection{Traces bekijken}
+
+Van iedere detectie van een air shower zijn de signalen uit de \pmts te
+bekijken. Gebruik eerst de knop om de gegevens in te kijken zoals
+beschreven in sectie \ref{subsec:gegevens}. Ga dan naar de kolom met de
+kop \emph{Traces}, druk daar op de \emph{show} knop van een event. Dan
+zullen de \pmt signalen worden opgehaald van de server en worden getoond
+als grafiek, zie \figref{fig:event_traces}.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{event_traces}
+    \caption{De traces van een meting. De met rood gearceerde kolom
+             bevat de knoppen om de traces voor een event op te halen.}
+    \label{fig:event_traces}
+\end{figure}
+
+
+%\begin{thebibliography}{9}
+%\end{thebibliography}
 
 \end{document}
