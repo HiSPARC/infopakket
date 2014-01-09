@@ -9,10 +9,19 @@
 
 \maketitle
 
-\section{Detector plaatsing}
+\section{Planning en veiligheid}
 
 Dit document beschrijft hoe een \hisparc detector op het dak
-geïnstalleerd dient te worden.
+geïnstalleerd dient te worden. Bij het werken op daken of andere
+gevaarlijke locaties moet goed op veiligheid gelet worden. Neem voordat
+je begint contact op met de gebouwbeheerder van je school. Die kan
+instructies geven over de richtlijnen van het veilig werken op het dak,
+en zo is die ook op de hoogte van het werk. Bespreek vooraf wie wat doet
+zodat je sneller klaar bent. Check ook of je alle benodigdheden hebt
+zodat je niet vaker het dak op en af hoeft.
+
+
+\section{Detector hanteren}
 
 \textbf{Waarschuwing:} De \hisparc detector met zijn scintillator,
 lichtgeleider en \pmt is een fragiel apparaat. Neem daarom de volgende
@@ -20,8 +29,8 @@ maatregelen om schade te voorkomen:
 
 \begin{itemize}
     \item Verpak de detector zorgvuldig tijdens transport; de detector
-    mag niet kunnen verschuiven in de skibox (voeg extra
-    schuimmateriaal toe).
+    mag niet kunnen verschuiven in de skibox (voeg extra schuimmateriaal
+    toe).
     \item Wanneer de skibox niet horizontaal gehouden kan worden, houd
     de hoge kant van de skibox met de \pmt en kabeldoorvoer, altijd
     boven. Ondersteun de onderkant van de scintillator tegen verschuiven.
@@ -36,29 +45,40 @@ maatregelen om schade te voorkomen:
     draden (en \pmt) kan ontstaan.
 \end{itemize}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.47\linewidth]{frames}
+    \caption{Detectoren in metalen frames voor vervoer.}
+    \label{fig:frames}
+\end{figure}
+
 
 \section{Materiaal lijst}
 
-Hier is een checklist met de benodigde materialen voor een 2 detector
-station:
+Hier is een checklist met de benodigde materialen voor een 2 (of 4) detector
+station (tussen haken staan de hoeveelheden voor een 4 detector station):
 
 \begin{itemize}
-    \item 2 \hisparc detectoren (scintillator, lichtgeleider en \pmt,
-    lichtditcht ingepakt)
-    \item \gps antenne (met voet)
-    \item \gps coaxkabel
-    \item 2 Coaxkabels
-    \item 2 Hoogspanningskabels
-    \item 4 Schuimblokken
-    \item 2 Skiboxen (met kabeldoorvoer)
-    \item 2 Aluminium kokerprofielen
-    \item 16 Omsluitbanden (stoepranden)
-    \item \SI{8}{\meter} Metalen spanbanden met sluitstukken
+    \item 2 (4) \hisparc detectoren
+    \item 2 (4) Coaxkabels van \SI{30}{\meter}
+    \item 2 (4) Hoogspanningskabels van \SI{30}{\meter}
+    \item 4 (8) Schuimblokken
+    \item 2 (4) Skiboxen met kabeldoorvoer
+    \item 2 (4) Aluminium kokerprofielen (\SI{200}{\centi\meter} x
+    \SI{5}{\centi\meter} x \SI{2.5}{\centi\meter})
+    \item 16 (32) Betonnen opsluitbanden (\SI{100}{\centi\meter} x
+    \SI{15}{\centi\meter} x \SI{5}{\centi\meter})
+    \item Rubberen tegels
+    \item \SI{8}{\meter} (\SI{16}{\meter}) 3/4$''$ RVS spanband
+    ('Band-it')
+    \item 8 (16) 3/4$''$ sluitstukken ('Band-it')
+    \item \gps antenne met voet
+    \item \gps coaxkabel van \SI{30}{\meter}
     \item Kabelgootje
     \item Tie-wraps
-    \item 1 \hisparc Master met voeding (van Nikhef)
-    \item 2 USB kabels
-    \item Windows 7 (of XP) PC met toegang tot internet
+    \item 1 \hisparc Master (en 1 \hisparc Slave) met voeding
+    \item 2 (3) USB kabels
+    \item Windows 7 PC met toegang tot internet
 \end{itemize}
 
 En dit zijn de andere benodigdheden:
@@ -67,11 +87,12 @@ En dit zijn de andere benodigdheden:
     \item Spantang
     \item Hamer
     \item Kniptang
+    \item Logboek
     \item Detector draagframes (optioneel)
 \end{itemize}
 
 
-\section{Aanwijzingen bij de installatie van \hisparc detectoren}
+\section{Beschrijving verankering}
 
 De \hisparc detectoren zijn ondergebracht in skiboxen die bij normaal
 gebruik geschikt zijn voor toepassing onder uiteenlopende
@@ -80,11 +101,25 @@ standaard bevestigingspunten (4 beugels) vast te zetten en de deksels op
 de juiste wijze te sluiten (scharnieren en 3-punts sluiting) en te
 vergrendelen (sleutel + slot). Om er voor te zorgen dat de boxen ook
 onder extreme weersomstandigheden (storm) op hun plek blijven, is
-gekozen voor een robuuste ‘verankering’. Deze verankering blijft los van
-het dak zodat er geen aanpassingen aan het dak zelf noodzakelijk zijn.
-Het totale gewicht (en dus de lokale dakbelasting) neemt daardoor wel
-toe, maar blijft door een goede gewichtsverdeling beperkt (minder dan
+gekozen voor een robuuste ‘verankering’, te zien in
+\figref{fig:schema_verankering}. De verankering bestaat uit een aantal
+opsluitbanden en een aluminium kokerprofiel dit wordt bij
+elkaar gehouden door metalen spanbanden, de skibox is aan het
+kokerprofiel verbonden door de standaard bevestigingspunten. Deze
+verankering blijft los van het dak zodat er geen aanpassingen aan het
+dak zelf noodzakelijk zijn. Het totale gewicht (en dus de lokale
+dakbelasting) neemt daardoor wel toe, maar blijft door een goede
+gewichtsverdeling beperkt (minder dan
 \SI{50}{\kilo\gram\per\square\meter}).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{schema_verankering}
+    \caption{Schema van de verankering. 1 - Opsluitbanden, 2 - Aluminium
+             kokerprofiel, 3 - Skibox beugels, 4 - Spanband, 5 -
+             Rubbertegels.}
+    \label{fig:schema_verankering}
+\end{figure}
 
 %Voordat de skiboxen met hun detectoren definitief geplaatst kunnen
 %worden moeten diverse elektrische tests uitgevoerd worden en moet de
@@ -97,6 +132,9 @@ toe, maar blijft door een goede gewichtsverdeling beperkt (minder dan
 %noodzakelijk om later de signalen van de kosmische straling te kunnen
 %interpreteren!
 
+
+\section{Checklist voor plaatsing}
+
 Voordat de skiboxen geplaatst worden is het raadzaam om de volgende
 punten stap voor stap te controleren:
 
@@ -105,7 +143,10 @@ punten stap voor stap te controleren:
     en het detectornummer. Het stationnummer is een uniek
     identificatienummer en wordt ook in software gebruikt en wordt
     aangegeven op de statuspagina van de betreffende cluster op de
-    \hisparc website en in het logboek van de detector.
+    \hisparc website en in het logboek van de detector. Het
+    detectornummer wordt bepaald door de poort op het \hisparc kastje
+    waar de detector aan verbonden wordt: detectornummers 1 en 2 zijn
+    Master PMT1 en PMT2, detectornummers 3 en 4 zijn Slave PMT1 en PMT2.
     \item Om te voorkomen dat tijdens het transport de fotobuis
     beschadigt, wordt de detector zo in de skibox geplaatst dat de
     fotoversterkerbuis zich altijd aan de hogere kant van de skibox
@@ -117,34 +158,24 @@ punten stap voor stap te controleren:
     \item Iedere detector is gekalibreerd (documentatie: in logboek,
     kopie bij school en bij coördinerende instelling en op
     webpagina’s!).
+    \item In overleg met gebouwbeheer moet een kabeldoorvoer in het
+    gebouw worden aangelegd zodat de kabels van de \hisparc electronica
+    (binnen) naar de detectoren (buiten) kunnen. Onthoudt dat de kabels
+    \SI{30}{\meter} lang zijn.
     \item 1 signaalkabel (coax) en 1 voedingkabel (5-aders) per skibox
-    zijn getest en aangelegd (de standaard - maximale - kabellengte is
-    \SI{30}{\meter}). Zorg dat de kabels aan beide uiteinden voorzien
-    zijn van het betreffence detectornummer. Let op bij de aanleg: de
-    voedingskabels zijn niet symmetrisch, de uiteinden hebben
+    zijn getest en aangelegd. Zorg dat de kabels aan beide uiteinden
+    voorzien zijn van het betreffende detectornummer. Let op bij de
+    aanleg: de voedingskabels zijn niet symmetrisch, de uiteinden hebben
     verschillende connectors (male/female)! De fotobuis bezit een ‘male’
     connector en moet dus verbonden worden met de ‘female’ connector van
-    de voedingskabel...
+    de voedingskabel en de 'male' connector van de kabel moet verbonden
+    worden met de 'female' connector van de \hisparc electronica. 
     \item De kabels in de ‘vrije natuur’ (op het dak en langs de gevel)
     zijn bij voorkeur in vast gemonteerde (metalen/kunststoffen)
     kabelgoten/buizen ondergebracht (de voedingsspanning van de fotobuis
     bedraagt \SI{12}{\volt} met beperkte belastbaarheid). Voorkom
     kortsluiting; bescherm de connectors tegen mechanische belasting en
     inwerking van vocht en voorkom scherpe knikken in de kabels!
-    \item De \gps antenne is op een stabiele mast of antennevoet in de
-    directe nabijheid van het detectiestation geplaatst, zodat de
-    antenne ‘vrij zicht’ heeft op een zo groot mogelijk deel van de
-    hemel. Bij correcte plaatsing, worden meer dan 5 satellieten
-    gelijktijdig waargenomen.
-    \item De \gps antenne wordt op een buis/standaard gemonteerd waarbij
-    de antenne aan de onderzijde past op een gasfitting van 3⁄4 inch of
-    direct op de bijgeleverde kunststof voet.
-    \item De \gps antennekabel is bij voorkeur in een stabiele kabelgoot
-    gemonteerd (de \gps kabellengte bedraagt eveneens \SI{30}{\meter};
-    deze kabellengte mag zonder speciale maatregelen niet veranderd
-    worden!). De kabel heeft aan beide zijden dezelfde connector en mag
-    niet los liggen/hangen, vooral niet langs een mast (gebruik
-    kabelbinders)!
     \item Er wordt rekening gehouden met speciale
     voorschriften/voorzieningen bij dakbeveiliging tegen blikseminslag.
 \end{itemize}
@@ -153,39 +184,71 @@ punten stap voor stap te controleren:
 \section{Positie van detectoren en \gps antenne}
 
 Twee verschillende \hisparc detector configuraties worden toegepast; een
-twee-skibox opstelling en een vier-skibox opstelling. De opstelling met
-twee skiboxen is bij uitstek geschikt wanneer het station gecombineerd
-wordt met andere stations in de directe omgeving (cluster centra). Het
-totale detectieoppervlak van dit station bedraagt $0.5 + 0.5 =
-\SI{1}{\square\meter}$. Om de hoekafhankelijkheid van de opstelling te
-beperken, worden beide skiboxen parallel geplaatst (de effectieve
-‘lengte’ van het station in twee richtingen is dan \SI{1}{\meter}). De
-‘typische’ afstand tussen de twee skiboxen bedraagt 5 à 6 meter.
+twee-skibox opstelling en een vier-skibox opstelling. 
+
+
+\subsection{Twee detectoren}
+
+De opstelling met twee skiboxen is bij uitstek geschikt wanneer het
+station gecombineerd wordt met andere stations in de directe omgeving
+(cluster centra). Het totale detectieoppervlak van dit station bedraagt
+$0.5 + 0.5 = \SI{1}{\square\meter}$. Om de hoekafhankelijkheid van de
+opstelling te beperken, worden beide skiboxen parallel geplaatst (de
+effectieve ‘lengte’ van het station in twee richtingen is dan
+\SI{1}{\meter}). De ‘typische’ afstand tussen de twee skiboxen bedraagt
+5 à 6 meter.
 
 De \gps kan tussen de twee skiboxen op de hartlijn van de scintillatoren
 geplaatst worden. Meet de Noord-Zuid oriëntatie van deze hartlijn met
-een kompas en maak een situatieschets. Een opstelling met 4 detectoren
-biedt de mogelijkheid om de richting van een lokale deeltjeslawine te
-bepalen. Ook hier is gekozen voor een opstelling waarbij de geometrie
-geoptimaliseerd is voor symmetrie; de vier detectoren vormen de
-hoekpunten van een ruit (met zijden van \SI{10}{\meter}). Wanneer in
-alle vier de detectoren een signaal gemeten wordt, kunnen in totaal 4
-driehoeken onderscheiden worden; richting reconstructie van de kosmische
-straling kan zo 4 keer uitgevoerd en op consistentie getest worden...
+een kompas en maak een situatieschets waarin deze hoek en de afstanden
+tussen de \gps en detectoren duidelijk is.
+
+\begin{figure}
+    \centering
+    \input{Figures/station-2-layout}
+    \caption{Schematische weergave van de plaatsing van de detectoren in een
+             2-detector station met een \gps in het midden. De afstand
+             tussen de scintillatoren is ongeveer \SI{6}{\meter}.}
+    \label{fig:station-2-layout}
+\end{figure}
+
+
+\subsection{Vier detectoren}
+
+Een opstelling met 4 detectoren biedt de mogelijkheid om de richting van
+een lokale deeltjeslawine te bepalen. Ook hier is gekozen voor een
+opstelling waarbij de geometrie geoptimaliseerd is voor symmetrie; de
+vier detectoren vormen de hoekpunten van een ruit (met zijden van
+\SI{10}{\meter}). Wanneer in alle vier de detectoren een signaal gemeten
+wordt, kunnen in totaal 4 driehoeken onderscheiden worden; richting
+reconstructie van de kosmische straling kan zo 4 keer uitgevoerd en op
+consistentie getest worden.
 
 De \gps kan in het midden op de hartlijn tussen de scintillatoren 3 en 4
-geplaatst worden. Wordt van deze positie afgeweken, dan moet een
-detailschets gemaakt worden van de positie van de \gps ten opzichte van
-de detectoren. Ook hier moet de oriëntatie van de hartlijn tussen 3 en
-4 t.o.v. het Noorden met een kompas bepaald worden, De volgorde in de
-nummering van de detectoren is eenduidig en mag niet veranderd worden
-(Master: scintillator 1 en 2 en Slave: scintillator 3 en 4)!
+geplaatst worden. Ook hier moet een detailschets gemaakt worden van de
+positie (afstanden en richting) van de detectoren ten opzichte van de
+\gps. Hier moet de oriëntatie van de hartlijn tussen 3 en 4 t.o.v.
+het Noorden met een kompas bepaald worden. De volgorde in de nummering
+van de detectoren is eenduidig en mag niet veranderd worden (Master:
+scintillator 1 en 2 en Slave: scintillator 3 en 4)!
+
+\begin{figure}
+    \centering
+    \input{Figures/station-4-layout}
+    \caption{Schematische weergave van de plaatsing van de detecoren in een
+             4-detector station. De detectoren liggen in de vorm van een
+             ruit, dus twee aaneengesloten gelijkzijdige driehoeken met
+             zijden van \SI{10}{\meter}. De \gps is geplaatst tussen
+             detector 3 en 4.}
+    \label{fig:station-4-layout}
+\end{figure}
 
 
-\section{Installatie van de skiboxen}
+\section{Plaatsing van de skiboxen}
 
-Denk aan de voorschriften m.b.t. werken op (platte) daken (o.a. blijf
-meer dan 2 meter van de dakrand verwijderd!).
+\textbf{Let op!} Denk aan de voorschriften m.b.t. werken op daken (o.a.
+blijf meer dan 2 meter van de dakrand verwijderd!). Informeer bij de
+gebouwbeheerder voor alle regels.
 
 \begin{itemize}
     \item Wees extreem voorzichtig met de detector; de lijmverbindingen
@@ -209,130 +272,173 @@ meer dan 2 meter van de dakrand verwijderd!).
     \item Verwijder het schuimmateriaal dat voor transport
     boven de scintillatieplaat en lichtgeleider aan is gebracht pas
     dan wanneer de skibox op zijn definitieve plek geplaatst is.
-    \item Meet de precieze afstand tussen de \gps-antenne en de skiboxen
-    en maak een positie schets waarbij de Noord-Zuid oriëntatie van de
-    skiboxen m.b.v. een kompas bepaald wordt. Neem de schets op in het
-    logboek en plaats deze informatie op de lokale webpagina’s.
 \end{itemize}
-
-
-\section{De plaatsing van de skiboxen}
 
 De skiboxen worden gefixeerd via hun standaard bevestigingspunten zodat
 de belasting van de bevestigingspunten identiek is aan de belasting op
-een autodak. Alleen zo kan veilige montage gegarandeerd worden. Er
-worden twee series skiboxen toegepast die qua afmetingen niet
-verschillen, maar wel afwijken in de manier waarop de
-bevestigingsbeugels in de box gefixeerd worden. Bij de eerste serie -
-oudere - skiboxen worden standaard 4 beugels en 4 beugelvergrendelingen
-bij iedere skibox geleverd. Voordat de beugels via de onderzijde van de
-box in de vergrendeling worden geschoven is het handig om de detector
-uit de box te nemen en tijdelijk los op schuimplastic op het dak te
-leggen.
+een autodak. Alleen zo kan veilige montage gegarandeerd worden. Kies de
+uiterste positie (zo ver mogelijk van elkaar af) van de
+bevestigingspunten in de skibox. Er worden een aantal series skiboxen
+toegepast die qua afmetingen niet veel verschillen, maar wel afwijken in
+de manier waarop de bevestigingsbeugels in de box gefixeerd worden.
 
-De vergrendelingen worden op rails aan de binnenzijde van de skibox zo
-ver mogelijk uit elkaar geschoven. De beugels zijn in hoogte
-verstelbaar. Op de foto is de ‘vergrendeling’ in ‘ontgrendelde’ toestand
-weergegeven, door het centrale deel rechtsom te draaien worden de
-beugels vastgeklemd en kan de rode zekering over het uiteinde van het
-draaiende deel geschoven worden. Bij de tweede serie – nieuwere –
-skiboxen worden standaard 4 beugels, 4 rubberen afdekplaatjes, 4
-kunststof afdekplaatjes en 8 moeren geleverd. De beugels worden van
-onder in de gaten in de bodem van de skibox geplaatst (kies hiervoor
-wederom de gaten die het verste van elkaar verwijderd zijn). Vervolgens
-worden aan de binnenzijde van de box de rubberen en kunststof afdekplaat
-(in deze volgorde!) over de uiteinden van de beugel geschoven. Tenslotte
-worden de moeren op de uiteinden van de beugel gedraaid. De niet
-gebruikte gaten in de bodem van de skibox worden met meegeleverde
-(zwarte) plastic stickers afgedekt.
 
-Voor de ‘verankering’ van één skibox op het dak zijn de volgende
-onderdelen nodig; afwijken van deze methode van plaatsing
-wordt ontraden en gebeurt op eigen risico!:
+\subsection{Hapro skiboxen}
 
-\begin{itemize}
-    \item 8 stuks (100 x 15 x 5 cm) of 4 stuks (100 x 30 x 5 cm)
-    betonnen opsluitbanden.
-    \item 2 kokerprofielen (200 x 5 x 2,5 cm RVS of aluminium) om de
-    bevestigingsbeugels te fixeren.
-    \item Ongeveer \SI{8}{\meter} RVS-band (‘Bandit’, 3/4 inch breedte)
-    met 8 3/4 inch sluitstukken.
-\end{itemize}
+Bij elke Hapro skibox worden 4 beugels en 4 beugelvergrendelingen
+geleverd. In \figref{fig:beugels_hapro} is de vergrendeling in
+‘ontgrendelde’ toestand weergegeven, zo kunnen de uiteinden van de
+beugels door de onderkant van de skibox erdoor worden gestoken. Door dan
+het centrale deel rechtsom te draaien worden de beugels vastgeklemd en
+kan de rode zekering over het uiteinde van het draaiende deel geschoven
+worden.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.47\linewidth]{beugels_hapro}
+    \caption{Bevestigingbeugels en vergrendeling van de Hapro skiboxen.}
+    \label{fig:beugels_hapro}
+\end{figure}
+
+
+\subsection{Thule skiboxen}
+
+Bij de Thule skibox worden 4 beugels, 8 moeren, en een aantal
+afdekplaatjes geleverd (\figref{fig:beugels_thule}). De beugels worden van onder in de gaten in de
+bodem van de skibox geplaatst. Vervolgens worden aan de binnenzijde van
+de box de rubberen en kunststof afdekplaat (in deze volgorde!) over de
+uiteinden van de beugel geschoven. Tenslotte worden de moeren op de
+uiteinden van de beugel gedraaid. De niet gebruikte gaten in de bodem
+van de skibox worden met meegeleverde (zwarte) plastic stickers afgedekt.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.47\linewidth]{beugels_thule}
+    \caption{Bevestigingbeugels, moeren en afdekplaatjes van de Thule
+             skiboxen.}
+    \label{fig:beugels_thule}
+\end{figure}
+
+
+\subsection{Verankering skiboxen}
+
+Dit beschrijft de ‘verankering’ van één skibox op het dak. Afwijken van
+deze methode van plaatsing wordt ontraden en gebeurt op eigen risico!
 
 Afhankelijk van de dakbedekking kunnen rubberen matten of een aantal
-rubberen tegels aange- bracht worden waarop de betonnen opsluitbanden
+rubberen tegels aangebracht worden waarop de betonnen opsluitbanden
 geplaatst kunnen worden. Het RVS band wordt met een spantang om de
 kokerbalk en betonnen opsluitbanden gesnoerd. De kokerbalken drukken de
 twee beugels tegen de opsluitbanden. De beugels steken door de bodem van
 de skibox. De vergrendelingen/moeren op de beugels aan de binnenzijde
 van de skibox zorgen ervoor dat de skibox op de kokerbalk gefixeerd
-wordt. Het sluitstuk van de band is eveneens van RVS (linksonder) en
-heeft vertandingen en sluitnokken (rechtsboven) waarmee de band
-gefixeerd wordt. De nokken worden met een hamer om de band ‘gebogen’. De
-spantang heeft een ingebouwde schaar waarmee de band op lengte kan
-worden geknipt. Per skibox worden zo 8 spanbanden aangebracht.
+wordt. Het sluitstuk van de spanband is eveneens van RVS en heeft
+vertandingen en sluitnokken waarmee de band gefixeerd wordt
+(\figref{fig:spanband}). Met de spantang wordt de spanband strak om de
+opsluitbanden en het kokerprofiel getrokken, zo dat het sluitstuk op het
+kokerprofiel blijft (\figref{fig:spanband_spannen}). Buig de spanband
+zodat het losse stuk met de nokken vast gezet kan worden
+(\figref{fig:spanband_buigen}). De nokken worden met een hamer om de band
+‘gebogen’ (\figref{fig:spanband_verankeren}). De spantang heeft een
+ingebouwde schaar waarmee de band op lengte kan worden geknipt. Per
+skibox worden zo 8 spanbanden aangebracht.
 
-Leg, als alle banden gemonteerd zijn, de detector weer in de skibox. Let
-op dat de kabelgoten zo dicht mogelijk bij de skibox eindigen en dat de
-kabels langer zijn dan strikt noodzakelijk om de connectors van de
+\begin{figure}
+    \centering
+    \subfloat[]{\includegraphics[width=0.47\linewidth]{spanband}
+                \label{fig:spanband}}
+    \subfloat[]{\includegraphics[width=0.47\linewidth]{spanband_spannen}
+                \label{fig:spanband_spannen}}
+    \caption{Doorvoeren van spanband sluitstukken. Spannen van de
+             spanbanden.}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \subfloat[]{\includegraphics[width=0.47\linewidth]{spanband_buigen}
+                \label{fig:spanband_buigen}}
+    \subfloat[]{\includegraphics[width=0.47\linewidth]{spanband_verankeren}
+                \label{fig:spanband_verankeren}}
+    \caption{Ombuigen spanband. Verankeren van de spanband.}
+\end{figure}
+
+Let op dat de kabelgoten zo dicht mogelijk bij de skibox eindigen en dat
+de kabels langer zijn dan strikt noodzakelijk om de connectors van de
 fotobuizen te bereiken. Deze extra kabellengte wordt los in de skibox
-(rond de scintillatorplaat) ondergebracht zodat een
-eenvoudige ‘trekontlasting’ van de kabel aan de fotobuis ontstaat. De
-kabels worden bij de kabeldoorvoer in de skibox voorzien van twee extra
-kabelbinders (die niet afgeknipt worden!). Zo wordt een extra
-trekontlasting verkregen. Iedere detectieopstelling bezit twee sets
-sleutels. Een set wordt beheerd door de school (blauw label); de
-reservesleutels worden beheerd door de clustercoördinator (rood label).
+(rond de scintillatorplaat) ondergebracht zodat een eenvoudige
+‘trekontlasting’ van de kabel aan de fotobuis ontstaat (zie
+\figref{fig:detector_in_skibox}). De kabels worden bij de kabeldoorvoer
+in de skibox voorzien van twee extra tiewarps (die niet afgeknipt
+worden!). Zo wordt een extra trekontlasting verkregen. De kabels kunnen
+door een PVC buis (zie \figref{fig:kabel_doorvoer}) of andere kabel
+doorvoer het gebouw binnen komen, overleg hierover met gebouwbeheer.
+Iedere detectieopstelling bezit twee sets sleutels. Een set wordt
+beheerd door de school (blauw label); de reservesleutels worden beheerd
+door de clustercoördinator (rood label).
+
+\begin{figure}
+    \centering
+    \subfloat[]{\includegraphics[width=0.47\linewidth]{detector_in_skibox}
+                \label{fig:detector_in_skibox}}
+    \subfloat[]{\includegraphics[width=0.47\linewidth]{kabel_doorvoer}
+                \label{fig:kabel_doorvoer}}
+    \caption{Doorvoer in de muur voor de kabels. Kabels komen de skibox
+             binnen.}
+\end{figure}
 
 Tenslotte, het is uiterst belangrijk dat het deksel van de skibox op de
 juiste wijze - d.w.z. het deksel sluit aan alle randen terwijl de
 sleutel zonder veel kracht uit te oefenen omgedraaid kan worden -
 gesloten wordt! Uiteraard moet er geen schuim bovenop de
-scintillator en de lichtgeleider in de skibox achterblijven...
+scintillator en de lichtgeleider in de skibox achterblijven.
 
-DISCLAIMER: de hier beschreven plaatsingsmethode is ontwikkeld op basis
-van de gegevens verstrekt door de fabrikant van de skiboxen en is
-geverifieerd door constructeurs. De methode heeft zich in de praktijk
+\textbf{Disclaimer} - de hier beschreven plaatsingsmethode is ontwikkeld
+op basis van de gegevens verstrekt door de fabrikant van de skiboxen en
+is geverifieerd door constructeurs. De methode heeft zich in de praktijk
 bewezen. Op enigerlei wijze afwijken van deze methode geschiedt
 uitdrukkelijk op eigen verantwoordelijkheid en wordt ten sterkste
 ontraden!
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.47\linewidth]{frames}
-    \label{fig:frames}
-    \caption{Detectoren in metalen frames voor vervoer.}
-\end{figure}
+
+\section{\gps plaatsing}
+
+De \gps antenne wordt op een stabiele mast of antennevoet in de directe
+nabijheid van de detectoren geplaatst, zodat de antenne ‘vrij
+zicht’ heeft op een zo groot mogelijk deel van de hemel. Bij correcte
+plaatsing, worden meer dan 5 satellieten gelijktijdig waargenomen.
+
+De \gps antennekabel heeft aan beide zijden dezelfde connector.
+
+Bij voorkeur wordt de \gps antenne gemonteerd op een stoeptegel met
+behulp van de bijgeleverde kunststof voet. Doe de voet over de \gps
+antennekabel en bevestig de kabel aan de \gps antenne, schroef dan de
+voet op de \gps antenne. Boor in de stoeptegel 3 gaten die passen met de
+plek van de gaten in de \gps voet. Gebruik dan lange RVS bouten met
+moeren om de voet aan de stoeptegel vast te maken zodat er genoeg ruimte
+onder de voet is zodat de antennekabel niet knikt. Zie
+\figref{fig:gps_stoeptegel} voor een voorbeeld hiervan. De \gps antenne
+kan ook op een buis gemonteerd de onderzijde past op een gasfitting van
+3⁄4$''$.
 
 \begin{figure}
     \centering
-    \subfloat[]{\includegraphics[width=0.47\linewidth]{schema_verankering}
-                \label{fig:schema_verankering}}
-    \subfloat[]{\includegraphics[width=0.47\linewidth]{spanband}
-                \label{fig:spanband}}
-    \caption{Schema van de verankering. 1 - Omsluitbanden, 2 - Aluminium
-             kokerprofiel, 3 - Skibox beugels, 4 - Spanband, 5 -
-             Rubbertegels. Doorvoeren van spanband sluitstukken.}
+    \includegraphics[width=0.47\linewidth]{gps_stoeptegel}
+    \caption{\gps bevestigd op voet.}
+    \label{fig:gps_stoeptegel}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \subfloat[]{\includegraphics[width=0.47\linewidth]{spanband_spannen}
-                \label{fig:spanband_spannen}}
-    \subfloat[]{\includegraphics[width=0.47\linewidth]{spanband_verankeren}
-                \label{fig:spanband_verankeren}}
-    \caption{Spannen van de spanbanden. Verankeren van de spanband.}
-\end{figure}
+De \gps antennekabel wordt bij voorkeur in een stabiele kabelgoot
+gemonteerd (de \gps kabellengte bedraagt eveneens \SI{30}{\meter}; deze
+kabellengte mag zonder speciale maatregelen niet veranderd worden!). De
+kabel mag niet los liggen/hangen, vooral niet langs een mast (gebruik
+tiewraps)!
 
-\begin{figure}
-    \centering
-    \subfloat[]{\includegraphics[width=0.47\linewidth]{kabel_doorvoer}
-                \label{fig:kabel_doorvoer}}
-    \subfloat[]{\includegraphics[width=0.47\linewidth]{detector_in_skibox}
-                \label{fig:detector_in_skibox}}
-    \caption{Doorvoer in de muur voor de kabels. Kabels komen de skibox
-             binnen.}
-\end{figure}
+
+\section{Afronding}
+
+Zorg dat er geen rommel achter blijft op het dak, zoals lossen stukken
+spanband. Vergeet ook niet de skiboxen goed op slot te doen en de
+sleutels op een goede plek te bewaren.
 
 \begin{figure}
     \centering
@@ -340,15 +446,15 @@ ontraden!
                 \label{fig:klaar_skibox}}
     \subfloat[]{\includegraphics[width=0.47\linewidth]{klaar_station}
                 \label{fig:klaar_station}}
-    \caption{Geïnstaleerde detector stations.}
+    \caption{Geïnstaleerde detector stations. Vergeet niet de skiboxen
+             op slot te doen.}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.47\linewidth]{gps_stoeptegel}
-    \label{fig:gps_stoeptegel}
-    \caption{\gps bevestigd op voet.}
-\end{figure}
+Nu de detectoren geplaatst zijn kan het meten beginnen, hiervoor moet de
+\hisparc electronica aan de pc en detectoren verbonden worden. De
+documentatie die de software installatie beschrijft is online te vinden
+op \url{http://docs.hisparc.nl/station-software/doc/index.html}.
+
 
 %\begin{thebibliography}{9}
 %\end{thebibliography}
