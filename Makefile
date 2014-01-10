@@ -16,6 +16,7 @@ clean: clean-recursive
 latexmk-recursive:
 	for dir in $(TEX_DIRECTORIES); do \
 		cd $$dir; \
+		echo $$dir; \
 		latexmk -quiet -pdf *.tex; \
 		cd ..; \
 	done
