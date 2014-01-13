@@ -11,6 +11,25 @@ GitHub account you can send documents (preferably as .tex, other
 document types are allowed for the initial submit) to info@hisparc.nl.
 
 
+Repository structure
+====================
+
+Work in progress
+----------------
+
+It is best to keep a work in progress (a new document not yet ready to
+be 'published') in a separate branch from `master`. This ensures that it
+is not accidentally published. Once you believe it is ready, create a
+pull request to ask someone to review it. Once reviewed and corrected it
+can be merged to `master`.
+
+
+Completed documents
+-------------------
+
+Once a document is completed (version 1.0) it should appear in the `master` branch and be added to the `index.html`.
+
+
 Directory structure
 ===================
 
