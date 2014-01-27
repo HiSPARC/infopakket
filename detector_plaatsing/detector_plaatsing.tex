@@ -9,6 +9,10 @@
 
 \maketitle
 
+\textbf{Let op!} Afwijken van de fixatiemethode van de skiboxen is niet
+toegestaan!
+
+
 \section{Planning en veiligheid}
 
 Dit document beschrijft hoe een \hisparc detector op het dak
@@ -40,6 +44,8 @@ maatregelen om schade te voorkomen:
     voorkomen.
     \item Voorkom grote schokken aan de \pmt of stoten aan andere
     objecten.
+    \item Zorg ervoor dat de kabels netjes uitgerold worden om knikken
+    te voorkomen.
     \item Fixeer de \pmt kabels en connectors met tape (bijv. papieren
     schilderstape) op de licht-geleider zodat geen trekbelasting op de
     draden (en \pmt) kan ontstaan.
@@ -61,24 +67,20 @@ station (tussen haken staan de hoeveelheden voor een 4 detector station):
 \begin{itemize}
     \item 2 (4) \hisparc detectoren
     \item 2 (4) Coaxkabels van \SI{30}{\meter}
-    \item 2 (4) Hoogspanningskabels van \SI{30}{\meter}
+    \item 2 (4) Voedingskabels van \SI{30}{\meter}
     \item 4 (8) Schuimblokken
     \item 2 (4) Skiboxen met kabeldoorvoer
-    \item 2 (4) Aluminium kokerprofielen (\SI{200}{\centi\meter} x
+    \item 4 (8) Aluminium kokerprofielen (\SI{200}{\centi\meter} x
     \SI{5}{\centi\meter} x \SI{2.5}{\centi\meter})
     \item 16 (32) Betonnen opsluitbanden (\SI{100}{\centi\meter} x
-    \SI{15}{\centi\meter} x \SI{5}{\centi\meter})
+    \SI{30}{\centi\meter} x \SI{5}{\centi\meter})
     \item Rubberen tegels
-    \item \SI{8}{\meter} (\SI{16}{\meter}) 3/4$''$ RVS spanband
+    \item \SI{16}{\meter} (\SI{32}{\meter}) 3/4$''$ RVS spanband
     ('Band-it')
-    \item 8 (16) 3/4$''$ sluitstukken ('Band-it')
+    \item 16 (32) 3/4$''$ RVS sluitstukken ('Band-it')
     \item \gps antenne met voet
     \item \gps coaxkabel van \SI{30}{\meter}
-    \item Kabelgootje
     \item Tie-wraps
-    \item 1 \hisparc Master (en 1 \hisparc Slave) met voeding
-    \item 2 (3) USB kabels
-    \item Windows 7 PC met toegang tot internet
 \end{itemize}
 
 En dit zijn de andere benodigdheden:
@@ -102,9 +104,9 @@ de juiste wijze te sluiten (scharnieren en 3-punts sluiting) en te
 vergrendelen (sleutel + slot). Om er voor te zorgen dat de boxen ook
 onder extreme weersomstandigheden (storm) op hun plek blijven, is
 gekozen voor een robuuste ‘verankering’, te zien in
-\figref{fig:schema_verankering}. De verankering bestaat uit een aantal
-opsluitbanden en een aluminium kokerprofiel dit wordt bij
-elkaar gehouden door metalen spanbanden, de skibox is aan het
+\figref{fig:schema_verankering}. De verankering bestaat uit 4
+opsluitbanden en een aluminium kokerprofiel, dit wordt bij
+elkaar gehouden door RVS spanbanden, de skibox is aan het
 kokerprofiel verbonden door de standaard bevestigingspunten. Deze
 verankering blijft los van het dak zodat er geen aanpassingen aan het
 dak zelf noodzakelijk zijn. Het totale gewicht (en dus de lokale
@@ -159,7 +161,7 @@ punten stap voor stap te controleren:
     kopie bij school en bij coördinerende instelling en op
     webpagina’s!).
     \item In overleg met gebouwbeheer moet een kabeldoorvoer in het
-    gebouw worden aangelegd zodat de kabels van de \hisparc electronica
+    gebouw worden aangelegd zodat de kabels van de \hisparc elektronica
     (binnen) naar de detectoren (buiten) kunnen. Onthoudt dat de kabels
     \SI{30}{\meter} lang zijn.
     \item 1 signaalkabel (coax) en 1 voedingkabel (5-aders) per skibox
@@ -169,7 +171,7 @@ punten stap voor stap te controleren:
     verschillende connectors (male/female)! De fotobuis bezit een ‘male’
     connector en moet dus verbonden worden met de ‘female’ connector van
     de voedingskabel en de 'male' connector van de kabel moet verbonden
-    worden met de 'female' connector van de \hisparc electronica. 
+    worden met de 'female' connector van de \hisparc elektronica. 
     \item De kabels in de ‘vrije natuur’ (op het dak en langs de gevel)
     zijn bij voorkeur in vast gemonteerde (metalen/kunststoffen)
     kabelgoten/buizen ondergebracht (de voedingsspanning van de fotobuis
@@ -201,8 +203,8 @@ weergave van deze opstelling.
 
 De \gps kan tussen de twee skiboxen op de hartlijn van de scintillatoren
 geplaatst worden. Meet de Noord-Zuid oriëntatie van deze hartlijn met
-een kompas en maak een situatieschets waarin deze hoek en de afstanden
-tussen de \gps en detectoren duidelijk is.
+een kompas en maak een situatieschets waarin deze hoek (t.o.v. noorden)
+en de afstanden tussen de \gps en detectoren duidelijk is.
 
 \begin{figure}
     \centering
@@ -231,7 +233,8 @@ positie (afstanden en richting) van de detectoren ten opzichte van de
 \gps. Hier moet de oriëntatie van de hartlijn tussen 3 en 4 t.o.v.
 het Noorden met een kompas bepaald worden. De volgorde in de nummering
 van de detectoren is eenduidig en mag niet veranderd worden (Master:
-scintillator 1 en 2 en Slave: scintillator 3 en 4)!
+scintillator 1 en 2 en Slave: scintillator 3 en 4). Noteer in de schets
+duidelijk welke detector welk nummer heeft!
 
 \begin{figure}
     \centering
@@ -254,21 +257,21 @@ gebouwbeheerder voor alle regels.
 \begin{itemize}
     \item Wees extreem voorzichtig met de detector; de lijmverbindingen
     (scintillator/lichtgeleider, lichtgeleider/fotobuis) zijn fragiel
-    en kunnen snel breken waardoor de fotobuis onherstelbaar beschadigd
-    kan raken.
+    en kunnen snel breken waardoor de kostbare fotobuis onherstelbaar
+    beschadigd kan raken.
     \item Zorg dat in ieder skibox één gat geboord is voor de
     kabeldoorvoer. De kabeldoorvoer moet van binnen worden aangebracht,
     zodat alleen de bevestigingsmoer zich aan de buitenzijde bevindt.
     \item Geen extra gewichten in de skibox plaatsen.
+    \item Verwijder het schuimmateriaal dat voor transport
+    boven de scintillatieplaat en lichtgeleider aan is gebracht pas
+    dan wanneer de skibox op zijn definitieve plek geplaatst is.
     \item Let op dat bij het transport van de skiboxen deze op de juiste
     wijze (3 punten!) gesloten zijn (en op slot!) terwijl voldoende
     schuimmateriaal is aangebracht om het verschuiven van de
     scintillatieplaat en lichtgeleider te voorkomen (laat de sleutel
     nooit in het slot van de skibox zitten, de sleutel kan eenvoudig
     afbreken!).
-    \item Verwijder het schuimmateriaal dat voor transport
-    boven de scintillatieplaat en lichtgeleider aan is gebracht pas
-    dan wanneer de skibox op zijn definitieve plek geplaatst is.
 \end{itemize}
 
 De skiboxen worden gefixeerd via hun standaard bevestigingspunten zodat
@@ -320,25 +323,25 @@ van de skibox worden met meegeleverde (zwarte) plastic stickers afgedekt.
 \subsection{Verankering skiboxen}
 
 Dit beschrijft de ‘verankering’ van één skibox op het dak. Afwijken van
-deze methode van plaatsing wordt ontraden en gebeurt op eigen risico!
+deze methode is niet zonder overleg toegestaan!
 
 Afhankelijk van de dakbedekking kunnen rubberen matten of een aantal
 rubberen tegels aangebracht worden waarop de betonnen opsluitbanden
-geplaatst kunnen worden. Het RVS band wordt met een spantang om de
-kokerbalk en betonnen opsluitbanden gesnoerd. De kokerbalken drukken de
-twee beugels tegen de opsluitbanden. De beugels steken door de bodem van
-de skibox. De vergrendelingen/moeren op de beugels aan de binnenzijde
-van de skibox zorgen ervoor dat de skibox op de kokerbalk gefixeerd
-wordt. Het sluitstuk van de spanband is eveneens van RVS en heeft
-vertandingen en sluitnokken waarmee de band gefixeerd wordt
-(\figref{fig:spanband}). Met de spantang wordt de spanband strak om de
-opsluitbanden en het kokerprofiel getrokken, zo dat het sluitstuk op het
-kokerprofiel blijft (\figref{fig:spanband_spannen}). Buig de spanband
-zodat het losse stuk met de nokken vast gezet kan worden
-(\figref{fig:spanband_buigen}). De nokken worden met een hamer om de band
-‘gebogen’ (\figref{fig:spanband_verankeren}). De spantang heeft een
-ingebouwde schaar waarmee de band op lengte kan worden geknipt. Per
-skibox worden zo 8 spanbanden aangebracht.
+geplaatst worden. Het RVS band wordt met een spantang om de kokerbalk en
+betonnen opsluitbanden gesnoerd. De kokerbalken drukken de twee beugels
+tegen de opsluitbanden. De beugels steken door de bodem van de skibox.
+De vergrendelingen/moeren op de beugels aan de binnenzijde van de skibox
+zorgen ervoor dat de skibox op de kokerbalk gefixeerd wordt. Het
+sluitstuk van de spanband is eveneens van RVS en heeft vertandingen en
+sluitnokken waarmee de band gefixeerd wordt (\figref{fig:spanband}). Met
+de spantang wordt de spanband strak om de opsluitbanden en het
+kokerprofiel getrokken, zo dat het sluitstuk op het kokerprofiel blijft
+(\figref{fig:spanband_spannen}). Buig de spanband zodat het losse stuk
+met de nokken vast gezet kan worden (\figref{fig:spanband_buigen}). De
+nokken worden met een hamer om de band ‘gebogen’
+(\figref{fig:spanband_verankeren}). De spantang heeft een ingebouwde
+schaar waarmee de band op lengte kan worden geknipt. Per skibox worden
+zo 8 spanbanden aangebracht.
 
 \begin{figure}
     \centering
@@ -448,7 +451,7 @@ sleutels op een goede plek te bewaren.
 \end{figure}
 
 Nu de detectoren geplaatst zijn kan het meten beginnen, hiervoor moet de
-\hisparc electronica aan de pc en detectoren verbonden worden. De
+\hisparc elektronica aan de pc en detectoren verbonden worden. De
 documentatie die de software installatie beschrijft is online te vinden
 op \url{http://docs.hisparc.nl/station-software/doc/index.html}.
 

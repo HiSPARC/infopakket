@@ -37,7 +37,7 @@ tegenhangers van \gps ontwikkeld, namelijk het Russische GLONASS en het
 Europese Galileo\footnote{Dit systeem is nog niet compleet, maar wordt
 verwacht binnen een paar jaar operationeel te zijn.}. Tegenwoordig wordt
 \gps door bijna iedereen gebruikt. Zo zitten er \gps ontvangers in onder
-andere telefoons, auto's en ook de \hisparc electronica.
+andere telefoons, auto's en ook de \hisparc elektronica.
 
 \begin{figure}
     \centering
@@ -96,14 +96,14 @@ de Amerikaanse National Institute of Standards and Technology (NIST).
 Het NIST heeft een klok die zo nauwkeurig is dat het in 100 miljoen jaar
 nog geen seconde verkeerd zal lopen \cite{nist2013ces}.
 
-\gps doet niet
-mee aan zomer- en wintertijd, en ook niet aan de
+\gps doet niet mee aan zomer- en wintertijd, en ook niet aan de
 schrikkelseconde\footnote{Een extra seconde die af en toe aan de tijd
 wordt toegevoegd ter correctie van het verschil tussen de zonnedag en de
 \SI{24}{uur} die als dag gezien wordt.}. Dit betekent dat de \gps
 precies het aantal seconden sinds 1 January 1970 aangeeft. In het
-verleden werkte \hisparc met UTC-tijd, maar dat had als nadeel dat vanwege de schrikkelseconden een
-tijdstempel twee keer kon voorkomen. Daarom wordt voor \hisparc nu gebruik gemaakt van \gps-tijd.
+verleden werkte \hisparc met UTC-tijd, maar dat had als nadeel dat
+vanwege de schrikkelseconden een tijdstempel twee keer kon voorkomen.
+Daarom wordt voor \hisparc nu gebruik gemaakt van \gps-tijd.
 
 
 \section{Tijd en positie bepaling}
@@ -117,12 +117,21 @@ onderlinge posities met een meetlint en kompas te bepalen. Ook is het
 niet mogelijk om de stations zo aan elkaar te koppelen dat hun klokken
 tot op een aantal nanoseconden nauwkeurig gelijk staan.
 
-Je eigen positie in 3 dimensies kun je bepalen als je de afstanden weet ten opzichte van 3 bekende posities. Deze methode heet
-trilateratie. Je zal dan namelijk 2 mogelijke posities vinden die precies die 3 afstanden heeft tot de andere posities. Van deze twee posities is er maar \'e\'en logisch.
+Je eigen positie in 3 dimensies kun je bepalen als je de afstanden weet
+ten opzichte van 3 bekende posities. Deze methode heet trilateratie. Je
+zal dan namelijk 2 mogelijke posities vinden die precies die 3 afstanden
+heeft tot de andere posities. Van deze twee posities is er maar \'e\'en
+logisch.
 
-Hieronder zijn de vergelijkingen te zien die horen bij de trilateratie methode. Eerst voor 1, dan voor 2 en tenslotte voor 3 dimensies. Er komt steeds een onbekende coördinaat bij. Omdat er ook steeds een vergelijking bij komt is het stelsel vergelijkingen telkens op te lossen. Voor het 1 dimensionale geval kun je veronderstellen dat je ergens op een lijn staat, bijvoorbeeld de $x$-as. Jouw onbekende positie is dan $x$. Als je de absolute
-afstand $d_1$ tussen jou en een ander punt $x_1$ op dezelfde lijn
-weet, dan kan je $x$ vinden door de volgende vergelijking op te lossen:
+Hieronder zijn de vergelijkingen te zien die horen bij de trilateratie
+methode. Eerst voor 1, dan voor 2 en tenslotte voor 3 dimensies. Er komt
+steeds een onbekende coördinaat bij. Omdat er ook steeds een
+vergelijking bij komt is het stelsel vergelijkingen telkens op te
+lossen. Voor het 1 dimensionale geval kun je veronderstellen dat je
+ergens op een lijn staat, bijvoorbeeld de $x$-as. Jouw onbekende positie
+is dan $x$. Als je de absolute afstand $d_1$ tussen jou en een ander
+punt $x_1$ op dezelfde lijn weet, dan kan je $x$ vinden door de volgende
+vergelijking op te lossen:
 \begin{equation}
     \label{eq:1d_trilateratie}
     \begin{array}{rcl}
@@ -130,11 +139,12 @@ weet, dan kan je $x$ vinden door de volgende vergelijking op te lossen:
     \end{array}
 \end{equation}
 Hier zijn twee oplossingen voor, namelijk $x = x_1+d_1$ en $x =
-x_1-d_1$. 
-In 2 dimensies komt er een tweede onbekende coördinaat bij, $y$. Als je alleen de afstand $d_1$ tot een ander punt weet is de
-oplossing voor $x$ en $y$ een cirkel met middelpunt $(x_1, y_1)$ en straal
-$d_1$. De afstand $d_2$ tot een tweede punt $(x_2, y_2)$ is dus noodzakelijk om je positie te
-bepalen. Dan onstaat het volgende stelsel vergelijkingen:
+x_1-d_1$. In 2 dimensies komt er een tweede onbekende coördinaat bij,
+$y$. Als je alleen de afstand $d_1$ tot een ander punt weet is de
+oplossing voor $x$ en $y$ een cirkel met middelpunt $(x_1, y_1)$ en
+straal $d_1$. De afstand $d_2$ tot een tweede punt $(x_2, y_2)$ is dus
+noodzakelijk om je positie te bepalen. Dan onstaat het volgende stelsel
+vergelijkingen:
 \begin{equation}
     \label{eq:2d_trilateratie}
     \begin{array}{rcl}
@@ -155,18 +165,19 @@ In 3 dimensies willen we ook onze $z$ coördinaat bepalen. Het stelsel vergelijk
 In deze 3 vergelijkingen zijn $x$, $y$ en $z$
 de 3 onbekenden. Ook nu zijn er 2 mogelijke oplossingen (de snijpunten van 3 bollen). 
 
-Bij \gps wordt, uiteraard, geen meetlint tussen de ontvanger en de satelliet
-gespannen om achter de 3 benodigde afstanden te komen. In plaats daarvan kijkt de ontvanger
-naar het tijdverschil tussen de tijd waarop de \gps satelliet het
-signaal uitzendt en de tijd waarop hij dit signaal ontvangt
-\cite{blewitt1997gps}. Als dit tijdverschil vermenigvuldigd wordt met de
-lichtsnelheid (radiosignalen gaan met de lichtsnelheid) heb je een
-afstand. De \gps satellieten zenden ook een datapakket uit waarmee de
-posities van alle \gps satellieten op een bepaalde tijd te bepalen valt.
-De positie van een \gps satelliet hangt dus af van de tijd waarop een
-satelliet een signaal uitzend. Het is echter nog onzeker of de tijd op de klok van de
-ontvanger correct is. Om deze extra onbekende op te lossen is het
-signaal van een 4e satelliet nodig. Het stelsel van vergelijkingen wordt daardoor als volgt:
+Bij \gps wordt, uiteraard, geen meetlint tussen de ontvanger en de
+satelliet gespannen om achter de 3 benodigde afstanden te komen. In
+plaats daarvan kijkt de ontvanger naar het tijdverschil tussen de tijd
+waarop de \gps satelliet het signaal uitzendt en de tijd waarop hij dit
+signaal ontvangt \cite{blewitt1997gps}. Als dit tijdverschil
+vermenigvuldigd wordt met de lichtsnelheid (radiosignalen gaan met de
+lichtsnelheid) heb je een afstand. De \gps satellieten zenden ook een
+datapakket uit waarmee de posities van alle \gps satellieten op een
+bepaalde tijd te bepalen valt. De positie van een \gps satelliet hangt
+dus af van de tijd waarop een satelliet een signaal uitzend. Het is
+echter nog onzeker of de tijd op de klok van de ontvanger correct is. Om
+deze extra onbekende op te lossen is het signaal van een 4e satelliet
+nodig. Het stelsel van vergelijkingen wordt daardoor als volgt:
 \begin{equation}
     \label{eq:gps_stelsel}
     \begin{array}{rcl}
@@ -212,18 +223,22 @@ verschillende stukken van de atmosfeer, door dus gebruik te maken van
 meerdere satellieten kunnen deze effecten uitgemiddeld worden.
 
 Elke \gps satelliet heeft een zeer nauwkeurige cesium of rubidium
-atoomklok aan boord die heel nauwkeurig de tijd kan bijhouden. ook nauwkeurige atoomklokken zijn onderworpen aan de wetten van de relativiteitstheorie. Enerzijds worden de klokken in \gps satellieten iets vertraagd, omdat ze rond de aarde bewegen met zo'n
-\SI{14000}{\kilo\meter\per\hour}. Anderzijds worden de klokken in \gps satellieten iets versneld, vanwege de kromming van de ruimte
-door de zwaartekracht. Netto lopen de klokken in de \gps satellieten per dag zo'n \SI{38}{\micro\second} op ons
-voor. Hier wordt natuurlijk voor gecorrigeerd \cite{ashby1997gen}.
-Dit levert uiteindelijk een signaal op waarmee we tot
-\SI{10}{\nano\second} nauwkeurig het begin van een seconde kunnen
-aangeven op aarde. De meeste \gps modules geven een PPS af, een Pulse
-Per Second, dus elke seconde geven ze aan dat die seconden begonnen is.
-In de \hisparc electronica wordt deze PPS gebruikt om de interne klok te
-synchroniseren. Tussen de hele seconden wordt de tijd bij gehouden met
-een \SI{200}{\mega\hertz} klok. Deze klok wordt op een slimme manier
-gebruikt wat uiteindelijk leidt tot een nauwkeurigheid van
+atoomklok aan boord die heel nauwkeurig de tijd kan bijhouden. ook
+nauwkeurige atoomklokken zijn onderworpen aan de wetten van de
+relativiteitstheorie. Enerzijds worden de klokken in \gps satellieten
+iets vertraagd, omdat ze rond de aarde bewegen met zo'n
+\SI{14000}{\kilo\meter\per\hour}. Anderzijds worden de klokken in \gps
+satellieten iets versneld, vanwege de kromming van de ruimte door de
+zwaartekracht. Netto lopen de klokken in de \gps satellieten per dag
+zo'n \SI{38}{\micro\second} op ons voor. Hier wordt natuurlijk voor
+gecorrigeerd \cite{ashby1997gen}. Dit levert uiteindelijk een signaal op
+waarmee we tot \SI{10}{\nano\second} nauwkeurig het begin van een
+seconde kunnen aangeven op aarde. De meeste \gps modules geven een PPS
+af, een Pulse Per Second, dus elke seconde geven ze aan dat die seconden
+begonnen is. In de \hisparc elektronica wordt deze PPS gebruikt om de
+interne klok te synchroniseren. Tussen de hele seconden wordt de tijd
+bij gehouden met een \SI{200}{\mega\hertz} klok. Deze klok wordt op een
+slimme manier gebruikt wat uiteindelijk leidt tot een nauwkeurigheid van
 $\sigma_t\sim\SI{4.5}{\nano\second}$ \cite{trimble2007res}.
 
 
