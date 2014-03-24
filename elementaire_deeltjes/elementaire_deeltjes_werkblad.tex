@@ -260,7 +260,26 @@ De energieproductie van onze zon vindt voornamelijk plaats in de kern doordat
 waterstofkernen fuseren tot helium.
 Bij één fusieproces wordt 26,731 \si{MeV} energie geproduceerd en komen 
 twee neutrino's vrij.\\
-In figuur \figref{fig:bellenvat} zie je een gamma en een neutrino de zon 
+\begin{figure}
+\centering
+\begin{tikzpicture}[
+  particle/.style={thick,decoration={markings, mark=at position .7 with {\arrow[>=latex]{>}}},postaction=decorate}
+]
+\fill[yellow] (0, 0) circle (2cm);
+\fill[orange!50!yellow] (0, 0) circle (1.5cm);
+\fill[orange] (0, 0) circle (1cm);
+\fill[red] (0, 0) circle (.5cm);
+
+\node at (0, -.4cm) {core};
+\node at (0, -1.75cm) {photosphere};
+
+\draw[particle] (0, 0) -- (6cm, 1cm) node[below,near end] {\Pneutrino};
+\draw[particle] (0, 0)  -- (-0.18, -0.17)  -- (-0.17, -0.22)  -- (-0.07, -0.15)  -- (-0.31, 0.09)  -- (-0.09, 0.33)  -- (-0.03, 0.74)  -- (0.27, 0.61)  -- (0.43, 0.91)  -- (0.27, 1.13)  -- (0.23, 1.91)  -- (0.91, 1.62)  -- (0.70, 1.59) -- (6cm, 3cm) node[below,near end] {\Pphoton};
+\end{tikzpicture}
+\caption{Zonsdoorsnede} 
+\label{fig:Zonsdoorsnede}
+\end{figure}
+In \figref{fig:Zonsdoorsnede} zie je een gamma en een neutrino de zon 
 verlaten. Beide zijn ongeveer geproduceerd op hetzelfde moment. 
 a. Leg uit dat het neutrino de zon veel sneller zal verlaten dan het gamma.
 \begin{center}
