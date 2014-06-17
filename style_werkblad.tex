@@ -13,3 +13,9 @@
 
 \renewcommand{\thequestion}{\textbf{Opdracht \arabic{question}:}}
 \newcommand{\makelines}[1]{\fillwithlines{#1\linefillheight}}
+
+\ifdefined\showanswers
+  \printanswers
+\else
+  \noprintanswers
+\fi
