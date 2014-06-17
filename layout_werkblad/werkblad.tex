@@ -11,12 +11,35 @@
 
 \maketitle
 
-\section{Inleiding}
+\begin{questions}
 
-\lipsum[1-14]
+\uplevel{\section{Inleiding}}
 
-\section{Middenstuk}
+\question \lipsum[1]
+\makelines{2}
 
-\section{Conclusie}
+\question Foobar.
+\begin{parts}
+  \part deel 1
+  \makelines{2}
+  \part deel 2
+  \makelines{2}
+\end{parts}
 
+\question And so on.
+\makelines{4}
+
+
+\uplevel{\section{Middenstuk}}
+
+\question This is numbered correctly.
+\makelines{2}
+
+\uplevel{\section{Conclusie}}
+
+\question And this one too.
+\makelines{1}
+
+
+\end{questions}
 \end{document}
