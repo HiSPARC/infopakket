@@ -50,7 +50,7 @@ Preamble
 Start with importing the general style and defining the document title,
 author. Then choose a category (e.g. `\docanalyse`), with a sequence
 number and a two letter document code. And finally a version number.
-Then beging the document by creating the title page.
+Then begin the document by creating the title page.
 
 ```latex
 \input{../style}
@@ -78,7 +78,7 @@ the units. Here are some examples:
 ```latex
 \section{Begin}
 
-Namen als \hisparc en \jsparc zien er anders uit de de rest van de tekst.
+Namen als \hisparc en \jsparc zien er anders uit dan de rest van de tekst.
 Ook getallen met eenheden, zoals \SI{120.3}{\micro\meter} hebben speciale
 commando's, zo kan later eenvoudig de weergave aangepast worden. En dit
 is allemaal terug te lezen in \cite{tekst}.

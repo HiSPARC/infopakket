@@ -1,0 +1,12 @@
+\documentclass[twoside, 11pt]{exam}
+
+\input{../common_style}
+
+\newcommand{\defaultstyle}{headandfoot}
+
+% style definitions
+\pagestyle{\defaultstyle}
+\chead{\oddeven{\rightthumb}{\leftthumb}}
+\cfoot{\theshorttitle\ -- \thepage}
+\lfoot{\oddeven{}{\textcolor{gray}{\smaller Versie \theversion}}}
+\rfoot{\oddeven{\textcolor{gray}{\smaller Versie \theversion}}{}}
