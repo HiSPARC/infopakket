@@ -12,7 +12,8 @@
 \rfoot{\oddeven{\textcolor{gray}{\smaller Versie \theversion}}{}}
 
 \renewcommand{\thequestion}{\textbf{Opdracht \arabic{question}:}}
-\newcommand{\makelines}[1]{\fillwithlines{#1\linefillheight}}
+\renewcommand{\solutiontitle}{\noindent\textbf{Antwoord:}\enspace}
+\newcommand{\makelines}[1]{\ifprintanswers\else\fillwithlines{#1\linefillheight}\fi}
 
 \ifdefined\showanswers
   \printanswers
