@@ -3,6 +3,8 @@
 \usepackage{hepnames}
 \usepackage{mhchem}
 
+\DeclareRobustCommand{\PgDpp}{\HepParticle{\Delta}{}{++}\xspace}
+
 \title{Opdrachten: Elementaire deeltjes}
 \author{C.G.N. van Veen}
 \docwerkblad{4}{ED}
@@ -21,8 +23,16 @@ Elementaire deeltjes worden onderverdeeld in quarks en leptonen.
 \begin{parts}
 \part Noem twee eigenschappen die quarks en leptonen met elkaar gemeen hebben.
 \makelines{2}
+\begin{solution}
+    Ze hebben beide spin \textonehalf. Ze zijn beide elementair,
+    d.w.z. niet verder deelbaar.
+\end{solution}
 \part Noem twee eigenschappen waarin quarks en leptonen van elkaar verschillen.
 \makelines{2}
+\begin{solution}
+    Quarks vormen samen hadronen. Leptonen hebben geen `kleur'.
+    Quarks hebben een fractionele lading.
+\end{solution}
 \end{parts}
 
 \question
@@ -31,8 +41,20 @@ of `tegengesteld'.
 \begin{parts}
 \part Beredeneer dat de quarks in een pion met tegengestelde spin zijn gecombineerd.
 \makelines{2}
+\begin{solution}
+    Pionen zijn mesonen en bestaan dus uit twee quarks. Elk
+    quark heeft een spin + of - \textonehalf. Combinaties van twee spins
+    kunnen dus opleveren spin +1, -1 of 0. Het pion heeft een spin van
+    0. Dus in het pion moeten de quarks spin -\textonehalf \xspace en
+    +\textonehalf \xspace hebben.
+\end{solution}
 \part Beredeneer de manier waarop de 3 quarks in een neutron hun spins hebben gericht.
 \makelines{2}
+\begin{solution}
+    Een neutron is opgebouwd uit 3 quarks. Als we de spins bij
+    elkaar optellen, kan dat dus opleveren -1\textonehalf,
+    -\textonehalf\xspace en +\textonehalf \xspace  +1\textonehalf.
+\end{solution}
 \end{parts}
 
 \question
@@ -40,11 +62,22 @@ Samengestelde deeltjes (``hadronen'') worden onderverdeeld in mesonen en baryone
 \begin{parts}
 \part In welk opzicht zijn mesonen anders van samenstelling dan baryonen? Leg uit.
 \makelines{2}
+\begin{solution}
+    Mesonen bestaan uit twee quarks en hadronen bestaan uit drie
+    quarks.
+\end{solution}
 \part Komen er in de natuur mesonen voor met een massa groter dan die van een baryon?
 Zo ja, welke.
 \makelines{2}
+\begin{solution}
+    Ja, bijvoorbeeld het \PD meson heeft een grotere rustmassa
+    dan het neutron of het proton.
+\end{solution}
 \part Komen er in de natuur mesonen voor met een negatieve lading?
 \makelines{2}
+\begin{solution}
+    Ja, bijvoorbeeld \Ppiminus-meson.
+\end{solution}
 \end{parts}
 
 \question
@@ -52,8 +85,17 @@ Alle deeltjes hebben een anti-deeltje.
 \begin{parts}
 \part Welke deeltjes uit BINAS-26 zijn identiek aan hun eigen antideeltje?
 \makelines{2}
+\begin{solution}
+    Fotonen, \Ppizero en het majorana-deeltje.
+\end{solution}
 \part Noem drie redenen waarom het proton niet het antideeltje van het \Ppiplus-meson kan zijn.
 \makelines{2}
+\begin{solution}
+    Een proton bestaat uit drie quarks, het \Ppiplus uit twee.
+    Het proton en het \Ppiplus hebben beide een + lading.
+    Het proton is een baryon en heeft daardoor een halftallige spin, een meson
+    heeft een heeltallige spin.
+\end{solution}
 \end{parts}
 
 \question
@@ -62,8 +104,16 @@ Een \PKplus -deeltje bestaat uit een \Pup -quark (`up') en een \APqs-quark
 \begin{parts}
 \part Is het \PKplus -deeltje een meson of een baryon?
 \makelines{2}
+\begin{solution}
+    Het \PKplus bestaat uit twee quarks en is dus een meson.
+\end{solution}
 \part Beredeneer hoe een \PKm-deeltje moet zijn opgebouwd.
 \makelines{2}
+\begin{solution}
+    Uit een \APup -quark (`anti-up') en een \Pqs-quark. Door het antideeltje te
+    nemen van de aanwezige quarks is de lading van het \PKm-deeltje dus
+    negatief geworden.
+\end{solution}
 \end{parts}
 
 \question
@@ -72,9 +122,19 @@ en is positief geladen.
 \begin{parts}
 \part Bereken dat de lading van een \Ppiplus-meson gelijk is aan +1e.
 \makelines{2}
+\begin{solution}
+    Het up-quark heeft lading $\frac{2}{3}$  en de lading van het down quark
+    is -$\frac{1}{3}$, de lading van het antidown quark (\Paqd) is
+    +$\frac{1}{3}$. De lading van het \Ppiplus is dus: $\frac{2}{3}$ +
+    $\frac{1}{3}$ = 1.
+\end{solution}
 \part Leg uit dat een \PSigmaplus-deeltje niet een quarkcombinatie [\Pstrange\Pdown\Pdown]
 kan zijn.
 \makelines{2}
+\begin{solution}
+    Als je de ladingen van deze quarks optelt krijg je -1.
+    Het \PSigmaplus deeltje heeft lading +1.
+\end{solution}
 \end{parts}
 
 \question
@@ -82,8 +142,14 @@ Een proton bestaat uit de combinatie [\Pup\Pup\Pdown].
 \begin{parts}
 \part Noteer de quarksamenstelling van het antideeltje van een proton.
 \makelines{2}
+\begin{solution}
+    \APup,\APup en \APdown of \Pap = [\APup\APup\APdown]
+\end{solution}
 \part Bereken de lading van het antiproton.
 \makelines{2}
+\begin{solution}
+    -$\frac{2}{3}$ - $\frac{2}{3}$ + $\frac{1}{3}$ = -1.
+\end{solution}
 \end{parts}
 
 \question
@@ -91,9 +157,17 @@ Een neutron bestaat uit de combinatie [\Pup\Pdown\Pdown].
 \begin{parts}
 \part Bereken de lading van een antineutron.
 \makelines{2}
+\begin{solution}
+    Een anti neutron bestaat dus uit [\APup\APdown\APdown].
+    Hieruit volgt: -$\frac{2}{3}$ + $\frac{1}{3}$ + $\frac{1}{3}$ = 0.
+\end{solution}
 \uplevel{De gegeven quark-combinatie is niet stabiel.}
 \part Welke drie deeltjes ontstaan bij het verval van een neutron?
 \makelines{2}
+\begin{solution}
+    $\Pn \rightarrow \Pp + \Pe + \Pagne$.
+    Een neutron vervalt in een proton, een elektron en een anti-elektronneutrino.
+\end{solution}
 \end{parts}
 
 
@@ -106,7 +180,12 @@ aanstormend pion op een proton, een kaon en een lambda ontstaan. Zie
 Zowel het kaon als het lambda zijn instabiel.
 Zoek met BINAS uit wat de identiteit is van deeltje x en van deeltje y.
 \makelines{2}
-
+\begin{solution}
+    Deeltje x = \Ppiplus en deeltje y = \Pp.  Want \PKzero vervalt door
+    een \Ppiplus en een \Ppiminus uit te zenden. \PLambda vervalt door een
+    \Ppiminus en een \Pp uit te zenden (te verklaren door behoud van
+    Baryon getal en behoud van lading).
+\end{solution}
 \begin{figure}[h]
     \centering
     \includegraphics{bellenvat}
@@ -120,11 +199,28 @@ In BINAS-26 wordt als eenheid van massa vermeld: \si{MeV.c^{-2}}.
 \begin{parts}
 \part Wat wordt hiermee bedoeld?
 \makelines{2}
+\begin{solution}
+    \begin{eqnarray*}
+        E = m \cdot c^2 \rightarrow m = \frac{E}{c^2} \\
+        \left[m\right] = \left[ \si{MeV.c^{-2}} \right]
+    \end{eqnarray*}
+\end{solution}
 \part Hoeveel keer zo traag is het muon vergeleken met het electron? Leg uit.
 \makelines{2}
+\begin{solution}
+    Massa staat voor de traagheid van een deeltje. Dus:
+    \begin{eqnarray*}
+    m(\Pmu) = \SI{105,6}{\mega\electronvolt\per c\squared} \\
+    m(\Pe) = \SI{0.51}{\mega\electronvolt\per c\squared} \\
+    \text{aantal keer trager:} \quad \frac{105,6}{0,51} = \SI{2,1e2}{}
+    \end{eqnarray*}
+\end{solution}
 \part Hoeveel energie is er minstens nodig om een muon en zijn antideeltje te
 creëren? Leg uit.
 \makelines{2}
+\begin{solution}
+    $2\times \SI{105,6}{\mega\electronvolt\per c\squared} = \SI{211}{\mega\electronvolt\per c\squared}$
+\end{solution}
 \end{parts}
 
 \question
@@ -133,24 +229,57 @@ Het \Ppiplus-meson bestaat uit de quarks \Pup en \APdown.
 \part Bereken het massadefect bij het combineren van een \Pup met een \APdown quark.
 \emph{Binas geeft een indicatie van de quarkmassa! Quarks bestaan niet los!}
 \makelines{2}
+\begin{solution}
+    \begin{eqnarray*}
+     \Delta m = m(\Ppi) - m(\Pup + \APdown) = \SI{139.6}{\mega\electronvolt\per c\squared}
+    - (\SI{2.0}{\mega\electronvolt\per c\squared} +
+    \SI{4.8}{\mega\electronvolt\per c\squared}) \\= \SI{132.8}{\mega\electronvolt\per c\squared}
+    \end{eqnarray*}
+\end{solution}
 \part Bereken de bindingsenergie van de quarks in het \Ppiplus-meson.
 \makelines{2}
+\begin{solution}
+    Massadefect is dan gelijk aan de
+    bindingsenergie. Er is een enorme bindingsenergie als quarks
+    combineren tot elementaire deeltjes, vandaar dat we quarks nooit los
+    aantreffen, maar altijd als combinaties in deeltjes.
+\end{solution}
 \end{parts}
 
 \question
 Gegeven: een reactie waarbij uit één baryon een nieuw baryon én een meson ontstaat:
-\ce{\PgD^{++} -> \Pp^+ + \Ppiplus }
+\ce{{\PgDpp} -> \Pp+ + \Ppiplus}
 \begin{parts}
 \part Uit welke quarks bestaan het $\Pp^+$ en \Ppiplus?
 \makelines{2}
-\part Uit welke quarkcombinatie bestaat het $\PgD^{++}$-deeltje?
+\begin{solution}
+    $\Pp^+ = [\Pup\Pdown\Pdown] \quad\text{en}\quad \Ppiplus = [\Pup\APdown]$
+\end{solution}
+\part Uit welke quarkcombinatie bestaat het \PgDpp-deeltje?
 \makelines{2}
-\uplevel{De massa van het $\PgD^{++}$-deeltje is 1230\si{MeV.c^{-2}}.}
-\part Bereken de massa van het $\PgD^{++}$-deeltje, uitgedrukt in kilogram.
+\begin{solution}
+    Het \PgDpp bestaat uit $[\Pup\Pup\Pup]$
+\end{solution}
+\uplevel{De massa van het \PgDpp-deeltje is 1230\si{MeV.c^{-2}}.}
+\part Bereken de massa van het \PgDpp-deeltje, uitgedrukt in kilogram.
 \makelines{2}
-\part Hoeveel energie komt vrij bij het verval van het $\PgD^{++}$-deeltje?
+\begin{solution}
+    \begin{eqnarray*}
+    \SI{938.49}{\mega\electronvolt\per c\squared}= 1 u = \SI{1.667e-27}{\kilo\gram} ; \\
+    m(\PgDpp) = (1230/938,49)* \SI{1.667e-27}{\kilo\gram} = \SI{2.201e-27}{\kilo\gram}
+    \end{eqnarray*}
+\end{solution}
+\part Hoeveel energie komt vrij bij het verval van het \PgDpp-deeltje?
 Geef de berekening.
 \makelines{3}
+\begin{solution}
+    \begin{eqnarray*}
+    \PgDpp \rightarrow \Pp^+ + \Ppiplus \\
+    m(\PgDpp) = \SI{1230}{\mega\electronvolt\per c\squared}  \\m(\Pp^+) = \SI{938}{\mega\electronvolt\per c\squared}; \\
+    m(\Ppiplus) = \SI{139.6}{\mega\electronvolt\per c\squared} \\
+    \Delta m = \SI{152.4}{\mega\electronvolt\per c\squared}
+    \end{eqnarray*}
+\end{solution}
 \end{parts}
 
 
@@ -168,7 +297,7 @@ ontstaan onder andere een deuteriumkern en een neutrino:
 \cee{ \label{eq:deuterium}
 ^1_1H+ + ^1_1H+ &-> ^2_1H+ + e^+ + \nu \\
 ?  + ^2_1H+  &-> ^3_2He^2+ + \gamma \\
-^3_2He^2+ + ^3_2He^2+  &-> ^4_2He^2+ + 2\cdot ? \\
+^3_2He^2+ + ^3_2He^2+  &-> ^4_2He^2+ + 2\cdot {?} \\
 e^+ + ? &-> \gamma  \\
 }
 \end{align}
@@ -177,12 +306,41 @@ annihilatie.
 \begin{parts}
 \part Wat is in de opeenvolgende stappen de identiteit van de met ``?'' aangegeven deeltjes?
 \makelines{3}
+\begin{solution}
+    Stap 2: \cee{ ^1_1H+}.
+    Stap 3: \cee{ ^1_1H+}.
+    Stap 4: \Pelectron.
+\end{solution}
 \part Hoeveel waterstofkernen zijn (netto) nodig geweest om één heliumkern te vormen?
 \makelines{2}
+\begin{solution}
+    Er zijn 4 waterstofkernen nodig.
+\end{solution}
 \part Geef de netto-vergelijking voor de productie van één heliumkern.
 \makelines{3}
+\begin{solution}
+    Je moet stap 1 en stap 2 vermenigvuldigen met 2, om in stap 3
+    de benodigde twee He-3 kernen te krijgen.
+    \begin{align*}
+    \cee{ \label{eq:nettofusion}
+    4\cdot ^1_1H+ &-> ^4_2He + 2 \cdot e^+ + 2 \cdot \Pnue }
+    \end{align*}
+\end{solution}
 \part Bereken de energie die bij de productie van één heliumatoom vrijkomt.
 \makelines{3}
+\begin{solution}
+    We gebruiken de netto vergelijking bij vraag c. De positronen
+    annihileren en produceren gamma's.
+
+    \begin{align*}
+    \cee{
+     m( 4 \cdot ^1_1H+) &=  4 \cdot \SI{1.008}{\atomicmassunit} = \SI{4.032}{\atomicmassunit}\\
+     m(^4_2He) &= \SI{4.0026}{\atomicmassunit} \\
+     \Delta m &= \SI{0.029}{\atomicmassunit}\\
+     E &= 0,0294 * 931,49 =  \SI{27.3}{\mega\electronvolt}
+     }
+    \end{align*}
+\end{solution}
 \end{parts}
 
 
@@ -215,20 +373,64 @@ verlaten. Beide zijn ongeveer geproduceerd op hetzelfde moment.
 \begin{parts}
 \part Leg uit dat het neutrino de zon veel sneller zal verlaten dan het gamma.
 \makelines{2}
+\begin{solution}
+    Het neutrino heeft
+    (bijna) geen interactie met materie dus zal met ongeveer de
+    lichtsnelheid door de zon gaan. Het gammafoton wordt keer op keer geabsorbeerd en
+    weer uitgezonden door atomen in de zon. Voordat het foton het zonsoppervlak heeft bereikt,
+    kunnen er wel een miljoen jaar verstreken zijn.
+\end{solution}
 \part Zoek op in BINAS hoe groot het uitgestraald vermogen van de zon is.
 \makelines{2}
+\begin{solution}
+    Het uitgestraalde vermogen is $P = \SI{0.390e27}{\watt}$.
+\end{solution}
 \part Bereken het aantal neutrino's dat de zon per seconde uitzendt.
 \makelines{5}
+\begin{solution}
+    We weten het vermogen van de zon en wat er per reactie aan energie vrijkomt.
+    Per (`netto'-) reactie komen er twee neutrino's vrij.
+    \begin{eqnarray*}
+    E_{reactie} = \SI{26.731}{\mega\electronvolt} \times\SI{1.602e-13}{\joule \per\mega\electronvolt} \\
+    E_{reactie} = \SI{4.2823e-12}{\joule}\\
+    n = \frac{P}{E} = \frac{\SI{0.390e27}{\watt}}{\SI{4.2823e-12}{\joule}}\\
+    n = 2\times \num{9.11e37} = \num{1.82e38}
+    \end{eqnarray*}
+\end{solution}
 \part Bereken de massavermindering van de zon in één jaar.
 \makelines{4}
+\begin{solution}
+    Het aantal reacties per s is \num{9.11e37}. In één jaar zitten
+    \SI{3.15e7}{\second}. Per reactie wordt $\frac{\SI{26.731}{\mega\electronvolt}}{\SI{938.49}{\mega\electronvolt\per\atomicmassunit} }$
+    = \SI{0.0285}{\atomicmassunit} omgezet. Dit is \SI{4.748e-29}{\kilo\gram} per reactie.
+    Dus aantal reacties per jaar:
+    \begin{eqnarray*}
+    n_{reacties} = \SI{3.15e7}{\second}\times\SI{9.11e37}{\per\second} \\
+    n_{reacties} = \num{2.87e45} \\
+    m_{omgezetinéénjaar} = \num{2.87e45} \times \SI{4.748e-29}{\kilo\gram} = \SI{1.36e17}{\kilo\gram}
+    \end{eqnarray*}
+\end{solution}
 \uplevel{Alle neutrino's verlaten de zon. Ze worden naar alle richtingen uitgezonden.
 Op aarde is een neutrinodetector opgesteld met een naar de zon gekeerde
 doorsnede van 5,0 m$^{2}$.}
 \part Zoek op in BINAS hoe groot de afstand van de detector tot de zon gemiddeld
 is.
 \makelines{2}
+\begin{solution}
+    De afstand van de aarde tot de zon is (gem.) \SI{1.496e11}{\meter}
+\end{solution}
 \part Bereken hoeveel neutrino's per seconde de detector bereiken.
 \makelines{4}
+\begin{solution}
+    De geproduceerde neutrino's worden verdeeld over een boloppervlak met een straal van \SI{1.496e11}{\meter}.
+    Voor het oppervlak van een bol geldt: $A = 4 \pi r^{2}$.
+    \begin{eqnarray*}
+    A_{bol} = 4 \cdot \pi \cdot (\SI{1.496e11}{}) ^2\\
+    A_{bol} = \SI{2.812e23}{\meter\squared}\\
+    n_{neutrino's door detector} = \frac{5.0}{\SI{2.812e23}{}} * \SI{1.82e38}{}\\
+    n_{neutrino's door detector} = \SI{3.2e15}{}
+    \end{eqnarray*}
+\end{solution}
 \end{parts}
 
 \end{questions}
