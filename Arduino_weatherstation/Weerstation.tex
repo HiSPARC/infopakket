@@ -19,12 +19,12 @@ programmeren, wind- en water dichtmaken in een box en plaatsen bij het station.
 Zo kunnen zij metingen van luchtdruk, buitentemperatuur en temperatuur van de 
 detectorplaten meten en correleren met gemeten kosmische straling. Daarnaast 
 kan het station uitgebreid worden met andere sensoren zoals UV-index, bliksem, 
-regen- en windsensoren.
+regen en windsensoren.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=1.0]{Arduino}
-    \caption{Arduino Uno R3, basis voor weerstation}
+    \includegraphics[scale=1.2]{Arduino}
+    \caption{Arduino Uno R3, basis voor het weerstation}
    \label{fig:Arduino}
 \end{figure}
 
@@ -46,15 +46,44 @@ Andere sensoren zoals een bliksemdetector (AS3935) zijn tot op heden niet getest
 maar geven leerlingen een extra onderzoek mogelijkheid(namelijk de correlatie tussen 
 bliksem en kosmische straling.)
 
-Op de schets van een bellenvatfoto is te zien, dat bij de botsing van een 
-aanstormend pion op een proton, een kaon en een labda ontstaan. Zie 
-\figref{fig:bellenvat}.
-Zowel het kaon als het labda zijn instabiel.
-Zoek met BINAS uit wat de identiteit is van deeltje x en van deeltje y.
-\begin{center}
-    \rule{\textwidth}{0.3mm}\\
-    \rule{\textwidth}{0.3mm}\\
-\end{center}
+\section{Arduino}
+
+\paragraph{werking van Arduino}
+
+Een Arduino is een microcontroller met een ATMEGA-328 chip die bestaat uit 
+een printplaatje met een aantal digitale en analoge ingangen, waar bijvoorbeeld  
+sensoren op aangesloten kunnen worden. Zie \figref{fig:Arduino}  
+Data van de sensoren en via usb of draadloos 
+ingelezen worden in de Arduino software. Deze software is vrij te downloaden van
+ \url{http://arduino.cc}.
+Als u al ervaring heeft met Arduino zal het aansluiten van sensoren redelijk 
+eenvoudig zijn. Als er nog geen ervaring is met Arduino zijn er op het internet een 
+aantal handleidingen en tutorials beschikbaar evenals Arduino starterskits. 
+Het wordt aanbevolen om eerst een aantal basisschakelingen te maken met Arduino.
+Voorbeelden van handleidingen zijn te vinden op \url{http://arduino.cc} 
+of \url{http://arduino.nu}
+
+Zoals in figuur \figref{fig:Arduino} te zien is zijn er zes analoge ingangen A0-A5 en
+zes digitale ingangen (2-7). Voor het basis weerstation zullen we van beide soorten 
+twee ingangen gebruiken.
+Het voordeel van digitale ingangen is dat zij meerdere waarden kunnen verwerken.
+Er kunnen dus meerdere digitale temperatuursensoren (DS18B20) op een digitale 
+ingang aangesloten worden. 
+
+De Arduino software heeft een aantal voorbeelden, die de gebruiker snel een aantal zaken leert.
+Voor ons is het belangrijk dat we Arduino gebruiken om sensor waarden uit te lezen.
+In de Arduino software is dan het voorbeeld: \url{http://http://arduino.cc/en/Tutorial/AnalogReadSerial} 
+erg belangrijk. Het voorbeeldprogramma "AnalogReadSerial" bijvoorbeeld 
+staat onder file / tools /examples / Basics.
+Zie figuur \figref{fig:Arduino_example}  
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{Arduino_example}
+    \caption{Arduino Software, voorbeeld programma's}
+   \label{fig:Arduino_example}
+\end{figure}
+
 
 
 \end{document}
