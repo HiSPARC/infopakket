@@ -45,7 +45,7 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	git checkout HEAD .nojekyll .gitignore
 	git checkout master index.html images styles
 	git checkout master Makefile
-	git checkout master style.tex style_brief.tex HiSPARC_header.pdf
+	git checkout master style.tex style_brief.tex style_werkblad.tex HiSPARC_header.pdf
 	git checkout master $(TEX_DIRECTORIES)
 	$(MAKE) all
 	mkdir pdf
