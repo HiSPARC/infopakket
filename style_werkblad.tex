@@ -1,0 +1,22 @@
+\documentclass[twoside, 11pt]{exam}
+
+\input{../common_style}
+
+\newcommand{\defaultstyle}{headandfoot}
+
+% style definitions
+\pagestyle{\defaultstyle}
+\chead{\oddeven{\rightthumb}{\leftthumb}}
+\cfoot{\theshorttitle\ -- \thepage}
+\lfoot{\oddeven{}{\textcolor{gray}{\smaller Versie \theversion}}}
+\rfoot{\oddeven{\textcolor{gray}{\smaller Versie \theversion}}{}}
+
+\renewcommand{\questionlabel}{\textbf{Opdracht \thequestion:}}
+\renewcommand{\solutiontitle}{\noindent\textbf{Antwoord:}\enspace}
+\newcommand{\makelines}[1]{\ifprintanswers\else\fillwithlines{#1\linefillheight}\fi}
+
+\ifdefined\showanswers
+  \printanswers
+\else
+  \noprintanswers
+\fi

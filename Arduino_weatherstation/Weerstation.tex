@@ -1,0 +1,60 @@
+\input{../style}
+
+\title{Weerstation met Arduino}
+\author{C.G.N. van Veen}
+\docwerkblad{2}{WA}
+\version{1.0}
+
+\begin{document}
+
+\maketitle
+
+\section{Weerstation}
+
+\paragraph{Inleiding}
+Naast het meten aan kosmische straling met het \hisparc meetstation kunnen  
+leerlingen het \hisparc station uitbreiden met een weerstation gemaakt met Arduino.
+Dit weerstation heeft als voordeel dat leerlingen dit zelf kunnen bouwen, aanpassen,
+programmeren, wind- en water dichtmaken in een box en plaatsen bij het station.
+Zo kunnen zij metingen van luchtdruk, buitentemperatuur en temperatuur van de 
+detectorplaten meten en correleren met gemeten kosmische straling. Daarnaast 
+kan het station uitgebreid worden met andere sensoren zoals UV-index, bliksem, 
+regen- en windsensoren.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=1.0]{Arduino}
+    \caption{Arduino Uno R3, basis voor weerstation}
+   \label{fig:Arduino}
+\end{figure}
+
+\paragraph{Benodigdheden}
+Het weerstation kan met meer sensoren uitgerust worden dan hier genoemd.
+Het basis weerstation (luchtdruk, temperatuur en luchtvochtigheid) waar wij mee
+getest hebben heeft de volgende onderdelen nodig: \\
+\begin{itemize}
+    \item Arduino Uno R3 (of elke andere Arduino)
+    \item USB kabel
+    \item DTH22 (of DTH11) luchtvochtigheid
+    \item BMP085 luchtdruksensor
+    \item DS18B20 digitale temperatuursensor (2 of 4x)
+    \item APC220 zendmodule
+    \item arduino software
+\end{itemize}
+
+Andere sensoren zoals een bliksemdetector (AS3935) zijn tot op heden niet getest,
+maar geven leerlingen een extra onderzoek mogelijkheid(namelijk de correlatie tussen 
+bliksem en kosmische straling.)
+
+Op de schets van een bellenvatfoto is te zien, dat bij de botsing van een 
+aanstormend pion op een proton, een kaon en een labda ontstaan. Zie 
+\figref{fig:bellenvat}.
+Zowel het kaon als het labda zijn instabiel.
+Zoek met BINAS uit wat de identiteit is van deeltje x en van deeltje y.
+\begin{center}
+    \rule{\textwidth}{0.3mm}\\
+    \rule{\textwidth}{0.3mm}\\
+\end{center}
+
+
+\end{document}
