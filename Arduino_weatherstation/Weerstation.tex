@@ -60,7 +60,7 @@ programma. Deze software is vrij te downloaden van
 \url{http://arduino.cc}. Als u al ervaring heeft met Arduino zal het
 aansluiten van sensoren redelijk eenvoudig zijn. Als er nog geen
 ervaring is met Arduino zijn er op het internet een aantal handleidingen
-en tutorials beschikbaar evenals Arduino starterskits. Het wordt
+en tutorials beschikbaar evenals Arduino starterkits. Het wordt
 aanbevolen om eerst een aantal basisschakelingen te maken met Arduino.
 Voorbeelden van handleidingen zijn te vinden  op \url{http://arduino.cc}
 of \url{http://arduino.nu}
@@ -81,8 +81,9 @@ de Arduino software is dan het voorbeeld:
 "AnalogReadSerial" bijvoorbeeld staat onder \emph{file / tools /examples /
 Basics}. Zie \figref{fig:Arduino_example}.  
 
-Sluit de Arduino aan met de USB kabel op de pc. Controleer dat de Arduino software
-de Arduino vindt. Kijk hiertoe in het menu: \emph{ Tools / Serial Port }. Meestal vindt de software de usb poort vanzelf.
+Sluit de Arduino aan met de USB kabel op de pc. Controleer dat de
+Arduino software de Arduino vindt. Kijk hiertoe in het menu: \emph{
+Tools / Serial Port }. Meestal vindt de software de usb poort vanzelf.
 Zie \figref{fig:Arduino_serial}.
 
 \begin{figure}
@@ -95,8 +96,8 @@ Zie \figref{fig:Arduino_serial}.
 \begin{figure}
     \centering
     \includegraphics[scale=0.6]{Arduino_serial}
-    \caption{Arduino Software, USB poort met gevonden Arduino}
-   \label{fig:Arduino_serial}
+    \caption{Arduino Software, USB poort is gevonden door de software}
+    \label{fig:Arduino_serial}
 \end{figure}
 
 
@@ -111,12 +112,12 @@ en onderdelen van libraries aangeroepen worden. In \emph{void setup}
 kunnen ook variabelen gedefinieerd en kunnen libraries aangeroepen, ook
 wordt hier de \emph{bitrate} communicatie met de Arduino vastgezet met
 het commando:  \mint{c}/Serial.begin(9600);/ Deze \emph{bitrate} is vaak 9600.
-\emph{Void loop} is het eigenlijke programma wat keer op keer herhaalt
+\emph{Void loop} is het eigenlijke programma wat keer op keer herhaald
 wordt. Vaak wordt een delay toegevoegd om de loop enigzins te vertragen,
 omdat het uitlezen van de sensoren nu eenmaal wat tijd nodig heeft. Na
 de \emph{void loop} kunnen er nog functies gemaakt worden, die
 aangeroepen worden in de \emph{void loop}. Als een programma af is kan
-die met de pijl in het bovenscherm ge\:{u}pload worden naar de Arduino.
+die met de pijl in het bovenscherm ge\"{u}pload worden naar de Arduino.
 Om de output van de Arduino te bekijken, moet op het vergrootglas rechts
 bovenin geklikt worden. Hiermee komt u in het scherm van de \emph{Serial
 Monitor}. In \emph{Serial Monitor} kun je zien wat het programma doet.
@@ -136,7 +137,7 @@ Import Library... / Add library} te klikken en dan de map aan te wijzen
 waar de library instaat en dan \emph{choose} te kiezen. Dan wordt deze
 library toegevoegd aan de lijst met libraries en kan deze aangeroepen
 worden in een Arduino programma of "sketch". De tweede methode is om de
-map met de library handmatig te kopi\:{e}ren in de map \emph{Libraries}
+map met de library handmatig te kopi\"{e}ren in de map \emph{Libraries}
 naar de map waar de programma's (sketches) van Arduino standaard staan.
 Dan zal Arduino na opnieuw opstarten, deze libraries herkennen. 
 
@@ -150,7 +151,7 @@ Dan zal Arduino na opnieuw opstarten, deze libraries herkennen.
     Libraries worden aangeroepen. In \emph{void setup} definieert u variabelen, 
     kunt u libraries starten. De \emph{void setup} wordt één keer uitgevoerd. 
     \emph{Void loop} is het eigenlijke programma wat continue herhaalt wordt. 
-    Als laatste ziet u een zelf gedefinieerde functie, die binnen 
+    Als laatste ziet u een zelf gedefinieerde functie (printTemp), die binnen 
     de \emph{void loop} aangeroepen wordt.}
    \label{fig:Arduino_program_uitleg_3}
 \end{figure}
@@ -164,10 +165,10 @@ Bij dit weerstation gaan we een aantal sensoren gebruiken om naast de al
 beschikbare data van de \hisparc stations ook weerdata mee te nemen in
 onderzoek naar correlaties van kosmische straling met weergrootheden. We
 zijn ook ge\"{i}nteresseerd in de temperatuur van de detectors.
-\cite{Buisman} heeft aangetoond dat PMT reageert op temperatuur. Om dit
-verschijnsel te meten plaatsen we in elke detector ter hoogte van de PMT
-een digitale temperatuursensor (DS18B20). De luchtdruk- en
-luchtvochtigheidssensor worden bij de Arduino geplaatst in een (zelf te
+Buisman \cite{Buisman} heeft aangetoond dat de PMT van de detector gevoelig is
+voor temperatuur. Om dit verschijnsel te meten plaatsen we in elke detector 
+ter hoogte van de PMT een digitale temperatuursensor (DS18B20). De luchtdruk- 
+en luchtvochtigheidsensor worden bij de Arduino geplaatst in een (zelf te
 ontwikkelen) weerhuisje. Leerlingen kunnen dan zelf correlaties tussen
 luchtdruk en aantal events onderzoeken. De luchtvochtigheid biedt weer
 opties om bijvoorbeeld het dauwpunt uit te rekenen. Hieronder worden de
@@ -183,7 +184,7 @@ het belangrijk om de "pootjes" van de sensor op de juiste manier aan te
 sluiten. Deze sensor kan geaard worden op twee van de drie pootjes en
 wordt gevoed en uitgelezen op het pootje S (signal). Het pootje S
 wisselt per uitvoering. Onze versie (`Keyes') heeft het `Signal' pootje
-rechts,  zie \figref{fig:DS18B20}. Bij uw sensor kan dit anders zijn.
+rechts,  zie \figref{fig:DS18B20_A_2}. Bij uw sensor kan dit anders zijn.
 Raadpleeg in dat geval de datasheet van de sensor of inspecteer de
 inscripties bij de pootjes van de sensor .
 
@@ -214,7 +215,7 @@ voorbeeldprogramma staat op de volgende site:
 \url{https://www.pjrc.com/teensy/td_libs_OneWire.html}.
 
 Als alle temperatuursensoren aangesloten zijn, de libraries
-ge\:{i}installeerd en getest, dan kunnen de temperatuursensoren
+ge\"{i}nstalleerd en getest, dan kunnen de temperatuursensoren
 uitgelezen worden. Met de volgende code kunnen de sensoren uitgelezen
 worden:
 
@@ -284,8 +285,8 @@ void printTemp(int adress) {
 \begin{figure}
     \centering
     \subfloat[]{
-        \includegraphics[width=.3\linewidth]{DS18B20}
-        \label{fig:DS18B20}}
+        \includegraphics[width=.3\linewidth]{DS18B20_A_2}
+        \label{fig:DS18B20_A_2}}
     \hfill
     \subfloat[]{
         \includegraphics[width=.6\linewidth]{DS18B20_schakeling}
@@ -298,45 +299,45 @@ void printTemp(int adress) {
 
 \subsection{Luchtdruksensor}
 
-
 De luchtdruk gaan we met de luchtdruksensor (BMP085), die zowel luchtdruk als 
-temperatuur kan meten. De data wordt verwerkt door de ingangen A4 en A5 van de Arduino.
-Zoals in   te zien is heeft de B
+temperatuur kan meten. De data wordt verwerkt door de ingangen A4 en A5 van 
+de Arduino.
 
 \paragraph{Aansluiten en meten met de luchtdruksensor}
 
-Zoals in \figref{fig:BMP085} te zien is heeft de luchtdruksensor 6
+Zoals in \figref{fig:BMP085_A_1} te zien is heeft de luchtdruksensor 6
 aansluitpootjes, waarvan wij er 4 nodig hebben. De voeding is
 \SI{3.3}{\volt}, de ground van de luchtdruksensor sluiten we weer aan op
 de ground van de Arduino. De luchtdruksensor is een zogenaamd $I^{2}$C
 device, dat betekent dat de twee overige aansluitingen een datalijn
 (SDA) en een seriële clock (SCL) zijn. Om te communiceren met de
 Arduino zijn een library voor de sensor nodig en een standaard library
-van Arduino om $I^{2}$C data te verwerken \emph{Wire.h}. De BMP085
+van Arduino om $I^{2}$C data te verwerken, namelijk \emph{Wire.h}. De BMP085
 library is op verschillende plekken te downloaden, van verschillende
 fabrikanten. Wij hebben de volgende (open source) library gebruikt
 \emph{https://code.google.com/p/bmp085driver/} Pak deze library uit of
-installeer het zip bestand van de library in een keer in Arduino.
+installeer het zip bestand van de library in een keer in Arduino via \emph{Sketch /
+Import Library... / Add library} ( Arduino herkent namelijk ook \emph{zip} - bestanden).
 
 Als de sensor is aangesloten volgens \figref{fig:Arduino_BMP_schakeling}
 kan met een example programma uit de library getest worden of de sensor
 werkt. In de library kan met de luchtdruk waarde ook de hoogte worden
 uitgerekend, maar dan moet echter de druk op zeeniveau ook bekend zijn
-en meegegevenworden. Omdat het weerstation waarschijnlijk een vaste plek
+en meegegeven worden. Omdat het weerstation waarschijnlijk een vaste plek
 krijgt is het uitrekenen van de hoogte niet nodig en deze programma
 regels kunnen verwijderd worden.
 
 \begin{figure}
     \centering
     \subfloat[]{
-        \includegraphics[width=.3\linewidth]{BMP085}
-        \label{fig:BMP085}}
+        \includegraphics[width=.3\linewidth]{BMP085_A_1}
+        \label{fig:BMP085_A_1}}
     \hfill
     \subfloat[]{
         \includegraphics[width=.6\linewidth]{Arduino_BMP_schakeling}
         \label{fig:Arduino_BMP_schakeling}}
-    \caption{De BMP085 los en in een schakeling. De voeding is \SI{3.3}{\volt} en 
-    de data wordt via een seriele data en clock lijn uitgelezen op A4 en A5.}
+    \caption{De BMP085 los en in een schakeling. De voeding is \SI{3.3}{\volt} 
+    en de data wordt via een seri\"{e}le data en clock lijn uitgelezen op A4 en A5.}
 \end{figure}
 
 
@@ -346,9 +347,9 @@ regels kunnen verwijderd worden.
 De (relatieve-) luchtvochtigheid gaan we meten met de
 luchtvochtigheidssensor (DHT22 of DHT11), deze sensoren kunnen ook
 temperatuur meten. Wij hebben gekozen voor de iets duurdere DHT22, omdat
-die nauwkeuriger is en een relatieve luchtvochtigheid van
+die nauwkeuriger is en een relatieve luchtvochtigheidsbereik van
 \SIrange{0}{100}{\percent}, een temperatuurbereik heeft van
-\SI{-40}{\degreeCelsius} t/m tot \SI{125}{\degreeCelsius} en veel
+\SIrange{-40}{125}{\degreeCelsius} en veel
 nauwkeuriger is in plaats van een bereik van \SIrange{0}{80}{\percent},
 temperatuurbereik van \SIrange{0}{50}{\degreeCelsius} en een
 nauwkeurigheid van \SI{5}{\percent} voor de DHT11.
@@ -359,7 +360,7 @@ De luchtvochtigheidssensor heeft 4 pinnen, waarvan we er 3 gebruiken. De
 linkerpin is de voeding \SI{5.0}{\volt}, de 2e pin van links is de
 datapin, die wordt via een weerstand van \SI{10}{\kilo\ohm} verbonden
 aan digitale ingang 2 van de Arduino. De derde pin van links is niet in
-gebruik. De rechter pin is de ground. Zie \figref{fig:DHT22}. We hebben
+gebruik. De rechter pin is de ground. Zie \figref{fig:DHT22_A_3}. We hebben
 wederom een library nodig om de DHT werkend te krijgen in de Arduino
 software. De library voor DHT22 of DHT11 is te downloaden van
 \url{http://playground.arduino.cc/Main/DHTLib}, klik daar op
@@ -370,8 +371,8 @@ worden die bij de library geleverd wordt.
 \begin{figure}
     \centering
     \subfloat[]{
-        \includegraphics[width=.3\linewidth]{DHT22}
-        \label{fig:DHT22}}
+        \includegraphics[width=.3\linewidth]{DHT22_A_3}
+        \label{fig:DHT22_A_3}}
     \hfill
     \subfloat[]{
         \includegraphics[width=.6\linewidth]{Arduino_DHT_schakeling}
@@ -384,17 +385,19 @@ worden die bij de library geleverd wordt.
 
 \subsection{Weerstation}
 
-Nu we alle sensoren afzonderlijk hebben getest,kunnen we de sensoren gaan combineren en ook het programma schrijven wat alle 
-sensoren in een keer netjes uitleest en de waarden netjes print.
-Deze waarden kunnen we dan samen met een datum functie printen of wegschrijven naar een textfile.
+Nu we alle sensoren afzonderlijk hebben getest,kunnen we de sensoren
+gaan combineren en ook het programma schrijven wat alle sensoren in een
+keer netjes uitleest en de waarden netjes print. Deze waarden kunnen we
+dan samen met een datum en tijd functie printen of wegschrijven naar een
+textfile of spreadsheetprogramma.
 
-In \figref{fig:Arduino_weerstation_schakeling} zie we alle sensoren (op
+In \figref{fig:Arduino_weerstation_schakeling} zien we alle sensoren (op
 een breadboard) aangesloten op een Arduino. Het programma wat de
 sensoren aanstuurt/uitleest is op Github te vinden .............. We
 kunnen nu meten met het weerstation, we hebben echter nog wel een vaste
 verbinding nodig. In de hieropvolgende handleiding gaan we het
-weerstation draadloos maken en lezen we data uit en sturen we dat naar
-de \hisparc database.
+weerstation draadloos maken en lezen we data uit van de Arduino en
+sturen we dat naar de \hisparc database.
 
 
 
@@ -412,11 +415,24 @@ de \hisparc database.
 Bij het werken met Arduino en de sensoren zijn er een aantal zaken die vaak mis
 gaan. De meest voorkomende worden hieronder opgesomd en beantwoord.
 
-
-
- 
-
-
+\begin{itemize} 
+    \item \emph{Arduino wil niet uploaden.} Zorg dat het
+    juiste Arduino bordje is geselecteerd, dit stel je in, in de Arduino
+    software bij \emph{Tools/Board} vink daar het juiste Arduino bordje aan.
+    \item \emph{Foutmelding bij uploaden} De juiste usb poort moet altijd
+    ingesteld zijn. Vink daarom de juiste usb poort aan. De Arduino software
+    vindt deze niet altijd automatisch. Zoals te zien is in
+    \figref{fig:Arduino_serial}. Is de USB poort niet juist dan zie je de
+    volgende foutmelding in het venster. \verb|avrdude: stk500_recv():programmer is not responding|.
+    \item \emph{Rare meetwaarden in serial
+    monitor} Als de meetwaarden van de sensoren niet veranderen of de hele
+    tijd dezelfde waarden geven, dan moet de schakeling gecontroleerd
+    worden. Het verdient aanbeveling om de schakeling helemaal af te breken
+    en opnieuw te maken.
+    \item \emph{Andere foutmeldingen} Check the troubleshooter van Arduino: 
+    \url{http://arduino.cc/en/guide/troubleshooting#toc1} 
+    
+\end{itemize}
 
 \begin{thebibliography}{9}
     \bibitem{Buisman}
