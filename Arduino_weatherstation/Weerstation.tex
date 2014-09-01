@@ -38,7 +38,6 @@ getest hebben heeft de volgende onderdelen nodig: \\
     \item DTH22 (of DTH11) luchtvochtigheid
     \item BMP085 luchtdruksensor
     \item DS18B20 digitale temperatuursensor (2 of 4x)
-    \item APC220 zendmodule
     \item arduino software
 \end{itemize}
 
@@ -49,7 +48,7 @@ straling.)
 
 \section{Arduino}
 
-\paragraph{Werking van Arduino}
+\subsection{Werking van Arduino}
 
 Een Arduino is een microcontroller met een ATMEGA-328 chip die bestaat
 uit een printplaatje met een aantal digitale en analoge ingangen, waar
@@ -101,7 +100,7 @@ Zie \figref{fig:Arduino_serial}.
 \end{figure}
 
 
-\paragraph{Programmeren in Arduino}
+\subsection{Programmeren in Arduino}
 
 Het programmeren in Arduino is relatief eenvoudig. Een programma of
 "sketch" bevat een header en twee \emph{void} onderdelen. In de header
@@ -123,7 +122,7 @@ bovenin geklikt worden. Hiermee komt u in het scherm van de \emph{Serial
 Monitor}. In \emph{Serial Monitor} kun je zien wat het programma doet.
 
 
-\paragraph{Gebruiken van een library}
+\subsection{Gebruiken van een library}
 
 Libraries zijn stukjes code die bepaalde functies bevatten die het
 programma in Arduino kan inladen met het \emph{include} statement. Bij
@@ -423,7 +422,8 @@ gaan. De meest voorkomende worden hieronder opgesomd en beantwoord.
     ingesteld zijn. Vink daarom de juiste usb poort aan. De Arduino software
     vindt deze niet altijd automatisch. Zoals te zien is in
     \figref{fig:Arduino_serial}. Is de USB poort niet juist dan zie je de
-    volgende foutmelding in het venster. \verb|avrdude: stk500_recv():programmer is not responding|.
+    volgende foutmelding in het venster.
+    \verb|avrdude: stk500_recv(): programmer is not responding|.
     \item \emph{Rare meetwaarden in serial
     monitor} Als de meetwaarden van de sensoren niet veranderen of de hele
     tijd dezelfde waarden geven, dan moet de schakeling gecontroleerd
