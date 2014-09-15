@@ -35,6 +35,7 @@
 *.xdy
 *.tdo
 *.fls
+*.pyg
 
 # VIM
 *.swp
