@@ -103,9 +103,9 @@ Zie \figref{fig:Arduino_serial}.
 \subsection{Programmeren in Arduino}
 
 Het programmeren in Arduino is relatief eenvoudig. Een programma of
-"sketch" bevat een header en twee \emph{void} onderdelen. In de header
-worden libraries aangeroepen, elke librarie een bepaalde
-functionaliteit, bijv. een librarie die de ijking van een sensor bevat.
+`sketch' bevat een header en twee \emph{void} onderdelen. In de header
+worden libraries aangeroepen, elke library een bepaalde
+functionaliteit, bijv. een library die de ijking van een sensor bevat.
 Daarnaast kunnen in de header datapins en variabelen gedefinieerd worden
 en onderdelen van libraries aangeroepen worden. In \emph{void setup}
 kunnen ook variabelen gedefinieerd en kunnen libraries aangeroepen, ook
@@ -135,10 +135,11 @@ Arduino software op uw pc. De eerste methode is om op : \emph{Sketch /
 Import Library... / Add library} te klikken en dan de map aan te wijzen
 waar de library instaat en dan \emph{choose} te kiezen. Dan wordt deze
 library toegevoegd aan de lijst met libraries en kan deze aangeroepen
-worden in een Arduino programma of "sketch". De tweede methode is om de
+worden in een Arduino programma of `sketch'. De tweede methode is om de
 map met de library handmatig te kopi\"{e}ren in de map \emph{Libraries}
 naar de map waar de programma's (sketches) van Arduino standaard staan.
-Dan zal Arduino na opnieuw opstarten, deze libraries herkennen. 
+Dan zal Arduino software (na opnieuw opstarten van het programma), deze 
+libraries herkennen. 
 
 
 \begin{figure}
@@ -179,13 +180,13 @@ zijn met de Arduino software.
 
 Om de temperatuur van de detectoren te meten gebruiken we 2 of 4
 dezelfde temperatuursensoren (DS18B20). Om de sensor te laten werken is
-het belangrijk om de "pootjes" van de sensor op de juiste manier aan te
+het belangrijk om de `pootjes' van de sensor op de juiste manier aan te
 sluiten. Deze sensor kan geaard worden op twee van de drie pootjes en
 wordt gevoed en uitgelezen op het pootje S (signal). Het pootje S
 wisselt per uitvoering. Onze versie (`Keyes') heeft het `Signal' pootje
 rechts,  zie \figref{fig:DS18B20_A_2}. Bij uw sensor kan dit anders zijn.
 Raadpleeg in dat geval de datasheet van de sensor of inspecteer de
-inscripties bij de pootjes van de sensor .
+inscripties bij de pootjes van de sensor.
 
 \paragraph{Aansluiten en meten met de temperatuursensor}
 
@@ -291,7 +292,9 @@ void printTemp(int adress) {
         \includegraphics[width=.6\linewidth]{DS18B20_schakeling}
         \label{fig:DS18B20_schakeling}}
     \caption{De DS18B20 temperatuursensor los en in een schakeling. De gele draad 
-    is zowel voeding voor de sensor als transmissie van het signaal.
+    is zowel voeding voor de sensor als transmissie van het signaal. De zwarte 
+    draad zorgt voor aarding van zowel het linker als midden pootje, dus deze 
+    kan doorverbonden worden.
     Bij het testen van deze schakeling blijkt dat grotere lengte van de gele draad 
     geen signaalverlies tot gevolg heeft.}
 \end{figure}
@@ -346,12 +349,11 @@ regels kunnen verwijderd worden.
 De (relatieve-) luchtvochtigheid gaan we meten met de
 luchtvochtigheidssensor (DHT22 of DHT11), deze sensoren kunnen ook
 temperatuur meten. Wij hebben gekozen voor de iets duurdere DHT22, omdat
-die nauwkeuriger is en een relatieve luchtvochtigheidsbereik van
-\SIrange{0}{100}{\percent}, een temperatuurbereik heeft van
-\SIrange{-40}{125}{\degreeCelsius} en veel
-nauwkeuriger is in plaats van een bereik van \SIrange{0}{80}{\percent},
-temperatuurbereik van \SIrange{0}{50}{\degreeCelsius} en een
-nauwkeurigheid van \SI{5}{\percent} voor de DHT11.
+die nauwkeuriger is, een relatieve luchtvochtigheidsbereik van
+\SIrange{0}{100}{\percent}en een temperatuurbereik heeft van
+\SIrange{-40}{125}{\degreeCelsius}. De DHT11 heeft een bereik 
+van \SIrange{0}{80}{\percent}, temperatuurbereik van \SIrange{0}{50}{\degreeCelsius} 
+en een nauwkeurigheid van \SI{5}{\percent}.
 
 \paragraph{Aansluiten en meten met de luchtvochtigheidssensor}
 
@@ -391,12 +393,10 @@ dan samen met een datum en tijd functie printen of wegschrijven naar een
 textfile of spreadsheetprogramma.
 
 In \figref{fig:Arduino_weerstation_schakeling} zien we alle sensoren (op
-een breadboard) aangesloten op een Arduino. Het programma wat de
-sensoren aanstuurt/uitleest is op Github te vinden .............. We
-kunnen nu meten met het weerstation, we hebben echter nog wel een vaste
-verbinding nodig. In de hieropvolgende handleiding gaan we het
-weerstation draadloos maken en lezen we data uit van de Arduino en
-sturen we dat naar de \hisparc database.
+een breadboard) aangesloten op een Arduino. We kunnen nu meten met het weerstation, 
+we hebben echter nog wel een vaste verbinding nodig. In de hieropvolgende 
+handleiding gaan we het weerstation draadloos maken en lezen we data uit van 
+de Arduino en sturen we dat naar de \hisparc database.
 
 
 
