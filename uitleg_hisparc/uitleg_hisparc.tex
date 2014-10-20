@@ -14,14 +14,14 @@
 De aarde wordt continu gebombardeerd door kosmische straling. Dat zijn
 deeltjes die uit het heelal vandaan komen zoals protonen, ijzerkernen en
 koolstofkernen etc. Deze primaire deeltjes hebben energieën variërend
-van \Si{10e2} t/m \Si{10e20} \electronvolt. De deeltjes met lagere
+van \SIrange{10e2}{10e20}{\electronvolt}. De deeltjes met lagere
 waarden voor energie zijn bijvoorbeeld deeltjes uitgezonden door de zon.
-De deeltjes met hogere energiewaarden (>\Si{10e17} \electronvolt) hebben
+De deeltjes met hogere energiewaarden (\SI{>10e17}{\electronvolt}) hebben
 een energie die we op aarde in versnellers niet kunnen bereiken. Het
 noorderlicht ontstaat door deeltjes met een energie in de orde van een
 keV, die op stikstof- en zuurstof moleculen botsen. Als primaire
-deeltjes energieën hebben in de orde van \Si{10e14} t/m \Si{10e20}
-\electronvolt en op atomen in de atmosfeer botsen ontstaat een lawine
+deeltjes energieën hebben in de orde van \SIrange{10e14}{10e20}
+{\electronvolt} en op atomen in de atmosfeer botsen ontstaat een lawine
 van allerlei secundaire deeltjes \figref{fig:main_cosmicray_shower}, dat
 een Extended Air Shower (EAS) wordt genoemd. Deze EAS reikt afhankelijk
 van de energie van het primaire deeltje en de hoogte van de eerste
@@ -37,7 +37,7 @@ onderzoeksgroepen: KASCADE, AUGER. In Nederland is dit op scholen
 mogelijk met HiSPARC.
 
 \begin{figure} \centering
-\includegraphics[scale=0.8]{main_cosmicray_shower} \caption{artiesten 
+\includegraphics[scale=0.8]{main_cosmicray_shower} \caption{artiesten
 impressie van kosmische straling (bron: S. Swordy, Universiteit van
 Chicago)} \label{fig:main_cosmicray_shower} \end{figure}
 
@@ -57,7 +57,7 @@ hoe ze ontstaan. De energie en richting zijn af te leiden uit de grootte
 van de EAS en de tijdsverschillen in de detectoren. Waar kosmische
 straling vandaan komt is gedeeltelijk bekend. Laag-energetische deeltjes
 komen van de zon (de zonnewind) en van sterren uit ons melkwegstelsel.
-Deeltjes met energieën tot ongeveer \Si{10e16} \electronvolt zijn
+Deeltjes met energieën tot ongeveer \si{10e16} \electronvolt zijn
 afkomstig van supernova's. Deeltjes met nog meer energie kunnen aan
 magneetvelden van sterrenstelsels ontsnappen en zijn waarschijnlijk
 buiten ons melkwegstelsel ontstaan. Hierbij denkt men aan een oorsprong
@@ -74,25 +74,61 @@ hoge energie komen globaal 1000 maal zo weinig voor. In figuur 2 zie je
 het diagram (op een dubbel logaritmische schaal) wat het overzicht geeft
 tussen de flux (aantal showers per tijdseenheid per oppervlak) tegen de
 energie van het primaire deeltje. Hierin is te zien dat het aantal
-deeltjes met een energie van \Si{10e19} \electronvolt één keer per jaar
+deeltjes met een energie van \SI{10e19} \electronvolt één keer per jaar
 op een oppervlak van 1 \square\kilo\metre komt, door één \square\metre
-gaat per seconde gemiddeld een deeltjes met een energie van \Si{10e11}
-\electronvolt. Duidelijk is te zien dat de grafiek tussen \Si{10e20} t/m
-\Si{10e21} \electronvolt ogenschijnlijk ophoudt. Deze grens wordt de
+gaat per seconde gemiddeld een deeltjes met een energie van \SI{10e11}
+\electronvolt. Duidelijk is te zien dat de grafiek tussen \SI{10e20} t/m
+\SI{10e21} \electronvolt ogenschijnlijk ophoudt. Deze grens wordt de
 ‘GZK cut-off’ genoemd. (Greisen–Zatsepin–Kuzmin limiet). Men vermoedt
 dat de ‘GZK’ bovengrens vormt voor de energie van kosmische straling.
 Zeker weten doen we dat niet omdat die energieën heel zeldzaam zijn.
 
 \begin{figure} 
-    \centering 
-    \includegraphics[scale=0.8]{swordy_blois}
-    \caption{Flux als functie van de energie van kosmische straling. Tussen
-    \Si{10e11} en \Si{10e15} \electronvolt meten we bijna geen flux omdat deeltjes met deze
-energieën de grond niet bereiken. (bron: S. Swordy, Universiteit van
-Chicago)} 
-    \label{fig:swordy_blois} 
+\centering 
+\includegraphics[scale=0.8]{swordy_blois}
+\caption{Flux als functie van de energie van kosmische straling. Tussen
+\SI{10e11} en \SI{10e15} \electronvolt meten we bijna geen flux omdat
+deeltjes met deze energieën de grond niet bereiken. (bron: S. Swordy,
+Universiteit van Chicago)} 
+\label{fig:swordy_blois} 
 \end{figure}
 
+Je kunt het onderzoek van \hisparc vergelijken met onderzoek van
+sterrenkundigen. Sterrenkundigen bestuderen sterren met behulp van het
+licht wat sterren en hemelobjecten uitzenden of terugkaatsen. De
+informatie die zij vinden en gebruiken zit ‘opgesloten’ in het licht wat
+opgevangen wordt. De mensen die de data van \hisparc onderzoeken,
+bestuderen de kosmische showers aan de hand van de detectoren die op de
+scholen en universiteiten staan. Zij meten de hoeveelheid deeltjes per
+oppervlakte eenheid en kijken naar tijdsverschillen tussen aankomst van
+de deeltjes in de detectoren, daarmee kunnen ze informatie over de EAS
+herleiden. De HiSPARC detectiestations meten de deeltjes van de EAS die
+het aardoppervlak bereiken en zijn via een netwerk verbonden met het
+\nikhef en de Universiteit van Nijmegen. De \hisparc detectoren kunnen
+de fotonen, muonen en elektronen meten die in zo’n EAS voorkomen (zie
+figuur 3). Een station bestaat uit twee of vier detectoren, die ieder
+een eigen signaal bij een detectie van een EAS geven; de pulshoogte. Is
+het signaal hoog genoeg en meten twee of meer detectoren binnen een kort
+tijdspanne een signaal, dan slaat het meetstation dit signaal als een
+event op in de database. Per uur worden typisch zo’n 2000 tot 3000
+events geregistreerd per station. Als meerdere detectoren of stations
+binnen een bepaalde tijd deeltjes detecteren dan spreken we van een
+coïncidentie. Bij een coïncidentie behoren dus alle metingen op dat
+moment bij één EAS.
+
+\begin{figure} 
+    \centering 
+    \includegraphics[scale=0.8]{swordy_blois}
+
+
+
+
+Momenteel zijn de onderzoekers van \hisparc bezig met het reconstrueren
+van de energie en richting van de gedetecteerde showers. Hierover kun je
+in het volgende artikel meer lezen. We zullen nu wat aandacht besteden
+aan detectiemethoden voor kosmische showers door de detectie stations
+van \hisparc. Als je naar de site: \url{http://data.hisparc.nl}, surft, dan zie
+je de volgende website (figuur 4):
 
 
 \end{document}
