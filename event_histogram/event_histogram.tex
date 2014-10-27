@@ -1,0 +1,80 @@
+\input{../style_werkblad}
+
+\usepackage{lipsum}
+
+\title{Event Histogram Onderzoeken} \author{C.G.N. van Veen}
+\docwerkblad{7}{EHO} \version{1.0}
+
+\begin{document}
+
+\maketitle
+
+\begin{questions}
+
+\begin{EnvUplevel}
+\section{Inleiding}
+
+Op de site \url{http://data.hisparc.nl/} zie je een overzicht van de
+stations van \hisparc en hun status, zie \figref{fig:data_hisparc}. Als
+je op een station klikt dan kun je de allereerst de metingen van de
+vorige dag zien. Als in een station twee detectoren op ongeveer
+hetzelfde moment een puls meten spreken we van een event. Een event
+geeft dus aan dat er een kosmische shower is gedetecteerd.
+
+De metingen van het aantal showers wat per uur gemeten is staat uitgezet
+in het event histogram, zie \figref{fig:Event_histogram}
+
+Soms zie je dat het aantal events (dus  constant over de uren van de dag,
+maar er zijn ook stations die een afwijkende hoeveelheid events laten
+zien.
+
+Die afwijkingen in het event histogram komen dan ook vaker
+voor. Zoek zo'n station waarbij het event histogram afwijkingen laat
+zien en probeer uit te zoeken wat die afwijking veroorzaakt.
+
+Probeer met behulp van de dataretrieval tool op tijdstippen dat
+je de afwijkingen in het event histogram ziet, gegevens te verzamelen
+over het weer, aantal events , stations in de buurt van het afwijkende
+station etc.
+\end{EnvUplevel}
+
+\question Waardoor kunnen we het afwijkende event
+histogram verklaren?
+
+
+\begin{EnvUplevel}
+\section{Plan van aanpak}
+
+\begin{itemize}
+    \item Zorg dat je bekend bent met de dataretrieval tool
+    (zie infopakket \url{http://docs.hisparc.nl/infopakket/})
+    \item Zorg dat je voor een tijdsperiode het aantal events kunt selecteren met de gedownloade data.
+    \item Zorg ervoor dat je ook van dichtbijgelegen stations gegevens (ook
+    weer gegevens) verzameld.
+    \item Probeer voor deze tijdsperioden een
+    correlatie tussen de gegevens en zo een conclusie over de oorzaak van
+    het afwijkende event histogram te vinden.
+\end{itemize}
+\end{EnvUplevel}
+
+
+\uplevel{\section{Vervolgopdrachten}}
+
+\question Hebben afwijkende event histogrammen altijd dezelfde oorzaak?
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.90\textwidth]{data_hisparc}
+    \caption{website met het overzicht van de stations}
+    \label{fig:data_hisparc}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.90\textwidth]{Event_histogram} \caption{Een
+    event histogram met afwijkende waarde rond het middaguur.}
+    \label{fig:Event_histogram}
+\end{figure}
+
+\end{questions}
+\end{document}
