@@ -43,10 +43,9 @@ Chicago).} \label{fig:main_cosmicray_shower} \end{figure}
 
 \section{\hisparc}
 
-Met dit Nederlandse project kunnen we EAS meten en analyseren. HiSPARC
-is een samenwerking van middelbare scholen en universiteiten, waarbij de
-scholen dienen als locatie waar de detectie stations geplaatst worden.
-Leraren en leerlingen installeren, beheren en onderhouden de stations,
+Het Nederlandse project \hisparc is een samenwerking van middelbare scholen en universiteiten.
+Op deze scholen en universiteiten zijn detectie stations geplaatst waarmee we EAS kunnen 
+meten en analyseren. Leraren en leerlingen installeren, beheren en onderhouden de stations,
 en houden de kwaliteit van de ermee verkregen meetgegevens in de gaten.
 Zo worden EAS in een groot oppervlak gemeten en worden middelbare
 scholieren betrokken bij wetenschappelijk onderzoek ondersteund door
@@ -104,7 +103,7 @@ bestuderen de kosmische showers aan de hand van de detectoren die op de
 scholen en universiteiten staan. Zij meten de hoeveelheid deeltjes per
 oppervlakte eenheid en kijken naar tijdsverschillen tussen aankomst van
 de deeltjes in de detectoren, daarmee kunnen ze informatie over de EAS
-herleiden. De HiSPARC detectiestations meten de deeltjes van de EAS die
+herleiden. De \hisparc stations meten de deeltjes van de EAS die
 het aardoppervlak bereiken en zijn via een netwerk verbonden met het
 Nikhef en de Universiteit van Nijmegen. De \hisparc detectoren kunnen
 de fotonen, muonen en elektronen meten die in zo’n EAS voorkomen, zie \figref{fig:shower}.
@@ -114,7 +113,7 @@ het signaal hoog genoeg en meten twee of meer detectoren binnen een kort
 tijdspanne een signaal, dan slaat het meetstation dit signaal als een
 event op in de database. Het registreren van een signaal in een detector wordt 
 uitgebreid uitgelegd in het document "Inregelen PMT's". 
-Webadres: \url{http://www.hisparc.nl/docent-student/lesmateriaal/informatie-pakket/}.
+Web-adres: \url{http://www.hisparc.nl/docent-student/lesmateriaal/informatie-pakket/}.
 Per uur worden typisch zo’n 2000 tot 3000
 events geregistreerd per station. Als meerdere detectoren of stations
 binnen een bepaalde tijd deeltjes detecteren dan spreken we van een
@@ -132,11 +131,11 @@ moment bij één EAS.
 
 \section{Reconstructies uit de showers}
 
-Momenteel zijn de onderzoekers van \hisparc bezig met het reconstrueren
-van de richting  en energie van gedetecteerde showers. De data die het
-\hisparc netwerk kan via de volgende website opgevraagd worden,
-\url{http://data.hisparc.nl/media/jsparc/data_retrieval.html}, hoe de
-data retrieval werkt en hoe je er snelle analyses mee kunt doen en
+Momenteel richt het \hisparc onderzoek zich op het reconstrueren
+van de richting  en energie van gedetecteerde showers. De benodigde data kun je opvragen
+van \hisparc netwerk, via de volgende website,
+\url{http://data.hisparc.nl/media/jsparc/data_retrieval.html} Hoe de
+data retrieval tool werkt en hoe je er snelle analyses mee kunt doen en
 correlaties tussen verschillende grootheden kunt zoeken wordt uitgelegd
 in het infopakket van \hisparc, in het bestand `Data-retrieval' op het
 webadres van infopakket:
@@ -150,9 +149,9 @@ van het deeltje zijn een aantal kolommen van belang, zoals de Arrival time,
 Pulseheight, Pulseintegral en Number of MIP's \footnote{Meer over de terminologie 
 van kosmische showers vind je in het bestand `Terminologie' van het infopakket}.
 
-Uit de pulsen die gemeten worden door de meetstations als de deeltjes, die geproduceerd 
-worden in een kosmische shower, invallen op de detectoren wordt informatie gehaald 
-die leidt tot de kolommen: Arrival time, Pulseheight, Pulseintegral, Number of MIP's.
+De deeltjes, die geproduceerd worden in een kosmische shower, invallen op de 
+detectoren kan uit de gemeten puls informatie worden gehaald, die leidt tot de 
+kolommen: Arrival time, Pulseheight, Pulseintegral, Number of MIP's.
 Met de informatie in deze kolommen wordt de richting en energie van de kosmische
 showers zo nauwkeurig mogelijk gereconstrueerd. In \figref{fig:traces} zie je 
 dat elk meetstation per gemeten event per detector een signaal geeft, maar 
@@ -183,7 +182,9 @@ met goniometrische beschouwingen, de richting vanwaar deze shower kwam, uitreken
 Hoe dit precies in zijn werk gaat is na te lezen in het infopakket van
 \hisparc, in het bestand `richting reconstructie' op het webadres:
 \url{http://www.hisparc.nl/docent-student/
-lesmateriaal/informatie-pakket/}
+lesmateriaal/informatie-pakket/} Als leerlingen een richtingreconstructie willen doen
+dan kunnen ze dat oefenen met het werkblad `richting primair deeltje' van het routenet
+materiaal op de website: \url{http://www.hisparc.nl/docent-student/lesmateriaal/routenetpad/}.
 
 \begin{figure}
     \centering
@@ -211,7 +212,8 @@ lesmateriaal/informatie-pakket/}
 \subsection{Reconstructie van energie }
 
 In \figref{fig:pulshoogte} zie je de pulsen van twee detectoren (dit is
-dus een twee detector station). De maximale waarde van de pulsen is daar
+dus een twee detector station of een vier detector station, waarbij twee 
+detectoren `getriggerd' zijn). De maximale waarde van de pulsen is daar
 aangegeven met een verticale lijn. De waarde van de potentiaal die bij
 dit punt hoort, wordt de `pulseheight' of in het Nederlands `pulshoogte'
 genoemd. Als we van alle events, die we op een dag meten met een
@@ -227,7 +229,7 @@ potentiaalverschil positief), dit is dan de waarde die hoort bij één
 deeltje wat gedetecteerd is. Meet je bij een ander event in een detector
 een puls van -540 mV, dan zouden er 3 deeltjes zijn gedetecteerd
 zijn door deze detector. De piek in het pulshoogte histogram noemen we
-de MIP  (Minimum Ionizing Particle) dat is waarde van de rode lijn in
+de MIP (Minimum Ionizing Particle) dat is waarde van de rode lijn in
 \figref{fig:MIP_histogram} (in dit geval ongeveer 180 mV). Deze waarde wordt voor elke set
 data per detector elke keer opnieuw bepaalt en gebruikt als ijkmiddel om
 het aantal deeltjes te berekenen wat in één event is gedetecteerd. De waarde
@@ -254,12 +256,12 @@ scintillator, montage van de detector en leeftijd van de detector.
     \label{fig:MIP_histogram}
 \end{figure} 
 
-Nu we met behulp van de MIP\footnote{ Meer over de MIP piek vind je in
+Nu we met behulp van de MIP\footnote{Meer over de MIP piek vind je in
 het bestand `inregelen PMT's' van het \hisparc infopakket} piek van elke
 detector kunnen bepalen wat het aantal deeltjes in een detector per
-event is. Met behulp van het aantal deeltjes per detector kunnen we de
+event is. Als het aantal deeltjes per detector bekend is kunnen we de
 energie van het primaire deeltje wat de shower veroorzaakt
-reconstrueren. Omdat we weten hoe de shower zich ontwikkelt in de
+reconstrueren. Omdat we denken te weten hoe de shower zich ontwikkelt in de
 atmosfeer, kunnen we met onze metingen van het aantal deeltjes op de
 grond aan de hand van \eqref{eq:LDF} een energie van het primaire
 deeltje reconstrueren.
@@ -321,6 +323,8 @@ met
 \hat{c}(s) = \frac{\Gamma(\beta-s)}{2\pi r_0^2 \, \Gamma(s-\alpha+2) \, \Gamma(\alpha+\beta-2s-2)}
 \label{eq:gamma}
 \end{equation}
+
+\eqref{eq:gamma} is de $\Gamma$ functie.
 
 \begin{figure}
     \centering
