@@ -1,0 +1,151 @@
+\input{../style}
+
+\title{jSparc analyse}
+\author{A.P.L.S. de Laat, N.G. Schultheiss}
+\docanalyse{3}{JA}
+\version{1.0}
+
+\begin{document}
+
+\maketitle
+
+\section{Inleiding}
+
+Deze pagina beschrijft de functies van de `jSparc analyse' 
+\url{http://data.hisparc.nl/media/jsparc/jsparc.html} web
+applicatie. Met deze web applicatie kun je de waarnemingen van een 
+deeltjes-lawine die meerdere stations heeft geraakt analyseren.
+
+Hieronder worden de functies van deze pagina stap voor stap uitgelegd.
+
+\section{Het ophalen van data}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{jsparc_get_data}
+    \caption{Het formulier waarmee zowel data van een sessie of een voorbeeld is aan te 
+   		vragen.}
+    \label{fig:get_data}
+\end{figure}
+
+In \figref{fig:get_data} is te zien dat de pagina in het begin vrij leeg is, er worden alleen het \hisparc logo en een
+formulier waarop je de sessie-titel, de pin-code en je naam kunt invullen 
+afgebeeld. Een analyse sessie is door jou of je leraar aan te vragen met het 
+`Session Request Form'
+\url{http://www.hisparc.nl/en/hisparc-data/jsparc/sessie-aanvragen/}.
+
+Nadat het jSparc analyse formulier is ingevuld, klik je op de *Get data* knop 
+om data op te halen. Als er geen sessie is aangemaakt kun je de web applicatie 
+nog steeds gebruiken door op de `Get example' knop te klikken.
+
+\section{Traces}
+
+Traces tonen het gemeten signaal van de fotomultiplier buis van iedere detector
+voor een event. (Meerdere detectoren meten nagenoeg tegelijkertijd een 
+signaal.)
+
+\subsection{Coincidence traces}
+
+De traces voor alle detectoren van alle stations die een co\"incidentie hadden
+worden in bovenste grafiek getoond (figuur \ref{fig:stationtrace}). Onder deze grafiek is in de balk te zien 
+welke kleur ieder station heeft.  Langs de horizontale as staat de tijd in 
+nanoseconds vanaf het begin van het event. Langs de vertikale as staat de 
+sterkte van het detectorsignaal, dit is een maat voor het aantal deeltjes dat 
+door de detector gaat.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{jsparc_coincidence_traces}
+    \caption{Traces voor alle detectoren (met dezelfde kleur) voor ieder station 
+                 (verschillende kleur) tijdens co\"incidentie..}
+    \label{fig:stationtrace}
+\end{figure}
+
+   Traces voor alle detectoren (met dezelfde kleur) voor ieder station 
+   (verschillende kleur) tijdens coincidentie.
+   
+\subsection{Station traces}
+
+Onder de Coincidence graph kun je de traces voor ieder station afzonderlijk 
+zien (figuur \ref{fig:detectortrace}). Je kunt de station selecteren door op het station nummer in de balk 
+onder de coincidentie grafiek te klikken.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{jsparc_station_traces}
+    \caption{Traces voor alle detectoren (verschillende kleuren) van een enkel station.}
+    \label{fig:detectortrace}
+\end{figure}
+
+\subsection{Zoomen}
+
+Je kunt op de traces in- en uitzoomen door met de cursor een gebied in de 
+grafiek te selecteren (figuur \ref{fig:zoomen}). Dubbel klikken laat de hele grafiek weer zien.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{jsparc_zoom_traces}
+    \caption{Zoomen}
+    \label{fig:zoomen}
+\end{figure}
+
+\section{Kaart}
+
+Op de kaart naast de grafieken zijn de plaatsen van de verschillende [\hisparc] stations
+afgebeeld (figuur \ref{fig:core}). De achtergrond wordt opgehaald bij OpenStreetMap. De kaart kan 
+worden verschoven en er is in en uit te zoomen door te scrollen.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{jsparc_map}
+    \caption{De plaatsen van de stations en het midden van de deeltjes-lawine in OpenStreetMap.}
+    \label{fig:core}
+\end{figure}
+
+\subsection{De positie van het midden van de deeltjes-lawine}
+
+Midden op de kaart is een zwarte vlek te zien, deze stelt het midden van de 
+deeltjes-laine voor. Het doel van de analyse is om de plaats van het midden 
+van de deeltjes-lawine te bepalen, het aantal deeltjes per detector wordt 
+hiermee zo goed mogelijk verklaard. Het midden kan over de kaart worden 
+versleept. De getallen in de tabel aan de rechterkant en onder de kaart worden 
+interactief aangepast. Onder de kaart is bijvoorbeeld de chi-kwadraat waarde 
+te zien. Als het midden op de juiste plaats ligt, is deze waarde zo laag 
+mogelijk.
+
+
+\section{Data tabellen}
+
+Aan de rechterkant zie je een tabel, ieder station heeft hier een eigen kolom 
+(figuur \ref{fig:detectordata}).
+Op de bovenste regel kun je op ieder moment de afstand van de stations tot 
+het midden van de deeltjes-lawine zien. Daaronder staat een blok waarin het 
+verwachtte aantal deeltjes per detector te zien is. Dit aantal wordt aan de 
+hand van de signaalsterkte geschat. Het gemiddelde per station maakt deze 
+waarden nauwkeuriger. Hieronder is het aantal detectoren in te stellen. Als je 
+dit aantal wilt wijzigen is het verstandig om eerst de werking van het station 
+te controleren. Dit kan door op het stationnummer bovenin de kolom te klikken. 
+Een nieuwe pagina met de gegevens van het station voor die dag wordt in een 
+nieuw tabblad getoond. Als de krommen van de detectoren op elkaar liggen, 
+functioneren alle detectoren.
+Op de onderste regels zijn het gemeten (Data) en het met het midden van de 
+deeltjes-lawine berekende signaal (Calc.) afgebeeld. In het ideale geval zijn 
+deze waarden (nagenoeg) gelijk. 
+Hoe minder deze waarden van elkaar afwijken hoe kleiner chi-kwadraat wordt.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{jsparc_flux}
+    \caption{Overzicht  van de detector data. }
+    \label{fig:detectordata}
+\end{figure}
+
+\section{Submit results / Verzend het resultaat}
+
+Nadat je de data zo goed mogelijk hebt geanalyseerd, kun je deze verzenden 
+door op knop *Send results* onder de tabel te klikken. Bij de verwerking van 
+de aanvraag van een sessie wordt naast een sessie-naam en pincode ook een 
+uitslagen-link gestuurd. Hier is een overzicht te zien met resultaten van 
+iedereen die analyses met de data van deze sessie heeft gedaan. 
+   
+\end{document}
