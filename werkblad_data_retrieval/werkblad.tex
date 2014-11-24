@@ -43,6 +43,9 @@ meerdere wetenschappers.  Vaak schrijven één of twee wetenschappers de
 grote lijnen van een analyse en worden deze programma's gebruikt door de
 overige leden van de groep.}
 
+
+\uplevel{\section{Datasets downloaden en bekijken}}
+
 \begin{savenotes}
 \uplevel{Het \hisparc-team heeft een relatief gebruiksvriendelijk
 programma geschreven dat beschikbaar is in de webbrowser: de \emph{data
@@ -143,6 +146,64 @@ station met twee detectoren, in plaats van vier.}
 detectoren heeft dit station?
 
 
+\uplevel{\section{Analyse van \hisparc events}}
+
+\uplevel{\subsection{Scatter plots}}
+
+\uplevel{Om een dataset te analyseren moeten we die eerst selecteren.}
+
+\question Klik op het eerste bolletje van de dataset van events van
+station 501. Op de pagina verschijnt nu een stuk met instellingen om een
+grafiek te maken (\figref{fig:tool-plot-settings}).
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=\screenscale]{tool-plot-settings}
+  \caption{Instellingen voor grafieken. Hier kun je kiezen welke gegevens
+    je wilt weergeven en wat voor type grafiek je wilt krijgen.}
+  \label{fig:tool-plot-settings}
+\end{figure}
+
+\uplevel{Standaard maak je een \emph{scatter plot}. Dit soort grafieken
+maak je ook tijdens een practicum natuurkunde. Je vergelijkt twee gegevens
+(bijvoorbeeld kracht en uitrekking van een veer) en voor iedere meting zet
+je een punt in de grafiek. Het enige verschil met een `gewoon' practicum
+is dat de \hisparc dataset veel meer metingen bevat. In plaats van een
+paar punten met een lijn zul je nu vaak een wolk van punten zien.}
+
+\uplevel{Een scatter plot is ideaal om te onderzoeken of bepaalde
+grootheden van elkaar afhankelijk zijn (zoals kracht en uitrekking bij een
+veer). Als er een verband is, dan zie je dat in de grafiek. Is er
+\emph{geen} verband, dan zie je slechts een wolk van punten.}
+
+\question Kies steeds een variabele voor de x-as en een variabele voor de
+y-as. Probeer ook eens om twee keer dezelfde variabele te kiezen. Klik dan
+op \emph{create plot} om een grafiek te maken. Onderzoek welke variabelen
+wél, en welke variabelen níet van elkaar afhankelijk zijn.
+
+\uplevel{Als variabelen van elkaar afhankelijk zijn, zeggen we ook wel dat
+ze met elkaar \emph{correleren}. Je kunt veel leren door correlaties te
+onderzoeken en te kijken naar de vorm die verschijnt in de grafieken. Als
+je nadenkt over \emph{waarom} een correlatie een bepaalde vorm heeft, kan
+het helpen om de grafiek nog een keer te plotten, maar dan de variabelen
+voor de x- en y-as om te draaien.}
+
+\question Maak een scatter plot met pulshoogte op de x-as, en
+pulsintegraal op de y-as. Probeer de vorm te verklaren.
+
+\question Draai het nu om: zet pulsintegraal op de x-as, en pulshoogte op
+de y-as. Probeer weer de vorm te verklaren.\footnote{In deze grafiek zie
+je dat events met een grote integraal (pulsoppervlak), ook een grote
+hoogte hebben. In eerste instantie gaat dat gelijk op: als er meer
+deeltjes door een detector gaan dan wordt de puls hoger én breder. Maar
+als er heel veel deeltjes door een detector gaan, wordt de oppervlakte van
+de puls wel (flink) groter, maar niet heel veel meer hoger. De verklaring
+hiervoor is dat de elektronica pulsen met een grote spanning (de `hoogte'
+van de puls) niet goed aankan.}  Vind je dit duidelijker?
+
+\question Onderzoek andere correlaties. Welke grootheid wordt
+\emph{direct} gebruikt om een schatting te maken van het aantal MIPs in
+een detector?
 
 \end{questions}
 \end{document}
