@@ -4,6 +4,9 @@
 \usepackage{footnote}
 
 
+\newcommand{\screenscale}{.5}
+
+
 \title{Data Retrieval}
 \author{D.B.R.A. Fokkema}
 \docwerkblad{5}{WDT}
@@ -25,13 +28,13 @@ als Excel wordt vaak gebruikt om de cijfers van een klas in te voeren of
 een balans bij te houden.  In het bedrijfsleven wordt het ook vaak
 (mis)bruikt om met veel ingewikkelde formules een analyse van
 bedrijfsgegevens uit te voeren. Hierbij gaat het bijna altijd om relatief
-weinig gegevens.  Een dag \hisparc data bestaat met gemak uit
-\numrange{50000}{60000} regels.}
+weinig gegevens.  Een dag \hisparc data, daarentegen, bestaat met gemak
+uit \numrange{50000}{60000} regels.}
 
 \uplevel{In de wetenschap weet je nooit wat je kunt verwachten als je
 onderzoek doet. Een uitgebreide analyse van gegevens wordt daarom normaal
 gesproken geprogrammeerd. Een programmeeromgeving als \emph{Mathematica},
-of een programmeertaal als \emph{Python} behoort tot het
+of een programmeertaal als \emph{Python}, behoort tot het
 standaardgereedschap van de onderzoeker.  Het aanleren en zelf schrijven
 van zo'n analyse kost alleen heel veel tijd.}
 
@@ -49,7 +52,96 @@ Met dit programma kun je alle \hisparc data downloaden en eenvoudige tot
 enigszins complexe analyses uitvoeren. }
 \end{savenotes}
 
-\question Foo.
+\question Open een browser en ga naar
+\url{http://data.hisparc.nl/media/jsparc/data_retrieval.html}.  Controleer
+dat je pagina overeenkomt met \figref{fig:tool-landing}.  Bekijk de pagina
+goed.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=\screenscale]{tool-landing}
+  \caption{Openingspagina van de data retrieval tool.}
+  \label{fig:tool-landing}
+\end{figure}
+
+\uplevel{In dit werkblad richten we ons op de linkerkolom: \emph{download
+data}. Hier is het mogelijk om data van de \hisparc servers te downloaden
+in de browser om vervolgens de data te analyseren.}
+
+\question We gaan in eerste instantie \emph{events} downloaden.  Kies
+station 501 (Nikhef) en een startdatum van 1 november 2014, en een
+einddatum van 2 november 2014. Klik op \emph{Get Data!}.
+
+\uplevel{Tijdens het downloaden wordt het \hisparc logo rechtsbovenaan de
+pagina geanimeerd.  De animatie bootst een shower na die op het
+aardoppervlak wordt gedetecteerd. Als de animatie stopt is de dataset
+gedownload.}
+
+\question Bekijk \figref{fig:tool-dataset}. Dit kopje verschijnt op de
+pagina zodra een dataset beschikbaar is. Download voor hetzelfde station
+en dezelfde data ook eens meteorologische gegevens (\emph{data type:
+weather}).  Download ook eens events voor station 202. Het kopje datasets
+komt nu overeen met \figref{fig:tool-datasets}.
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=\screenscale]{tool-dataset}
+  \caption{Na downloaden is er een dataset beschikbaar.}
+  \label{fig:tool-dataset}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=\screenscale]{tool-datasets}
+  \caption{Meerdere datasets kunnen na elkaar worden gedownload.}
+  \label{fig:tool-datasets}
+\end{figure}
+
+\uplevel{Bekijk \figref{fig:tool-datasets}.  Het getal onder
+\emph{entries} is het aantal metingen (events of meteorologische gegevens)
+dat beschikbaar is.  Als je klikt op \emph{csv} onder emph{download}, dan
+download je alle data als tekstbestand. Je kunt de gegevens dan inladen in
+een ander programma. Om een dataset uit het geheugen te verwijderen klik
+je op het kruisje onder \emph{remove}.}
+
+\uplevel{Een overzicht van de ruwe data is beschikbaar door te klikken op
+\emph{show} onder \emph{preview}.}
+
+\question Bekijk een preview van de events van station 501. Klik voor het
+bovenste event op \emph{show} onder het kopje \emph{trace} helemaal
+rechts. Je scherm moet nu overeen komen met
+\figref{fig:tool-preview-trace}. De grafiek is een weergave van de ruwe
+data van een \hisparc event. Geladen deeltjes zijn door de detectoren
+gegaan en hebben een lichtspoor nagelaten. Bekijk de grafiek en bestudeer
+de getallen van het eerste event in de tabel. Verklaar de getallen onder
+\emph{pulseheights}, \emph{arrival time} en \emph{trigger time}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{tool-preview-trace}
+  \caption{Preview van een \hisparc event.}
+  \label{fig:tool-preview-trace}
+\end{figure}
+
+\uplevel{De kolom \emph{pulseintegral} geeft aan hoe groot de oppervlakte
+is onder het signaal. Dit is een maat voor hoeveel energie de deeltjes
+hebben achtergelaten in de detector en wordt gebruikt om een schatting te
+maken van het aantal geladen deeltjes dat door een detector ging. Deze
+schatting is weergegeven onder het kopje \emph{number of MIPs}. MIP staat
+voor \emph{minimum-ionizing particle}, ofwel een deeltje dat een minimale
+hoeveelheid energie verliest door ionisatie. Deeltjes in showers vallen in
+deze categorie.}
+
+\uplevel{In de tabel komt soms het getal -999 voor. Dit betekent dat het
+niet mogelijk was een voorlopige analyse uit te voeren op de data.  In de
+praktijk betekent dit dat er in die detector geen deeltjes zijn
+gedetecteerd. Ook kan het getal -1 voorkomen. Dat betekent dat er voor die
+kolom geen data beschikbaar is, bijvoorbeeld als je data bekijkt van een
+station met twee detectoren, in plaats van vier.}
+
+\question Bekijk een preview van de data van station 202. Hoeveel
+detectoren heeft dit station?
+
 
 
 \end{questions}
