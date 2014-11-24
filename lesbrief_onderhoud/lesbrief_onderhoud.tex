@@ -64,7 +64,7 @@ Behandel in ieder geval:
     \item{Hoe worden deze deeltjes in de lawine op aarde gedetecteerd?}
 \end{description}
 Kies van het achtergrondmateriaal uit het infopakket, onder de kop
-\textbf{Algemeen:}  \textit{Terminologie, Cosmic air showers en$/$of Uitleg \hisparc}.
+Algemeen:\textit{Terminologie, Cosmic air showers en$/$of Uitleg \hisparc}.
 
 \textbf{Werkblad} Het werkblad `Cosmic air showers' kan uitgedeeld worden aan 
 leerlingen. Deze is te vinden in het infopakket.
@@ -83,11 +83,11 @@ afstelling van de detectoren en het onderhoud van een station.
 We beginnen met achtergrondinformatie over de detectoren.
 
 In deze les behandelen we zaken als:
-\begin{description}
-    \item{Hoe meten de detectoren de deeltjes in de lawine?}
-    \item{Wat is het pulshoogte-histogram?}
-    \item{Hoe kunnen we foutmeldingen opsporen en oplossingen vinden?}
-\end{description}
+\begin{itemize}
+    \item Hoe meten de detectoren de deeltjes in de lawine?
+    \item Wat is het pulshoogte-histogram?
+    \item Hoe kunnen we foutmeldingen opsporen en oplossingen vinden?
+\end{itemize}
 
 Kies van het achtergrondmateriaal uit het infopakket: \textit{Inregelen
 PMT's}, \textit{Controle station} en \textit{Uitleg \hisparc}. In het
@@ -103,10 +103,9 @@ De opgaven van deze bladen kunnen in de les gemaakt worden.
 
 \section{Les 3}
 In deze les kijken we naar de DAQ software van het meetstation en gaan de leerlingen 
-zelf aan de slag met het instellen van de PMT's van het station.
-De leerlingen krijgen wat (meer) uitleg over de fotomultiplier en stellen via de DAQ
-de juiste spanning in voor elke detector.
-
+zelf aan de slag met het instellen van de fotomultipliers (PMT's) van het station.
+De leerlingen krijgen wat (meer) uitleg over de fotomultiplier en stellen via de \hisparc \daq
+de juiste spanning in voor fotomultiplier.
 
 In deze les behandelen we zaken als:
 \begin{description}
@@ -115,6 +114,51 @@ In deze les behandelen we zaken als:
     goed pulshoogte diagram ontstaat?}
 \end{description}
 
-Nog schrijven hoe de leerlingen de instellingen van de PMT kunnen wijzigen etc.
+In het achtergrondmateriaal van infopakket staat het document \textit{inregelen PMTs},
+waarin een uitleg wordt gegeven van de werking van de fotomultiplier buis.
+
+
+In het document \textit{inregelen PMTs} wordt naast de werking van de fotomultiplier 
+ook de instelling van de \hisparc \daq uitgelegd. Leerlingen kunnen dit gebruiken om 
+de instellingen van de PMT's van de detectors van het \hisparc station.
+
+Een verkorte versie van de handelingen. Het verdient sterke aanbeveling om het hele
+document `inregelen PMT's' te lezen!
+\begin{itemize}
+    \item Zorg dat de \daq mode stopt. (dit betekent dat er geen data wordt verzonden.)
+    \item Zorg dat je de adc alignment het gedaan, voor \hisparc III \daq wordt de common offset
+    10
+    \item Stel de spanning van de PMT in (vanaf 300 V beginnen!)
+    \item Test de spanning in het menu "statistics (trace\&trigger), klik start counting.)
+    \item Zorg dat de `average per second (HIGH)' op ongeveer 120 komt en (LOW) rond de 250 uitkomt.
+    \item Pas de PMT spanning in kleine stapjes aan om deze waarden te verkrijgen. Klik na elke aanpassing op `save settings'
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{PMT_instellen}
+    \caption{In dit tab menu kan de spanning op de fotobuis worden ingesteld. 
+    Je kunt de slider verslepen of een spanning invoeren in het vakje.}
+    \label{fig:PMT_instellen}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{instellen_PMT_values}
+    \caption{In dit tab menu kun je op start counting drukken. De detectoren gaan dan meten.
+    De waarden zouden voor de 3e kolom `average per second' bij `High' 120 moeten zijn en bij `low' ongeveer 250.
+    Dit figuur heeft dus alleen voor detector 4 nu een goede waarde van 120. 
+    Daarom moet je de count ook de volledige 60 s laten lopen.}    
+    \label{fig:instellen_PMT_values}
+
+\end{figure}
+\textbf{Werkblad} 
+Leerlingen kunnen als opdracht een opgave over een fotomultiplier maken.
+
+
+
+  
+
+
 
 \end{document}
