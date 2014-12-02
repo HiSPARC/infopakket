@@ -9,8 +9,9 @@
 
 \title{Data Retrieval}
 \author{D.B.R.A. Fokkema}
-\docwerkblad{5}{WDT}
+\docwerkblad{6}{WDT}
 \version{1.0}
+
 
 \begin{document}
 
@@ -26,7 +27,7 @@ gebruikelijk in de wetenschap dat het analyseren van data niet gebeurt in
 kant-en-klare programma's, zoals een spreadsheet-programma.  Een programma
 als Excel wordt vaak gebruikt om de cijfers van een klas in te voeren of
 een balans bij te houden.  In het bedrijfsleven wordt het ook vaak
-(mis)bruikt om met veel ingewikkelde formules een analyse van
+(mis/ge)bruikt om met veel ingewikkelde formules een analyse van
 bedrijfsgegevens uit te voeren. Hierbij gaat het bijna altijd om relatief
 weinig gegevens.  Een dag \hisparc data, daarentegen, bestaat met gemak
 uit \numrange{50000}{60000} regels.}
@@ -148,8 +149,6 @@ detectoren heeft dit station?
 
 \uplevel{\section{Analyse van \hisparc events}}
 
-\uplevel{\subsection{Scatter plots}}
-
 \uplevel{Om een dataset te analyseren moeten we die eerst selecteren.}
 
 \question Klik op het eerste bolletje van de dataset van events van
@@ -163,6 +162,9 @@ grafiek te maken (\figref{fig:tool-plot-settings}).
     je wilt weergeven en wat voor type grafiek je wilt krijgen.}
   \label{fig:tool-plot-settings}
 \end{figure}
+
+
+\uplevel{\subsection{Scatter plots}}
 
 \uplevel{Standaard maak je een \emph{scatter plot}. Dit soort grafieken
 maak je ook tijdens een practicum natuurkunde. Je vergelijkt twee gegevens
@@ -192,14 +194,15 @@ voor de x- en y-as om te draaien.}
 pulsintegraal op de y-as. Probeer de vorm te verklaren.
 
 \question Draai het nu om: zet pulsintegraal op de x-as, en pulshoogte op
-de y-as. Probeer weer de vorm te verklaren.\footnote{In deze grafiek zie
-je dat events met een grote integraal (pulsoppervlak), ook een grote
-hoogte hebben. In eerste instantie gaat dat gelijk op: als er meer
-deeltjes door een detector gaan dan wordt de puls hoger én breder. Maar
-als er heel veel deeltjes door een detector gaan, wordt de oppervlakte van
-de puls wel (flink) groter, maar niet heel veel meer hoger. De verklaring
-hiervoor is dat de elektronica pulsen met een grote spanning (de `hoogte'
-van de puls) niet goed aankan.}  Vind je dit duidelijker?
+de y-as. Probeer weer de vorm te verklaren. Zie het antwoord\footnote{In
+deze grafiek zie je dat events met een grote integraal (pulsoppervlak),
+ook een grote hoogte hebben. In eerste instantie gaat dat gelijk op: als
+er meer deeltjes door een detector gaan dan wordt de puls hoger én breder.
+Maar als er heel veel deeltjes door een detector gaan, wordt de
+oppervlakte van de puls wel (flink) groter, maar niet heel veel meer
+hoger. De verklaring hiervoor is dat de elektronica pulsen met een grote
+spanning (de `hoogte' van de puls) niet goed aankan.} in de voetnoot. Vind
+je dit duidelijker?
 
 \question Onderzoek andere correlaties. Welke grootheid wordt
 \emph{direct} gebruikt om een schatting te maken van het aantal MIPs in
@@ -208,14 +211,97 @@ een detector?
 
 \uplevel{\subsection{Histogram}}
 
+\uplevel{Een \emph{histogram} is een grafiek waarin wordt aangegeven
+\emph{hoe vaak} een bepaalde waarde voorkomt. Bijvoorbeeld: hoeveel
+leerlingen hebben een lengte tussen de \SI{1,80}{\meter} en
+\SI{1,85}{\meter}?}
+
+\uplevel{Als je als plottype \emph{histogram} kiest, kun je geen y-as meer
+kiezen. De grafieken die gemaakt worden hebben een y-as die loopt van de
+kleinste tot de grootste waarde.  \emph{Hij begint vaak niet bij nul!}}
+
+\question Maak een histogram van de event rate (het aantal events per
+seconde).  Welke event rate komt het meest voor? Hoe groot is de
+spreiding?
+
+\question Maak een histogram van de timestamps (tijdstippen van de
+events). Als je één dag data hebt, zet het aantal bins dan op 24. In het
+histogram verschijnt dan het aantal events per uur.
+
+\question Maak een histogram van de pulshoogten. Maak histogrammen voor
+10, 50, 100, 500 en 1000 bins. Wat is het voordeel van veel bins? En wat
+is een nadeel?
+
+\uplevel{Als er een groot verschil is tussen bins met veel counts en bins
+met weinig counts is het vaak moeilijk om te zien hoe de grafiek precies
+loopt. Je kunt dan kiezen voor een \emph{logaritmische} schaalverdeling.}
+
+\question Gebruik een logaritmische y-as in een pulshoogtehistogram met
+1000 bins. Geef een verklaring voor de bult in de grafiek.
 
 
 \uplevel{\subsection{Time series}}
 
+\uplevel{Een \emph{time series} grafiek is een scatter plot waarbij de
+tijd langs de x-as staat.  Eigenlijk krijg je precies hetzelfde als je in
+een scatter plot kiest voor \emph{timestamps} langs de x-as. Het enige
+verschil is dat de tijdstempels worden omgeschreven naar een leesbare
+weergave van datum/tijd.}
 
 
 \uplevel{\subsection{Correlaties met weerdata}}
 
+\uplevel{Bovenaan de pagina, onder het kopje \emph{select datasets to
+use}, selecteer de weerdata als tweede dataset. Onder het kopje
+\emph{select} staat dan in de eerste kolom een bolletje bij \emph{events},
+en in de tweede kolom een bolletje bij \emph{weather}.}
+
+\uplevel{Je kunt nu vrij kiezen uit variabelen van events en weerdata om
+met elkaar te plotten. Om een verband (correlatie) tussen twee grootheden
+te onderzoeken gebruik je een scatter plot.}
+
+\question Onderzoek een mogelijk verband tussen de luchtdruk en de
+temperatuur.
+
+\question Onderzoek een mogelijk verband tussen de luchtdruk en het aantal
+gedetecteerde showers per seconde.
+
+\uplevel{Als je denkt een verband gevonden te hebben, kun je bij de
+grafiekopties onder het kopje \emph{fit} de computer laten zoeken naar het
+precieze verband. Kies eens voor \emph{linear} en maak een nieuwe grafiek.
+Onderaan de grafiek staat dan de functie van de beste lijn door de data.
+Beoordeel zelf in de grafiek of je vindt dat de computer een goed verband
+heeft gevonden. Vaak wordt een verband pas duidelijk als je veel data hebt
+verzameld. Eén dag is vaak niet genoeg. Kies dan liever een week of een
+maand.}
+
+\question Onderzoek nogmaals het verband tussen luchtdruk en event rate,
+en fit een lineaire functie. Zie je een duidelijk verband?
+
+
+\uplevel{\section{Kort eigen onderzoek}}
+
+\begin{savenotes}
+\uplevel{Voor dit eigen onderzoek kun je zelf data downloaden. Je mag zelf
+kiezen welke stations je gebruikt,\footnote{Zie ook de kaart op de
+\hisparc website: \url{http://data.hisparc.nl/show/stations_on_map/}. Als
+je ver inzoomed kun je de stationsnummers zien.} en hoeveel data je nodig
+hebt (een dag, een week, een maand, ...). Je kunt denken aan één van
+onderstaande opdrachten, maar je mag ook zelf iets verzinnen.}
+\end{savenotes}
+
+\question Onderzoek het verband tussen verschillende weergegevens:
+luchtdruk en temperatuur, temperatuur en hoeveelheid zonnestraling,
+windkracht en windrichting, enz.
+
+\question Onderzoek het verband tussen het aantal waargenomen showers en
+weergegevens als luchtdruk, temperatuur, enz.
+
+\question Onderzoek een mogelijke periodiciteit in aantallen waargenomen
+showers: zie je bijvoorbeeld overdag meer showers dan 's nachts?
+
+\question Google naar \emph{space weather} en onderzoek of je meer of
+minder showers ziet als er zonneuitbarstingen zijn.
 
 
 \end{questions}
