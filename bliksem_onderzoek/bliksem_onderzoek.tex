@@ -10,53 +10,137 @@
 \begin{document}
 
 \maketitle
+
+\section{Inleiding}
+
 Dit werkblad geeft handvatten om correlatie onderzoek te doen aan bliksem en 
 kosmische showers gemeten door \hisparc stations. 
+We hebben een aantal websites nodig voor ons onderzoek, namelijk:
+\begin{enumerate}
+    \item Database met datum/posities van bliksemontladingen van het KNMI\\
+    \url{ http://www.knmi.nl/klimatologie/daggegevens/onweer/}
+    Momenteel heeft de bliksem database van \hisparc data beschikbaar van 2003-2013.
+    
+    \item Zoeken in de database van \hisparc.\\
+    \url{http://data.hisparc.nl}
+\end{enumerate}
+
+Op website 1: kun je dagen met bliksem vinden in de database van het KNMI. 
+We zullen daar naar geschikte dagen met bliksemontladingen zoeken.
+In de database van \hisparc kunnen we data van kosmische showers opvragen en
+kijken of we bliksemontladingen kunnen relateren aan kosmische showers.
+We kunnen ons daarbij afvragen binnen welk tijdsbestek een kosmische shower gemeten
+moet worden en of dat voor of na een bliksem moet zijn. Om dit soort vragen te 
+beantwoorden kan literatuur over bliksem en kosmische straling bestudeert worden.
+Zoals:
+1. Achtergrond informatie bliksem en kosmischestraling (natuur en techniek)\\
+\url{ http://bruno.home.xs4all.nl/2005/NWT%200705%20bliksem.pdf}\\
+2. Artikel van CWI.\\
+\url{http://homepages.cwi.nl/~ebert/NWTbliksem09.pdf}\\
+
+\section{Start}
+
 \begin{questions}
-
-\uplevel{\section{Inleiding}}
-
-\question \lipsum[1]
-\makelines{2}
+\question 
+In welk gebied en welk station wil je bliksemontladingen vinden? Probeer met 
+van de website \url{http://data.hisparc.nl} de gps locaties van deze stations te 
+achterhalen. Schrijf het nummer van de stations op en hun GPS locatie.
+\makelines{2} 
 \begin{solution}
-  42
+  Open opdracht: ter beoordeling aan de docent.
 \end{solution}
 
-\question Foobar.
-\begin{parts}
-  \part deel 1
-  \makelines{2}
-  \begin{solution}
-    Eh...
-  \end{solution}
-  \part deel 2
-  \makelines{2}
-  \begin{solution}
-    Die weet ik!
-  \end{solution}
-\end{parts}
-
-\question And so on.
+\question 
+Zoek op de site van het KNMI naar dagen waarop bliksemontladingen zijn geweest.
+Schrijf een aantal dagen op, waarbij er ontladingen zijn in de buurt van jouw gewenste
+locaties. Denk eraan om ook bijhorende tijd op te schrijven. Zie \figref{fig:KNMI_data}
 \makelines{4}
 \begin{solution}
-  \ldots{}and so forth!
+   Dagen in bijvoorbeeld begin augustus 2005 geven veel bliksemontladingen.
 \end{solution}
 
-
-\uplevel{\section{Middenstuk}}
-
-\question This is numbered correctly.
-\makelines{2}
+\question 
+Ga nu naar website 2 en bekijk \figref{fig:overview_website} en \figref{fig:data_download}
+hoe je naar het datadownload formulier moet komen. 
+Als je op de website van het download formulier bent, bekijk dan \figref{fig:download_form}.
+Download nu de data als een csv bestand, zodat je deze kunt inlezen. Neem een zo kort mogelijk tijdsinterval
+voor datadownload van zowel de events van het \hisparc station als de bliksemdata.
+Dit scheelt met de analyse. schrijf de data en tijden op waarvan je data hebt gedownload.
+\makelines{4}
 \begin{solution}
-  4?
+  Open opdracht: ter beoordeling aan de docent.
 \end{solution}
+
+\question 
+Je hebt nu data opgehaald en kun nu gaan analyseren.
+Wat vindt je nog een tijdsduur waarin je zou kunnen zeggen dat bliksemontlading
+en kosmische shower bij elkaar horen? Leg dit uit. \\
+\small{Voor extra uitleg over de meetwaarden (traces) van \hisparc stations zie het stuk `dataretrieval' 
+op \url{ http://www.hisparc.nl/docent-student/lesmateriaal/informatie-pakket/} paragraaf 3.5.
+Je moet voor een schatting van de tijdsduur "traces" bekijken met de dataretrieval tool.}
+\makelines{4}
+\begin{solution}
+  De tijdsduur van de bliksemontlading om nog bij een kosmische shower te horen 
+  is heel kort. In de orde $<$ 100 nanoseconden, helaas heeft het KNMI een tijdsresolutie
+  van microseconden. We zullen dus nooit echt een bijpassende bliksem vinden.
+  Het geeft de leerling wel een moment om eens over tijdsduren na te denken.
+\end{solution}
+
+\question 
+Als je csv bestanden hebt gedownload kun je deze inlezen in excel. Hoe dat moet 
+wordt uitgelegd op deze website: \url{ http://www.jkp-ads.com/Articles/importtextnl.asp}.
+Je kunt nu data uitzetten in plotjes.
+Plot bijvoorbeeld eens het aantal bliksem ontladingen tegen tijd.
+Je kunt hiervoor de grafiek wizard van Excel gebruiken.
+\makelines{4}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{overview_website}
+    \caption{Weergegeven is de website \textit{http://data.hisparc.nl}. 
+    Klik nu op een station om op de pagina van 
+    het station te komen.}
+    \label{fig:overview_website}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{data_download}
+    \caption{Klik op "download event summary data", om bij het dataformulier te komen.}
+    \label{fig:data_download}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{KNMI_data}
+    \caption{Op deze site van het KNMI (website 1) kun je snel dagen met bliksem vinden. Als een dag 
+    met bliksem is gevonden, moet gecheckt worden of het \hisparc station wat in de
+    buurt staat van veel bliksemontladingen, online was die dag. Zo ja, dan kan 
+    er met het dataformulier zowel bliksemdata als kosmische straling events
+    gedownload worden.}
+    \label{fig:KNMI_data}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{download_form}
+    \caption{Op de website van het downloadformulier kun je het formulier 
+    instellen voor downloaden van bliksem, stel de datum en tijd in als volgt:
+    2013-5-17 12:45. Geef zowel begin: datum en tijd als eind: datum en tijd op. Meestal 
+    kiezen we voor bliksemtype: wolk-grond. Als je events wilt downloaden, dan 
+    moet je station nummer en datum en tijd ingeven }
+    \label{fig:download_form}
+\end{figure}
 
 \uplevel{\section{Conclusie}}
 
-\question And this one too.
-\makelines{1}
+\question 
+Wat is je conclusie na data analyse? Kun je een correlatie tussen bliksem en
+kosmische showers vinden? Leg uit.
+\makelines{4}
 \begin{solution}
-  Did I lose count?
+  Hopelijk hebben de leerlingen een conclusie in lijn met hun bevindingen.
 \end{solution}
 
 
