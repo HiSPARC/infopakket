@@ -3,7 +3,7 @@
 \title{Wireless connectie PC en Arduino}
 \author{C.G.N. van Veen}
 \docweerstation{2}{WW}
-\version{1.3}
+\version{1.3 05-2015}
 
 \begin{document}
 
@@ -156,8 +156,6 @@ frequentie \SI{434150}{\MHz} met 9600 bps in lucht en
 \SI{20}{\milli\watt} 9600 bps wegschrijven over UART zonder parity check.
 Herhaal deze stap voor de andere APC module. Belangrijk is dat de Baudrate op 
 9600 staat en paritycheck `none' is.
-
-
 
 \begin{center}
 \begin{table}
@@ -313,7 +311,6 @@ port.setRTS(0)
 
 \end{minted}
 
-
 Het stukje code om daadwerkelijk data uit te lezen. De output leest de
 data in blokjes van 50 karakters en print deze als er data is. De
 library \emph{msvcrt} moet je importeren met Python. \verb|kbhit()|
@@ -351,46 +348,61 @@ Hoe dat moet kun je hier lezen:
 
 Voordat je wegschrijft moet je zorgen dat de nieuwe data vergelijkt met de oude data, als deze exact hetzelfde is
 als de vorige kun je in het programma aangeven dat je pas data wegschrijft als de data verschilt.
-Ook komt het wel eens voor dat de string data leeg is. Dat wil je ook voorkomen.
+Ook komt het wel eens voor dat de string met data leeg is. Dat wil je ook voorkomen.
 Daarnaast weet je dat de lengte van je data altijd hetzelfde moet zijn.
 
 Gebruik hiervoor een `if' statement met je voorwaarden. Bijvoorbeeld de volgende code:
+(code 4)
 
 \begin{minted}{python}
-
-if nieuwe_data != ' ' and nieuwe_data !=vorige_data and len(data)>32:
-    file = open(".\Documents\Arduino\Metingen\Metingen.txt", "a")
+# code 4
+if nieuwe_data != ' ' and nieuwe_data !=vorige_data and len(nieuwe_data)>32:
+    file = open(".\Documents\Arduino\Metingen\Metingen.txt", "a") #"a
             file.write(output + "  {:%d, %b %Y} | ".format(datetime.date.today())
                          + (time.strftime("%H:%M:%S")) + "\n")
             file.close()
-            vorige_data = nieuwe
+            vorige_data = nieuwe_data
 \end{minted}
 
 In de bovenstaande code staat in het if statement een controle op 3
 punten. Namelijk of de \verb|nieuwe_data| niet gelijk is aan de oude data, of
 \verb|nieuwe_data| niet leeg is en het statement kijkt of de lengte van de data
 gelijk is aan het minimale aantal characters wat je nodig had voor
-bijvoorbeeld 3x een temperatuurmeting, luchtdruk en luchtvochtigheid.
-
+bijvoorbeeld 3x een temperatuurmeting, luchtdruk en luchtvochtigheid. In ons geval is 
+het minimale karakters in de string gelijk aan 32. Als we data naar de \hisparc database gaan
+sturen zal het aantal karakters minder zijn. 
+De file wordt elke keer geopend en gesloten als er data wordt weggeschreven, \verb|"a"|
+zorgt ervoor dat er data toegevoegd wordt (\textbf{a}ppend) aan de textfile.
 
 \section{Wireless weerstation plaatsen}
 
-\subsection{Behuizing Arduino weerstation} Het weerstation moet kunnen
+\subsection{Behuizing en voeding Arduino weerstation} 
+Het weerstation moet kunnen
 meten aan het weer, dus de behuizing moet voldoen aan de eigenschappen
-van een weerhuisje, zoals waterdicht, wind doorlatend en niet in de
-volle zon opgesteld. Daarbij komt dat de Arduino gevoed moet worden. Als
-er buiten in de buurt van het weerstation een voeding is, dan is het
-voedingsprobleem zo opgelost. Anders kan een oplossing met een zonnecel
+van een weerhuisje, zoals waterdicht zijn, wind doorlatend en niet in de
+volle zon zijn opgesteld. Daarbij komt dat de Arduino spanning nodig heeft. Als
+er buiten in de buurt van het weerstation een voeding is, dan is dit
+probleem zo opgelost. Anders kan een oplossing met een zonnecel
 en een oplaadbare batterij uitkomst bieden. Bijvoorbeeld de `Solar
-MintyBoost' of zelf een combinatie maken van een zonnecel en een
-oplaadbare batterij. Er zijn wat printplaatjes te koop die een zonnecel
-combineren met een oplaadbare batterij zoals de `USB LiPoly Charge'.
+MintyBoost', de 'WakaWaka power+'\footnote{Deze producten kunnen
+gevonden door de naam te 'googlen.} of zelf een combinatie maken van een
+zonnecel en een oplaadbare batterij. Er zijn voor Arduino, wat
+printplaatjes te koop die een zonnecel combineren met een oplaadbare
+batterij zoals de `USB LiPoly Charge'. Onze voorkeur gaat echter uit
+naar een kant en klare zonnecel met batterij met een USB uitgang, zodat we de Arduino
+via USB kunnen voeden. Let er op dat de zonnecel waterbestendig is, als dit niet zo is maak dan een
+constructie waardoor deze afgeschermd is van de weersinvloeden.
+De Arduino heeft bij (5V) een stroomsterkte van ongeveer \SI{40}{\milli\ampere} nodig per 
+aangesloten pin, daarnaast \SI{50}{\milli\ampere} voor de \SI{3,3}{\volt} uitgang.
+De zender (APC220) heeft \SI{40}{\milli\ampere} nodig.
+Als we uitgaan van metingen in de winter dan kunnen we op zonnecel ongeveer
+8 uur licht verwachten. Dat betekent dat onze Arduino 24 uur moeten kunnen laten werken
+op een batterij die in korte tijd is opgeladen.
+Een snelle rekensom leert ons dat we dan een batterij met een capaciteit van rond
+de \SI{2000}{\milli\ampere\hour} nodig hebben. Een hogere capaciteit is wel aan te bevelen.
 
-In het volgende document gaan we het programma aanpassen om daadwerkelijk de 
-data naar de database van \hisparc te schrijven. 
+In het volgende document gaan we daadwerkelijk data naar de database van \hisparc schrijven. 
 
-
- 
 \begin{thebibliography}{9}
     \bibitem{CANSAT}
         NAROM, 2013 \emph{The CANSAT BOOK 2013-edition}, 
