@@ -3,7 +3,7 @@
 \title{Verzenden data naar \hisparc database}
 \author{C.G.N. van Veen}
 \docweerstation{3}{WD}
-\version{1.0 5-2015}
+\version{1.0}
 
 \begin{document}
 
@@ -12,13 +12,14 @@
 \section{Weerstation Data}
 
 \paragraph{Inleiding} We hebben ons weerstation werkend gekregen en krijgen nu 
-data binnen op de computer. Ook zijn we nu in staat om de weerdata via een wireless
-transmitter binnen te krijgen. Je hebt zelf een behuizing gemaakt om je station
+data binnen op de computer. De weerdata komt zelfs via een wireless
+transmitter binnen. Je hebt zelf een behuizing gemaakt om je station
 tegen diverse weersomstandigheden te beschermen. In deze tutorial gaan we kijken
 hoe we onze metingen aan de database van \hisparc kunnen toevoegen. 
-We hebben dan op een goedkope wijze een eigen weerstation gekregen, waarmee
-we metingen van kosmische straling, efficiëntie van detectoren ed. kunnen meten en 
-combineren met weerdata. 
+We hebben dan op een goedkope wijze een eigen weerstation verkregen, waarmee
+we naast de metingen van kosmische straling met het \hisparc station, ook de
+efficiëntie van detectoren, aantal showers ed. kunnen meten en 
+combineren met onze eigen weerdata. 
 
 \paragraph{Benodigdheden}
 
@@ -46,16 +47,16 @@ wat je op school hebt, zodat de \daq ze meestuurt naar de database.
 de data in een bepaald format en een bepaalde volgorde. Dat betekent dat
 we allereerst ons Arduino programma zo moeten maken dat de data er in de
 juiste volgorde uitkomt.
-In het onderstaande stukje code zien we welke grootheden we in principe naar de 
+In het onderstaande stukje code en de tabel zien we welke grootheden we in principe naar de 
 \hisparc database zouden kunnen sturen mits we daar de sensoren van hadden aangesloten.
 De database van \hisparc verwacht van het weerstation data in de volgende 
-volgorde. 
+volgorde (zie tabel volgorde). 
 
 \begin{center}
 \begin{table}
     \begin{tabular}{ | l | l | l|}
     \hline
-    Grootheid (NL)& Grootheid (Engels in Python) & Eenheid  \\ \hline
+    \textbf{Grootheid (NL)}& \textbf{Grootheid (Engels in Python)} & \textbf{Eenheid}  \\ \hline
     1. datum & Date   & y-m-d  \\ \hline
     2. tijd & Time    & h-min-s   \\ \hline
     3. temperatuur (detector) & tempInside & \SI{}{\celsius}    \\ \hline
@@ -148,8 +149,7 @@ void loop(void){
   tsensors.requestTemperatures(); //Get temperature of detectors (one is default)
    for  (int deviceA = 0; deviceA < 1; deviceA++) {
     printTemp(deviceA);
-  }
-  
+  }  
   float humidity = dht.getHumidity();
   float temperature = dht.getTemperature();
   
@@ -160,26 +160,22 @@ void loop(void){
   } 
   
   else {
-  
-  Serial.print(temperature, 1); //Temperature outside
+    Serial.print(temperature, 1); //Temperature outside
   Serial.print(",");
   Serial.print("-999"); // Fill in when NOT measuring humidity inside with sensor.
   Serial.print(",");
   Serial.print(humidity, 1); //humidity outside
   Serial.print(",");
-  
-  }
-  
+  }  
   dps.getTemperature(&Temperature);
   dps.getPressure(&Pressure);
-  //Serial.print("  Pressure :");
-  Serial.print(Pressure); //luchtdruk in Pa
+  float pressure = Pressure/100;
+  Serial.print(pressure); //luchtdruk in hPa
   Serial.println();  
  delay(2000);
 }
 
 void printTemp(int adress) { 
-  
   float TempC = tsensors.getTempCByIndex(adress);
   String stringone = "Detector ";
   stringone += adress;
@@ -192,12 +188,12 @@ void printTemp(int adress) {
 
 \subsection{Data gereed maken voor verzending naar database}
 
-De data komt als volgt \verb|24.6,24.4,-999,37.8,100467| uit het Arduino programma.
+De data komt als volgt \verb|24.6,24.4,-999,37.8,1004.67| uit het Arduino programma.
 Nu moeten we een tijdstempel toevoegen en \verb|-999| voor grootheden die 
 we niet gemeten hebben. In ons geval hebben we al een \verb|-999| omdat we de 
-luchtvochtigheid binnen niet meten.
-Nu schrijven we naast het programma wat we al hadden in de handleiding: 'Wireless
-weerstation' (code 4 in die handleiding) een toevoeging die de data zo manipuleert dat het in het 
+luchtvochtigheid \textit{binnen} niet meten.
+Nu schrijven we naast het programma wat we al hadden in de handleiding: `Wireless
+weerstation' (code 4 in die handleiding) een toevoeging, die de data zo manipuleert dat het in het 
 format komt wat de \hisparc database kan lezen.
 
 Gebruik de het onderstaande stukje code (2) in de code die je al had.
@@ -205,10 +201,7 @@ Je moet wel helemaal bovenaan je python code ook : 'import datetime' toevoegen.
 
 \begin{minted}{python}
 # Code 2
-
 # code om data het juiste format te geven. Dauwpunt wordt berekend.
-
-#output is received from Arduino and checked for errors
 
 def format_output(output):
     # This function creates the output needed to add to MYSQL database of HiSPARC station
@@ -231,13 +224,14 @@ def format_output(output):
     windChill = '-999'
 
     # Could have added all variables like 'dewPoint' but 8* ['-999'] works as well.
+    # in this case without many sensors attached to weatherstation
     Temperor = output + 8 *['-999'] +[dewPoint] + ['-999'] 
     # volgorde tabel klopt nu met tabel 1.
 
     # Add timetstamp of measurement
     now = datetime.datetime.now()
     ctime = now.strftime('%Y-%m-%d %H:%M:%S')
-    tempoutput = ctime +'\t' + '\t'.join(str(i) for i in Temperor)
+    tempoutput = ctime + '\t' + '\t'.join(str(i) for i in Temperor)
 
     return tempoutput
 
@@ -259,44 +253,17 @@ def dauwpunt_calc(output):
 
 \end{minted}
 
-Het stukje code om de informatie over de UART in te lezen (Windows):
-De \verb|port_id| variabele heb je gevonden in het vorige stukje code (2).
-Dat is adres van de UART aansluiting.
+\section{Data wegschrijven naar MySQL database: windows.}
 
-\begin{minted}{python}
-# Code 3
-
-# Code om de COM poort op de juiste manier te benaderen vul bij 
-# port_id het adres in wat in code (2) gevonden is.
-
-import serial 
-
-port = serial.Serial(port_id, baudrate=9600, parity=serial.PARITY_NONE, 
-       bytesize=serial.EIGHTBITS, stopbits=serial.STOPBITS_ONE, timeout=1.0) 
-
-port.setRTS(0)
-
-\end{minted}
-
-
-\section{Wireless weerstation plaatsen}
-
-\subsection{Behuizing Arduino weerstation} Het weerstation moet kunnen
-meten aan het weer, dus de behuizing moet voldoen aan de eigenschappen
-van een weerhuisje, zoals waterdicht, wind doorlatend en niet in de
-volle zon opgesteld. Daarbij komt dat de Arduino gevoed moet worden. Als
-er buiten in de buurt van het weerstation een voeding is, dan is het
-voedingsprobleem zo opgelost. Anders kan een oplossing met een zonnecel
-en een oplaadbare batterij uitkomst bieden. Bijvoorbeeld de `Solar
-MintyBoost' of zelf een combinatie maken van een zonnecel en een
-oplaadbare batterij. Er zijn wat printplaatjes te koop die een zonnecel
-combineren met een oplaadbare batterij zoals de `USB LiPoly Charge'.
-
-In het volgende document gaan we het programma aanpassen om daadwerkelijk de 
-data naar de database van \hisparc te schrijven. 
-
-
- 
+We hebben nu de data in de volgende vorm: 
+"2015-05-11 17:08:21	24.2	25.0	-999	45.6	1017.0	-999	-999	
+-999	-999	-999	-999	-999	-999	12.4	-999". De data die we 
+gemeten hebben staat als getal en alles wat we niet meten wordt weergegeven 
+door de `-999'. We willen elke keer dat we zo elke regel met data kunnen
+wegschrijven in de database van \hisparc.
+Dat betekent dat we de SQL database moeten openen met een user en paswoord.
+In het script `Datafromwirelesstodatabase.py' zie je een class Database, deze gaan we 
+gebruiken om onze data weg te schrijven.
 \begin{thebibliography}{9}
     
 \end{thebibliography}
