@@ -18,8 +18,9 @@ tegen diverse weersomstandigheden te beschermen. In deze tutorial gaan we kijken
 hoe we onze metingen aan de database van \hisparc kunnen toevoegen. 
 We hebben dan op een goedkope wijze een eigen weerstation verkregen, waarmee
 we naast de metingen van kosmische straling met het \hisparc station, ook de
-efficiëntie van detectoren, aantal showers ed. kunnen meten en 
-combineren met onze eigen weerdata. 
+efficiëntie van detectoren bij veranderende temperatuur, aantal showers als functie van de 
+luchtdruk kunnen meten. Ons station is uitgerust met luchtdruk en temperatuur,
+maar is gemakkelijk uit te breiden met andere sensoren. 
 
 \paragraph{Benodigdheden}
 
@@ -34,13 +35,13 @@ combineren met onze eigen weerdata.
 \section{\hisparc database}
 
 \hisparc heeft een uitgebreide database waarin gegevens van kosmische straling
-wordt opgeslagen. Deze data is vrij voor iedereen om uit te lezen en te gebruiken
-voor onderzoek of om eens te leren omgaan met data en hoe je deze data kunt manipuleren met Python.
+wordt opgeslagen. Deze data is vrij voor iedereen om uit te lezen, te gebruiken
+voor onderzoek of om te leren omgaan met data en hoe je deze data kunt manipuleren met Python.
 Uitgebreide informatie over de \hisparc database en hoe deze te benaderen is te 
 vinden op \url{http://docs.hisparc.nl/publicdb/}. Hier vind je ook voorbeeld
 programma's in Python waarmee je zelf data kunt binnen halen.
 Wat wij willen doen is nu onze eigen weerdata koppelen aan de data van het meetstation
-wat je op school hebt, zodat de \daq ze meestuurt naar de database.
+wat je op school hebt, zodat deze data wordt opgeslagen in de \hisparc database.
 
 
 \subsection{Data uitlezen en manipuleren} De \hisparc database verwacht
@@ -60,7 +61,7 @@ volgorde (zie tabel volgorde).
     1. datum & Date   & y-m-d  \\ \hline
     2. tijd & Time    & h-min-s   \\ \hline
     3. temperatuur (detector) & tempInside & \SI{}{\celsius}    \\ \hline
-    4. temperatuur (buiten) & 4tempOutside  & \SI{}{\celsius}    \\ \hline
+    4. temperatuur (buiten) & tempOutside  & \SI{}{\celsius}    \\ \hline
     5. luchtvochtigheid (binnen)  & humidityInside & \verb|%|     \\ \hline
     6. luchtvochtigheid (buiten) & humidityOutside  & \verb|%|    \\ \hline
     7. Luchtdruk & barometer &  \SI{}{\pascal}   \\ \hline
@@ -73,27 +74,31 @@ volgorde (zie tabel volgorde).
     14. Gevoelstemperatuur & heatIndex & \SI{}{\celsius} \\ \hline
     15. Dauwpunt & dewPoint & \SI{}{\celsius}    \\ \hline
     16. Gevoelstemperatuur (wind) & windChill & \SI{}{\celsius}    \\ \hline
+    
    \end{tabular}
-   \caption{tabel met de 16 mogelijke grootheden die meegegeven kunnen worden aan
-   de data van het weerstation. Een aantal van deze grootheden zoals gevoelstemperatuur
-   kunnen berekend worden met behulp van de bekende grootheden als luchtvochtigheid
-   en buitentemperatuur. Formules die daarvoor nodig zijn kunnen in de literatuur gevonden worden.
-   Als de data geanalyseerd wordt kunnen deze grootheden alsnog berekend worden.
-   Voor andere grootheden zoals bijvoorbeeld hoeveelheid neerslag moet 
-   een extra sensor worden aangesloten op de Arduino.}
+   \caption{Tabel met de 16 mogelijke grootheden die meegegeven kunnen
+   worden aan de data van het weerstation. Een aantal van deze
+   grootheden zoals gevoelstemperatuur kunnen berekend worden met behulp
+   van de bekende grootheden als luchtvochtigheid en buitentemperatuur.
+   Formules die daarvoor nodig zijn kunnen in de literatuur gevonden
+   worden.
+   \protect\url{http://github.com/HiSPARC/weather/blob/master/doc/
+   _static/Parameter_Manual.pdf}. Als de data geanalyseerd wordt kunnen
+   deze grootheden alsnog berekend worden. Voor andere grootheden zoals
+   bijvoorbeeld hoeveelheid neerslag moet een extra sensor worden
+   aangesloten op de Arduino.}
    \label{table:grootheden}
 \end{table}
 \end{center}
 
-In de python code houden we uit de tabel de engelse grootheid aan. Als we een grootheid
-niet meten of uitrekenen dan wordt er een \verb|"-999"| toegevoegd aan de datalijst.
-Daar moeten we in het python programma ook rekening mee houden.
+In de Python code houden we uit de tabel de engelse grootheid aan. Als we een grootheid
+niet meten of kunnen uitrekenen dan wordt er een \verb|"-999"| toegevoegd aan de datalijst.
+Daar moeten we in het Python programma ook rekening mee houden.
 
 \subsection{Test-procedure} 
 Voordat we in de database gaan sleutelen moeten we eerst kijken of we de
 data in de juiste volgorde van de Arduino krijgen, alle sensoren hun data goed opsturen
-en de data op de juiste manier in een array krijgen wat naar de \hisparc database 
-gezonden kan worden.
+zodat de juiste data naar de \hisparc database gezonden kan worden.
 
 Allereerst gaan we zorgen dat ons Arduino programma de data zonder tekst en 
 in de juiste volgorde (zoals in tabel \ref{table:grootheden}) verstuurt. 
@@ -102,7 +107,8 @@ In code (1) hieronder zien we hoe dat moet.
 \begin{minted}{c}
 //code 1
 
-// Programma geeft data van weerstation (Temperatuur (1 detector en buiten),
+// Programma geeft data van weerstation (Temperatuur (van een detector en van de
+// buitenlucht),
 // luchtvochtigheid (binnen -> -999 en buiten ) en luchtdruk in Pa.
 // Gescheiden door komma's
 
@@ -115,7 +121,7 @@ In code (1) hieronder zien we hoe dat moet.
 // code for digital Temperature sensor (ds18b20)
 #define ONE_WIRE_BUS 3
 // To database means we only use the temperature of one detector. 
-// Place the right temperature sensor in one of the detector.
+// Place the right temperature sensor in one of the detectors of the HiSPARC station.
 
 // Setup DTH library with right sensor
 DHT dht = DHT();
@@ -162,8 +168,6 @@ void loop(void){
   else {
     Serial.print(temperature, 1); //Temperature outside
   Serial.print(",");
-  Serial.print("-999"); // Fill in when NOT measuring humidity inside with sensor.
-  Serial.print(",");
   Serial.print(humidity, 1); //humidity outside
   Serial.print(",");
   }  
@@ -188,85 +192,225 @@ void printTemp(int adress) {
 
 \subsection{Data gereed maken voor verzending naar database}
 
-De data komt als volgt \verb|24.6,24.4,-999,37.8,1004.67| uit het Arduino programma.
-Nu moeten we een tijdstempel toevoegen en \verb|-999| voor grootheden die 
-we niet gemeten hebben. In ons geval hebben we al een \verb|-999| omdat we de 
-luchtvochtigheid \textit{binnen} niet meten.
+De data komt als volgt \verb|24.6,24.4,37.8,1004.67| uit het Arduino programma.
+
 Nu schrijven we naast het programma wat we al hadden in de handleiding: `Wireless
 weerstation' (code 4 in die handleiding) een toevoeging, die de data zo manipuleert dat het in het 
 format komt wat de \hisparc database kan lezen.
 
-Gebruik de het onderstaande stukje code (2) in de code die je al had.
-Je moet wel helemaal bovenaan je python code ook : 'import datetime' toevoegen.
+Gebruik het onderstaande stukje code (2) in de code die je al had.
 
 \begin{minted}{python}
 # Code 2
-# code om data het juiste format te geven. Dauwpunt wordt berekend.
+# code om data het juiste format te geven. Ook het Dauwpunt wordt berekend.
+# we werken met een Class.
 
-def format_output(output):
-    # This function creates the output needed to add to MYSQL database of HiSPARC station
-    # weatherevent.py assumes date, time, temp_inside (detector), tempOutside, humidityInside ,
-    # humidityOutside, barometer, windDir, windSpeed, solarRad, UV, ET, rainRate
-    # heatIndex, dewPoint, windChill
+# in de onderstaande Class komt de output van de Arduino binnen.
+class Measurement(object):
 
-    Tdew = dauwpunt_calc(output)
-    # As we do not measure these weather variables we set them to '-999'
-    # If the weatherstation measures more variables we can add them to the list
-    # This is done similar to [dewPoint] in line 61
-    Winddir = '-999'
-    windSpeed = '-999'
-    SolarRad  = '-999'
-    UV = '-999'
-    ET = '-999'
-    rainRate = '-999'
-    heatIndex = '-999'
-    dewPoint = Tdew
-    windChill = '-999'
+    def __init__(self, output):
 
-    # Could have added all variables like 'dewPoint' but 8* ['-999'] works as well.
-    # in this case without many sensors attached to weatherstation
-    Temperor = output + 8 *['-999'] +[dewPoint] + ['-999'] 
-    # volgorde tabel klopt nu met tabel 1.
+        # Datastore assumes date, time, temp_inside (detector),
+        # tempOutside, humidityInside, humidityOutside, barometer,
+        # windDir, windSpeed, solarRad, UV, ET, rainRate heatIndex,
+        # dewPoint, windChill
 
-    # Add timetstamp of measurement
-    now = datetime.datetime.now()
-    ctime = now.strftime('%Y-%m-%d %H:%M:%S')
-    tempoutput = ctime + '\t' + '\t'.join(str(i) for i in Temperor)
+        # Extracts variables from output, order of variables is important.
+        # Set the order of variables in the Arduino Program.
+        self.temp_inside, self.temp_outside, self.humidity_outside, 
+        self.barometer = output
 
-    return tempoutput
+        Tdew = self.dampdruk_calc(self.temp_outside, self.humidity_outside, 
+                                                            self.barometer)
 
-def dauwpunt_calc(output):
+        # As we do not measure these weather variables we set them to
+        # '-999' If the weatherstation does measure these variables we
+        # can add them to the list and extract them from the Arduino
+        # output.
 
-    output = [float(i) for i in output]
-    RH = output[3]/100  #calculate relative humidity
-    Temp = output[1]  #outside temerature
+        self.wind_dir = '-999'
+        self.humidity_inside = '-999'
+        self.wind_speed = '-999'
+        self.solar_rad  = '-999'
+        self.uv = '-999'
+        self.evapotranspiration = '-999'
+        self.rain_rate = '-999'
+        self.heat_index = '-999'
+        self.dew_point = Tdew       # dew_point is uitgerekend.
+        self.wind_chill = '-999'
 
-    # calculate vaporpressure, Dewpoint: Formula from Vantage Pro Davis instruments
+        # Add timetstamp of measurement
+        self.datetime = datetime.datetime.now()
+        self.nanoseconds = 0
 
-    dampdruk = RH*6.112 * numpy.exp((17.62*Temp)/(Temp+ 243.12))
-    Numerator = 243.12*numpy.log(dampdruk)-440.1
-    Denominator = 19.43-numpy.log(dampdruk)
-    Tdew = Numerator/Denominator
-    dampdruk2 = dampdruk
-    Tdew = "%4.3f" %Tdew
-    return Tdew
+
+    def dampdruk_calc(self, Tout, Hum_out, baro):
+        RH = Hum_out/100  #calculate relative humidity
+
+        # Calculate vaporpressure, Dewpoint: Formula from Vantage Pro Davis instruments
+        # This document can be found at Github/HiSPARC/weather/doc/_static/
+        #                                               Parameter_Manual.pdf
+
+        dampdruk = RH * 6.112 * numpy.exp((17.62 * Tout)/(Tout + 243.12))
+        Numerator = 243.12 * numpy.log(dampdruk)-440.1
+        Denominator = 19.43 - numpy.log(dampdruk)
+        Tdew = Numerator / Denominator
+        Tdew = "%4.1f" %Tdew
+
+        return Tdew
 
 \end{minted}
 
-\section{Data wegschrijven naar MySQL database: windows.}
+In de `class Measurement' wordt het dauwpunt berekend. Als er andere afgeleide grootheden 
+berekend moeten worden, kan dat gedaan worden door de \verb|`def dampdruk_calc'| te kopiëren en 
+dan de berekening in te voeren met grootheden die je gemeten hebt. Je kunt
+bijvoorbeeld de `windchill' uit laten rekenen als je ook een sensor voor de 
+wind snelheid hebt aangesloten. Voeg dan tussen haakjes in:
 
-We hebben nu de data in de volgende vorm: 
-"2015-05-11 17:08:21	24.2	25.0	-999	45.6	1017.0	-999	-999	
--999	-999	-999	-999	-999	-999	12.4	-999". De data die we 
-gemeten hebben staat als getal en alles wat we niet meten wordt weergegeven 
-door de `-999'. We willen elke keer dat we zo elke regel met data kunnen
-wegschrijven in de database van \hisparc.
-Dat betekent dat we de SQL database moeten openen met een user en paswoord.
-In het script `Datafromwirelesstodatabase.py' zie je een class Database, deze gaan we 
-gebruiken om onze data weg te schrijven.
-\begin{thebibliography}{9}
+\begin{minted}{python}
+# Code 3
+
+def windchill_calc(self, Tout, windspeed):
     
-\end{thebibliography}
+    # verdere berekeningen in het document Parameter_Manual.pdf, zie code 2.
+    
+\end{minted}        
+
+Op dezelfde wijze kunnen er andere definities voor afgeleide grootheden
+binnen de class Measurement gemaakt worden. 
+
+De andere classes in het Python programma hoeven niet verandert te worden.
+
+
+\section{Data wegschrijven naar \hisparc database: Windows/MAC.}
+
+\subsection{Libraries van python installeren}
+
+Het gehele Python bestand waarmee je de data naar de \hisparc database kunt schrijven 
+is te vinden op:
+\url{https://github.com/HiSPARC/weather-arduino/tree/master/python}
+Om het geheel te laten werken zijn, moeten wel een aantal libraries geïmporteerd worden.
+Werk je in Canopy onder windows open dan een terminal. Ga naar `Tools' en open 
+een Canopy Terminal.
+Type in deze terminal:
+\begin{verbatim}
+enpkg setuptools
+enpkg pip
+\end{verbatim}
+
+Nu kun je eventueel ontbrekende libraries installeren. Met het commando: 
+`pip freeze' kun je kijken welke libraries je al hebt. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.80 \textwidth]{Canopy}
+    \caption{Venster van Canopy.}
+   \label{fig:Canopy}
+\end{figure}
+
+Om te checken of libraries geïmporteerd zijn kun je in Canopy in het onderste venster
+invoeren: \emph{import ......}
+
+Als je geen foutmelding hebt dan is de library geïnstalleerd. 
+In code 4 kun je zien welke libraries allemaal toegevoegd moeten zijn.
+ 
+\begin{minted}{python}
+# Code 4
+import serial
+import datetime
+import time
+import numpy
+import sys
+import time
+import hashlib
+import requests
+import logging
+import calendar
+
+import cPickle as pickle
+
+from time import sleep
+from pysparc import storage
+
+\end{minted}
+
+Waarschijnlijk moet `pysparc' geïnstalleerd worden. Open de terminal van
+Canopy. Wat we gaan doen is een link naar de pysparc module van \hisparc
+maken en deze gelijk installeren. type: 
+\begin{verbatim} 
+pip install http://github.com/HiSPARC/pysparc/archive/master.zip 
+\end{verbatim}
+
+Nu kun je \verb|import pysparc| gebruiken.
+
+\subsection{Storage backup}
+Als de internet verbinding wegvalt dan willen we niet dat de data verloren gaat.
+We gebruiken daarom module \emph{pysparc}. Deze gebruikt een database (Redis) om data
+op te slaan totdat er weer een internetverbinding tot stand komt. 
+
+- Voor \textbf{windows} ga je naar:
+\begin{verbatim}
+\url{https://github.com/rgl/redis/downloads}
+\end{verbatim}
+
+Download de versie van Redis, die je nodig hebt.
+Installeer Redis op je computer. Start nu de `command prompt' als administrator.
+Run het volgende commando: 
+
+\begin{verbatim}
+net start redis
+\end{verbatim}
+
+Elke keer dat je de computer opnieuw opstart moet wel Redis draaien.
+
+- voor de \textbf{Mac}:
+Als je `Homebrew' geïnstalleerd hebt dan kun je eenvoudig het volgende 
+in een terminal intypen: 
+\begin{verbatim}
+brew install redis
+\end{verbatim}
+
+Heb je geen Homebrew. Open dan een terminal en type de volgende commando's in. 
+
+\begin{enumerate}
+    \item curl -O http://download.redis.io/redis-stable.tar.gz
+    \item tar -xvzf redis-stable.tar.gz 
+    \item rm redis-stable.tar.gz 
+    \item cd redis-stable 
+    \item make 
+    \item sudo make install
+    \item redis-server
+ \end{enumerate}
+ 
+ De Redis server is nu gestart. 
+
+\subsection{Meten met het weerstation en data opsturen}
+
+Zorg dat je in Arduino het weerprogramma upload naar de Arduino
+(bijvoorbeeld met een USB kabel). (Haal dan het snoertje bij Rx op de
+Arduino weg.) Bekijk in de Serial monitor of de de data correct wordt
+weergegeven. Sluit nu de UART-APC220 aan.  
+
+Start Redis.
+
+Open nu het Python programma (te vinden op
+\url{http://github.com/HiSPARC/weather-arduino}. \verb|Datafromwirelesstodatabase.py|
+Loop het programma even
+door. \emph{!Pas op!} Pas alleen het programma alleen aan in de classes die in deze
+handleiding benoemd zijn.
+
+Om te checken of het allemaal werkt draai je het programma in Canopy. Vul zelf 
+je \hisparc station in en het paswoord voor dat station. Het paswoord is te krijgen
+bij \hisparc door te mailen naar \verb|info@hisparc.nl|. 
+Het Python script wordt alleen het dauwpunt geprint. Dit om te checken
+of er nog steeds gemeten wordt. Als het goed is zou het dauwpunt tussen 
+een waarde van 6-10 moeten liggen. Dit printen kun je als commentaar uitschakelen.
+
+Sluit het internet even af en kijk of na weer inschakelen van het internet weer
+data verzonden wordt.
+Plaats nu je weerstation op het dak bij het station. Na een dag meten kun je 
+bij de gegevens van het station ook de weer grafiekjes zien. Bekijk ze op
+\url{data.hisparc.nl}.
 
 
 \end{document}
