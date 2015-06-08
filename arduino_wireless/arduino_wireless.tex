@@ -3,7 +3,7 @@
 \title{Wireless connectie PC en Arduino}
 \author{C.G.N. van Veen}
 \docweerstation{2}{WW}
-\version{1.2}
+\version{1.3}
 
 \begin{document}
 
@@ -75,7 +75,7 @@ De ontvanger zal gekoppeld moeten worden aan de computer. De computer heeft
 een driver nodig om te werken. We hebben een VCP (Virtual Com Port) driver nodig, 
 die we kunnen downloaden van Silabs.com:
 \url{http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx.}
-Download de juiste driver voor je besturingssysteem op de de gebruikte computer
+Download de juiste driver voor je besturingssysteem op de gebruikte computer
 en installeer deze. Zorg tijdens de installatie van de driver dat je de 
 ontvangmodule nog niet in je pc hebt aangesloten.
 Na installatie sluit je de APC module \figref{fig:APC_complete} aan op een 
@@ -152,12 +152,10 @@ configuratie van de APC module weer. Bepaal met behulp van tabel
 \ref{table:frequenties} op welke frequentie je beide modules wilt laten
 werken. Beide modules moeten op dezelfde frequentie werken. Voer dan je
 keuze in. Bijvoorbeeld de invoer: w 434790 3 9 3 0 staat voor: write
-frequentie \SI{434150}{\MHz} met 9600 bps in lucht en
+frequentie \SI{434790}{\MHz} met 9600 bps in lucht en
 \SI{20}{\milli\watt} 9600 bps wegschrijven over UART zonder parity check.
 Herhaal deze stap voor de andere APC module. Belangrijk is dat de Baudrate op 
 9600 staat en paritycheck `none' is.
-
-
 
 \begin{center}
 \begin{table}
@@ -190,22 +188,23 @@ Herhaal deze stap voor de andere APC module. Belangrijk is dat de Baudrate op
 \end{table}
 \end{center}
 
-\subsection{Zenden en ontvangen met de APC module voor MAC}
+\subsection{Zenden en ontvangen met de APC module}
 
 We hebben nu de modules zo geconfigureerd dat ze in principe klaar zijn
 om te zenden en ontvangen. Nu moeten we ons weerprogramma weer uploaden
 naar de Arduino. Sluit de USB kabel aan op de Arduino en upload het
-weerprogramma. Run het programma, kijk in de serial monitor van de
+weerprogramma (Zorg dat er geen kabeltje in de Rx<-0 ingang van de Arduino zit, 
+anders krijg je een foutmelding). Run het programma, kijk in de serial monitor van de
 arduino software of er data verschijnt. Sluit de serial monitor. We gaan
-nu wireless meten.
+nu wireless meten. Haal de usb kabel nu los.
 
 Sluit een voeding aan op de Arduino.
 We sluiten de APC-modules aan zoals in \figref{fig:APCTXRX} (let op de
 verbindingen RX $\longleftrightarrow$ TX) en plaatsen de APC module met UART
 in de USB ingang van de pc. De Arduino software zal de UART vinden en
 geeft ook de poort aan, waar deze zit. Ga naar \emph {"Tools"},
-\emph{"Serial Port"}. Daar vind je de poort waar de UART  zit. Het adres
-van deze poort is nodig om met een andere programmeertaal (in ons
+\emph{"Serial Port"}. Daar vind je de poort waar de UART zit, zorg dat je deze checkt.
+Het adres van deze poort is nodig om met een andere programmeertaal (in ons
 geval: Python) de gegevens van het weerstation uit te lezen. 
 Op de MAC en Windows computers gaat dat net even anders, vandaar dat de onderstaande
 paragraven uitleg voor beide `operating systems' bevatten.
@@ -214,10 +213,14 @@ paragraven uitleg voor beide `operating systems' bevatten.
 Een pakket om Python in te draaien is bijvoorbeeld: Canopy.
 Dat is gratis te downloaden van: \url{https://www.enthought.com/products/canopy/}
 Download de free version en installeer deze. Je hebt dan een venster waar je kunt
-programmeren en een uitvoer venster.
+programmeren en een uitvoer venster. 
 
 Uitleg over hoe je moet werken met Canopy vind je hier:
-\url{http://docs.enthought.com/canopy/}.
+\url{http://docs.enthought.com/canopy/}. Waarschijnlijk moet je de package 'serial'
+installeren. Ga daarvoor naar de terminal in Canopy, die vind je onder:
+Tools - canopy terminal. Typ in de terminal: pip install pyserial. Je kunt nu de
+package `pyserial' gebruiken. Typ in het runvenster van Canopy: `import serial'. Als het goed is 
+krijg je nu geen foutmelding meer als je dit commando gerund hebt.
 
 Een voorbeeld programma in Python om data van het weerstation (MAC) uit te lezen.
 Als een regel voorafgegaan wordt door een \verb|#| dan is dat een commentaar 
@@ -232,7 +235,7 @@ import time
 from time import sleep
       
 def main():
-strPort = '/dev/tty.SLAB_USBtoUART' # Adres APC-UART module voor MAC.
+strPort = '/dev/tty.SLAB_USBtoUART' # Adres van een APC-UART module voor MAC. 
 ser = serial.Serial(strPort, baudrate=9600, parity=serial.PARITY_NONE, 
     bytesize=serial.EIGHTBITS, stopbits=serial.STOPBITS_ONE, timeout=1.0)
     
@@ -313,7 +316,6 @@ port.setRTS(0)
 
 \end{minted}
 
-
 Het stukje code om daadwerkelijk data uit te lezen. De output leest de
 data in blokjes van 50 karakters en print deze als er data is. De
 library \emph{msvcrt} moet je importeren met Python. \verb|kbhit()|
@@ -334,24 +336,78 @@ while True:
         break
 \end{minted}
 
+\subsection{Uitlezen en wegschrijven van de data}
+
+We hebben nu een basisprogramma waarmee we de data van de Arduino kunnen
+uitlezen. Een aantal problemen steken nu de kop op. Het tempo waarmee de
+Arduino verzendt en de frequentie waarmee Python data uitleest zullen
+verschillen of uiteindelijk uit de pas gaan lopen. Ook is het niet
+interessant om meerdere keren dezelfde waarde van de temperatuur of
+luchtdruk te hebben. Het is interessanter als we alleen verschillen met
+de vorige waarden opslaan samen met een tijdstempel. Dit zullen we moeten opvangen met een stukje
+programmeercode. De oplossing van dit probleem kun je zelf bedenken.
+In deze paragraaf zullen we wel wat oplossingen aandragen.
+In Python kun je de data die je uitleest wegschrijven als een tekstfile.
+Hoe dat moet kun je hier lezen:
+\url{http://www.pythonforbeginners.com/files/reading-and-writing-files-in-python}
+
+Voordat je wegschrijft moet je zorgen dat de nieuwe data vergelijkt met de oude data, als deze exact hetzelfde is
+als de vorige kun je in het programma aangeven dat je pas data wegschrijft als de data verschilt.
+Ook komt het wel eens voor dat de string met data leeg is. Dat wil je ook voorkomen.
+Daarnaast weet je dat de lengte van je data altijd hetzelfde moet zijn.
+
+Gebruik hiervoor een `if' statement met je voorwaarden. Bijvoorbeeld de volgende code:
+(code 4)
+
+\begin{minted}{python}
+# code 4
+if nieuwe_data != ' ' and nieuwe_data !=vorige_data and len(nieuwe_data)>32:
+    file = open(".\Documents\Arduino\Metingen\Metingen.txt", "a") #"a
+            file.write(output + "  {:%d, %b %Y} | ".format(datetime.date.today())
+                         + (time.strftime("%H:%M:%S")) + "\n")
+            file.close()
+            vorige_data = nieuwe_data
+\end{minted}
+
+In de bovenstaande code staat in het if statement een controle op 3
+punten. Namelijk of de \verb|nieuwe_data| niet gelijk is aan de oude data, of
+\verb|nieuwe_data| niet leeg is en het statement kijkt of de lengte van de data
+gelijk is aan het minimale aantal characters wat je nodig had voor
+bijvoorbeeld 3x een temperatuurmeting, luchtdruk en luchtvochtigheid. In ons geval is 
+het minimale karakters in de string gelijk aan 32. Als we data naar de \hisparc database gaan
+sturen zal het aantal karakters minder zijn. 
+De file wordt elke keer geopend en gesloten als er data wordt weggeschreven, \verb|"a"|
+zorgt ervoor dat er data toegevoegd wordt (\textbf{a}ppend) aan de textfile.
+
 \section{Wireless weerstation plaatsen}
 
-\subsection{Behuizing Arduino weerstation} Het weerstation moet kunnen
+\subsection{Behuizing en voeding Arduino weerstation} 
+Het weerstation moet kunnen
 meten aan het weer, dus de behuizing moet voldoen aan de eigenschappen
-van een weerhuisje, zoals waterdicht, wind doorlatend en niet in de
-volle zon opgesteld. Daarbij komt dat de Arduino gevoed moet worden. Als
-er buiten in de buurt van het weerstation een voeding is, dan is het
-voedingsprobleem zo opgelost. Anders kan een oplossing met een zonnecel
+van een weerhuisje, zoals waterdicht zijn, wind doorlatend en niet in de
+volle zon zijn opgesteld. Daarbij komt dat de Arduino spanning nodig heeft. Als
+er buiten in de buurt van het weerstation een voeding is, dan is dit
+probleem zo opgelost. Anders kan een oplossing met een zonnecel
 en een oplaadbare batterij uitkomst bieden. Bijvoorbeeld de `Solar
-MintyBoost' of zelf een combinatie maken van een zonnecel en een
-oplaadbare batterij. Er zijn wat printplaatjes te koop die een zonnecel
-combineren met een oplaadbare batterij zoals de `USB LiPoly Charge'.
+MintyBoost', `LiPo USB Charger Hookup' \footnote{Deze producten kunnen
+gevonden door de naam te 'googlen.} of zelf een combinatie maken van een
+zonnecel en een oplaadbare batterij. Er zijn voor Arduino, wat
+printplaatjes te koop die een zonnecel combineren met een oplaadbare
+batterij zoals de `USB LiPoly Charge'. Onze voorkeur gaat echter uit
+naar een kant en klare zonnecel met batterij met een USB uitgang, zodat we de Arduino
+via USB kunnen voeden. Let er op dat de zonnecel waterbestendig is, als dit niet zo is maak dan een
+constructie waardoor deze afgeschermd is van de weersinvloeden.
+De Arduino heeft bij (5V) een stroomsterkte van ongeveer \SI{40}{\milli\ampere} nodig per 
+aangesloten pin, daarnaast \SI{50}{\milli\ampere} voor de \SI{3,3}{\volt} uitgang.
+De zender (APC220) heeft \SI{40}{\milli\ampere} nodig.
+Als we uitgaan van metingen in de winter dan kunnen we op zonnecel ongeveer
+8 uur licht verwachten. Dat betekent dat onze Arduino 24 uur moeten kunnen laten werken
+op een batterij die in korte tijd is opgeladen.
+Een snelle rekensom leert ons dat we dan een batterij met een capaciteit van rond
+de \SI{2000}{\milli\ampere\hour} nodig hebben. Een hogere capaciteit is wel aan te bevelen.
 
-In het volgende document gaan we het programma aanpassen om daadwerkelijk de 
-data naar de database van \hisparc te schrijven. 
+In het volgende document gaan we daadwerkelijk data naar de database van \hisparc schrijven. 
 
-
- 
 \begin{thebibliography}{9}
     \bibitem{CANSAT}
         NAROM, 2013 \emph{The CANSAT BOOK 2013-edition}, 
