@@ -3,7 +3,7 @@
 \title{De stationsplattegrond}
 \author{A.P.L.S. de Laat, N.G. Schultheiss}
 \docwerkblad{3}{SP}
-\version{1.0}
+\version{2.0}
 
 \begin{document}
 
@@ -15,28 +15,28 @@ Een \hisparc station bestaat uit twee of vier detectoren die op het dak
 van een (school)gebouw staan. Elk paar detectoren is aangesloten op een
 \hisparc II of \hisparc III unit. De \hisparc units zijn in twee
 varianten beschikbaar, een master en een slave. Een \hisparc station
-heeft altijd een \hisparc master, op deze unit wordt ook een GPS antenne
+heeft altijd een \hisparc master, op deze unit wordt ook een \gps antenne
 aangesloten. Sommige stations hebben naast een master ook een slave,
 master en slave werken samen als een eenheid. De master en eventuele
 slave van een station zijn aangesloten op een meetcomputer, die de
 metingen naar de \hisparc server stuurt. Met de computer zijn de
 aangesloten units ook af te regelen.
 
-Met de GPS antenne is de locatie van een station te bepalen.
-GPS-satellieten zenden radiosignalen uit, in dit signaal wordt de tijd
+Met de \gps antenne is de locatie van een station te bepalen.
+\gps satellieten zenden radiosignalen uit, in dit signaal wordt de tijd
 van de satelliet op het moment van uitzenden op 1 ns nauwkeurig meegestuurd.
 Met het verschil tussen de aankomsttijd van het signaal en de lokale
 tijd van de antenne zijn de afstanden uit rekenen. Deze tijd kunnen we
 ook gebruiken om  vast te leggen wanneer de detectoren iets meten. 
 
-Omdat de GPS antenne zowel de plaats als de tijd van eent station definieert,
-wordt de plaats van de detectoren ten opzichte van de GPS antenne
+Omdat de \gps antenne zowel de plaats als de tijd van eent station definieert,
+wordt de plaats van de detectoren ten opzichte van de \gps antenne
 vastgelegd.
 
 
 \section{Kaarten}
 
-De plaats van de GPS antenne wordt via het internet naar de \hisparc
+De plaats van de \gps antenne wordt via het internet naar de \hisparc
 server gestuurd. De configuratie van het station is in een Firefox,
 Chrome of Safari browser op te halen op: 
 
@@ -54,7 +54,7 @@ Amsterdam tientallen meters onder NAP (het Nieuw Amsterdams Peil).
 
 \paragraph{Opdracht 1:}
 
-Bepaal hoever de GPS antenne van het te meten station boven
+Bepaal hoever de \gps antenne van het te meten station boven
         de WGS 84 ellipsoïde ligt en hoever dit boven NAP is.
 
 \begin{center}
@@ -115,20 +115,22 @@ gemeten kan worden moet de skibox geopend worden. Met behulp van
 diagonalen is het midden van de scintillator te bepalen. De scintillator
 is de rechthoekige plaat van 100 cm lang en 50 cm breed. Deze plaat is
 lichtdicht ingepakt. Let op dat de verpakking niet beschadigd wordt! We
-meten nu de afstand van het midden van de scintillator tot de GPS
+meten nu de afstand van het midden van de scintillator tot de \gps
 antenne (een plastic paddestoeltje). Deze is in tabel
 \ref{tab:Meetgegevens} op te schrijven.
 
 Naast de afstand moeten er nog twee hoeken worden gemeten. Hoek $\alpha$
-is de hoek tussen het noorden en het meetlint van de GPS antenne naar de
-detector. Staat de detector ten noorden van de GPS antenne dan meten we
+is de hoek tussen het noorden en het meetlint van de \gps antenne naar de
+detector. Staat de detector ten noorden van de \gps antenne dan meten we
 een waarde van $0^{\mathrm{o}}$, staat de detector ten oosten van de
 detector dan meten we $90^{\mathrm{o}}$. Hoek $\beta$ is de hoek tussen
 het noorden en de lange zijde van de scintillator in de richting van de
 PMT buis naar het einde zonder PMT buis. De PMT buis is te herkennen aan
 de elektrische aansluitingen. Zit de PMT buis in het zuiden dan is deze
 hoek $0\mathrm{^{o}}$. Deze metingen kunnen natuurlijk een aantal malen
-worden uitgevoerd zodat toevallige fouten kunnen worden verkleind.
+worden uitgevoerd zodat toevallige fouten kunnen worden verkleind. Indien
+van toepassing kan ook het hoogte verschil tussen de \gps en de detectoren
+worden gemeten, maar meestal is dat verschil klein en niet significant.
 
 \begin{table}[h]
     \centering
@@ -156,15 +158,31 @@ Meet de locatie van de detectoren en vul de waarden in tabel
 \ref{tab:Meetgegevens} in.
 
 Detector 1 en 2 zijn aangesloten op de \hisparc master unit, deze unit is
-te herkennen aan de GPS-aansluiting. Detector 3 en 4 zijn als PMT 1
+te herkennen aan de \gps aansluiting. Detector 3 en 4 zijn als PMT 1
 respectievelijk PMT 2 aangesloten op de \hisparc slave (zonder
-GPS-aansluiting).
+\gps aansluiting).
 
 
 \section{Doorgeven van meetgegevens}
 
-Hier moet nog een formulier voor komen. Mail-adres opgeven. Code wordt
-verzonden, hiermee wordt het formulier geopend. Naast de meetwaarden
-wordt het mail-adres opgeslagen.
+De datum en tijd waarop de detectoren zijn geplaatst, of verplaatst,
+naar hun huidige positie moeten worden doorgegeven. Ook de gemeten
+precieze positie van de detectoren is zeer belangrijk voor de analyse.
+Mocht het station ooit verplaatst zijn, dan is het moment van
+verplaatsen belangrijk. Voor analyse van een cosmic-ray air-shower
+moeten we weten welke positie gebruikt moet worden, dus hoe de
+detectoren op dat moment lagen.
+
+De station positie informatie kan worden doorgegeven via een online
+formulier: \url{http://data.hisparc.nl/layout/submit/}. Daar moet het
+juiste station gekozen worden, de datum (en tijd) waarop detectoren
+verplaatst zijn waarna de posities gemeten zijn, en de posities van de
+twee of vier detectoren. Zodra je de posities begint in te vullen
+verschijnt er onder het formulier een schematische weergave van het
+station, controleer of deze weergave overeenkomt met de werkelijke
+ligging van de detectoren.
+
+Zodra het formulier is verstuurd zal iemand anders de inzending
+verifiëren.
 
 \end{document}
