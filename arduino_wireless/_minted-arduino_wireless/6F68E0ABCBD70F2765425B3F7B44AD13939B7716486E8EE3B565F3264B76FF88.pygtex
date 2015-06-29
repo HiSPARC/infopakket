@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{c}{\PYGdefaultZsh{} Code 2}
+
+\PYGdefault{c}{\PYGdefaultZsh{} code om COM poort van de UART op windows te vinden.}
+
+\PYGdefault{k+kn}{import} \PYGdefault{n+nn}{serial}
+
+\PYGdefault{k}{def} \PYGdefault{n+nf}{get\PYGdefaultZus{}first\PYGdefaultZus{}valid\PYGdefaultZus{}port}\PYGdefault{p}{():}
+    \PYGdefault{c}{\PYGdefaultZsh{} Windows}
+    \PYGdefault{n}{found} \PYGdefault{o}{=} \PYGdefault{n+nb+bp}{False}
+    \PYGdefault{n}{port\PYGdefaultZus{}number} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{0}
+    \PYGdefault{k}{while} \PYGdefault{o+ow}{not} \PYGdefault{n}{found} \PYGdefault{o+ow}{and} \PYGdefault{n}{port\PYGdefaultZus{}number} \PYGdefault{o}{\PYGdefaultZlt{}} \PYGdefault{l+m+mi}{256}\PYGdefault{p}{:}
+        \PYGdefault{k}{try}\PYGdefault{p}{:}
+            \PYGdefault{n}{s} \PYGdefault{o}{=} \PYGdefault{n}{serial}\PYGdefault{o}{.}\PYGdefault{n}{Serial}\PYGdefault{p}{(}\PYGdefault{n}{port\PYGdefaultZus{}number}\PYGdefault{p}{)}
+            \PYGdefault{n}{s}\PYGdefault{o}{.}\PYGdefault{n}{close}\PYGdefault{p}{()}
+            \PYGdefault{n}{found} \PYGdefault{o}{=} \PYGdefault{n+nb+bp}{True}
+        \PYGdefault{k}{except} \PYGdefault{n}{serial}\PYGdefault{o}{.}\PYGdefault{n}{SerialException}\PYGdefault{p}{:}
+            \PYGdefault{n}{port\PYGdefaultZus{}number} \PYGdefault{o}{+=} \PYGdefault{l+m+mi}{1}
+    \PYGdefault{k}{if} \PYGdefault{n}{found}\PYGdefault{p}{:}
+        \PYGdefault{k}{return} \PYGdefault{l+s}{\PYGdefaultZsq{}COM\PYGdefaultZsq{}} \PYGdefault{o}{+} \PYGdefault{n+nb}{str}\PYGdefault{p}{(}\PYGdefault{n}{port\PYGdefaultZus{}number} \PYGdefault{o}{+} \PYGdefault{l+m+mi}{1}\PYGdefault{p}{)}
+    \PYGdefault{k}{return} \PYGdefault{n+nb+bp}{None}
+\PYGdefault{k}{if} \PYGdefault{n}{\PYGdefaultZus{}\PYGdefaultZus{}name\PYGdefaultZus{}\PYGdefaultZus{}} \PYGdefault{o}{==} \PYGdefault{l+s}{\PYGdefaultZsq{}\PYGdefaultZus{}\PYGdefaultZus{}main\PYGdefaultZus{}\PYGdefaultZus{}\PYGdefaultZsq{}}\PYGdefault{p}{:}
+
+    \PYGdefault{n}{poort} \PYGdefault{o}{=} \PYGdefault{n}{get\PYGdefaultZus{}first\PYGdefaultZus{}valid\PYGdefaultZus{}port}\PYGdefault{p}{()}
+    \PYGdefault{k}{print} \PYGdefault{n}{poort}
+\end{Verbatim}

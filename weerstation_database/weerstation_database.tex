@@ -3,7 +3,7 @@
 \title{Verzenden data naar \hisparc database}
 \author{C.G.N. van Veen}
 \docweerstation{3}{WD}
-\version{1.1}
+\version{1.2}
 
 \begin{document}
 
@@ -108,8 +108,7 @@ In code (1) hieronder zien we hoe dat moet.
 //code 1
 
 // Programma geeft data van weerstation (Temperatuur (van een detector en van de
-// buitenlucht),
-// luchtvochtigheid (binnen -> -999 en buiten ) en luchtdruk in Pa.
+// buitenlucht), luchtvochtigheid (binnen -> -999 en buiten ) en luchtdruk in Pa.
 // Gescheiden door komma's
 
 #include <OneWire.h>  // to use data from multiple sensors send through one wire
@@ -176,7 +175,7 @@ void loop(void){
   float pressure = Pressure/100;
   Serial.print(pressure); //luchtdruk in hPa
   Serial.println();  
- delay(2000);
+  delay(2000);
 }
 
 void printTemp(int adress) { 
@@ -212,8 +211,8 @@ class Measurement(object):
 
         # Datastore assumes date, time, temp_inside (detector),
         # temp_outside, humidity_inside, humidity_outside, barometer,
-        # wind_dir, wind_speed, solar_rad, uv, evapotranspiration, rain_rate, heat_index,
-        # dewpoint, wind_chill
+        # wind_dir, wind_speed, solar_rad, uv, evapotranspiration, rain_rate, 
+        # heat_index, dewpoint, wind_chill
 
         # Extracts variables from output, order of variables is important.
         # Set the order of variables in the Arduino Program.
@@ -236,7 +235,7 @@ class Measurement(object):
         self.evapotranspiration = '-999'
         self.rain_rate = '-999'
         self.heat_index = '-999'
-        self.dew_point = Tdew       # dew_point is uitgerekend.
+        self.dew_point = Tdew       # dew_point calculated.
         self.wind_chill = '-999'
 
         # Add timetstamp of measurement
@@ -248,8 +247,8 @@ class Measurement(object):
         RH = Hum_out/100  #calculate relative humidity
 
         # Calculate vaporpressure, Dewpoint: Formula from Vantage Pro Davis instruments
-        # This document can be found at Github/HiSPARC/weather/doc/_static/
-        #                                               Parameter_Manual.pdf
+        # This document can be found at http://github.com/HiSPARC/weather/blob/master/doc/
+        #                                        _static/Parameter_Manual.pdf
 
         dampdruk = RH * 6.112 * numpy.exp((17.62 * Tout)/(Tout + 243.12))
         Numerator = 243.12 * numpy.log(dampdruk)-440.1
@@ -261,10 +260,13 @@ class Measurement(object):
 
 \end{minted}
 
-In de `class Measurement' wordt ook het dauwpunt berekend. Als er andere afgeleide grootheden 
-berekend moeten worden, kan dat gedaan worden door de \verb|`def dampdruk_calc'| te kopiëren en 
-dan de berekening in te voeren met grootheden die je gemeten hebt. Je kunt
-bijvoorbeeld de `\verb|wind_chill|' uit laten rekenen als je ook een sensor voor de 
+In de `class Measurement' wordt ook het dauwpunt berekend. Als er andere
+afgeleide grootheden berekend moeten worden, kan dat gedaan worden door
+de \verb|`def dampdruk_calc'| te kopiëren en en te plakken binnen de
+`class Measurement'. Je kunt de \verb|`def dampdruk_calc'| naam veranderen in
+bijvoorbeeld \verb|`def wind_chill_calc'|. Voer nu de benodigde de berekening in 
+met de grootheden die je gemeten hebt. Je kunt bijvoorbeeld de
+`\verb|wind_chill|' uit laten rekenen als je ook een sensor voor de
 windsnelheid hebt aangesloten. Voeg dan in de class Measurement in:
 
 \begin{minted}{python}
@@ -272,7 +274,7 @@ windsnelheid hebt aangesloten. Voeg dan in de class Measurement in:
 # voorbeeld als de windsnelheid bekend is
 def wind_chill_calc(self, Tout, windspeed):
     
-    # verdere berekeningen in het document Parameter_Manual.pdf en zie code 2.
+    # verdere berekeningen in het document Parameter_Manual.pdf, zie code 2.
     
     return wind_chill
     
@@ -308,13 +310,8 @@ Het gehele Python bestand waarmee je de data naar de \hisparc database kunt schr
 is te vinden op:
 \url{https://github.com/HiSPARC/weather-arduino/tree/master/python}
 Om het geheel te laten werken zijn, moeten wel een aantal libraries geïmporteerd worden.
-Werk je in Canopy onder windows open dan een terminal. Ga naar `Tools' en open 
-een Canopy Terminal.
-Type in de terminal:
-\begin{verbatim}
-enpkg setuptools
-enpkg pip
-\end{verbatim}
+Werk je in Anaconda onder windows, dan zijn de meeste libraries geïnstalleerd.
+Zo niet open dan een terminal. Ga naar `Tools' en open een Terminal of Command prompt.
 
 Nu kun je eventueel ontbrekende libraries installeren. Met het commando: 
 `pip freeze' kun je kijken welke libraries je al hebt. 
@@ -323,11 +320,12 @@ Nu kun je eventueel ontbrekende libraries installeren. Met het commando:
     \centering
     \includegraphics[width=0.80 \textwidth]{Canopy}
     \caption{Venster van Canopy.}
-   \label{Canopy}
+   \label{fig:canopy1}
 \end{figure}
 
-Om te checken of libraries geïmporteerd zijn kun je in Canopy in het onderste venster
-invoeren: \emph{import ......}. Zie \figref{fig:Canopy}
+Om te checken of libraries geïmporteerd zijn kun je in Anaconda in het
+interactieve venster invoeren: \emph{import ......}. Zie
+\figref{fig:canopy1}
 
 Als je geen foutmelding hebt dan is de library geïnstalleerd. 
 In code 4 kun je zien welke libraries allemaal toegevoegd moeten zijn.
@@ -337,27 +335,23 @@ In code 4 kun je zien welke libraries allemaal toegevoegd moeten zijn.
 import serial
 import datetime
 import time
-import numpy
-import sys
-import time
-import hashlib
-import requests
 import logging
 import calendar
-import cPickle 
-from time import sleep
+
+import numpy
+
 from pysparc import storage
 
 \end{minted}
 
 Waarschijnlijk moet `pysparc' nog geïnstalleerd worden. Open de terminal van
-Canopy. Wat we gaan doen is een link naar de pysparc module van \hisparc
+Anaconda. Wat we gaan doen is een link naar de pysparc module van \hisparc
 maken en deze gelijk installeren. type: 
 \begin{verbatim} 
 pip install http://github.com/HiSPARC/pysparc/archive/master.zip 
 \end{verbatim}
 
-Nu kun je \verb|import pysparc| gebruiken, Zie \figref{fig:Canopy} .
+Nu kun je \verb|import pysparc| gebruiken, Zie \figref{fig:canopy1} .
 
 \subsection{Storage backup}
 Als de internet verbinding wegvalt dan willen we niet dat de data verloren gaat.
@@ -380,8 +374,10 @@ net start redis
 Elke keer dat je de (windows-)computer opnieuw opstart, moet wel Redis opnieuw opgestart worden.
 
 - Voor de \textbf{Mac}:
-Als je `Homebrew' geïnstalleerd hebt dan kun je eenvoudig het volgende 
-in een terminal intypen: 
+Als je `Homebrew' geïnstalleerd hebt dan kun je eenvoudig het volgende
+in een terminal intypen: (`Homebrew' is eenvoudig te vinden met Google
+en dan te installeren op de mac.
+
 \begin{verbatim}
 brew install redis
 \end{verbatim}
@@ -412,11 +408,11 @@ Start Redis.
 Open nu het Python programma (te vinden op
 \url{http://github.com/HiSPARC/weather-arduino}. \verb|Datafromwirelesstodatabase.py|
 Run het programma. 
-\emph{!Pas op!} Pas alleen het programma alleen aan in de class die in deze
-handleiding benoemd zijn. Dus alleen in de class `Measurement' kun je sensor waarden 
-toevoegen.
+\emph{!Pas op!} Pas dit Python programma eventueel alleen aan in de `class' die in deze
+handleiding benoemd is. Dus alleen in de class `Measurement' kun je sensor waarden 
+toevoegen. 
 
-Om te checken of het allemaal werkt draai je het programma in Canopy. Vul zelf 
+Om te checken of het allemaal werkt draai je het programma in Anaconda. Vul zelf 
 je \hisparc station nr. in en het paswoord voor dat station. Het paswoord is te krijgen
 bij \hisparc door te mailen naar \verb|info@hisparc.nl|. 
 
@@ -427,8 +423,10 @@ een waarde van 0-10 moeten liggen. Dit printen kun je als commentaar uitschakele
 
 Sluit het internet even af en kijk of na weer inschakelen van het internet weer
 data verzonden wordt. Als dat gebeurt is alles klaar voor gebruik.
+Werkt dat niet kijk, dan even of Redis opgestart is en run je het programma
+nog eens.
 Plaats nu je weerstation op het dak bij het station. Na een dag meten kun je 
-bij de gegevens van het station ook de `weer grafiekjes' zien. Bekijk ze op
+bij de gegevens van het station ook de `weer-grafiekjes' zien. Bekijk ze op
 \url{data.hisparc.nl}.
 Je eigen weerdata kun je nu altijd online uitlezen met dataretrieval tool. Zie de handleiding
 'data retrieval' op \url{http://www.hisparc.nl/docent-student/lesmateriaal/informatie-pakket/}.
