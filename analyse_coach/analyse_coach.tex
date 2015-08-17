@@ -40,14 +40,24 @@ Het csv bestand gaan we inlezen in Coach. Open Coach, log in als docent en kies 
 `meten'. Je hoeft geen paneel te kiezen.
 Klik op het icoon tabel, zie \ref{fig:coach1}. Je kunt hier kiezen om een
 nieuwe tabel aan te maken. Er verschijnt een werkvenster `tabel kiezen of maken'.
-Kies in dit werkvenster `importeren'.
+Kies in dit werkvenster `importeren'. In het uitklapvenster kies je 'tekst bestand'.
 
+\textit{Deel van de HiSPARC data uit een .csv bestand.}
+\begin{verbatim}
+15/07/15	14:00:10	1436968810	060318189     4	    6	256	  122	0	...	
+15/07/15	14:00:13	1436968813	006833767  1416	  485	255	 1041  0   ...
+15/07/15	14:00:13	1436968813	116782974     4	  351	272	    6	0	...
+15/07/15	14:00:13	1436968813	344642048     6	  379	261	    4	0	...	
+15/07/15	14:00:14	1436968814	113137182     5	    5	223	  136	0	...	
+15/07/15	14:00:20	1436968820	261698618     4	  247	  4	  365	0	...
+\end{verbatim}
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.6]{coach1}
     \caption{screenshot van coach 6, open een nieuwe activiteit door op 
-    het icoon linksboven te klikken (vier window icoon). Het icoon van tabel invoegen is
+    het icoon linksboven te klikken (vier window icoon).In de nieuwe activiteit 
+    "meten" kun je nu een tabel invoegen. Het icoon van tabel invoegen is 
     aangegeven met de rechterpijl. Klik op dit icoon, er verschijnt dan een werkvenster.}
     \label{fig:coach1}
 \end{figure}
@@ -56,8 +66,136 @@ Kies in dit werkvenster `importeren'.
     \centering
     \includegraphics[scale=0.6]{coach2}
     \caption{Importeren van een csv-bestand met Coach. Kies tabel `importeren' en
-    dan 'tekstbestand'.}
+    dan `tekstbestand'.}
     \label{fig:coach2}
 \end{figure}
+
+Bij het importeren van het .csv bestand moet je aangeven hoe Coach het bestand moet 
+lezen. In \ref{fig:coach3} kun je zien dat je moet aangeven dat het decimaal teken
+een punt moet zijn. Voor duizendtallen mag je ook `geen' invullen. Omdat je de tekst
+boven de data in het csv bestand niet wilt, moet je aangeven dat je vanaf rij 
+28 begint.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{coach3}
+    \caption{Instellen van importeer mogelijkheden in Coach.}
+    \label{fig:coach3}
+\end{figure}
    
+Als je nu op 'ok' klikt ben je bijna klaar met importeren. Je kunt nu boven elke
+kolom aangeven wat er voor data in staat. De eerste twee kolommen bevatten in Coach 6 
+helaas niets, omdat datum en tijd niet herkend worden. De kolommen 3 tot en met 
+8 bevatten wel data die we kunnen gebruiken. In kolom 3 staat het GPS-tijdstempel UNIX epoch.
+Dat betekent dat we datum in het aantal seconden na 1 januari 1970 uitdrukken.
+Kolom 4 heeft het tijdstempel in het aantal nanoseconden.
+Kolommen 5 tot en met 8 bevatten de pulshoogte waarden voor een bepaald event.
+Je kunt het aantal decimalen instellen op 0 voor elke grootheid. Zie \ref{fig:coach4} 
+
+Klik nu `ok'. Nu is de data van het .csv bestand als tabel 1 beschikbaar.
+klik op tabel 1 en plaats deze in een venster.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{coach4}
+    \caption{Kolommen de juiste naam geven.}
+    \label{fig:coach4}
+\end{figure}
+
+
+\section{Pulshoogte diagram in Coach.}
+
+We hebben nu de data van het .csv bestand ingelezen in coach en gaan er een
+pulshoogte histogram van plotten. Daarna kunnen we met behulp van de analyse 
+mogelijkheden in Coach kunnen we onderzoek doen aan het histogram.
+
+\subsection{Pulshoogte diagram maken}
+
+De snelste manier om een histogram is om op de betreffende kolom in het tabel venster
+'rechts' te klikken en dan uit het analyse menu, histogram te kiezen.
+Je moet echter aangeven in hoeveel stappen je het histogram wilt laten maken.
+Dan geef je aan bij 'aantal klassen'. Verander dit bijvoorbeeld in 200. Onderzoek
+ook het effect van meer of minder 'klassen'.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{coach5}
+    \caption{aantal klassen aanpassen voor het histogram.}
+    \label{fig:coach5}
+\end{figure}
+
+Klik 'ok' en plaats het diagram in een leeg window. Kies nu 'automatisch zoomen'.
+Nu zie je een histogram van de pulshoogte van detector 1.
+
+\textbf{Opdracht 1.}
+Maak nog 3 dezelfde histogrammen van de andere detectoren. Plaats deze apart in diagrammen.
+(je kunt zo ook in een diagram plaatsen.)
+
+We willen graag een logaritmische y-as, dat kunnen we instellen.
+Klik rechts op het diagram, kies 'diagram instelling'. Zie \ref{fig:coach6}
+Zorg dat je kolom C3 onzichtbaar maakt (tip: geef C3 een duidelijke naam bij het vakje
+grootheid). In C4 maak je een formule, maak een formule waarin je de log van
+de grootheid van C3 neemt. In 'diagram instelling' kun je ook nog aangeven welke 
+kleur de grafiek moet hebben en of je de meetwaarden als stip of als kruis wilt 
+zien. In zie Zie \ref{fig:coach7} je de grafiek die met en zonder logaritmische schaal gemaakt.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{coach6}
+    \caption{Instellingen voor het logaritmische pulshoogte diagram.}
+    \label{fig:coach6}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{coach7}
+    \caption{Pulshoogte diagrammen, lineair en logaritmisch}
+    \label{fig:coach7}
+\end{figure}
+ 
+ 
+\subsection{opdrachten} 
+
+\textbf{Opdracht 1.}
+Maak nog 3 dezelfde histogrammen van de andere detectoren. Plaats deze apart in diagrammen.
+(je kunt ook twee grafieken in één diagram plaatsen.)
+
+\textbf{Opdracht 2.}
+Gebruik de analyse of uitlees optie op de waarde van de piek in de diagrammen
+uit te lezen. Noteer deze. Zijn ze voor elke detector precies hetzelfde?
+
+\textbf{Opdracht 3.}
+Analyseer de helling van het logaritmische diagram. Gebruik de 'analyse' en dan 'helling'
+mogelijkheid, die je vindt door rechts te klikken op het diagram. 
+Teken op een afstand van 3x de waarde van de piek die je bij opdracht 2 vond een beste raaklijn aan de
+grafiek. Zie \ref{fig:coach8}. Klik in het analyse venster op het punt en verander
+de helling van de raaklijn met de pijltjes toetsen.
+
+\textbf{Opdracht 4.}
+a.
+Download een csv bestand met weerdata van de \hisparc website.
+Kies dan een \hisparc station wat ook een weerstation heeft.
+Maak eens wat plotjes van bijvoorbeeld de luchtdruk, windsnelheid,temperatuur,
+tegen het tijdsverloop over een dag.
+
+b. Bepaal met een histogram van de pulshoogte piek van een warme zomerdag of 
+een winterdag. Zie je verschillen. 
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{coach8}
+    \caption{Bepaling van de helling van het pulshoogte diagram op een afstand
+    van 3x de piek waarde.}
+    \label{fig:coach8}
+\end{figure}
+
+
+
+
+
+
+
+ 
+
 \end{document}
