@@ -1,6 +1,6 @@
 \input{../style}
 
-\title{Verzenden data naar \hisparc database}
+\title{Weerdata versturen naar \hisparc}
 \author{C.G.N. van Veen}
 \docweerstation{3}{WD}
 \version{1.3}
@@ -44,7 +44,9 @@ Wat wij willen doen is nu onze eigen weerdata koppelen aan de data van het \hisp
 meetstation, zodat deze data wordt opgeslagen in de \hisparc database.
 
 
-\subsection{Data uitlezen en manipuleren} De \hisparc database verwacht
+\subsection{Data uitlezen en manipuleren}
+
+De \hisparc database verwacht
 de data in een bepaald format en een bepaalde volgorde. Dat betekent dat
 we allereerst ons Arduino programma zo moeten maken dat de data er in de
 juiste volgorde uitkomt.
@@ -95,7 +97,9 @@ In de Python code houden we uit de tabel de Engelse grootheid aan. Als we een gr
 niet meten of kunnen uitrekenen dan wordt er een \verb|"-999"| toegevoegd aan de datalijst.
 Daar moeten we in het Python programma ook rekening mee houden.
 
+
 \subsection{Test-procedure} 
+
 Voordat we in de database gaan sleutelen moeten we eerst kijken of we de
 data in de juiste volgorde van de Arduino krijgen, alle sensoren hun data goed opsturen
 zodat de juiste data naar de \hisparc database gezonden kan worden.
@@ -188,6 +192,7 @@ void printTemp(int adress) {
 }
     
 \end{minted}
+
 
 \subsection{Data gereed maken voor verzending naar database}
 
@@ -313,6 +318,7 @@ De andere classes in het Python programma hoeven niet verandert te worden.
 
 \section{Data wegschrijven naar \hisparc database: Windows/MAC.}
 
+
 \subsection{Libraries van python installeren}
 
 Het gehele Python bestand waarmee je de data naar de \hisparc database kunt schrijven 
@@ -364,7 +370,9 @@ pip install http://github.com/HiSPARC/pysparc/archive/master.zip
 
 Nu kun je \verb|import pysparc| gebruiken, Zie \figref{fig:canopy1}.
 
+
 \subsection{Storage backup}
+
 Als de internet verbinding wegvalt dan willen we niet dat de data verloren gaat.
 We gebruiken daarom module \emph{pysparc}. Deze gebruikt een database (Redis) om data
 op te slaan, totdat er weer een internetverbinding tot stand komt. 
@@ -406,6 +414,7 @@ Heb je geen Homebrew. Open dan een terminal en type de volgende commando's in.
  \end{enumerate}
  
 De Redis server is nu gestart. 
+
 
 \subsection{Meten met het weerstation en data opsturen}
 

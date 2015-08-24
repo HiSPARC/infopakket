@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Infopakket</title>
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <a href="http://www.hisparc.nl">
+                <h1 id="pageHeader">
+                    <span>HiSPARC</span>
+                </h1>
+            </a>
+        </div>
+        <span class="clearer"></span>
+        <h2>Info pakket</h2>
+        <div id="infopakket-content">
+            {% for shortname, category in infopakket.items() %}
+                {%- if category.documents|length %}
+                    <div id="{{ shortname }}">
+                        <h3>{{ category.title }}</h3>
+                        <p>
+                            {%- for doc in category.documents %}
+                                <a href="pdf/{{ doc.filename }}">{{ doc.title }}</a>
+                                {%- if doc.version != '1.0' %}
+                                    <span class='version'>v{{ doc.version }}</span>
+                                {% endif %}
+                                {%- if not loop.last %}<br>{% endif %}
+                            {%- endfor %}
+                        </p>
+                    </div>
+                {%- endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

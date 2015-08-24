@@ -1,6 +1,6 @@
 \input{../style}
 
-\title{Checklist Installatie Station}
+\title{Checklist installatie station}
 \author{C.G.N. van Veen}
 \docdetector{5}{CI}
 \version{1.0}
@@ -10,11 +10,11 @@
 \maketitle
 
 \section{Checklist}
-De documenten `uitlijnen van de ADCs' , `inregelen van de PMTs' en 
+De documenten `uitlijnen van de ADCs', `inregelen van de PMTs', en 
 `GPS calibratie' hebben U geholpen met de instellingen van de \hisparc
 \daq. Dit document heeft tot doel om een laatste check te doen. Het
 biedt een overzicht van de laatste belangrijke instellingen voordat U kunt gaan
-meten/ data kan verzenden met het \hisparc station. 
+meten en data kan verzenden met het \hisparc station. 
 
 \subsection{Data acquisitie modus}
 
@@ -47,13 +47,11 @@ en staan ze nog als volgt. Zie \figref{fig:daq-time-window}:
 De instellingen voor stations met twee detectoren zijn als volgt. Zie
 \figref{fig:daq-trigger-two-detectors}:
 
-
 \begin{itemize}
     \item Threshold Low (alle kanalen): -30 mV
     \item Threshold High (alle kanalen): -70 mV
     \item Trigger: 2 low \textbf{AND} Don’t use high threshold \textbf{AND} Don’t use external trigger
 \end{itemize}
-
 
 \begin{figure}
     \centering
@@ -73,7 +71,6 @@ De instellingen voor stations met vier detectoren zijn als volgt. Zie
     \item Threshold High (alle kanalen): -70 mV
     \item Trigger: 3 low \textbf{OR} 2 high \textbf{AND} Don’t use external trigger
 \end{itemize}   
-
  
 \begin{figure}
     \centering
@@ -81,6 +78,7 @@ De instellingen voor stations met vier detectoren zijn als volgt. Zie
     \caption{De triggerinstellingen voor een detectorstation met vier detectoren.}
     \label{fig:daq-trigger-four-detectors}
 \end{figure}
+
 
 \subsection{Automatisch opstarten in DAQ modus}
 
@@ -141,7 +139,6 @@ station daar in de lijst. Het bolletje voor het station zou groen van
 kleur moeten zijn. Is dat niet het geval dan kan het document
 `dagelijkse controle van een station' wat ook in het infopakket van
 \hisparc te vonden is, hulp bieden.
-
 
 De clustercoördinatoren van \hisparc hebben bovendien de mogelijkheid om de
 instellingen van de detector via een ‘virtual private network’ (VPN) op afstand 
