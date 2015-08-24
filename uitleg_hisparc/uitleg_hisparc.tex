@@ -1,6 +1,6 @@
 \input{../style}
 
-\title{HiSPARC Toegelicht} 
+\title{Uitleg HiSPARC} 
 \author{C.G. van Veen}
 \docalgemeen{3}{HT}
 \version{1.0}
@@ -37,12 +37,11 @@ onderzoeksgroepen: KASCADE, AUGER. In Nederland is dit op scholen
 mogelijk met HiSPARC.
 
 \begin{figure} 
-\centering
-\includegraphics[scale=0.8]{main_cosmicray_shower} 
-\caption{artiesten
-impressie van kosmische straling (bron: S. Swordy, Universiteit van
-Chicago).} 
-\label{fig:main_cosmicray_shower} 
+    \centering
+    \includegraphics[scale=0.8]{main_cosmicray_shower} 
+    \caption{visualisatie van kosmische straling
+             (bron: S. Swordy, Universiteit van Chicago).} 
+    \label{fig:main_cosmicray_shower} 
 \end{figure}
 
 \section{\hisparc}
@@ -167,7 +166,7 @@ zijn.
 \begin{figure}
     \centering
     \includegraphics[width=0.95\textwidth]{data_retrieval}
-    \caption{Als met de (online) dataretrieval tool, data wordt gedownload dan zijn 
+    \caption{Als met de (online) data-retrieval tool, data wordt gedownload dan zijn 
     er een aantal belangrijke kolommen voor reconstructie te zien, zoals Arrival time, 
     Pulseheight, Pulseintegral en Number of MIP's.}
     \label{fig:data_retrieval}
@@ -276,7 +275,7 @@ detector plotten zoals in \figref{fig:particle_density}. Om nu achter de
 energie van de kosmische shower te komen moeten we de deeltjes dichtheid
 fitten aan formule \eqref{eq:LDF}. Waarin Ne het aantal deeltjes is van de
 shower (showersize), s de age parameter en r0 is een aangepaste Molière
-straal. De waarden van de constanten zijn:  $\alpha$ = 1.5, $\beta$ = 3.6, $r_0$ = 40 m
+straal. De waarden van de constanten zijn: $\alpha$ = 1.5, $\beta$ = 3.6, $r_0$ = 40 m
 en s = 0.94\footnote{het uitleggen de constantes in de formule is erg
 lastig en vereist een gedegen kennis van de wiskundige ontwikkeling van
 de showers, maar als de parameter s is 1,  dan is het aantal deeltjes in
@@ -298,7 +297,6 @@ deeltjesdichtheid. Het aantal deeltjes in de lawine is daarmee ook te
 bepalen, en dit is een maat voor de energie van het primaire deeltjes.
 
  
-
 \begin{figure}
     \centering
     \includegraphics[scale=0.3]{particle_density}
@@ -314,7 +312,6 @@ bepalen, en dit is een maat voor de energie van het primaire deeltjes.
     showercore te zien.}
     \label{fig:particle_density}
 \end{figure} 
-
 
 \begin{equation}
 \rho(r) = N_e \cdot \hat{c}(s) \cdot \left(\frac{r}{r_0}\right)^{s-\alpha} \cdot \left(1 + \frac{r}{r_0}\right)^{s-\beta}
@@ -339,6 +336,5 @@ met
     per station) heeft een showersize tussen \SI{e6} en \SI{e7} deeltjes.}
     \label{fig:LDF_fit}
 \end{figure} 
-
 
 \end{document}
