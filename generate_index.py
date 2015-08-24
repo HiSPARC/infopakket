@@ -65,8 +65,16 @@ def get_documents(categories):
             document['version'] = find_first(version_finder, path)[0]
             category, document['rank'] = find_first(cat_rank_finder, path)
         except Exception:
-            print 'Failed for: ', path
-            pass
+            if 'uitwerkingen' in filename:
+                path = path.replace('_uitwerkingen', '')
+                try:
+                    document['title'] = fix_title(find_first(title_finder, path)[0])
+                    document['version'] = find_first(version_finder, path)[0]
+                    category, document['rank'] = find_first(cat_rank_finder, path)
+                except Exception:
+                    print path
+                else:
+                    infopakket['docent']['documents'].append(document)
         else:
             infopakket[category]['documents'].append(document)
 
