@@ -59,6 +59,7 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	rm -rf $(TEX_DIRECTORIES)
 	rm -f generate_index.py index_template.html
 	rm -f style.tex style_brief.tex style_werkblad.tex common_style.tex HiSPARC_header.pdf
+	rm -f Makefile
 	git add -A
 	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
 	git checkout master
