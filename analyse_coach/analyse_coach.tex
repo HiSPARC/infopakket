@@ -18,17 +18,19 @@ data te doen. Coach is al op veel scholen beschikbaar en leerlingen kunnen hier
 gemakkelijk mee aan de slag.
 We gebruiken het onderdeel 'analyse' van Coach om ESD data van \hisparc te analyseren.
 In dit document wordt stap voor stap uitgelegd hoe je deze data in kunt laden in 
-Coach en kunt analyseren. Daarnaast wordt uitgelegd hoe je met deze data in Coach
-grafieken kunt plotten en analyseren.
+Coach. Daarnaast wordt uitgelegd hoe je van deze data in Coach
+grafieken kunt plotten en analyseren. In dit document wordt eerst uitgelegd hoe
+dit met Coach6 gedaan wordt. Het laatste deel van dit document licht toe hoe dezelfde grafieken
+in Coach7 gemaakt worden.
 
 \section{Het ophalen van ESD data}
 
 Ga naar de volgende website http://data.hisparc.nl en kies een station waar 
-je data van wilt downloaden. Kies dan op de site waar je door te klikken terecht
-bent gekomen de link aan de rechterkant: `Download event summary data'.
-In info pakket kun je in het bestand `data retrieval' precies te zien hoe je 
+je data van wilt downloaden. Klik op het station, je gaat nu naar een andere site.
+Kies nu op deze site de link aan de rechterkant: `Download event summary data'.
+In `Info Pakket` kun je in het bestand `data retrieval' precies te zien hoe je 
 nu de data als een excel bestand kunt downloaden.
-Kies voor het gemak voor een dag data, dan is bestand nog redelijk klein.
+Kies voor het gemak voor één dag data, dan is bestand nog redelijk klein.
 Je krijgt een csv-bestand binnen waarin als eerste (de eerste 30 regels) beschreven staat wat je 
 in elke kolom aan data vindt. In het csv-bestand vindt je onder andere, tijdstempel per event,
 pulshoogte en pulsintegraal per detector, aantal deeltjes per detector en aankomsttijden van
@@ -36,16 +38,17 @@ de shower in de detector.
 
 \section{Inlezen van de data in Coach.}
 
-Het csv bestand gaan we inlezen in Coach. Open Coach, log in als docent en kies 'nieuwe activiteit' 
-`meten'. Je hoeft geen paneel te kiezen.
-Klik op het icoon tabel, zie \ref{fig:coach1}. Je kunt hier kiezen om een
+Het csv bestand gaan we nu inlezen in Coach. Open Coach; log in als docent; kies 'nieuwe activiteit'; 
+`meten'. (Je hoeft geen meetpaneel te kiezen.)
+
+Klik op het icoon tabel, zie figuur \ref{fig:coach1}. Je kunt hier kiezen om een
 nieuwe tabel aan te maken. Er verschijnt een werkvenster `tabel kiezen of maken'.
 Kies in dit werkvenster `importeren'. In het uitklapvenster kies je 'tekst bestand'.
 
 \textit{Deel van de HiSPARC data uit een .csv bestand.}
 \begin{verbatim}
 15/07/15	14:00:10	1436968810	060318189     4	    6	256	  122	0	...	
-15/07/15	14:00:13	1436968813	006833767  1416	  485	255	 1041  0   ...
+15/07/15	14:00:13	1436968813	006833767  1416	  485	255	 1041 0 ...
 15/07/15	14:00:13	1436968813	116782974     4	  351	272	    6	0	...
 15/07/15	14:00:13	1436968813	344642048     6	  379	261	    4	0	...	
 15/07/15	14:00:14	1436968814	113137182     5	    5	223	  136	0	...	
@@ -71,7 +74,7 @@ Kies in dit werkvenster `importeren'. In het uitklapvenster kies je 'tekst besta
 \end{figure}
 
 Bij het importeren van het .csv bestand moet je aangeven hoe Coach het bestand moet 
-lezen. In \ref{fig:coach3} kun je zien dat je moet aangeven dat het decimaal teken
+lezen. In \ref{fig:coach3} kun je zien dat je dat het decimaal teken
 een punt moet zijn. Voor duizendtallen mag je ook `geen' invullen. Omdat je de tekst
 boven de data in het csv bestand niet wilt, moet je aangeven dat je vanaf rij 
 28 begint.
@@ -83,11 +86,11 @@ boven de data in het csv bestand niet wilt, moet je aangeven dat je vanaf rij
     \label{fig:coach3}
 \end{figure}
    
-Als je nu op 'ok' klikt ben je bijna klaar met importeren. Je kunt nu boven elke
+Als je nu op `ok' klikt ben je bijna klaar met importeren. Je kunt nu boven elke
 kolom aangeven wat er voor data in staat. De eerste twee kolommen bevatten in Coach 6 
 helaas niets, omdat datum en tijd niet herkend worden. De kolommen 3 tot en met 
 8 bevatten wel data die we kunnen gebruiken. In kolom 3 staat het GPS-tijdstempel UNIX epoch.
-Dat betekent dat we datum in het aantal seconden na 1 januari 1970 uitdrukken.
+Dat betekent dat we datum-tijdstempel van het event in het aantal seconden na 1 januari 1970 uitdrukken.
 Kolom 4 heeft het tijdstempel in het aantal nanoseconden.
 Kolommen 5 tot en met 8 bevatten de pulshoogte waarden voor een bepaald event.
 Je kunt het aantal decimalen instellen op 0 voor elke grootheid. Zie \ref{fig:coach4} 
@@ -115,7 +118,8 @@ De snelste manier om een histogram is om op de betreffende kolom in het tabel ve
 'rechts' te klikken en dan uit het analyse menu, histogram te kiezen.
 Je moet echter aangeven in hoeveel stappen je het histogram wilt laten maken.
 Dan geef je aan bij 'aantal klassen'. Verander dit bijvoorbeeld in 200. Onderzoek
-ook het effect van meer of minder 'klassen'.
+ook het effect van meer of minder 'klassen' (in het Engels wordt dit het aantal 
+`Bins' genoemd.)
 
 \begin{figure}
     \centering
@@ -132,12 +136,13 @@ Maak nog 3 dezelfde histogrammen van de andere detectoren. Plaats deze apart in 
 (je kunt zo ook in een diagram plaatsen.)
 
 We willen graag een logaritmische y-as, dat kunnen we instellen.
-Klik rechts op het diagram, kies 'diagram instelling'. Zie \ref{fig:coach6}
+Klik rechts op het diagram, kies `diagram instelling'. Zie \ref{fig:coach6}
 Zorg dat je kolom C3 onzichtbaar maakt (tip: geef C3 een duidelijke naam bij het vakje
-grootheid). In C4 maak je een formule, maak een formule waarin je de log van
-de grootheid van C3 neemt. In 'diagram instelling' kun je ook nog aangeven welke 
-kleur de grafiek moet hebben en of je de meetwaarden als stip of als kruis wilt 
-zien. In zie Zie \ref{fig:coach7} je de grafiek die met en zonder logaritmische schaal gemaakt.
+grootheid). In C4 maak je een formule, selecteer C4 en kies de formule knop. 
+Maak nu een formule waarin je de log van de grootheid van C3 neemt. 
+In 'diagram instelling' kun je ook nog aangeven welke kleur de grafiek moet hebben en
+of je de meetwaarden als stip of als kruis wilt zien. In figuur \ref{fig:coach7} zie je 
+de grafieken. Een grafiek met en één grafiek zonder logaritmische schaal.
 
 
 \begin{figure}
@@ -162,7 +167,7 @@ Maak nog 3 dezelfde histogrammen van de andere detectoren. Plaats deze apart in 
 (je kunt ook twee grafieken in één diagram plaatsen.)
 
 \textbf{Opdracht 2.}
-Gebruik de analyse of uitlees optie op de waarde van de piek in de diagrammen
+Gebruik de analyse of uitlees optie om de waarde van de piek in de diagrammen
 uit te lezen. Noteer deze. Zijn ze voor elke detector precies hetzelfde?
 
 \textbf{Opdracht 3.}
@@ -184,18 +189,49 @@ een winterdag. Zie je verschillen.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.6]{coach8}
+    \includegraphics[scale=0.4]{coach8}
     \caption{Bepaling van de helling van het pulshoogte diagram op een afstand
     van 3x de piek waarde.}
     \label{fig:coach8}
 \end{figure}
 
+\section{Werken met Coach7}
 
+De nieuwe versie van Coach (7), maakt het mogelijk om meer dan acht kolommen in te lezen
+uit een gedownload csv bestand. In ons geval worden zelfs alle 21 kolommen van een event in gelezen.
+Omdat Coach7 een ander uiterlijk en andere symbolen voor de knoppen heeft, wordt 
+in deze sectie aandacht besteed aan het doen van analyse op de gegevens met Coach7.
 
+In \ref{fig:coach9} is een screenshot van Coach 7 te zien. Er is gebruikt gemaakt van een Engelse versie van 
+Coach7. Login als `Author' en kies voor activity type `Measurement'.
 
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{coach9}
+    \caption{Screenshot van het openingsscherm van Coach7}
+    \label{fig:coach9}
+\end{figure}
 
+Nu we in de activiteit omgeving zitten kunnen het csv bestand importeren.
+Klik op het tabel icoon. Nu opent een tabel venster.
+Als je met een rechtermuisknop op het scherm klikt, verschijnt een uitklapmenu
+waarin je aangeeft bij runs, import, dat je een textfile wilt importeren. Zie figuur
 
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{coach10}
+    \caption{Importeren van een .csv bestand.}
+    \label{fig:coach10}
+\end{figure}
 
- 
+Na het selecteren van het juiste .csv bestand krijgen we een soortgelijk scherm
+als in figuur \ref{fig:coach3}. In figuur \ref{fig:coach11}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{coach11}
+    \caption{Instellen voor het importeren van data.}
+    \label{fig:coach11}
+\end{figure}
 
 \end{document}
