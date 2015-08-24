@@ -3,7 +3,7 @@
 \title{Wireless connectie PC en Arduino}
 \author{C.G.N. van Veen}
 \docweerstation{2}{WW}
-\version{1.3}
+\version{1.4}
 
 \begin{document}
 
@@ -74,7 +74,8 @@ zendamateurs informatie verzonden worden.
 De ontvanger zal gekoppeld moeten worden aan de computer. De computer heeft 
 een driver nodig om te werken. We hebben een VCP (Virtual Com Port) driver nodig, 
 die we kunnen downloaden van Silabs.com:
-\url{http://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx.}
+Gebruik 'google' met de zoekterm \textbf{'USB to UART Bridge VCP Drivers'} en kies de eerste
+optie die je krijgt.
 Download de juiste driver voor je besturingssysteem op de gebruikte computer
 en installeer deze. Zorg tijdens de installatie van de driver dat je de 
 ontvangmodule nog niet in je pc hebt aangesloten.
@@ -91,8 +92,8 @@ universiteit op basis van Arduino een pakket ontwikkeld waarmee een
 CANSAT satelliet gemaakt kan worden. De CANSAT zendt draadloos data via
 de APC-220 module. Andere tools om de APC-module te configureren bestaan
 wel, maar geven veel problemen. Een voorbeeld van zo'n problematisch
-programma is "RF-Magic". Gebruik Google met zoekterm `apc220cfg.ino'} of van
-Github/\hisparc. 
+programma is "RF-Magic". Gebruik Google met zoekterm `apc220cfg.ino'} of 
+van \url{http://github.com/HiSPARC/weather-arduino}.
 
  
 \begin{figure}
@@ -210,19 +211,15 @@ Op de MAC en Windows computers gaat dat net even anders, vandaar dat de ondersta
 paragraven uitleg voor beide `operating systems' bevatten.
 
 \subsubsection{Python voor MAC}
-Een pakket om Python in te draaien is bijvoorbeeld: Canopy.
-Dat is gratis te downloaden van: \url{https://www.enthought.com/products/canopy/}
+Een pakket om Python in te draaien is bijvoorbeeld: Anaconda, kies Python 2.7.
+Dat is gratis te downloaden van: \url{http://continuum.io/downloads#all}
 Download de free version en installeer deze. Je hebt dan een venster waar je kunt
 programmeren en een uitvoer venster. 
 
-Uitleg over hoe je moet werken met Canopy vind je hier:
-\url{http://docs.enthought.com/canopy/}. Waarschijnlijk moet je de package 'serial'
-installeren. Ga daarvoor naar de terminal in Canopy, die vind je onder:
-Tools - canopy terminal. Typ in de terminal: pip install pyserial. Je kunt nu de
-package `pyserial' gebruiken. Typ in het runvenster van Canopy: `import serial'. Als het goed is 
-krijg je nu geen foutmelding meer als je dit commando gerund hebt.
+Uitleg over hoe je moet werken met Anaconda Python 2.7 kun je op Youtube wel vinden.
 
-Een voorbeeld programma in Python om data van het weerstation (MAC) uit te lezen.
+Hieronder zie je een voorbeeld programma in Python, om data van het weerstation 
+(voor de MAC) uit te lezen.
 Als een regel voorafgegaan wordt door een \verb|#| dan is dat een commentaar 
 regel en die wordt niet gecompiled en uitgevoerd.
 
@@ -258,13 +255,12 @@ main()
 
 Als je de wireless connectie maakt op een windowscomputer dan kun je 
 waarschijnlijk de COM poort waar de UART zit niet vinden met de behulp van de 
-Arduino software. Download Canopy voor windows.
-Die is gratis te downloaden van: \url{https://www.enthought.com/products/canopy/}
+Arduino software. Download Anaconda Python 2.7 voor windows.
+Die is gratis te downloaden van: \url{http://continuum.io/downloads#all}
 Download de free version en installeer deze. Je hebt dan een venster waar je kunt
 programmeren en een uitvoer venster.
 
-Uitleg over hoe je moet werken met Canopy vind je hier:
-\url{http://docs.enthought.com/canopy/}.
+Uitleg over hoe je moet werken met Anaconda Python 2.7 kun je op Youtube wel vinden.
 
 Eerst willen we vinden waar de COM poort van de UART zit. Gebruik het onderstaande 
 stukje code \footnote{bron: \url{http://asvresearch.com/main/index.php/tutorials/tutorial-5}}.
@@ -336,6 +332,7 @@ while True:
         break
 \end{minted}
 
+
 \subsection{Uitlezen en wegschrijven van de data}
 
 We hebben nu een basisprogramma waarmee we de data van de Arduino kunnen
@@ -351,16 +348,18 @@ In Python kun je de data die je uitleest wegschrijven als een tekstfile.
 Hoe dat moet kun je hier lezen:
 \url{http://www.pythonforbeginners.com/files/reading-and-writing-files-in-python}
 
-Voordat je wegschrijft moet je zorgen dat de nieuwe data vergelijkt met de oude data, als deze exact hetzelfde is
-als de vorige kun je in het programma aangeven dat je pas data wegschrijft als de data verschilt.
-Ook komt het wel eens voor dat de string met data leeg is. Dat wil je ook voorkomen.
-Daarnaast weet je dat de lengte van je data altijd hetzelfde moet zijn.
+Voordat je wegschrijft moet je zorgen dat de nieuwe data vergelijkt met
+de oude data, als deze exact hetzelfde is als de vorige kun je in het
+programma aangeven dat je pas data wegschrijft als de data verschilt.
+Ook komt het wel eens voor dat de string met data leeg is. Dat wil je
+ook voorkomen. Daarnaast weet je dat de lengte van je data altijd
+hetzelfde moet zijn.
 
 Gebruik hiervoor een `if' statement met je voorwaarden. Bijvoorbeeld de volgende code:
-(code 4)
+(code 5)
 
 \begin{minted}{python}
-# code 4
+# code 5
 if nieuwe_data != ' ' and nieuwe_data !=vorige_data and len(nieuwe_data)>32:
     file = open(".\Documents\Arduino\Metingen\Metingen.txt", "a") #"a
             file.write(output + "  {:%d, %b %Y} | ".format(datetime.date.today())
@@ -369,7 +368,7 @@ if nieuwe_data != ' ' and nieuwe_data !=vorige_data and len(nieuwe_data)>32:
             vorige_data = nieuwe_data
 \end{minted}
 
-In de bovenstaande code staat in het if statement een controle op 3
+In de bovenstaande code staat in het \textit{if} statement een controle op 3
 punten. Namelijk of de \verb|nieuwe_data| niet gelijk is aan de oude data, of
 \verb|nieuwe_data| niet leeg is en het statement kijkt of de lengte van de data
 gelijk is aan het minimale aantal characters wat je nodig had voor
