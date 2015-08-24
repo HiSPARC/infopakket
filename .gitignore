@@ -36,6 +36,7 @@
 *.tdo
 *.fls
 *.pyg
+*.pygstyle
 
 # VIM
 *.swp
