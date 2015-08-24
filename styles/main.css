@@ -42,6 +42,21 @@ html {
 h2 {
     margin-top: 0px;}
 
+h3 {
+    color: white;
+    font-weight: normal;
+    display: inline-block;
+    margin-bottom: 0px;
+    padding: 5px;}
+
+p {
+    font-size: .85em;
+    line-height: 1.8em;
+    border-left-style: solid;
+    border-left-width: 3px;
+    padding: 7px;
+    margin: 0;}
+
 a {
     color: #0060B9;
     text-decoration: none;}
@@ -54,23 +69,13 @@ a:hover {
     color: #002141;
     text-decoration: none;}
 
-.category{
+.category {
     display: inline;
     border-radius: 5px;}
 
-p {
-    line-height: 1.8em;
-    border-left-style: solid;
-    border-left-width: 3px;
-    padding: 7px;
-    margin: 0;}
-
-h3 {
-    color: white;
-    font-weight: normal;
-    display: inline-block;
-    margin-bottom: 0px;
-    padding: 5px;}
+.version {
+    font-size: .6em;
+    color: gray;}
 
 #algemeen h3 {background-color: red;}
 #algemeen p {border-color: red;}

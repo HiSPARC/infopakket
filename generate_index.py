@@ -2,6 +2,7 @@ import glob
 import os
 import re
 from operator import itemgetter
+from collections import OrderedDict
 
 import jinja2
 
@@ -9,14 +10,21 @@ import jinja2
 PATH = os.path.dirname(__file__)
 
 
-def make_index(documents):
-    pass
+def make_index(infopakket):
+    template_path = os.path.join(PATH, 'index_template.html')
+    with open(template_path) as template_file:
+        template = template_file.read()
+    template = jinja2.Template(template)
+    index = template.render(infopakket=infopakket)
+    index_path = os.path.join(PATH, 'index.html')
+    with open(index_path, 'w') as index_file:
+        index_file.write(index)
 
 
 def get_categories():
     """Read the categories from the common_style file
 
-    The order fo the categories is preserved.
+    The order of the categories is preserved.
 
     :return: list of tuples which contain the shortname and the title name
              for each category.
@@ -44,25 +52,36 @@ def get_documents(categories):
     cat_rank_finder = re.compile(r'\\doc(.*?)\{([0-9]+)\}')
     version_finder = re.compile(r'\\version\{(.*)\}')
 
-    documents = {category: [] for category, title in categories}
+    infopakket = OrderedDict((category, {'title': title, 'documents': []})
+                             for category, title in categories)
 
     for path in glob.glob(os.path.join(PATH, '*/*.tex')):
+        if 'examples' in path:
+            continue
         filename = os.path.splitext(os.path.basename(path))[0] + '.pdf'
         document = {'filename': filename}
         try:
-            document['title'] = find_first(title_finder, path)[0]
+            document['title'] = fix_title(unicode(find_first(title_finder,
+                                                             path)[0]))
             document['version'] = find_first(version_finder, path)[0]
             category, document['rank'] = find_first(cat_rank_finder, path)
         except Exception:
             print 'Failed for: ', path
             pass
         else:
-            documents[category].append(document)
+            infopakket[category]['documents'].append(document)
 
-    for key in documents.keys():
-        documents[key].sort(key=itemgetter('rank'))
-    return documents
+    for key in infopakket.keys():
+        infopakket[key]['documents'].sort(key=itemgetter('rank'))
+    return infopakket
 
+
+def fix_title(title):
+    title = title.replace(r'\hisparc', 'HiSPARC')
+    title = title.replace(r'\pmt', 'PMT')
+    title = title.replace(r'\gps', 'GPS')
+    title = title.replace(r'\adc', 'ADC')
+    return title
 
 def find_first(finder, path):
     for line in open(path):
@@ -74,5 +93,5 @@ def find_first(finder, path):
 
 if __name__ == "__main__":
     categories = get_categories()
-    documents = get_documents(categories)
-    make_index(documents)
+    infopakket = get_documents(categories)
+    make_index(infopakket)
