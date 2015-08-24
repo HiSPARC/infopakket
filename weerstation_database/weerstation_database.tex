@@ -11,25 +11,24 @@
 
 \section{Weerstation Data}
 
-\paragraph{Inleiding} We hebben ons weerstation werkend gekregen en krijgen nu 
+\paragraph{Inleiding} We hebben ons weerstation werkend gekregen en krijgen nu
 data binnen op de computer. De weerdata komt zelfs via een wireless
 transmitter binnen. Je hebt zelf een behuizing gemaakt om je station
 tegen diverse weersomstandigheden te beschermen. In deze tutorial gaan we kijken
-hoe we onze metingen aan de database van \hisparc kunnen toevoegen. 
+hoe we onze metingen aan de database van \hisparc kunnen toevoegen.
 We hebben dan op een goedkope wijze een eigen weerstation verkregen, waarmee
-we de efficiëntie van detectoren bij veranderende temperatuur en bijvoorbeeld 
-het aantal showers als functie van de luchtdruk kunnen meten. Ons station is uitgerust 
-met luchtdruk, luchtvochtigheid en temperatuur sensoren, maar is gemakkelijk uit 
-te breiden met andere sensoren. 
+we de efficiëntie van detectoren bij veranderende temperatuur en bijvoorbeeld
+het aantal showers als functie van de luchtdruk kunnen meten. Ons station is uitgerust
+met luchtdruk, luchtvochtigheid en temperatuur sensoren, maar is gemakkelijk uit
+te breiden met andere sensoren.
 
 \paragraph{Benodigdheden}
 
-\begin{itemize}  
+\begin{itemize}
     \item Arduino software
     \item Python software
     \item PC van \hisparc station
     \item Arduino weerstation
-    
 \end{itemize}
 
 \section{\hisparc database}
@@ -37,10 +36,10 @@ te breiden met andere sensoren.
 \hisparc heeft een uitgebreide database waarin gegevens van kosmische straling
 wordt opgeslagen. Deze data is vrij voor iedereen om uit te lezen, te gebruiken
 voor onderzoek of om te leren omgaan met data en hoe je deze data kunt manipuleren met Python.
-Uitgebreide informatie over de \hisparc database en hoe deze te benaderen is te 
+Uitgebreide informatie over de \hisparc database en hoe deze te benaderen is te
 vinden op \url{http://docs.hisparc.nl/publicdb/}. Hier vind je ook voorbeeld
 programma's in Python waarmee je zelf data kunt binnen halen.
-Wat wij willen doen is nu onze eigen weerdata koppelen aan de data van het \hisparc 
+Wat wij willen doen is nu onze eigen weerdata koppelen aan de data van het \hisparc
 meetstation, zodat deze data wordt opgeslagen in de \hisparc database.
 
 
@@ -50,10 +49,10 @@ De \hisparc database verwacht
 de data in een bepaald format en een bepaalde volgorde. Dat betekent dat
 we allereerst ons Arduino programma zo moeten maken dat de data er in de
 juiste volgorde uitkomt.
-In het onderstaande stukje code en de tabel zien we welke grootheden we in principe naar de 
+In het onderstaande stukje code en de tabel zien we welke grootheden we in principe naar de
 \hisparc database zouden kunnen sturen als we daar de sensoren van hadden aangesloten.
-De database van \hisparc verwacht van het weerstation data in de volgende 
-volgorde (zie tabel volgorde). 
+De database van \hisparc verwacht van het weerstation data in de volgende
+volgorde (zie tabel volgorde).
 
 \begin{center}
 \begin{table}
@@ -76,7 +75,7 @@ volgorde (zie tabel volgorde).
     14. Gevoelstemperatuur & \verb|heat_index| & \SI{}{\celsius} \\ \hline
     15. Dauwpunt & \verb|dew_point| & \SI{}{\celsius}    \\ \hline
     16. Gevoelstemperatuur (wind) & \verb|wind_chill| & \SI{}{\celsius}    \\ \hline
-    
+
    \end{tabular}
    \caption{Tabel met de 16 mogelijke grootheden die meegegeven kunnen
    worden aan de data van het weerstation. Een aantal van deze
@@ -98,14 +97,14 @@ niet meten of kunnen uitrekenen dan wordt er een \verb|"-999"| toegevoegd aan de
 Daar moeten we in het Python programma ook rekening mee houden.
 
 
-\subsection{Test-procedure} 
+\subsection{Test-procedure}
 
 Voordat we in de database gaan sleutelen moeten we eerst kijken of we de
 data in de juiste volgorde van de Arduino krijgen, alle sensoren hun data goed opsturen
 zodat de juiste data naar de \hisparc database gezonden kan worden.
 
-Allereerst gaan we zorgen dat ons Arduino programma de data zonder tekst en 
-in de juiste volgorde (zoals in tabel \ref{table:grootheden}) verstuurt. 
+Allereerst gaan we zorgen dat ons Arduino programma de data zonder tekst en
+in de juiste volgorde (zoals in tabel \ref{table:grootheden}) verstuurt.
 In code (1) hieronder zien we hoe dat moet.
 
 \begin{minted}{c}
@@ -123,20 +122,20 @@ In code (1) hieronder zien we hoe dat moet.
 
 // code for digital Temperature sensor (ds18b20)
 #define ONE_WIRE_BUS 3
-// To database means we only use the temperature of one detector. 
+// To database means we only use the temperature of one detector.
 // Place the a temperature sensor in one of the detectors of the HiSPARC station.
 
 // Setup DTH library with right sensor
 DHT dht = DHT();
 
-// Setup a oneWire instance to communicate with any OneWire devices in this 
+// Setup a oneWire instance to communicate with any OneWire devices in this
 // case tempsensors
-OneWire oneWire(ONE_WIRE_BUS); 
+OneWire oneWire(ONE_WIRE_BUS);
 // Pass our oneWire reference to Dallas Temperature.
 DallasTemperature tsensors(&oneWire);
-BMP085 dps = BMP085();      // Digital Pressure Sensor -> dps is accessing library 
+BMP085 dps = BMP085();      // Digital Pressure Sensor -> dps is accessing library
 //needed for library of BMP085
-long Temperature = 0, Pressure = 0, Altitude = 1000; 
+long Temperature = 0, Pressure = 0, Altitude = 1000;
 
 void setup(void)
 {
@@ -149,40 +148,40 @@ void setup(void)
   dps.init(MODE_ULTRA_HIGHRES, 1000, true);  // 250 meters, true = using meter units
   tsensors.begin();
 }
- 
+
 void loop(void){
   // DTH22 Reading temperature or humidity takes about 250 milliseconds!
   // DTH22 Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
   delay(dht.getMinimumSamplingPeriod());
-  
+
   tsensors.requestTemperatures(); //Get temperature of detectors (one is default)
    for  (int deviceA = 0; deviceA < 1; deviceA++) {
      printTemp(deviceA);
-  }  
+  }
   float humidity = dht.getHumidity();
   float temperature = dht.getTemperature();
-  
-  // check if returns are valid, if they are nan (not a number) 
+
+  // check if returns are valid, if they are nan (not a number)
   // then something went wrong!
   if (isnan(temperature) || isnan(humidity)) {
     continue;
-  } 
-  
+  }
+
   else {
     Serial.print(temperature, 1); //Temperature outside
     Serial.print(",");
     Serial.print(humidity, 1); //humidity outside
     Serial.print(",");
-  }  
+  }
   dps.getTemperature(&Temperature);
   dps.getPressure(&Pressure);
   float pressure = Pressure/100;
   Serial.print(pressure); //luchtdruk in hPa
-  Serial.println();  
+  Serial.println();
   delay(2000);
 }
 
-void printTemp(int adress) { 
+void printTemp(int adress) {
   float TempC = tsensors.getTempCByIndex(adress);
   String stringone = "Detector ";
   stringone += adress;
@@ -190,23 +189,22 @@ void printTemp(int adress) {
   Serial.print(TempC,1); // print temperatuur van detector
   Serial.print(",");
 }
-    
 \end{minted}
 
 
 \subsection{Data gereed maken voor verzending naar database}
 
 De data komt als volgt: \verb|24.6,24.4,37.8,1004.67| uit het Arduino programma.
-De eerste twee getallen zijn de temperatuur binnen en buiten, daarna volgt de 
+De eerste twee getallen zijn de temperatuur binnen en buiten, daarna volgt de
 luchtvochtigheid en de luchtdruk in hPa.
 
-Nu schrijven we naast of in het python programma wat we al hadden geschreven in de 
-handleiding: `Wireless weerstation' (code 4 in die handleiding) een toevoeging, die de data 
+Nu schrijven we naast of in het python programma wat we al hadden geschreven in de
+handleiding: `Wireless weerstation' (code 4 in die handleiding) een toevoeging, die de data
 zo manipuleert dat het in het format komt wat de \hisparc database kan lezen.
 
 Gebruik het onderstaande stukje code (2) in de python code die je al had.
 Uit je vorige code in python komt dus de Arduino data binnen. Die 'data' variabele
-bestaat dus uit vijf getallen. Die kun je naar de 'class' Measurement sturen met 
+bestaat dus uit vijf getallen. Die kun je naar de 'class' Measurement sturen met
 het volgende commando:  \verb| metingen = Measurement(data)|
 metingen is nu verwijzing naar alles wat in de class `Measurement' met data wordt
 gedaan.  Je kunt nu in de python code met \verb|measurement.dew_point| bijvoorbeeld
@@ -225,15 +223,15 @@ class Measurement(object):
 
         # Datastore assumes date, time, temp_inside (detector),
         # temp_outside, humidity_inside, humidity_outside, barometer,
-        # wind_dir, wind_speed, solar_rad, uv, evapotranspiration, rain_rate, 
+        # wind_dir, wind_speed, solar_rad, uv, evapotranspiration, rain_rate,
         # heat_index, dewpoint, wind_chill
 
         # Extracts variables from output, order of variables is important.
         # Set the order of variables in the Arduino Program.
-        self.temp_inside, self.temp_outside, self.humidity_outside, 
+        self.temp_inside, self.temp_outside, self.humidity_outside,
         self.barometer = output
 
-        Tdew = self.dampdruk_calc(self.temp_outside, self.humidity_outside, 
+        Tdew = self.dampdruk_calc(self.temp_outside, self.humidity_outside,
                                                             self.barometer)
 
         # As we do not measure these weather variables we set them to
@@ -278,7 +276,7 @@ In de `class Measurement' wordt ook het dauwpunt berekend. Als er andere
 afgeleide grootheden berekend moeten worden, kan dat gedaan worden door
 de \verb|`def dampdruk_calc'| te kopiëren en en te plakken binnen de
 `class Measurement'. Je kunt de \verb|`def dampdruk_calc'| naam veranderen in
-bijvoorbeeld \verb|`def wind_chill_calc'|. Voer nu de benodigde de berekening in 
+bijvoorbeeld \verb|`def wind_chill_calc'|. Voer nu de benodigde de berekening in
 met de grootheden die je gemeten hebt. Je kunt nu de
 `\verb|wind_chill|' uit laten rekenen als je ook een sensor voor de
 windsnelheid hebt aangesloten. Voeg dan in de class Measurement in:
@@ -288,14 +286,14 @@ windsnelheid hebt aangesloten. Voeg dan in de class Measurement in:
 # voorbeeld als de windspeed gemeten wordt kan wind_chill uitgerekend worden.
 
 def wind_chill_calc(self, Tout, windspeed):
-    
-    # verdere berekeningen in het document Parameter_Manual.pdf, zie code 2.
-    
-    return wind_chill
-    
-\end{minted}        
 
-Deze definitie berekent dan de gevoelstemperatuur. Deze kun je weer meegeven aan 
+    # verdere berekeningen in het document Parameter_Manual.pdf, zie code 2.
+
+    return wind_chill
+
+\end{minted}
+
+Deze definitie berekent dan de gevoelstemperatuur. Deze kun je weer meegeven aan
 de lijst met data.
 
 \begin{minted}{python}
@@ -308,11 +306,11 @@ def __init__(self, output):
 
     #toekennen waarde
     self.wind_chill = windchill
-        
-\end{minted}   
-        
+
+\end{minted}
+
 Op dezelfde wijze kunnen er andere definities voor afgeleide grootheden
-binnen de class Measurement gemaakt worden. 
+binnen de class Measurement gemaakt worden.
 
 De andere classes in het Python programma hoeven niet verandert te worden.
 
@@ -321,15 +319,15 @@ De andere classes in het Python programma hoeven niet verandert te worden.
 
 \subsection{Libraries van python installeren}
 
-Het gehele Python bestand waarmee je de data naar de \hisparc database kunt schrijven 
+Het gehele Python bestand waarmee je de data naar de \hisparc database kunt schrijven
 is te vinden op:
 \url{https://github.com/HiSPARC/weather-arduino/tree/master/python}
 Om het geheel te laten werken zijn, moeten wel een aantal libraries geïmporteerd worden.
 Werk je in Anaconda onder windows, dan zijn de meeste libraries geïnstalleerd.
 Zo niet open dan een terminal. Ga naar `Tools' en open een Terminal of Command prompt.
 
-Nu kun je eventueel ontbrekende libraries installeren. Met het commando: 
-`pip freeze' kun je kijken welke libraries je al hebt. 
+Nu kun je eventueel ontbrekende libraries installeren. Met het commando:
+`pip freeze' kun je kijken welke libraries je al hebt.
 
 \begin{figure}
     \centering
@@ -344,9 +342,9 @@ Om te checken of libraries geïmporteerd zijn kun je in Anaconda in het
 interactieve venster invoeren: \emph{import ......}. Zie
 \figref{fig:canopy1} waarbij hetzelfde is gedaan met Canopy.
 
-Als je geen foutmelding hebt dan is de library geïnstalleerd. 
+Als je geen foutmelding hebt dan is de library geïnstalleerd.
 In code 4 kun je zien welke libraries allemaal toegevoegd moeten zijn.
- 
+
 \begin{minted}{python}
 # Code 4
 import serial
@@ -363,9 +361,9 @@ from pysparc import storage
 
 Waarschijnlijk moet `pysparc' nog geïnstalleerd worden. Open de terminal van
 Anaconda. Wat we gaan doen is een link naar de pysparc module van \hisparc
-maken en deze gelijk installeren. type: 
-\begin{verbatim} 
-pip install http://github.com/HiSPARC/pysparc/archive/master.zip 
+maken en deze gelijk installeren. type:
+\begin{verbatim}
+pip install http://github.com/HiSPARC/pysparc/archive/master.zip
 \end{verbatim}
 
 Nu kun je \verb|import pysparc| gebruiken, Zie \figref{fig:canopy1}.
@@ -375,7 +373,7 @@ Nu kun je \verb|import pysparc| gebruiken, Zie \figref{fig:canopy1}.
 
 Als de internet verbinding wegvalt dan willen we niet dat de data verloren gaat.
 We gebruiken daarom module \emph{pysparc}. Deze gebruikt een database (Redis) om data
-op te slaan, totdat er weer een internetverbinding tot stand komt. 
+op te slaan, totdat er weer een internetverbinding tot stand komt.
 
 - Voor \textbf{windows} ga je naar:
 \begin{verbatim}
@@ -384,7 +382,7 @@ http://github.com/rgl/redis/downloads
 
 Download de versie van Redis, die je nodig hebt.
 Installeer Redis op je computer. Start nu de `command prompt' als administrator.
-Run het volgende commando: 
+Run het volgende commando:
 
 \begin{verbatim}
 net start redis
@@ -401,19 +399,19 @@ en dan te installeren op de mac.
 brew install redis
 \end{verbatim}
 
-Heb je geen Homebrew. Open dan een terminal en type de volgende commando's in. 
+Heb je geen Homebrew. Open dan een terminal en type de volgende commando's in.
 
 \begin{enumerate}
     \item curl -O http://download.redis.io/redis-stable.tar.gz
-    \item tar -xvzf redis-stable.tar.gz 
-    \item rm redis-stable.tar.gz 
-    \item cd redis-stable 
-    \item make 
+    \item tar -xvzf redis-stable.tar.gz
+    \item rm redis-stable.tar.gz
+    \item cd redis-stable
+    \item make
     \item sudo make install
     \item redis-server
  \end{enumerate}
- 
-De Redis server is nu gestart. 
+
+De Redis server is nu gestart.
 
 
 \subsection{Meten met het weerstation en data opsturen}
@@ -421,31 +419,31 @@ De Redis server is nu gestart.
 Zorg dat je in Arduino het weerprogramma upload naar de Arduino
 (bijvoorbeeld met een USB kabel. Haal bij deze procedure het snoertje bij `Rx' op de
 Arduino weg.) Bekijk in de Serial monitor of de de data correct wordt
-weergegeven. Sluit nu de UART-APC220 module aan op de Arduino en de PC.  
+weergegeven. Sluit nu de UART-APC220 module aan op de Arduino en de PC.
 
 Start Redis.
 
 Open nu het Python programma (te vinden op
 \url{http://github.com/HiSPARC/weather-arduino}. \verb|Datafromwirelesstodatabase.py|.
-Run het programma. 
+Run het programma.
 \emph{!Pas op!} Pas dit Python programma eventueel alleen aan in de `class' die in deze
-handleiding benoemd is. Dus alleen in de class `Measurement' kun je sensor waarden 
-toevoegen. 
+handleiding benoemd is. Dus alleen in de class `Measurement' kun je sensor waarden
+toevoegen.
 
-Om te checken of het allemaal werkt draai je het programma in Anaconda. Vul zelf 
+Om te checken of het allemaal werkt draai je het programma in Anaconda. Vul zelf
 je \hisparc station nummer in en het paswoord voor dat station. Het paswoord is te krijgen
-bij \hisparc door te mailen naar \verb|info@hisparc.nl|. 
+bij \hisparc door te mailen naar \verb|info@hisparc.nl|.
 
 
 Door het Python script wordt alleen het dauwpunt geprint. Dit om te checken
-of er nog steeds gemeten wordt. Als het goed is zou het dauwpunt tussen 
+of er nog steeds gemeten wordt. Als het goed is zou het dauwpunt tussen
 een waarde van 0-10 moeten liggen. Dit printen kun je als commentaar uitschakelen.
 
 Sluit het internet even af en kijk of na weer inschakelen van het internet weer
 data verzonden wordt. Als dat gebeurt is alles klaar voor gebruik.
 Werkt dat niet kijk, dan even of Redis opgestart is en run je het programma
 nog eens.
-Plaats nu je weerstation op het dak bij het station. Na een dag meten kun je 
+Plaats nu je weerstation op het dak bij het station. Na een dag meten kun je
 bij de gegevens van het station ook de `weer-grafiekjes' zien. Bekijk ze op
 \url{data.hisparc.nl}.
 Je eigen weerdata kun je nu altijd online uitlezen met dataretrieval tool. Zie de handleiding
