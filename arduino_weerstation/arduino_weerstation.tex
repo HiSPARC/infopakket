@@ -12,13 +12,13 @@
 \section{Weerstation}
 
 \paragraph{Inleiding}
-Naast het meten aan kosmische straling met het \hisparc meetstation kunnen  
+Naast het meten aan kosmische straling met het \hisparc meetstation kunnen
 leerlingen het \hisparc station uitbreiden met een weerstation gemaakt met Arduino.
 Dit weerstation heeft als voordeel dat leerlingen dit zelf kunnen bouwen, aanpassen,
 programmeren, wind- en water dichtmaken in een box en plaatsen bij het station.
-Zo kunnen zij metingen van luchtdruk, buitentemperatuur en temperatuur van de 
-detectorplaten meten en correleren met gemeten kosmische straling. Daarnaast 
-kan het station uitgebreid worden met andere sensoren zoals UV-index, bliksem, 
+Zo kunnen zij metingen van luchtdruk, buitentemperatuur en temperatuur van de
+detectorplaten meten en correleren met gemeten kosmische straling. Daarnaast
+kan het station uitgebreid worden met andere sensoren zoals UV-index, bliksem,
 regen en windsensoren.
 
 \begin{figure}
@@ -78,7 +78,7 @@ belangrijk dat we Arduino gebruiken om sensorwaarden uit te lezen. In
 de Arduino software is dan het voorbeeld:
 \url{/Tutorial/AnalogReadSerial} erg belangrijk. Het voorbeeldprogramma
 "AnalogReadSerial" bijvoorbeeld staat onder \emph{file / tools /examples /
-Basics}. Zie \figref{fig:Arduino_example}.  
+Basics}. Zie \figref{fig:Arduino_example}.
 
 Sluit de Arduino aan met de USB kabel op de pc. Controleer dat de
 Arduino software de Arduino vindt. Kijk hiertoe in het menu: \emph{
@@ -138,20 +138,20 @@ library toegevoegd aan de lijst met libraries en kan deze aangeroepen
 worden in een Arduino programma of `sketch'. De tweede methode is om de
 map met de library handmatig te kopi\"{e}ren in de map \emph{Libraries}
 naar de map waar de programma's (sketches) van Arduino standaard staan.
-Dan zal Arduino software (na opnieuw opstarten van het programma), deze 
-libraries herkennen. 
+Dan zal Arduino software (na opnieuw opstarten van het programma), deze
+libraries herkennen.
 
 
 \begin{figure}
     \centering
     \includegraphics[scale=0.6]{Arduino_program_uitleg_3}
-    \caption{Arduino Software, de belangrijkste onderdelen van een 
-    programma uitgelegd. Eerst worden libraries ingeladen met 
+    \caption{Arduino Software, de belangrijkste onderdelen van een
+    programma uitgelegd. Eerst worden libraries ingeladen met
     met het include statement. Dan wordt de datapin gedefinieerd.
-    Libraries worden aangeroepen. In \emph{void setup} definieert u variabelen, 
-    kunt u libraries starten. De \emph{void setup} wordt één keer uitgevoerd. 
-    \emph{Void loop} is het eigenlijke programma wat continue herhaalt wordt. 
-    Als laatste ziet u een zelf gedefinieerde functie (printTemp), die binnen 
+    Libraries worden aangeroepen. In \emph{void setup} definieert u variabelen,
+    kunt u libraries starten. De \emph{void setup} wordt één keer uitgevoerd.
+    \emph{Void loop} is het eigenlijke programma wat continue herhaalt wordt.
+    Als laatste ziet u een zelf gedefinieerde functie (printTemp), die binnen
     de \emph{void loop} aangeroepen wordt.}
    \label{fig:Arduino_program_uitleg_3}
 \end{figure}
@@ -166,14 +166,14 @@ beschikbare data van de \hisparc stations ook weerdata mee te nemen in
 onderzoek naar correlaties van kosmische straling met weergrootheden. We
 zijn ook ge\"{i}nteresseerd in de temperatuur van de detectors.
 Buisman \cite{Buisman} heeft aangetoond dat de PMT van de detector gevoelig is
-voor temperatuur. Om dit verschijnsel te meten plaatsen we in elke detector 
-ter hoogte van de PMT een digitale temperatuursensor (DS18B20). De luchtdruk- 
+voor temperatuur. Om dit verschijnsel te meten plaatsen we in elke detector
+ter hoogte van de PMT een digitale temperatuursensor (DS18B20). De luchtdruk-
 en luchtvochtigheidsensor worden bij de Arduino geplaatst in een (zelf te
 ontwikkelen) weerhuisje. Leerlingen kunnen dan zelf correlaties tussen
 luchtdruk en aantal events onderzoeken. De luchtvochtigheid biedt weer
 opties om bijvoorbeeld het dauwpunt uit te rekenen. Hieronder worden de
 verschillende sensoren kort toegelicht en uitgelegd hoe ze uit te lezen
-zijn met de Arduino software. 
+zijn met de Arduino software.
 
 
 \subsection{Temperatuursensor}
@@ -215,69 +215,51 @@ voorbeeldprogramma staat op de volgende site:
 \url{https://www.pjrc.com/teensy/td_libs_OneWire.html}.
 
 Als alle temperatuursensoren aangesloten zijn, de libraries
-ge\"{i}nstalleerd en getest, dan kunnen de temperatuursensoren
+geïnstalleerd en getest, dan kunnen de temperatuursensoren
 uitgelezen worden. Met de volgende code kunnen de sensoren uitgelezen
 worden:
-
 
 \begin{minted}{c}
 #include <OneWire.h>
 #include <DallasTemperature.h>
- 
-    // Data wire is plugged into Digital pin 3 on the Arduino
+
+// Data wire is plugged into Digital pin 3 on the Arduino
 #define ONE_WIRE_BUS 3
- 
-    // Lib: OneWire is nodig om contact maken met ingang D3. 
+
+// Lib: OneWire is nodig om contact maken met ingang D3.
 OneWire oneWire(ONE_WIRE_BUS);
- 
-    // oneWire reference naar Lib:  Dallas Temperature.
+
+// oneWire reference naar Lib:  Dallas Temperature.
 DallasTemperature sensors(&oneWire);
- 
-void setup(void)
-{
+
+void setup(void) {
   // start serial port
   Serial.begin(9600);
-  
+
   // Start up the library
-  sensors.begin();  
+  sensors.begin();
 }
-void loop()
-{ 
-    // request to all devices on the bus
+
+void loop() {
+  // request to all devices on the bus
   Serial.print(" Requesting temperatures...");
-  sensors.requestTemperatures(); 
+  sensors.requestTemperatures();
   Serial.println("DONE");
-  
-    //  Deze code kun je gebruiken om per temperatuursensor uit te lezen.
-    //  met de functie getTempCByIndex( ) kun je de gewenste sensor uit lezen.
-    //  Temperatuursensor 1 krijgt index waarde 0.    
 
-    //  Serial.print("TempDevice 1:");
-    //  Serial.println(sensors.getTempCByIndex(0)); 
-    //  Serial.print("TempDevice 2 :");
-    //  Serial.println(sensors.getTempCByIndex(1));
-    //  Serial.print("TempDevice 3 :");
-    //  Serial.println(sensors.getTempCByIndex(2));
-    //  Serial.print("TempDevice 4 :");
-    //  Serial.println(sensors.getTempCByIndex(3));  
-
-
-    //  Of een for-loop om code te sparen.  Doet hetzelfde als de code hierboven. 
-    //  Hier < 4 omdat er 4 temperatuursensoren aangesloten zijn.
-  for  (int deviceA = 0; deviceA < 4; deviceA++) {
+  // Het uitlezen van de sensoren kan in een for-loop om code te sparen.
+  // Hier < 4 omdat er 4 temperatuursensoren aangesloten zijn.
+  for (int deviceA = 0; deviceA < 4; deviceA++) {
     printTemp(deviceA);
   }
- delay(500);
+  delay(500);
 }
 
-void printTemp(int adress) {  
+void printTemp(int adress) {
+  // Deze code kun je gebruiken om iedere temperatuursensor uit te lezen.
+  // Met de functie getTempCByIndex kun je de gewenste sensor uit lezen.
+  // Temperatuursensor 1 krijgt index waarde 0.
   float TempC = sensors.getTempCByIndex(adress);
-  String stringone = "TempDevice ";
-  stringone += adress;
-  Serial.print(stringone);
-  Serial.print("  ");
-  //Serial.print(adress);
-  Serial.println(TempC);  
+  Serial.println("TempDevice", adress, ":", TempC);
 }
 \end{minted}
 
@@ -291,18 +273,18 @@ void printTemp(int adress) {
     \subfloat[]{
         \includegraphics[width=.6\linewidth]{DS18B20_schakeling}
         \label{fig:DS18B20_schakeling}}
-    \caption{De DS18B20 temperatuursensor los en in een schakeling. De gele draad 
-    is zowel voeding voor de sensor als transmissie van het signaal. De zwarte 
-    draad zorgt voor aarding van zowel het linker als midden pootje, dus deze 
+    \caption{De DS18B20 temperatuursensor los en in een schakeling. De gele draad
+    is zowel voeding voor de sensor als transmissie van het signaal. De zwarte
+    draad zorgt voor aarding van zowel het linker als midden pootje, dus deze
     kan doorverbonden worden.
-    Bij het testen van deze schakeling blijkt dat grotere lengte van de gele draad 
+    Bij het testen van deze schakeling blijkt dat grotere lengte van de gele draad
     geen signaalverlies tot gevolg heeft.}
 \end{figure}
 
 \subsection{Luchtdruksensor}
 
-De luchtdruk gaan we met de luchtdruksensor (BMP085), die zowel luchtdruk als 
-temperatuur kan meten. De data wordt verwerkt door de ingangen A4 en A5 van 
+De luchtdruk gaan we met de luchtdruksensor (BMP085), die zowel luchtdruk als
+temperatuur kan meten. De data wordt verwerkt door de ingangen A4 en A5 van
 de Arduino.
 
 \paragraph{Aansluiten en meten met de luchtdruksensor}
@@ -338,7 +320,7 @@ regels kunnen verwijderd worden.
     \subfloat[]{
         \includegraphics[width=.6\linewidth]{Arduino_BMP_schakeling}
         \label{fig:Arduino_BMP_schakeling}}
-    \caption{De BMP085 los en in een schakeling. De voeding is \SI{3.3}{\volt} 
+    \caption{De BMP085 los en in een schakeling. De voeding is \SI{3.3}{\volt}
     en de data wordt via een seri\"{e}le data en clock lijn uitgelezen op A4 en A5.}
 \end{figure}
 
@@ -351,8 +333,8 @@ luchtvochtigheidssensor (DHT22 of DHT11), deze sensoren kunnen ook
 temperatuur meten. Wij hebben gekozen voor de iets duurdere DHT22, omdat
 die nauwkeuriger is, een relatieve luchtvochtigheidsbereik van
 \SIrange{0}{100}{\percent}en een temperatuurbereik heeft van
-\SIrange{-40}{125}{\degreeCelsius}. De DHT11 heeft een bereik 
-van \SIrange{0}{80}{\percent}, temperatuurbereik van \SIrange{0}{50}{\degreeCelsius} 
+\SIrange{-40}{125}{\degreeCelsius}. De DHT11 heeft een bereik
+van \SIrange{0}{80}{\percent}, temperatuurbereik van \SIrange{0}{50}{\degreeCelsius}
 en een nauwkeurigheid van \SI{5}{\percent}.
 
 \paragraph{Aansluiten en meten met de luchtvochtigheidssensor}
@@ -378,7 +360,7 @@ worden die bij de library geleverd wordt.
     \subfloat[]{
         \includegraphics[width=.6\linewidth]{Arduino_DHT_schakeling}
         \label{fig:Arduino_DHT_schakeling}}
-    \caption{De DHT los en in een schakeling. De voeding is \SI{5.0}{\volt}. 
+    \caption{De DHT los en in een schakeling. De voeding is \SI{5.0}{\volt}.
     Naar de datapin zit een weerstand van \SI{10}{\kilo\ohm}. Zowel de
     temperatuur als de relatieve luchtvochtigheid worden uitgelezen via
     een ingang.}
@@ -393,10 +375,10 @@ dan samen met een datum en tijd functie printen of wegschrijven naar een
 textfile of spreadsheetprogramma.
 
 In \figref{fig:Arduino_weerstation_schakeling} zien we alle sensoren (op
-een breadboard) aangesloten op een Arduino. We kunnen nu meten met het weerstation, 
-we hebben echter nog wel een vaste verbinding nodig. In de hieropvolgende 
-handleiding gaan we het weerstation draadloos maken.  
-In de volgende handleiding 'weerstation data' lezen we deze data uit van 
+een breadboard) aangesloten op een Arduino. We kunnen nu meten met het weerstation,
+we hebben echter nog wel een vaste verbinding nodig. In de hieropvolgende
+handleiding gaan we het weerstation draadloos maken.
+In de volgende handleiding 'weerstation data' lezen we deze data uit van
 de Arduino en sturen we dat naar de \hisparc database.
 
 
@@ -415,7 +397,7 @@ de Arduino en sturen we dat naar de \hisparc database.
 Bij het werken met Arduino en de sensoren zijn er een aantal zaken die vaak mis
 gaan. De meest voorkomende worden hieronder opgesomd en beantwoord.
 
-\begin{itemize} 
+\begin{itemize}
     \item \emph{Arduino wil niet uploaden.} Zorg dat het
     juiste Arduino bordje is geselecteerd, dit stel je in, in de Arduino
     software bij \emph{Tools/Board} vink daar het juiste Arduino bordje aan.
@@ -425,7 +407,7 @@ gaan. De meest voorkomende worden hieronder opgesomd en beantwoord.
     \figref{fig:Arduino_serial}. Is de USB poort niet juist dan zie je de
     volgende foutmelding in het venster.
     \verb|avrdude: stk500_recv(): programmer is not responding|.
-    \item \emph{Onjuiste data.} Zorg dat je in je Arduino code op de juiste 
+    \item \emph{Onjuiste data.} Zorg dat je in je Arduino code op de juiste
     ingangen uitleest. Check of je de juiste pinnen van de Arduino hebt aangesloten
     de uitgangen van de sensoren en of deze matchen met de gebruikte waarden in de
     code.
@@ -434,15 +416,14 @@ gaan. De meest voorkomende worden hieronder opgesomd en beantwoord.
     tijd dezelfde waarden geven, dan moet de schakeling gecontroleerd
     worden. Het verdient aanbeveling om de schakeling helemaal af te breken
     en opnieuw te maken.
-    \item \emph{Andere foutmeldingen} Check the troubleshooter van Arduino: 
-    \url{http://arduino.cc/en/guide/troubleshooting#toc1} 
-    
+    \item \emph{Andere foutmeldingen} Check the troubleshooter van Arduino:
+    \url{http://arduino.cc/en/guide/troubleshooting#toc1}
 \end{itemize}
 
 \begin{thebibliography}{9}
     \bibitem{Buisman}
-        H. Buisman, \emph{\hisparc Experiment: Lichtopbrengst en temperatuur}, 
-        Lio jaarverslag 2011
+        H. Buisman, \emph{\hisparc Experiment: Lichtopbrengst en temperatuur},
+        LiO jaarverslag 2011
 \end{thebibliography}
 
 
