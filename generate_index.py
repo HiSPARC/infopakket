@@ -61,8 +61,7 @@ def get_documents(categories):
         filename = os.path.splitext(os.path.basename(path))[0] + '.pdf'
         document = {'filename': filename}
         try:
-            document['title'] = fix_title(unicode(find_first(title_finder,
-                                                             path)[0]))
+            document['title'] = fix_title(find_first(title_finder, path)[0])
             document['version'] = find_first(version_finder, path)[0]
             category, document['rank'] = find_first(cat_rank_finder, path)
         except Exception:
@@ -81,7 +80,8 @@ def fix_title(title):
     title = title.replace(r'\pmt', 'PMT')
     title = title.replace(r'\gps', 'GPS')
     title = title.replace(r'\adc', 'ADC')
-    return title
+    return title.decode('utf-8').encode('ascii', 'xmlcharrefreplace')
+
 
 def find_first(finder, path):
     for line in open(path):
