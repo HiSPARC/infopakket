@@ -36,7 +36,8 @@ regen en windsensoren.
 \paragraph{Benodigdheden}
 Het weerstation kan met meer sensoren uitgerust worden dan hier genoemd.
 Het basis weerstation (luchtdruk, temperatuur en luchtvochtigheid) waar wij mee
-getest hebben heeft de volgende onderdelen nodig: \\
+getest hebben heeft de volgende onderdelen nodig:
+
 \begin{itemize}
     \item Arduino Uno R3 (of elke andere Arduino)
     \item USB kabel
@@ -50,6 +51,7 @@ Andere sensoren zoals een bliksemdetector (AS3935) zijn tot op heden
 niet getest, maar geven leerlingen een extra onderzoek
 mogelijkheid(namelijk de correlatie tussen bliksem en kosmische
 straling.)
+
 
 \section{Arduino}
 
@@ -304,7 +306,7 @@ Arduino zijn een library voor de sensor nodig en een standaard library
 van Arduino om $I^{2}$C data te verwerken, namelijk \emph{Wire.h}. De BMP085
 library is op verschillende plekken te downloaden, van verschillende
 fabrikanten. Wij hebben de volgende (open source) library gebruikt
-\emph{https://code.google.com/p/bmp085driver/} Pak deze library uit of
+\url{https://code.google.com/p/bmp085driver/} Pak deze library uit of
 installeer het zip bestand van de library in een keer in Arduino via \emph{Sketch /
 Import Library... / Add library} ( Arduino herkent namelijk ook \emph{zip} - bestanden).
 
@@ -328,7 +330,6 @@ regels kunnen verwijderd worden.
     \caption{De BMP085 los en in een schakeling. De voeding is \SI{3.3}{\volt}
     en de data wordt via een seri\"{e}le data en clock lijn uitgelezen op A4 en A5.}
 \end{figure}
-
 
 
 \subsection{Luchtvochtigheidssensor}
@@ -385,8 +386,6 @@ we hebben echter nog wel een vaste verbinding nodig. In de hieropvolgende
 handleiding gaan we het weerstation draadloos maken.
 In de volgende handleiding 'weerstation data' lezen we deze data uit van
 de Arduino en sturen we dat naar de \hisparc database.
-
-
 
 
 \begin{figure}
