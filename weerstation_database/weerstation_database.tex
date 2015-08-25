@@ -1,5 +1,10 @@
 \input{../style}
 
+% Hack to make minted work
+\makeatletter
+\global\let\tikz@ensure@dollar@catcode=\relax
+\makeatother
+
 \title{Weerdata versturen naar \hisparc}
 \author{C.G.N. van Veen}
 \docweerstation{3}{WD}
