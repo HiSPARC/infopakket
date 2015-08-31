@@ -1,4 +1,4 @@
-.PHONY: all distclean clean gh-pages latexmk-recursive distclean-recursive clean-recursive
+.PHONY: all distclean clean gh-pages latexmk-recursive distclean-recursive clean-recursive index
 
 TEXFILES=$(wildcard *.tex)
 TARGETS=$(patsubst %.tex,%.pdf,$(TEXFILES))
@@ -35,6 +35,10 @@ clean-recursive:
 		cd ..; \
 	done
 
+index:
+	python generate_index.py
+
+
 # Add to allow only from master branch: ifeq ($(strip $(shell git branch --list | grep \*\ master | wc -l)), 1)
 
 gh-pages:
@@ -43,15 +47,19 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	git rm -rf .
 	git clean -dxf
 	git checkout HEAD .nojekyll .gitignore
-	git checkout master index.html images styles
-	git checkout master Makefile
+	git checkout master generate_index.py index_template.html
+	git checkout master images styles
 	git checkout master style.tex style_brief.tex style_werkblad.tex common_style.tex HiSPARC_header.pdf
+	git checkout master Makefile
 	git checkout master $(TEX_DIRECTORIES)
+	$(MAKE) index
 	$(MAKE) all
 	mkdir pdf
 	mv -fv */*.pdf pdf/
 	rm -rf $(TEX_DIRECTORIES)
+	rm -f generate_index.py index_template.html
 	rm -f style.tex style_brief.tex style_werkblad.tex common_style.tex HiSPARC_header.pdf
+	rm -f Makefile
 	git add -A
 	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
 	git checkout master

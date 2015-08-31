@@ -1,6 +1,6 @@
 \input{../style}
 
-\title{Checklist Installatie Station}
+\title{Checklist installatie station}
 \author{C.G.N. van Veen}
 \docdetector{5}{CI}
 \version{1.0}
@@ -10,11 +10,11 @@
 \maketitle
 
 \section{Checklist}
-De documenten `uitlijnen van de ADCs' , `inregelen van de PMTs' en 
+De documenten `uitlijnen van de ADCs', `inregelen van de PMTs', en 
 `GPS calibratie' hebben U geholpen met de instellingen van de \hisparc
 \daq. Dit document heeft tot doel om een laatste check te doen. Het
 biedt een overzicht van de laatste belangrijke instellingen voordat U kunt gaan
-meten/ data kan verzenden met het \hisparc station. 
+meten en data kan verzenden met het \hisparc station. 
 
 \subsection{Data acquisitie modus}
 
@@ -29,9 +29,9 @@ tabje \emph{Time Window}. Als het goed is zijn de instellingen niet veranderd
 en staan ze nog als volgt. Zie \figref{fig:daq-time-window}:
 
 \begin{itemize}
-    \item Precoincidence time: 1 \micro s
-    \item Coincidence time: 1,5 \micro s
-    \item Post coincidence time: 3,5 \micro s
+    \item Precoincidence time: \SI{1}{\micro\second}
+    \item Coincidence time: \SI{1.5}{\micro\second}
+    \item Post coincidence time: \SI{3.5}{\micro\second}
 \end{itemize}
 
 \begin{figure}
@@ -47,13 +47,12 @@ en staan ze nog als volgt. Zie \figref{fig:daq-time-window}:
 De instellingen voor stations met twee detectoren zijn als volgt. Zie
 \figref{fig:daq-trigger-two-detectors}:
 
-
 \begin{itemize}
-    \item Threshold Low (alle kanalen): -30 mV
-    \item Threshold High (alle kanalen): -70 mV
-    \item Trigger: 2 low \textbf{AND} Don’t use high threshold \textbf{AND} Don’t use external trigger
+    \item Threshold Low (alle kanalen): \SI{-30}{\milli\volt}
+    \item Threshold High (alle kanalen): \SI{-70}{\milli\volt}
+    \item Trigger: 2 low \textbf{AND} Don’t use high threshold \textbf{AND}
+          Don’t use external trigger
 \end{itemize}
-
 
 \begin{figure}
     \centering
@@ -69,11 +68,10 @@ De instellingen voor stations met vier detectoren zijn als volgt. Zie
 \figref{fig:daq-trigger-four-detectors}
 
 \begin{itemize}
-    \item Threshold Low (alle kanalen): -30 mV
-    \item Threshold High (alle kanalen): -70 mV
+    \item Threshold Low (alle kanalen): \SI{-30}{\milli\volt}
+    \item Threshold High (alle kanalen): \SI{-70}{\milli\volt}
     \item Trigger: 3 low \textbf{OR} 2 high \textbf{AND} Don’t use external trigger
 \end{itemize}   
-
  
 \begin{figure}
     \centering
@@ -81,6 +79,7 @@ De instellingen voor stations met vier detectoren zijn als volgt. Zie
     \caption{De triggerinstellingen voor een detectorstation met vier detectoren.}
     \label{fig:daq-trigger-four-detectors}
 \end{figure}
+
 
 \subsection{Automatisch opstarten in DAQ modus}
 
@@ -114,7 +113,8 @@ HiSPARC -> Status -> Diagnostics.}
 \begin{figure}
     \centering
     \includegraphics[scale=0.6]{localdiagnostictool}
-    \caption{Screenshot van de Local Diagnostic Tool. Op deze PC is alles in orde, en er is geen proxy server vereist.}
+    \caption{Screenshot van de Local Diagnostic Tool. Op deze PC is alles
+             in orde, en er is geen proxy server vereist.}
     \label{fig:localdiagnostictool}
 \end{figure}
 
@@ -142,7 +142,6 @@ kleur moeten zijn. Is dat niet het geval dan kan het document
 `dagelijkse controle van een station' wat ook in het infopakket van
 \hisparc te vonden is, hulp bieden.
 
-
 De clustercoördinatoren van \hisparc hebben bovendien de mogelijkheid om de
 instellingen van de detector via een ‘virtual private network’ (VPN) op afstand 
 te wijzigen. De toegang tot de pc’s biedt de mogelijkheid om snel en 
@@ -151,7 +150,9 @@ efficiënt kritische instellingen te veranderen en software updates door te voer
 \begin{figure}
     \centering
     \includegraphics[scale=0.6]{network-diagram}
-    \caption{De software biedt monitor en controle mogelijkheden via een VPN verbinding. Data van de detector wordt over een gescheiden verbinding verzonden.}
+    \caption{De software biedt monitor en controle mogelijkheden via een VPN
+             verbinding. Data van de detector wordt over een gescheiden
+             verbinding verzonden.}
     \label{fig:network-diagram}
 \end{figure}
 

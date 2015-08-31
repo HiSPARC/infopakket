@@ -1,5 +1,10 @@
 \input{../style}
 
+% Hack to make minted work
+\makeatletter
+\global\let\tikz@ensure@dollar@catcode=\relax
+\makeatother
+
 \title{Wireless connectie PC en Arduino}
 \author{C.G.N. van Veen}
 \docweerstation{2}{WW}
@@ -158,36 +163,38 @@ frequentie \SI{434790}{\MHz} met 9600 bps in lucht en
 Herhaal deze stap voor de andere APC module. Belangrijk is dat de Baudrate op 
 9600 staat en paritycheck `none' is.
 
-\begin{center}
 \begin{table}
-    \begin{tabular}{ | l | l | }
-    \hline
-    Frequentie (MHz) & Frequentie (MHz)  \\ \hline
-    433050 & 433950     \\ \hline
-    433100 & 434000     \\ \hline
-    433150 & 434050     \\ \hline
-    433200 & 434100     \\ \hline
-    433250 & 434150     \\ \hline
-    433300 & 434200     \\ \hline
-    433350 & 434250     \\ \hline
-    433400 & 434300     \\ \hline
-    433450 & 434350     \\ \hline
-    433500 & 434400     \\ \hline
-    433550 & 434450     \\ \hline
-    433600 & 434500     \\ \hline
-    433650 & 434550     \\ \hline
-    433700 & 434600     \\ \hline
-    433750 & 434650     \\ \hline
-    433800 & 434700     \\ \hline
-    433850 & 434750     \\ \hline
-    433900 & 434790     \\ \hline
-   \end{tabular}
-   \caption{tabel met frequenties: Volgens \cite{Radio} mag in Nederland
-   dit bereik van radiofrequenties gebruikt worden voor telemetrie op
-   een vermogen van \SI{10}{\milli\watt}}
-   \label{table:frequenties}
+    \centering
+    \begin{tabular}{ l l }
+        \hline
+        Frequentie (\si{\mega\hertz}) & Frequentie (\si{\mega\hertz}) \\
+        \hline
+        433050 & 433950 \\
+        433100 & 434000 \\
+        433150 & 434050 \\
+        433200 & 434100 \\
+        433250 & 434150 \\
+        433300 & 434200 \\
+        433350 & 434250 \\
+        433400 & 434300 \\
+        433450 & 434350 \\
+        433500 & 434400 \\
+        433550 & 434450 \\
+        433600 & 434500 \\
+        433650 & 434550 \\
+        433700 & 434600 \\
+        433750 & 434650 \\
+        433800 & 434700 \\
+        433850 & 434750 \\
+        433900 & 434790 \\
+        \hline
+    \end{tabular}
+    \caption{tabel met frequenties: Volgens \cite{Radio} mag in Nederland
+             dit bereik van radiofrequenties gebruikt worden voor telemetrie
+             op een vermogen van \SI{10}{\milli\watt}.}
+    \label{table:frequenties}
 \end{table}
-\end{center}
+
 
 \subsection{Zenden en ontvangen met de APC module}
 
@@ -207,10 +214,10 @@ geeft ook de poort aan, waar deze zit. Ga naar \emph {"Tools"},
 \emph{"Serial Port"}. Daar vind je de poort waar de UART zit, zorg dat je deze checkt.
 Het adres van deze poort is nodig om met een andere programmeertaal (in ons
 geval: Python) de gegevens van het weerstation uit te lezen. 
-Op de MAC en Windows computers gaat dat net even anders, vandaar dat de onderstaande
+Op de Mac en Windows computers gaat dat net even anders, vandaar dat de onderstaande
 paragraven uitleg voor beide `operating systems' bevatten.
 
-\subsubsection{Python voor MAC}
+\subsubsection{Python voor Mac}
 Een pakket om Python in te draaien is bijvoorbeeld: Anaconda, kies Python 2.7.
 Dat is gratis te downloaden van: \url{http://continuum.io/downloads#all}
 Download de free version en installeer deze. Je hebt dan een venster waar je kunt
@@ -219,37 +226,38 @@ programmeren en een uitvoer venster.
 Uitleg over hoe je moet werken met Anaconda Python 2.7 kun je op Youtube wel vinden.
 
 Hieronder zie je een voorbeeld programma in Python, om data van het weerstation 
-(voor de MAC) uit te lezen.
+(voor de Mac) uit te lezen.
 Als een regel voorafgegaan wordt door een \verb|#| dan is dat een commentaar 
 regel en die wordt niet gecompiled en uitgevoerd.
 
 \begin{minted}{python}
-# code 1
+# Code 1
 
-# code om de data van de APC220 op de MAC uit te lezen
+# Code om de data van de APC220 op de Mac uit te lezen
+
 import sys, serial
 import time
 from time import sleep
       
 def main():
-strPort = '/dev/tty.SLAB_USBtoUART' # Adres van een APC-UART module voor MAC. 
-ser = serial.Serial(strPort, baudrate=9600, parity=serial.PARITY_NONE, 
-    bytesize=serial.EIGHTBITS, stopbits=serial.STOPBITS_ONE, timeout=1.0)
+    strPort = '/dev/tty.SLAB_USBtoUART' # Adres van een APC-UART module voor Mac. 
+    ser = serial.Serial(strPort, baudrate=9600, parity=serial.PARITY_NONE, 
+                        bytesize=serial.EIGHTBITS, stopbits=serial.STOPBITS_ONE,
+                        timeout=1.0)
     
-while True:
-try:
-    line = ser.readline()
-    print line
-    time.sleep(10)
- 
-except KeyboardInterrupt:
-    print 'exiting'
-    break
-    
+    while True:
+        try:
+            line = ser.readline()
+            print line
+            time.sleep(10)
+        except KeyboardInterrupt:
+            print 'exiting'
+            break
+
 if __name__ == '__main__':
-main()
-    
+    main()
 \end{minted}
+
 
 \subsubsection{Python voor Windows}
 
@@ -268,7 +276,7 @@ stukje code \footnote{bron: \url{http://asvresearch.com/main/index.php/tutorials
 \begin{minted}{python}
 # Code 2
 
-# code om COM poort van de UART op windows te vinden.
+# Code om COM poort van de UART op windows te vinden.
 
 import serial
  
@@ -286,11 +294,10 @@ def get_first_valid_port():
     if found:
         return 'COM' + str(port_number + 1)
     return None
-if __name__ == '__main__': 
 
+if __name__ == '__main__': 
     poort = get_first_valid_port()
     print poort
-    
 \end{minted}
 
 Het stukje code om de informatie over de UART in te lezen (Windows):
@@ -306,10 +313,9 @@ Dat is adres van de UART aansluiting.
 import serial 
 
 port = serial.Serial(port_id, baudrate=9600, parity=serial.PARITY_NONE, 
-       bytesize=serial.EIGHTBITS, stopbits=serial.STOPBITS_ONE, timeout=1.0) 
-
+                     bytesize=serial.EIGHTBITS, stopbits=serial.STOPBITS_ONE,
+                     timeout=1.0) 
 port.setRTS(0)
-
 \end{minted}
 
 Het stukje code om daadwerkelijk data uit te lezen. De output leest de
@@ -359,13 +365,13 @@ Gebruik hiervoor een `if' statement met je voorwaarden. Bijvoorbeeld de volgende
 (code 5)
 
 \begin{minted}{python}
-# code 5
-if nieuwe_data != ' ' and nieuwe_data !=vorige_data and len(nieuwe_data)>32:
-    file = open(".\Documents\Arduino\Metingen\Metingen.txt", "a") #"a
-            file.write(output + "  {:%d, %b %Y} | ".format(datetime.date.today())
-                         + (time.strftime("%H:%M:%S")) + "\n")
-            file.close()
-            vorige_data = nieuwe_data
+# Code 5
+
+if nieuwe_data != vorige_data and len(nieuwe_data) > 32:
+    with open("./Documents/Arduino/Metingen/Metingen.txt", "a") as data:
+        data.write(output + "  {:%d, %b %Y} | ".format(datetime.date.today()) +
+                   time.strftime("%H:%M:%S") + "\n")
+    vorige_data = nieuwe_data
 \end{minted}
 
 In de bovenstaande code staat in het \textit{if} statement een controle op 3
