@@ -24,8 +24,19 @@ html {
 .clearer {
     clear: both;}
 
+#introduction, #description {
+    font: 90% sans-serif;
+    letter-spacing: .03em;
+    line-height: 1.3em;
+}
+
+#description {
+    width: 80%;
+}
+
 #infopakket-content {
     margin: 0;
+    margin-bottom: 2em;
     padding: 0;
     float: left;
     width: 100%;
@@ -49,7 +60,7 @@ h3 {
     margin-bottom: 0px;
     padding: 5px;}
 
-p {
+#infopakket-content p {
     font-size: .85em;
     line-height: 1.8em;
     border-left-style: solid;
