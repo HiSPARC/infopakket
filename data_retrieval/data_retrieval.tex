@@ -1,9 +1,9 @@
 \input{../style}
 
 \title{Data retrieval}
-\author{A.P.L.S. de Laat} 
+\author{A.P.L.S. de Laat}
 \docanalyse{2}{DR}
-\version{1.1}
+\version{1.2}
 
 \begin{document}
 
@@ -22,7 +22,7 @@ aantal deeltjes in een detector.
 Toegang tot \hisparc meetgegevens is vrij voor iedereen. Het downloaden
 van de ruwe data is niet heel eenvoudig, bovendien raden we dat ook niet
 meer aan nu de afgeleide database beschikbaar is. Data uit de afgeleide
-database wordt als csv-bestand (tab gescheiden kolommen) aangeboden voor
+database wordt als tsv-bestand (tab gescheiden kolommen) aangeboden voor
 download via deze website: \url{http://data.hisparc.nl/data/download}.
 
 Zodra data gedownload is kan deze bijvoorbeeld in Excel geïmporteerd
@@ -49,7 +49,7 @@ kan data opgehaald en bestudeerd worden. Aan het \hisparc logo (rechts
 boven) is te herkennen of de pagina data van de \hisparc server aan het
 ophalen is, dan is het logo namelijk geanimeerd. Als eerst haalt de
 pagina een up-to-date lijst van \hisparc stations op, dit gaat zo snel
-dat het logo maar heel kort geanimeerd is. Onder het logo is een knop om bij 
+dat het logo maar heel kort geanimeerd is. Onder het logo is een knop om bij
 de documentatie van de pagina te komen: \url{http://doc.hisparc.nl/jsparc/}.
 
 
@@ -63,7 +63,7 @@ sectie op de pagina die een overzicht weergeeft van alle datasets die
 geladen zijn, zie \figref{fig:data_overview}. Het is mogelijk meerdere
 datasets te laden door het Download data formulier opnieuw te gebruiken
 met andere instellingen. Met het rechter formulier; \emph{Load local
-file} kan eigen of eerder gedownloade .csv bestanden (tab
+file} kan eigen of eerder gedownloade .tsv bestanden (tab
 gescheiden) inladen. Deze verschijnen dan ook in het overzicht.
 
 \begin{figure}
@@ -86,10 +86,10 @@ Door in de \emph{Choice} kolommen een dataset te kiezen verschijnen de
 plot opties en een lijst van de variabelen in die dataset. In sectie
 \ref{subsec:plotting} is uitgelegd wat alle opties betekenen. Daarnaast
 kan er gekozen worden om de waarden in de dataset te bekijken door op
-\emph{show} te klikken in de \emph{Preview} kolom. Met de \emph{get csv}
-knop wordt het .csv bestand gedownload. Met de \emph{x} in de
-\emph{Remove} kolom kan de dataset uit het geheugen van de browser
-gewist worden.
+\emph{show} te klikken in de \emph{Preview} kolom. Met de \emph{tsv}
+link onder \emph{Download} wordt de data als .tsv bestand gedownload.
+Met de \emph{x} in de \emph{Remove} kolom kan de dataset uit het geheugen
+van de browser gewist worden.
 
 
 \subsection{Grafieken maken}\label{subsec:plotting}
@@ -155,7 +155,7 @@ om duizenden regels te tonen, dus eerst worden er zo'n 30 getoond, door
 op de middelste regel te klikken ('click to show more') kan er meer
 ingekeken worden. Hier is ook duidelijk te zien dat sommige kolommen
 meerdere waarden hebben, omdat die waarden door meerdere sensoren of detectoren
-gemeten zijn. Voor deze waarden gelden dezelfde kleur aanduidingen als bij 
+gemeten zijn. Voor deze waarden gelden dezelfde kleur aanduidingen als bij
 de grafieken.
 
 \begin{figure}
@@ -199,7 +199,7 @@ fit curve. Zie \figref{fig:plot_options_fit}.
 \begin{figure}
     \centering
     \includegraphics[scale=0.4]{plot_options_fit}
-    \caption{Instellen van een fit van twee variabelen. Hier bijvoorbeeld 
+    \caption{Instellen van een fit van twee variabelen. Hier bijvoorbeeld
     event rate tegen luchtdruk}
     \label{fig:plot_options_fit}
 \end{figure}
