@@ -1,0 +1,52 @@
+\input{../style}
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+
+\title{Notebooks voor python}
+\author{N.G. Schultheiss}
+\docwerkblad{9}{NB}
+\version{1.1}
+
+\begin{document}
+
+\maketitle
+
+\section{Inleiding}
+
+De programmeertaal python wordt gebruikt voor het verwerken van HiSPARC-meetgegevens. Een aantal
+standaarden voor gegevensverwerking is voor de gebruiker draait onzichtbaar op de achtergrond. Nieuwe
+software voor interpretatie van meetgegevens kan direct in python geschreven worden. Documentatie is te
+vinden op \url{http://docs.hisparc.nl/}.
+
+Een aantal interactieve werkbladen is in de vorm van notebooks geschreven. Deze notebooks geven 
+voorbeelden voor:
+\begin{itemize}
+\item Het ophalen van meetgegegevens.
+\item Het ophalen van stationsgegevens.
+\item Het verwerken van de opgehaalde gegevens
+\end{itemize}
+De notebooks maken gebruik van ipython. 
+
+\section{Software-installatie}
+
+Voordat notebooks kunnen worden gebruikt, installeren we ipython 2.7. Onder windows hebben we de keuze uit:
+\begin{itemize}
+\item pythonxy (\url{https://python-xy.github.io/downloads.html})
+\item winpython (\url{https://github.com/winpython/winpython/wiki/Installation})
+\end{itemize} 
+De notebook module is te installeren door 'pip install notebook' in een command-scherm te draaien. Hierna
+voeren we he commando 'ipython notebook' ingevoerd. De browser start met een scherm waarin de notebooks
+te zien zijn.
+
+\begin{thebibliography}{9}
+    \bibitem{nikhefhisparc} Nikhef, \emph{\hisparc Elektronica},\\
+    \url{https://www.nikhef.nl/wetenschap-techniek/technische-afdelingen/
+	  elektronicatechnologie/projecten/}.
+
+    \bibitem{wiki} Wikipedia, \\
+    \url{http://www.wikipedia.org}.
+
+    \bibitem{veen2013richting} C.G.N. van Veen, \emph{Richting
+    Reconstructie} (2013).
+\end{thebibliography}
+
+\end{document}
