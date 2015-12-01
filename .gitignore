@@ -48,4 +48,5 @@
 # fig
 *.fig.bak
 
-Notebooks/.ipynb_checkpoints/zenith_afhankelijkheid-checkpoint.ipynb
+# IPython notebooks
+.ipynb_checkpoints/
