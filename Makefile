@@ -48,12 +48,12 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	git rm -rf .
 	git clean -dxf
 	git checkout HEAD .nojekyll .gitignore
-	git checkout $(BRANCH) generate_index.py index_template.html
-	git checkout $(BRANCH) images styles
-	git checkout $(BRANCH) style.tex style_brief.tex style_werkblad.tex common_style.tex HiSPARC_header.pdf
-	git checkout $(BRANCH) Makefile
-	git checkout $(BRANCH) $(TEX_DIRECTORIES)
-	git checkout $(BRANCH) Notebooks
+	git checkout $(BRANCH) -- generate_index.py index_template.html
+	git checkout $(BRANCH) -- images styles
+	git checkout $(BRANCH) -- style.tex style_brief.tex style_werkblad.tex common_style.tex HiSPARC_header.pdf
+	git checkout $(BRANCH) -- Makefile
+	git checkout $(BRANCH) -- $(TEX_DIRECTORIES)
+	git checkout $(BRANCH) -- Notebooks
 	$(MAKE) index
 	# $(MAKE) all
 	mkdir pdf
