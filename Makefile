@@ -3,7 +3,7 @@
 TEXFILES=$(wildcard *.tex)
 TARGETS=$(patsubst %.tex,%.pdf,$(TEXFILES))
 TEX_DIRECTORIES=$(sort $(dir $(wildcard */*.tex)))
-BRANCH=notebooks
+BRANCH=master
 
 # '-recursive' rules are based on a Makefile by Santiago Gonzalez Gancedo
 # https://github.com/sangonz/latex_makefile
