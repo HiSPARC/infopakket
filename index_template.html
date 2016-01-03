@@ -37,6 +37,16 @@
                     </div>
                 {%- endif %}
             {% endfor %}
+
+            <div id="notebooks">
+                <h3>Python Notebooks</h3>
+                <p>
+                    {%- for doc in notebooks %}
+                        <a href="notebooks/{{ doc.filename }}">{{ doc.title }}</a>
+                        {%- if not loop.last %}<br>{% endif %}
+                    {%- endfor %}
+                </p>
+            </div>
         </div>
         <div id="description">
           <h2>Omschrijving</h2>
