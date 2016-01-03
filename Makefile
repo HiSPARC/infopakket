@@ -58,10 +58,11 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	# $(MAKE) all
 	mkdir pdf
 	# mv -fv */*.pdf pdf/
-	mkdir notebooks
-	mv -fv Notebooks/*.ipynb notebooks/
+	mkdir tmp_notebooks
+	mv -fv Notebooks/*.ipynb tmp_notebooks/
 	rm -rf $(TEX_DIRECTORIES)
 	rm -rf Notebooks
+	mv -fv tmp_notebooks notebooks
 	rm -f generate_index.py index_template.html
 	rm -f style.tex style_brief.tex style_werkblad.tex common_style.tex HiSPARC_header.pdf
 	rm -f Makefile
