@@ -52,11 +52,15 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	git checkout master style.tex style_brief.tex style_werkblad.tex common_style.tex HiSPARC_header.pdf
 	git checkout master Makefile
 	git checkout master $(TEX_DIRECTORIES)
+	git checkout master Notebooks
 	$(MAKE) index
-	$(MAKE) all
+	# $(MAKE) all
 	mkdir pdf
 	mv -fv */*.pdf pdf/
+	mkdir notebooks
+	mv -fv Notebooks/*.ipynb notebooks/
 	rm -rf $(TEX_DIRECTORIES)
+	rm -rf Notebooks
 	rm -f generate_index.py index_template.html
 	rm -f style.tex style_brief.tex style_werkblad.tex common_style.tex HiSPARC_header.pdf
 	rm -f Makefile
