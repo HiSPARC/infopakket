@@ -55,9 +55,9 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	git checkout $(BRANCH) -- $(TEX_DIRECTORIES)
 	git checkout $(BRANCH) -- Notebooks
 	$(MAKE) index
-	# $(MAKE) all
+	$(MAKE) all
 	mkdir pdf
-	# mv -fv */*.pdf pdf/
+	mv -fv */*.pdf pdf/
 	mkdir tmp_notebooks
 	mv -fv Notebooks/*.ipynb tmp_notebooks/
 	rm -rf $(TEX_DIRECTORIES)
