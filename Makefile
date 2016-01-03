@@ -57,7 +57,7 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	$(MAKE) index
 	# $(MAKE) all
 	mkdir pdf
-	mv -fv */*.pdf pdf/
+	# mv -fv */*.pdf pdf/
 	mkdir notebooks
 	mv -fv Notebooks/*.ipynb notebooks/
 	rm -rf $(TEX_DIRECTORIES)
