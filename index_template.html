@@ -41,7 +41,7 @@
             <div id="notebooks">
                 <h3>Python Notebooks</h3>
                 <p>
-                    <a href="pdf/Notebooks.pdf">Installatie Notebooks</a><br>
+                    <a href="pdf/notebooks.pdf">Installatie Notebooks</a><br>
                     {%- for doc in notebooks %}
                         <a href="notebooks/{{ doc.filename }}">{{ doc.title }}</a>
                         {%- if not loop.last %}<br>{% endif %}
