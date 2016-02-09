@@ -41,13 +41,14 @@ creating pdfs use `make clean`, to also remove the generated pdfs use
 How to publish
 --------------
 
-To publish new documents or changes run the terminal command `make
-gh-pages` from the root repository directory while in the `master`
-branch. This will first checkout the `gh-pages` branch. Then get all
-directories containing a tex file from the `master` branch, and
-`index.html`, `styles` and `images`. It will then build all pdf files,
-which will be copied to a `pdf` directory, after which the source
-directories will be removed. Then a new commit will automatically be
-created. And the `master` branch will be checked out again. Once you
-push the `gh-pagez` branch to GitHub, the changes will be available
+First ensure that the `gh-pages` branch is up-to-date. Then go back to
+the `master` branch. To publish new documents or changes run the
+terminal command `make gh-pages` from the root repository directory
+while in the `master` branch. This will first checkout the `gh-pages`
+branch. Then get all directories containing a tex file from the `master`
+branch, and `index.html`, `styles` and `images`. It will then build all
+pdf files, which will be copied to a `pdf` directory, after which the
+source directories will be removed. Then a new commit will automatically
+be created. And the `master` branch will be checked out again. Once you
+push the `gh-pages` branch to GitHub, the changes will be available
 online.
