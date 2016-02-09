@@ -53,3 +53,6 @@ index.html
 
 # IPython notebooks
 .ipynb_checkpoints/
+
+# Python data
+*.h5
