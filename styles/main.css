@@ -108,5 +108,7 @@ a:hover {
 #opdrachten p {border-color: Silver;}
 #recept h3 {background-color: Navy;}
 #recept p {border-color: Navy;}
-#notebooks h3 {background-color: ForestGreen;}
-#notebooks p {border-color: ForestGreen;}
+#python h3 {background-color: black;}
+#python p {border-color: black;}
+#notebooks h3 {background-color: black;}
+#notebooks p {border-color: black;}
