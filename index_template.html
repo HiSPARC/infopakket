@@ -15,7 +15,11 @@
             </a>
         </div>
         <span class="clearer"></span>
-        <h2>Info pakket</h2>
+        <h2>HiSPARC Info pakket</h2>
+        <div id="introduction">
+          Dit zijn documenten met lesmateriaal en praktische opdrachten gericht op
+          middelbare scholen. <a href='#description'>Lees meer...</a>
+        </div>
         <div id="infopakket-content">
             {% for shortname, category in infopakket.items() %}
                 {%- if category.documents|length %}
@@ -33,6 +37,38 @@
                     </div>
                 {%- endif %}
             {% endfor %}
+
+            <div id="notebooks">
+                <h3>Python Notebooks</h3>
+                <p>
+                    {%- for doc in notebooks %}
+                        <a href="notebooks/{{ doc.filename }}" download>{{ doc.title }}</a>
+                        <span class='version'>ipynb</span>
+                        {%- if not loop.last %}<br>{% endif %}
+                    {%- endfor %}
+                </p>
+            </div>
+        </div>
+        <div id="description">
+          <h2>Omschrijving</h2>
+          <p>Het doel van het materiaal is om docenten en leerlingen een ingang
+          te bieden voor onderhoud en onderzoek. Hiervoor zijn een aantal
+          opdrachten samengesteld die de docent voor zijn lessen kan gebruiken.
+          Door deze opdrachten uit te voeren ervaren leerlingen de
+          verschillende facetten van wetenschappelijk onderzoek:</p>
+
+          <ul>
+            <li> Het onderhouden van een experimentele opstelling.
+            <li> Het opvragen en verwerken van de digitaal opgeslagen meetgegevens.
+            <li> Op basis van de meetgegevens de onderzoeksvraag beantwoorden.
+          </ul>
+
+          <p>De verschillende documenten kunnen los van elkaar gebruikt worden.
+          Wilt u echter een samenhangende korte lessenserie geven van ongeveer
+          drie lessen, dan kunt u gebruik maken van een van de
+          <emph>recepten</emph>.</p>
+
+          <p>Feedback: <a href='mailto:beheer@hisparc.nl?subject=Feedback infopakket'>beheer@hisparc.nl</a></p>
         </div>
     </div>
 </body>

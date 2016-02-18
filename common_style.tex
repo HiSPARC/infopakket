@@ -5,9 +5,9 @@
 \usepackage[font={small,sf},labelfont={bf},labelsep=endash]{caption}
 \usepackage{fouriernc}
 \usepackage[detect-all, binary-units, separate-uncertainty=true,
-            per-mode=symbol, retain-explicit-plus, range-phrase={ tot },
-            list-final-separator={ en }, output-decimal-marker={,}]
-            {siunitx}
+            per-mode=symbol, retain-explicit-plus, retain-unity-mantissa=false,
+            range-phrase={ tot }, list-final-separator={ en },
+            list-pair-separator={ en }, output-decimal-marker={,}]{siunitx}
 
 \usepackage{setspace}
 \setstretch{1.2}
@@ -43,10 +43,8 @@
 \usepackage{sansmath}
 \usepackage{titling}
 
-
 \theoremstyle{plain}
 \newtheorem*{note}{Note}
-
 
 \newcommand{\figref}[1]{Figuur~\ref{#1}}
 
@@ -57,7 +55,8 @@
 \newcommand{\hdf}{\textsmaller{HDF5}\xspace}
 \newcommand{\aires}{\textsmaller{AIRES}\xspace}
 \newcommand{\csv}{\textsmaller{CSV}\xspace}
-\newcommand{\python}{\textsmaller{PYTHON}\xspace}
+\newcommand{\tsv}{\textsmaller{TSV}\xspace}
+\newcommand{\python}{\textsmaller{Python}\xspace}
 \newcommand{\corsika}{\textsmaller{CORSIKA}\xspace}
 \newcommand{\labview}{\textsmaller{LabVIEW}\xspace}
 \newcommand{\dspmon}{\textsmaller{DSPMon}\xspace}
@@ -113,6 +112,7 @@
 \newcommand{\docdocent}[2]{\setdocumentstyle{DarkKhaki}{Uitwerkingen}{#1}{#2}}
 \newcommand{\docopdrachten}[2]{\setdocumentstyle{Silver}{Opdrachten}{#1}{#2}}
 \newcommand{\docrecept}[2]{\setdocumentstyle{Navy}{Recept}{#1}{#2}}
+\newcommand{\docpython}[2]{\setdocumentstyle{Black}{Python}{#1}{#2}}
 
 \pgfmathsetlengthmacro\stylemarginsep{+1cm}
 \pgfmathsetlengthmacro\stylethumbsep{+.75cm}

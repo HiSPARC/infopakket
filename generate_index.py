@@ -10,12 +10,12 @@ import jinja2
 PATH = os.path.dirname(__file__)
 
 
-def make_index(infopakket):
+def make_index(infopakket, notebooks):
     template_path = os.path.join(PATH, 'index_template.html')
     with open(template_path) as template_file:
         template = template_file.read()
     template = jinja2.Template(template)
-    index = template.render(infopakket=infopakket)
+    index = template.render(infopakket=infopakket, notebooks=notebooks)
     index_path = os.path.join(PATH, 'index.html')
     with open(index_path, 'w') as index_file:
         index_file.write(index)
@@ -99,7 +99,30 @@ def find_first(finder, path):
     raise Exception
 
 
+def get_notebooks():
+    """Retrieve all notebooks from the directory tree."""
+
+    path = os.path.join(PATH, 'notebooks', '*.ipynb')
+    files = glob.glob(path)
+    notebooks = []
+    for f in files:
+        filename = os.path.basename(f)
+        title = make_notebook_title(filename)
+        notebooks.append({'filename': filename, 'title': title})
+    return notebooks
+
+
+def make_notebook_title(filename):
+    """Make a title out of the notebook filename."""
+
+    name, ext = filename.split('.')
+    words = name.split('_')
+    del words[0]
+    return ' '.join(words)
+
+
 if __name__ == "__main__":
     categories = get_categories()
     infopakket = get_documents(categories)
-    make_index(infopakket)
+    notebooks = get_notebooks()
+    make_index(infopakket, notebooks)

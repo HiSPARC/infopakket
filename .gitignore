@@ -1,3 +1,6 @@
+# Compiled html
+index.html
+
 # Compiled pdfs
 */*.pdf
 
@@ -47,3 +50,9 @@
 
 # fig
 *.fig.bak
+
+# IPython notebooks
+.ipynb_checkpoints/
+
+# Python data
+*.h5

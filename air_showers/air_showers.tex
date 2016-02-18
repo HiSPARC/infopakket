@@ -4,7 +4,7 @@
 \title{Air-showers, events en coïncidenties}
 \author{N.G. Schultheiss}
 \docwerkblad{1}{AS}
-\version{1.1}
+\version{1.2}
 
 \begin{document}
 
@@ -42,7 +42,7 @@ Meerdere detectoren van een station meten in dat geval nagenoeg tegelijk iets, d
 wordt een \emph{event} genoemd. Een enkele detector op de grond
 kan naast deeltjes van een air-shower ook de straling meten van radioactief
 verval van stoffen op Aarde, een dergelijke meting wordt een \emph{single}
-genoemd. 
+genoemd.
 
 \begin{figure}[ht]
     \centering
@@ -86,11 +86,11 @@ meten van een event te simuleren.\\
 \begin{tabular}{|x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
                 |x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
                 |x{.11\textwidth}|}
-    \cline{2-7} 
+    \cline{2-7}
     \multicolumn{1}{c|}{} & 1 & 2 & 3 & 4 & 5 & $N_\textrm{gem}$\\
-    \hline 
+    \hline
     $N$ &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
 \end{tabular}%
 \end{minipage}
 
@@ -128,11 +128,11 @@ Bereken het gemiddelde van $N^{2}$.
 \begin{tabular}{|x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
                 |x{.11\textwidth}|x{.11\textwidth}|x{.11\textwidth}
                 |x{.11\textwidth}|}
-    \cline{2-7} 
+    \cline{2-7}
     \multicolumn{1}{c|}{} & 1 & 2 & 3 & 4 & 5 & $\left(N^{2}\right)_\textrm{gem}$\\
-    \hline 
+    \hline
     $N^{2}$ &  &  &  &  &  & \\
-    \hline 
+    \hline
 \end{tabular}
 
 \bigskip{}
@@ -215,7 +215,7 @@ Poisson \cite{wiki} gepubliceerd:
 
 Hierin is $k=1$ als een tweede detector precies éénmaal getriggerd
 wordt. $\lambda$ is hier de frequentie van de achtergrondstraling
-maal de duur van het triggervenster $\left(\lambda=f_{single}*T_\textrm{venster}\right)$. 
+maal de duur van het triggervenster $\left(\lambda=f_{single}*T_\textrm{venster}\right)$.
 
 \begin{minipage}[t]{1\columnwidth}%
 
@@ -260,7 +260,7 @@ De duur van het triggervenster is van belang als we naar de kans op
 toevallige triggers kijken. We kunnen een grafiek maken van de kans
 op een toevallige trigger als functie van de duur van het triggervenster
 $T_\textrm{venster}$. Er geldt: $\lambda=f_{single}*T_\textrm{venster}$, en dit
-geval wordt dit: $\lambda=100*T_\textrm{venster}$$ $. 
+geval wordt dit: $\lambda=100*T_\textrm{venster}$$ $.
 
 \begin{minipage}[t]{1\columnwidth}%
 
@@ -275,11 +275,11 @@ af.
 \begin{tabular}{|x{.20\textwidth}|x{.07\textwidth}|x{.07\textwidth}
                 |x{.07\textwidth}|x{.07\textwidth}|x{.07\textwidth}
                 |x{.07\textwidth}|x{.07\textwidth}|}
-    \hline 
+    \hline
     $T_\textrm{venster}$ {[}$\mu\mathrm{s}${]} & 1,5 & 3,0 & 7,5 & 15 & 30 & 75 & 150\tabularnewline
-    \hline 
+    \hline
     $P_\textrm{trigger}=1-P_{k=0}$ &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
 \end{tabular}
 \end{minipage}
 
@@ -325,31 +325,32 @@ bij een station met 4 detectoren en een triggervenster van \SI{1.5}{\micro\secon
 \subsubsection{De gelijktijdige signalen van twee detectoren wijzen op
                een air-shower.}
 
-Dit experiment is uit te voeren met de simulatie op:
+Dit experiment is uit te voeren met de simulatie op (figuur \ref{fig:Station_simulatie}):
 
 \url{http://data.hisparc.nl/media/jsparc/station_simulation.html}
 
-\begin{figure}[h]
-    \includegraphics[width=15cm]{./Figures/Station_simulation}
-    \caption{Station simulatie. Het aantal deeltjes per m$^{2}$ in een
-             deeltjes-lawine kan worden ingevuld. In dit geval zijn er
-             dus gemiddeld 2 deeltjes per m$^{2}$. Met de knop 'Start
-             simulation' zijn deze willekeurig te verstrooien. We nemen
-             aan dat het station getriggerd wordt als minimaal twee
-             detectoren door een deeltje geraakt worden}
+\begin{figure}[H]
+\includegraphics[width=15cm]{./Figures/Station_simulation}
+
+\caption{\label{fig:Station_simulatie}Station simulatie. Het aantal deeltjes
+per m$^{2}$ in een deeltjes-lawine kan worden ingevuld. In dit geval zijn er
+dus gemiddeld 2 deeltjes per m$^{2}$. Met de knop 'Start simulation' zijn deze
+willekeurig te verstrooien. We nemen aan dat het station getriggerd wordt als
+minimaal twee detectoren door een deeltje geraakt worden}
+
 \end{figure}
 
 
 De simulatie gaat verder bij opdracht 14.
 
-De simulatie is ook met een practicum te simuleren. In
+Deze simulatie is ook met een practicum te simuleren. In
 figuur \ref{fig:Meetstations} is een plattegrond te zien. Hierop
 zijn zowel een station met 2 detectoren als een station met 4 detectoren
 te zien. De plattegrond past in de deksel van een papierdoos. Op de
 plattegrond zijn de scintillatorplaten van \SI{0.500}{\meter} bij
-\SI{1.000}{\meter} op schaal getekend. 
+\SI{1.000}{\meter} op schaal getekend.
 
-\begin{figure}[p]
+\begin{figure}[h]
     \centering
     \includegraphics[width=15.833cm]{station}
     \caption{Een meetstation met twee detectoren en een
@@ -376,7 +377,7 @@ dit tweede oppervlak is te berekenen.
 We willen de kans bepalen dat een air-shower gedetecteerd wordt. Deze
 kans hangt af van de deeltjesdichtheid $\rho$, het aantal deeltjes
 per $\mathrm{m^{2}}$ in de air-shower. Deze deeltjes simuleren we
-met korreltjes couscous of hagelslag. Hier gaan we met couscous aan de slag.
+met korreltjes risotto of parel couscous. Hier gaan we met risotto aan de slag.
 
 \begin{minipage}[t]{1\columnwidth}%
 
@@ -388,42 +389,42 @@ Bereken hoeveel deeltjes nodig zijn.
 
 \begin{tabular}{|x{.3\textwidth}|x{.1\textwidth}|x{.1\textwidth}
                 |x{.1\textwidth}|x{.1\textwidth}|x{.1\textwidth}|}
-    \hline 
+    \hline
     $\rho_\textrm{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10 \\
-    \hline 
+    \hline
     Aantal korreltjes in de doos &  &  &  &  & \\
-    \hline 
+    \hline
     \end{tabular}%
 \end{minipage}
 
 \bigskip{}
 Het wordt een heel karwei om de korreltjes te tellen. We wegen een
-aantal korreltjes en bereken de massa couscous die nodig is.
+aantal korreltjes en bereken de massa risotto die nodig is.
 
 \begin{minipage}[t]{1\columnwidth}%
 
 \paragraph{Opdracht 13:}
 
-Bereken de massa couscous.
+Bereken de massa risotto.
 
 \bigskip{}
 
 \begin{tabular}{|x{.3\textwidth}|x{.1\textwidth}|x{.1\textwidth}
                 |x{.1\textwidth}|x{.1\textwidth}|x{.1\textwidth}|}
-    \hline 
+    \hline
     $\rho_\textrm{werkelijk}$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10 \\
-    \hline 
-    Massa couscous in de doos &  &  &  &  & \\
-    \hline 
+    \hline
+    Massa risotto in de doos &  &  &  &  & \\
+    \hline
 \end{tabular}
 \end{minipage}
 
 \bigskip{}
 
 
-Nu kunnen we de hoeveelheid couscous in de doos doen die overeenkomt met
+Nu kunnen we de hoeveelheid risotto in de doos doen die overeenkomt met
 0,5 deeltjes per $\mathrm{m^{2}}$ in werkelijkheid. We schudden de doos
-en proberen de couscous zo gelijkmatig te verdelen. Als er op twee
+en proberen de risotto zo gelijkmatig te verdelen. Als er op twee
 detectoren van een station minstens 1 korreltje ligt is het station
 getriggerd. Let op dat je niet elke keer net zo lang schudt totdat er ,,toevallig''
 een trigger wordt afgegeven. Dit is een aantal malen te herhalen en we
@@ -444,33 +445,33 @@ dat het station getriggerd wordt.
                 |>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}
                 |>{\centering}p{1cm}|>{\centering}p{1cm}|>{\centering}p{1cm}
                 |>{\centering}p{1cm}|>{\centering}p{1cm}|}
-    \cline{2-11} 
+    \cline{2-11}
     \multicolumn{1}{c|}{} & \multicolumn{5}{c|}{twee detectoren} & \multicolumn{5}{c|}{vier detectoren}\tabularnewline
-    \hline 
+    \hline
     $\rho$ $\left[\mathrm{m^{-2}}\right]$ & 0,5 & 1 & 2 & 5 & 10 & 0,5 & 1 & 2 & 5 & 10\tabularnewline
-    \hline 
+    \hline
     meting 1 &  &  &  &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
     meting 2 &  &  &  &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
     meting 3 &  &  &  &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
     meting 4 &  &  &  &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
     meting 5 &  &  &  &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
     meting 6 &  &  &  &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
     meting 7 &  &  &  &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
     meting 8 &  &  &  &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
     meting 9 &  &  &  &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
     meting 10 &  &  &  &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
     triggerkans &  &  &  &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
 \end{tabular}
 \end{minipage}
 
@@ -480,11 +481,12 @@ dat het station getriggerd wordt.
 Met deze gegevens is een diagram voor de triggerkans als functie van
 de deeltjesdichtheid te maken.
 
-\begin{figure}[ht]
+\begin{figure}[h]
     \paragraph{Opdracht 15:}
-    Maak het diagram van de triggerkans als functie van de
-            deeltjesdichtheid, voor een station met twee en een station
-            met vier detectoren.
+    	Maak het diagram van de triggerkans als functie van de
+         deeltjesdichtheid, voor een station met twee en een station
+         met vier detectoren.
+
     \bigskip{}
     \begin{tikzpicture}
         [gridlines/.style={color=gray,very thin}]
@@ -506,7 +508,7 @@ voor de hoeveelheid energie van het primaire kosmische deeltje dat
 als eerste de atmosfeer raakt.%
 } kan deeltjes over een groter oppervlak verspreiden. In dit grotere
 oppervlak kunnen meerdere stations liggen. Als meerdere stations nagenoeg
-tegelijk worden getriggerd, spreken we van een coïncidentie. 
+tegelijk worden getriggerd, spreken we van een coïncidentie.
 
 Als een coïncidentie door een enkele air-shower wordt veroorzaakt,
 moeten de metingen aan een aantal randvoorwaarden voldoen. Deeltjes
@@ -538,11 +540,11 @@ Bereken de grootte van het triggervenster in de volgende gevallen:
 \bigskip{}
 
 \begin{tabular}{|c|>{\centering}p{1.5cm}|>{\centering}p{1.5cm}|>{\centering}p{1.5cm}|>{\centering}p{1.5cm}|}
-    \hline 
+    \hline
     Afstand tussen de stations {[}m{]} & 100 & 200 & 500 & 1000\tabularnewline
-    \hline 
+    \hline
     Duur van het triggervenster {[}ns{]} &  &  &  & \tabularnewline
-    \hline 
+    \hline
 \end{tabular}%
 \end{minipage}
 
@@ -556,7 +558,7 @@ komt en de klokken allemaal goed lopen, zal het gemiddelde tijdsverschil
 bij een voldoende grote steekproef \SI{0}{\nano\second} moeten zijn.
 Als er een tijdsverschil gemeten wordt, lopen de klokken niet synchroon.
 We kunnen zelfs bepalen hoeveel de klokken voor of achter lopen. Dit
-kan door gebruik te maken van event gegevens van een aantal stations. 
+kan door gebruik te maken van event gegevens van een aantal stations.
 
 Deze zijn bijvoorbeeld op te vragen met:
 
@@ -571,9 +573,8 @@ in te vullen%
 \footnote{In principe kan een grote periode worden opgevraagd. Begin echter
 met een uur, het opvragen van een dag voor meerdere stations duurt
 wel even.%
-}. De server stuurt een csv%
-\footnote{Comma Seperated Value: de waarden kunnen door komma's gescheiden zijn,
-dit is niet altijd het geval. In dit bestand worden ,,tabs'' gebruikt.%
+}. De server stuurt een tsv%
+\footnote{Tab-seperated-values: een format waarbij de waarden door tabs gescheiden zijn.%
 }-bestand met event gegevens terug. Dit bestand is in een spreadsheet
 programma te openen, maar kan ook door JavaScript worden ingelezen.
 
@@ -594,7 +595,7 @@ worden:
     alles tot de lijsten leeg zijn.
     \item We hebben nu verschillijsten van a en b, a en c, etc. Er zijn
     ook verschillijsten van b en c, etc. Met deze lijsten zijn
-    histogrammen te maken. 
+    histogrammen te maken.
 \end{itemize}
 We weten dat stations niet nauwkeuriger kunnen meten dan
 \SI{2,5}{\nano\second}. Karl Pearson (1857-1936) \cite{wiki} ontwikkelde
@@ -606,11 +607,11 @@ staafdiagram te maken. We kunnen de grenzen bijvoorbeeld zo vastleggen:
 
 \bigskip{}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-    \hline 
+    \hline
     Bin-waarde {[}ns{]} & eerder & -7,5 tot -5 & -5 tot -2,5 & -2,5 tot 0 & 0 tot 2,5 & 2,5 tot 5 & 5 tot 7,5 & later\tabularnewline
-    \hline 
+    \hline
     Frequentie &  &  &  &  &  &  &  & \tabularnewline
-    \hline 
+    \hline
 \end{tabular}
 
 \bigskip{}
@@ -652,7 +653,7 @@ het totale aantal verschiltijden (coïncidenties) (N) en de minimale
 \begin{thebibliography}{9}
     \bibitem{nikhefhisparc} Nikhef, \emph{\hisparc Elektronica},\\
     \url{https://www.nikhef.nl/wetenschap-techniek/technische-afdelingen/
-         elektronicatechnologie/projecten/}.
+	  elektronicatechnologie/projecten/}.
 
     \bibitem{wiki} Wikipedia, \\
     \url{http://www.wikipedia.org}.

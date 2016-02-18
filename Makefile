@@ -3,6 +3,7 @@
 TEXFILES=$(wildcard *.tex)
 TARGETS=$(patsubst %.tex,%.pdf,$(TEXFILES))
 TEX_DIRECTORIES=$(sort $(dir $(wildcard */*.tex)))
+BRANCH=master
 
 # '-recursive' rules are based on a Makefile by Santiago Gonzalez Gancedo
 # https://github.com/sangonz/latex_makefile
@@ -47,22 +48,27 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	git rm -rf .
 	git clean -dxf
 	git checkout HEAD .nojekyll .gitignore
-	git checkout master generate_index.py index_template.html
-	git checkout master images styles
-	git checkout master style.tex style_brief.tex style_werkblad.tex common_style.tex HiSPARC_header.pdf
-	git checkout master Makefile
-	git checkout master $(TEX_DIRECTORIES)
+	git checkout $(BRANCH) -- generate_index.py index_template.html
+	git checkout $(BRANCH) -- images styles
+	git checkout $(BRANCH) -- style.tex style_brief.tex style_werkblad.tex common_style.tex HiSPARC_header.pdf
+	git checkout $(BRANCH) -- Makefile
+	git checkout $(BRANCH) -- $(TEX_DIRECTORIES)
+	git checkout $(BRANCH) -- notebooks
 	$(MAKE) index
 	$(MAKE) all
 	mkdir pdf
 	mv -fv */*.pdf pdf/
+	mkdir tmp_notebooks
+	mv -fv notebooks/*.ipynb tmp_notebooks/
 	rm -rf $(TEX_DIRECTORIES)
+	rm -rf notebooks
+	mv -fv tmp_notebooks notebooks
 	rm -f generate_index.py index_template.html
 	rm -f style.tex style_brief.tex style_werkblad.tex common_style.tex HiSPARC_header.pdf
 	rm -f Makefile
 	git add -A
-	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
-	git checkout master
+	git commit -m "Generated gh-pages for `git log $(BRANCH) -1 --pretty=short --abbrev-commit`"
+	git checkout $(BRANCH)
 else
 	$(error Working tree is not clean, please commit all changes.)
 endif
