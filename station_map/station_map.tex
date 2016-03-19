@@ -3,7 +3,7 @@
 \title{Stationsplattegrond}
 \author{A.P.L.S. de Laat, N.G. Schultheiss}
 \docwerkblad{3}{SP}
-\version{2.0}
+\version{2.1}
 
 \begin{document}
 
@@ -11,39 +11,41 @@
 
 \section{Inleiding}
 
-Een \hisparc station bestaat uit twee of vier detectoren die op het dak
-van een (school)gebouw staan. Elk paar detectoren is aangesloten op een
-\hisparc II of \hisparc III unit. De \hisparc units zijn in twee
-varianten beschikbaar, een master en een slave. Een \hisparc station
-heeft altijd een \hisparc master, op deze unit wordt ook een \gps antenne
-aangesloten. Sommige stations hebben naast een master ook een slave,
-master en slave werken samen als een eenheid. De master en eventuele
-slave van een station zijn aangesloten op een meetcomputer, die de
-metingen naar de \hisparc server stuurt. Met de computer zijn de
+Een \hisparc station bestaat uit twee of vier detectoren die op het dak van een
+(school)gebouw staan. Elk paar detectoren is aangesloten op \hisparc II of
+\hisparc III electronica. De \hisparc electronica is in twee varianten
+beschikbaar, namelijk als master en als slave. Een \hisparc station heeft
+altijd een \hisparc master, hierop wordt de \gps antenne aangesloten. De
+electronica kan twee detectoren uitlezen, een station met vier detectoren heeft
+daarom ook een slave nodig. De master en slave werken samen als een eenheid. De
+master en eventuele slave van een station zijn aangesloten op een meetcomputer,
+die de metingen naar de \hisparc server stuurt. Met de computer zijn de
 aangesloten units ook af te regelen.
 
 Met de \gps antenne is de locatie van een station te bepalen.
 \gps satellieten zenden radiosignalen uit, in dit signaal wordt de tijd
 van de satelliet op het moment van uitzenden op 1 ns nauwkeurig meegestuurd.
 Met het verschil tussen de aankomsttijd van het signaal en de lokale
-tijd van de antenne zijn de afstanden uit rekenen. Deze tijd kunnen we
-ook gebruiken om  vast te leggen wanneer de detectoren iets meten. 
+tijd van de antenne zijn de afstanden uit te rekenen. Deze tijd kunnen we
+ook gebruiken om  vast te leggen wanneer de detectoren iets meten.
 
-Omdat de \gps antenne zowel de plaats als de tijd van eent station definieert,
-wordt de plaats van de detectoren ten opzichte van de \gps antenne
-vastgelegd.
+Omdat de \gps antenne zowel de plaats als de tijd van een station definieert,
+wordt de plaats van de detectoren ten opzichte van de \gps antenne vastgelegd.
+De posities van de detectoren worden niet automatisch bepaald zoals die van de
+\gps. De posities van de detectoren moeten met de hand gemeten worden. De
+posities van de detectoren zijn nodig voor de data analyse.
 
 
 \section{Kaarten}
 
 De plaats van de \gps antenne wordt via het internet naar de \hisparc
 server gestuurd. De configuratie van het station is in een Firefox,
-Chrome of Safari browser op te halen op: 
+Chrome of Safari browser op te halen op:
 
-\texttt{\small{http://data.hisparc.nl/api/station/}}{\small{\{Stationsnummer}}\texttt{\small{\}/config/}}{\small \par}
+\texttt{\small{http://data.hisparc.nl/api/station/}}{\small{\{Stationsnummer\}}}
 
 Op de plaats van \{Stationsnummer\} vul je het stationsnummer in. Let
-op: Internet Explorer werkt niet! 
+op: Internet Explorer werkt niet!
 
 Met enig zoeken zijn de Oosterlengte (longitude) en Noorderbreedte
 (latitude), beide in graden te vinden. De hoogte (altitude) wordt in
@@ -54,14 +56,15 @@ Amsterdam tientallen meters onder NAP (het Nieuw Amsterdams Peil).
 
 \paragraph{Opdracht 1:}
 
-Bepaal hoever de \gps antenne van het te meten station boven
-        de WGS 84 ellipsoïde ligt en hoever dit boven NAP is.
+Bepaal hoever de \gps antenne van het te meten station boven de WGS 84
+ellipsoïde ligt en hoever dit boven NAP is.
 
 \begin{center}
     \rule{\textwidth}{0.3mm}\\
     \rule{\textwidth}{0.3mm}\\
     \rule{\textwidth}{0.3mm}\\
 \end{center}
+
 \end{minipage}
 
 
@@ -74,7 +77,7 @@ Om de opstelling te meten hebben we het volgende nodig:
 
 \begin{itemize}
     \item Kompas
-    \item Meetlint (liefst langer dan 10m)
+    \item Meetlint (liefst langer dan \SI{10}{\meter})
     \item Veiligheidsmateriaal (harnas + zekeringslijn)
     \item Pen en papier om de metingen te noteren
     \item Sleutels van de `skiboxen'
@@ -82,9 +85,9 @@ Om de opstelling te meten hebben we het volgende nodig:
 
 \subsection{Veiligheid}
 
-De verrichtingen op het dak moeten volgens de richtlijnen van de ARBO worden uitgevoerd.
-Meestal staat de opstelling op een plat dak. Op dit dak zijn twee zones
-te onderscheiden:
+De verrichtingen op het dak moeten volgens de richtlijnen van de ARBO worden
+uitgevoerd. Meestal staat de opstelling op een plat dak. Op dit dak zijn twee
+zones te onderscheiden:
 
 \begin{itemize}
     \item Een deel in het midden van het dak dat wordt begrensd door een
@@ -94,81 +97,80 @@ te onderscheiden:
           een veiligheidsharnas aan en moet je gezekerd zijn met een lijn aan
           bevestigingspunten op het dak.
 \end{itemize}
-Als er geen markering op het dak aanwezig is, dien je altijd op minstens 4 m afstand van de rand van het dak te blijven.
 
-\textbf{Neem contact op met de gebouwenbeheerder op je school. Deze
-dient op de hoogte te zijn van het practicum en heeft eventueel
-aanvullende eisen!} Zonodig kan de gebouwbeheerder voorafgaand aan het practicum de markering aanbrengen. 
-Verder is het aan te raden om met niet meer dan drie
-leerlingen \'en onder begeleiding van een TOA of docent het dak op te gaan.
-De leerlingen doen de meting, de TOA of docent draagt zorg voor een
-veilige meetsituatie. Bij metingen nabij de rand van het dak zorgt een leerling voor
-de zekeringslijn en een gezekerde leerling voor de metingen bij de rand. De derde leerling noteert de meetgegevens of verricht de metingen binnen de markeringen. De TOA of docent blijft dicht bij de leerling die zorgt
-voor de zekeringslijn en let goed op. \textbf{Bespreek van te voren -en
-dus niet op het dak- wie wat gaat doen!}
+Als er geen markering op het dak aanwezig is, dien je altijd op minstens
+\SI{4}{\meter} afstand van de rand van het dak te blijven.
+
+\textbf{Neem contact op met de gebouwenbeheerder op je school. Deze dient op de
+hoogte te zijn van het practicum en heeft eventueel aanvullende eisen!} Zonodig
+kan de gebouwbeheerder voorafgaand aan het practicum de markering aanbrengen.
+Verder is het aan te raden om met niet meer dan drie leerlingen \'en onder
+begeleiding van een TOA of docent het dak op te gaan. De leerlingen doen de
+meting, de TOA of docent draagt zorg voor een veilige meetsituatie. Bij
+metingen nabij de rand van het dak zorgt een leerling voor de zekeringslijn en
+een gezekerde leerling voor de metingen bij de rand. De derde leerling noteert
+de meetgegevens of verricht de metingen binnen de markeringen. De TOA of docent
+blijft dicht bij de leerling die zorgt voor de zekeringslijn en let goed op.
+\textbf{Bespreek van te voren -en dus niet op het dak- wie wat gaat doen!}
 
 
 \subsection{De meting}
 
-De detectoren liggen in skiboxen. Voordat de plaats van een detector
-gemeten kan worden moet de skibox geopend worden. Met behulp van
-diagonalen is het midden van de scintillator te bepalen. De scintillator
-is de rechthoekige plaat van 100 cm lang en 50 cm breed. Deze plaat is
-lichtdicht ingepakt. Let op dat de verpakking niet beschadigd wordt! We
-meten nu de afstand van het midden van de scintillator tot de \gps
-antenne (een plastic paddestoeltje). Deze is in tabel
-\ref{tab:Meetgegevens} op te schrijven.
+De detectoren liggen in skiboxen. Voordat de plaats van een detector gemeten
+kan worden moet de skibox geopend worden. Met behulp van diagonalen is het
+midden van de scintillator te bepalen. De scintillator is de rechthoekige plaat
+van \SI{100}{\centi\meter} lang en \SI{50}{\centi\meter} breed. Deze plaat is
+lichtdicht ingepakt. Let op dat de verpakking niet beschadigd wordt! We meten
+nu de afstand van het midden van de scintillator tot de \gps antenne (een
+plastic paddestoeltje). Deze is in tabel \ref{tab:meetgegevens} op te schrijven.
 
 \begin{figure}
-\noindent \begin{centering}
-\includegraphics[scale=0.5]{formulier.png}
-\par\end{centering}
-
-\caption{Het interactieve formulier met een voorbeeld plattegrond.}
+    \centering
+    \includegraphics[width=0.9\textwidth]{formulier.png}
+    \caption{Het interactieve formulier met een voorbeeld plattegrond.}
 \end{figure}
 
-Naast de afstand moeten er nog twee hoeken worden gemeten. Hoek $\alpha$
-is de hoek tussen het noorden en het meetlint van de \gps antenne naar de
-detector. Staat de detector ten noorden van de \gps antenne dan meten we
-een waarde van $0^{\mathrm{o}}$, staat de detector ten oosten van de
-detector dan meten we $90^{\mathrm{o}}$. Hoek $\beta$ is de hoek tussen
-het noorden en de lange zijde van de scintillator in de richting van de
-PMT buis naar het einde zonder PMT buis. De PMT buis is te herkennen aan
-de elektrische aansluitingen. Zit de PMT buis in het zuiden dan is deze
-hoek $0\mathrm{^{o}}$. Deze metingen kunnen natuurlijk een aantal malen
-worden uitgevoerd zodat toevallige fouten kunnen worden verkleind. Indien
-van toepassing kan ook het hoogte verschil tussen de \gps en de detectoren
-worden gemeten, maar meestal is dat verschil klein en niet significant.
+Naast de afstand moeten er nog twee hoeken worden gemeten. Hoek $\alpha$ is de
+hoek tussen het noorden en het meetlint van de \gps antenne naar de detector.
+Staat de detector ten noorden van de \gps antenne dan meten we een waarde van
+\SI{0}{\degree}, staat de detector ten oosten van de \gps antenne dan meten we
+\SI{90}{\degree}. Hoek $\beta$ is de hoek tussen het noorden en de lange zijde
+van de scintillator in de richting van de Photo Multiplier Tube (PMT) en
+lichtgeleider. De kant van de detector met PMT en lichtgeleider is te herkennen
+aan de driehoekige vorm van de lichtgeleider en de elektrische aansluitingen
+aan de PMT. Wijst kant met de PMT naar het zuiden dan is deze hoek ($\beta$)
+\SI{180}{\degree}. Deze metingen kunnen natuurlijk een aantal malen worden
+uitgevoerd zodat toevallige fouten kunnen worden verkleind. Indien van
+toepassing kan ook het hoogte verschil tussen de \gps en de detectoren worden
+gemeten, maar meestal is dat verschil klein en niet significant.
 
 \begin{table}[h]
     \centering
-    \begin{tabular}{|>{\centering}p{3.5cm}|>{\centering}p{3.5cm}|>{\centering}p{3.5cm}|>{\centering}p{3.5cm}|}
-        \hline 
-        Detector & Afstand {[}m{]} & $\alpha$ {[}$^{\mathrm{o}}${]} & $\beta$ {[}$^{\mathrm{o}}${]}\tabularnewline
-        \hline 
-        \hline 
-        1 &  &  & \tabularnewline
-        \hline 
-        2 &  &  & \tabularnewline
-        \hline 
-        3 &  &  & \tabularnewline
-        \hline 
-        4 &  &  & \tabularnewline
-        \hline 
+    \begin{tabular}{|>{\centering}p{0.2\textwidth}|>{\centering}p{0.15\textwidth}|>{\centering}p{0.15\textwidth}|>{\centering}p{0.15\textwidth}|>{\centering}p{0.15\textwidth}|}
+        \hline
+        Detector & 1 & 2 & 3 & 4 \tabularnewline
+        \hline
+        \hline
+        Afstand $r$ [\si{\meter}] &  &  &  & \tabularnewline
+        \hline
+        Hoek $\alpha$ [\si{\degree}] &  &  &  & \tabularnewline
+        \hline
+        Hoogte $z$ [\si{\meter}] &  &  &  & \tabularnewline
+        \hline
+        Hoek $\beta$ [\si{\degree}] &  &  &  & \tabularnewline
+        \hline
     \end{tabular}
-
-\caption{\label{tab:Meetgegevens}Meetgegevens}
+    \caption{\label{tab:meetgegevens}Meetgegevens}
 \end{table}
 
 \paragraph{Opdracht 2:}
 
-Meet de locatie van de detectoren en vul de waarden in tabel
-\ref{tab:Meetgegevens} in.
+Meet de locatie van de detectoren en vul de waarden in Tabel
+\ref{tab:meetgegevens} in.
 
-Detector 1 en 2 zijn aangesloten op de \hisparc master unit, deze unit is
-te herkennen aan de \gps aansluiting. Detector 3 en 4 zijn als PMT 1
-respectievelijk PMT 2 aangesloten op de \hisparc slave (zonder
-\gps aansluiting).
+Detector 1 en 2 zijn aangesloten op de \hisparc master unit, te herkennen aan
+de \gps aansluiting. Detector 3 en 4 zijn aangesloten op de \hisparc slave
+(zonder \gps aansluiting).
 
 
 \section{Doorgeven van meetgegevens}
@@ -190,7 +192,7 @@ verschijnt er onder het formulier een schematische weergave van het
 station, controleer of deze weergave overeenkomt met de werkelijke
 ligging van de detectoren.
 
-Nadat het formulier is verstuurd, worden de ingezonden gegevens 
-geverifiëerd.
+Na het versturen van het formulier wordt eerst het opgegeven mail adres
+geverifiëerd. Daarna worden de ingezonden gegevens nagekeken.
 
 \end{document}
