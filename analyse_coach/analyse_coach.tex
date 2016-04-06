@@ -118,7 +118,7 @@ De snelste manier om een histogram is om op de betreffende kolom in het tabel ve
 'rechts' te klikken en dan uit het analyse menu, histogram te kiezen.
 Je moet echter aangeven in hoeveel stappen je het histogram wilt laten maken.
 Dan geef je aan bij 'aantal klassen'. Verander dit bijvoorbeeld in 200. Onderzoek
-ook het effect van meer of minder `klassen' (in het Engels wordt dit het aantal
+ook het effect van meer of minder `klassen' (in het Engels worden `klassen' het aantal
 `Bins' genoemd.)
 
 \begin{figure}
@@ -133,7 +133,7 @@ Nu zie je een histogram van de pulshoogte van detector 1.
 
 \textbf{Opdracht 1.}
 Maak nog 3 dezelfde histogrammen van de andere detectoren. Plaats deze apart in diagrammen.
-(je kunt zo ook in een diagram plaatsen.)
+(je kunt ze ook in een diagram plaatsen.)
 
 We willen graag een logaritmische y-as, dat kunnen we instellen.
 Klik rechts op het diagram, kies `diagram instelling'. Zie \figref{fig:coach6}
@@ -175,8 +175,9 @@ uit te lezen. Noteer deze. Zijn ze voor elke detector precies hetzelfde?
 Analyseer de helling van het logaritmische diagram. Gebruik de 'analyse' en dan 'helling'
 mogelijkheid, die je vindt door rechts te klikken op het diagram.
 Teken op een afstand van 3x de waarde van de piek die je bij opdracht 2 vond een beste raaklijn aan de
-grafiek. Zie \figref{fig:coach8}. Klik in het analyse venster op het punt en verander
-de helling van de raaklijn met de pijltjes toetsen.
+grafiek. We kiezen 3x de afstand om zo eerlijk te vergelijken tussen de verschillende
+histogrammen. Zie \figref{fig:coach8}. Klik in het analyse venster op het punt en verander
+de helling van de raaklijn met de pijltjes toetsen. Zorg dat je zo de beste raaklijn aangeeft in de grafiek.
 
 \textbf{Opdracht 4.}
 a.
@@ -186,7 +187,8 @@ Maak eens wat plotjes van bijvoorbeeld de luchtdruk, windsnelheid, temperatuur,
 tegen het tijdsverloop over een dag.
 
 b. Bepaal met een histogram van de pulshoogte piek van een warme zomerdag of
-een winterdag. Zie je verschillen.
+een winterdag. Zie je verschillen tussen de positie van de piek op een warme of 
+wat koudere dag? 
 
 \begin{figure}
     \centering
@@ -203,8 +205,9 @@ uit een gedownload tsv-bestand. In ons geval worden zelfs alle 21 kolommen van e
 Omdat Coach7 een ander uiterlijk en andere symbolen voor de knoppen heeft, wordt
 in deze sectie aandacht besteed aan het doen van analyse op de gegevens met Coach7.
 
-In \figref{fig:coach9} is een screenshot van Coach7 te zien. Er is gebruikt gemaakt van een Engelse versie van
-Coach7. Login als `Author' en kies voor activity type `Measurement'.
+In \figref{fig:coach9} is een screenshot van Coach7 te zien. 
+Login als `Docent' en kies voor activiteit type `Meten'.
+
 
 \begin{figure}
     \centering
@@ -213,10 +216,11 @@ Coach7. Login als `Author' en kies voor activity type `Measurement'.
     \label{fig:coach9}
 \end{figure}
 
-Nu we in de activiteit omgeving zitten kunnen we het tsv-bestand importeren.
+Nu we in de activiteit omgeving zitten kunnen we het tsv- of csv -bestand importeren.
 Klik op het tabel icoon. Nu opent een tabel venster.
 Als je met een rechtermuisknop op het scherm in het tabel venster klikt, verschijnt
-een uitklapmenu waarin je aangeeft bij runs, import, dat je een textfile wilt importeren.
+een uitklapmenu waarin je aangeeft bij meting, importeer uit csv bestand, 
+dat je een textfile wilt importeren.
 Zie \figref{fig:coach10}
 
 \begin{figure}
@@ -228,7 +232,10 @@ Zie \figref{fig:coach10}
 
 Na het selecteren van het juiste tsv-bestand krijgen we een soortgelijk scherm
 als in figuur \ref{fig:coach3}. In \figref{fig:coach11} zien we ook deze instellingen.
-Na het instellen van dit venster klikken we `ok'.
+Na het instellen van dit venster klikken we `ok'. Er wordt je nu gevraagd om elke 
+kolom een grootheid en een eenheid te geven. Dat kun je doen maar is heel veel
+werk. Beter kun je straks bij de grafiek een juiste grootheid en eenheid voegen.
+Je zult namelijk niet van elke kolom een histogram of grafiek willen maken. 
 
 \begin{figure}
     \centering
@@ -245,28 +252,70 @@ Na het instellen van dit venster klikken we `ok'.
 \end{figure}
 
 Nu we alle data geïmporteerd hebben krijgen we de waarden in een tabel. Klik op het plusje
-linksboven in het tabel venster, om de tabel uit te klappen.
-Nu zien we alle kolommen die geïmporteerd zijn. We kunnen nu dubbelklikken op
+linksboven in het tabel venster, om de tabel uit te klappen. Coach 7 kan ook 
+geen tijdstempel en datum importeren, maar het gaat ons nu om de data.
+Nu zien we alle kolommen die geïmporteerd zijn. We kunnen dubbelklikken op
 de tekst boven een kolom. Dan opent een menu waarin we de namen van grootheden en eenheden
 kunnen aanpassen. Zie \figref{fig:coach13}.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.2]{coach13}
+    \includegraphics[scale=0.3]{coach13}
     \caption{Dubbelklik de kolomkop en pas daarna de grootheden en eenheden
     van de gewenste kolommen aan.}
     \label{fig:coach13}
 \end{figure}
 
-Klik nu op een leeg venster en kies `weergeven als grafiek'. Er verschijnt dan een
-uitklap menu waarin je kunt aangeven welke kolom je grafisch wilt zien.
-Kies de gewenste kolom. Er wordt eerst een standaard index grafiek gemaakt, die
-we aanpassen door het gereedschapskistje boven in het grafiek venster te kiezen.
+Rechtslik nu op een leeg venster en kies 'Diagram plaatsen'. Dit is nu nog een leeg diagram,
+waar we vanuit de Datatabel data naar toe gaan slepen. We willen eerst echter nog dat 
+de Datatabel de index van de rijen weergeeft. Deze is standaard verborgen in 
+Coach 7. We gaan de kolom `Index' zichtbaar maken. Rechtsklik op de Datatabel.
+Het menu wat je in \figref{fig:coach15} ziet verschijnt.
+Vink de optie 'Index' aan. In de Datatabel wordt nu de Index waarde van elke rij getoond.
+  
+Sleep nu vanuit de Datatabel de Index naar de horizontale as van het lege diagram venster.
+Sleep nu vanuit de Datatabel een kolom met data naar de verticale as.
+De grafiek die nu verschijnt zie je in \figref{fig:coach14}. Als je op de automatisch
+zoomen knop drukt (het vergrootglas), dan zie je het overzicht van alle data in het 
+diagram. Dit plaatje zie je in \figref{fig:coach18}
 Uit het menu van het analyse gereedschapskistje kies je `histogram'. Er wordt
-nu een histogram (pas weer het aantal klassen aan) gemaakt. De volgende stappen
-om uiteindelijk op een logaritmisch histogram te komen zijn identiek aan het
-werken met Coach6.
+nu een histogram (pas weer het aantal klassen aan) gemaakt. In de Datatabel worden 
+nu twee grootheden toegevoegd, die standaard de naam 'Getal' en bijvoorbeeld 
+'importeren 5 klassen' heten. 
+We willen nu graag een logaritmische grafiek maken van ons histogram.
+Klik rechts op de Datatabel en kies: voeg een variabele toe -> in Datareeks -> formule.
+Zoals in \figref{fig:coach20}. In het venster wat je nu krijgt kun je de logaritme 
+van 'Getal' uit laten rekenen. Je maakt nu een nieuwe grootheid aan die je 
+bijvoorbeeld `Log(Pulshoogte1)' noemt.
+Pas nu het label van de nieuwe grootheid aan naar de naam die je aan de grootheid
+wilt geven. Geef ook de bijhorende eenheid op. Vul in bij formule in: 
+\textbf{Log(Getal)} door op de knop wijzigen te klikken. Je hebt nu de instelling
+zoals je kunt zien in \figref{fig:coach21}
+Klik \textbf{ok} om de aanpassingen te accepteren. In de Datatabel is nu een extra kolom opgenomen 
+die de naam `Log(Pulshoogte1)' heeft.
+Maak nu een nieuw diagram en sleep deze grootheid naar de y-as en sleep de grootheid
+`importeren ... klassen' naar de x-as (waar ... staat voor het nummer van de geïmporteerde kolom.
+Je hebt nu een logaritmische grafiek gemaakt 
+van de Pulshoogte van een detector. De bovenstaande stappen kun je herhalen
+voor de Pulshoogte van de andere detectoren van je \hisparc station.
+Het beste kun je elke keer de activiteit opslaan per analyse van een detector.
+Zodat je uiteindelijk bijvoorbeeld 4 Coach 7 activiteiten hebt voor een \hisparc station.
+
 \hspace{3 mm}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{coach15}
+    \caption{Zichtbaar maken van de Index in de Datatabel}
+    \label{fig:coach15}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{coach18}
+    \caption{Overzicht van de puls hoogte data na gebruik van de automatische zoom knop!}
+    \label{fig:coach18}
+\end{figure}
 
 \textbf{Opdracht 5.}
 Probeer de opdrachten van paragraaf \ref{sec:opdrachten} nu met Coach7 te doen.
@@ -278,4 +327,18 @@ Probeer de opdrachten van paragraaf \ref{sec:opdrachten} nu met Coach7 te doen.
     \label{fig:coach14}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{coach20}
+    \caption{Invoegen van een formule in Coach 7}
+    \label{fig:coach20}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.2]{coach21}
+    \caption{Invoegen nieuwe grootheid Log(Pulshoogte) met behulp van een
+    formule}
+    \label{fig:coach21}
+\end{figure}
 \end{document}
