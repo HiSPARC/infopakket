@@ -42,7 +42,8 @@
                 <h3>Python Notebooks</h3>
                 <p>
                     {%- for doc in notebooks %}
-                        <a href="notebooks/{{ doc.filename }}">{{ doc.title }}</a>
+                        <a href="notebooks/{{ doc.filename }}" download>{{ doc.title }}</a>
+                        <span class='version'>ipynb</span>
                         {%- if not loop.last %}<br>{% endif %}
                     {%- endfor %}
                 </p>
