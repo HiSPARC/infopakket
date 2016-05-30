@@ -2,8 +2,6 @@
 
 Notebooks are stored in git in markdown format using `notedown`: https://github.com/aaren/notedown
 
-Markdown diffs are human-readable.
-
 ## Conversion to markdown
 
 Convert a notebook into markdown, stripping all outputs:
@@ -14,7 +12,7 @@ notedown input.ipynb --to markdown --strip > output.md
 
 ## Conversion to ipynb
 
-This needs to be included in `make github-pages`:
+This needs to be included in `make` for github-pages:
 ```
 notedown input.md > output.ipynb
 ```
