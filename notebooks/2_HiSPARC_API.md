@@ -150,7 +150,7 @@ de orientatiehoek in graden.
 
 ```python
 import matplotlib.pyplot as plt
-%matplotlib inline
+%matplotlib notebook
 
 stations = [3301, 3302, 3303]
 cluster = HiSPARCStations(stations)

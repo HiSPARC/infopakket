@@ -171,7 +171,7 @@ We kunnen nu de data uit een hele kolom verwerken en/of plotten:
 ```{.python .input}
 import matplotlib.pyplot as plt
 import numpy as np
-%matplotlib inline
+%matplotlib notebook
 ```
 
 ```{.python .input}
