@@ -68,3 +68,59 @@ with tables.open_file('middelharnis.h5', 'w') as data:
 
     print data
 ```
+
+# Coincidenties downloaden
+
+Coincidenties tussen HiSPARC stations (binnen een afstand van 1000 m) worden
+automatisch bepaald door de publieke database ([http://data.hisparc.nl/).
+Het downloaden van coincidenties gaat alsvolgt:
+
+```{.python .input  n=5}
+import tables
+FILENAME = 'data.h5'
+data = tables.open_file(FILENAME, 'a')
+```
+
+```{.python .input  n=12}
+from datetime import datetime
+start = datetime(2016, 1, 1)
+end = datetime(2016, 1, 2)
+```
+
+```{.python .input  n=13}
+from sapphire import download_coincidences
+download_coincidences(data, stations=[502, 505, 504, 509], start=start, end=end, n=3)
+```
+
+```{.json .output n=13}
+[
+ {
+  "name": "stderr",
+  "output_type": "stream",
+  "text": "100%|#############################################################|Time: 0:00:00\n"
+ }
+]
+```
+
+We hebben nu coincidenties tussen stations 502, 505, 504 en 509, waarbij
+minstens 3 stations betrokken waren gedownload.
+
+De tabel `coincidences` in de groep `coincidences` bevat de informatie die we
+zoeken:
+
+```{.python .input  n=18}
+print data.root.coincidences.coincidences
+```
+
+```{.json .output n=18}
+[
+ {
+  "name": "stdout",
+  "output_type": "stream",
+  "text": "/coincidences/coincidences (Table(4959,)) ''\n"
+ }
+]
+```
+
+Meer informatie over het koppelen van station events aan coincidenties is te
+vinden in het recept over CoincidenceQuery.
