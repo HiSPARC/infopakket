@@ -26,31 +26,28 @@ De notebooks maken gebruik van het iets uitgebreidere iPython.
 
 \section{Software-installatie}
 
-Voordat notebooks kunnen worden gebruikt, installeren we \python 2.7. Onder windows hebben we de keuze uit:
-\begin{itemize}
-\item Python(xy) (\url{https://python-xy.github.io/downloads.html})
-\item WinPython (\url{https://github.com/winpython/winpython/wiki/Installation})
+Voordat notebooks kunnen worden gebruikt, installeren we \python 2.7. Als we een \python distributie installeren
+dan worden alle hulppakketen e.d. direct meegeinstalleerd. Anaconda is een zeer complete distributie die voor
+wetenschappelijke \python toepassingen het meest gebruikt wordt.
+
+Download Anaconda: (\url{https://www.continuum.io/downloads})
 \end{itemize}
 
-WinPython werkt alleen maar onder Windows. WinPython bevat onder andere de module notebook.
+Kies de \python 2.7 versie van Anaconda.
 
-Onder andere operating systemen, maar eventueel ook onder Windows, is het flexibeler Python(xy) te installeren.
-Om in Python(xy) notebooks te kunnen gebruiken moet {\tt pip install notebook} in een command-scherm worden
-gedraaid.
-
-De procedure voor de installatie van WinPython is alsvolgt:
+De procedure voor de installatie van Anaconda op een Windows computer is alsvolgt:
 \begin{itemize}
-\item Download WinPython 2.7.10 en plaats de .exe op de desktop of in een mapje (zoals bijvoorbeeld: Notebooks).
-\item Voer het exe-bestand uit. Er verschijnt een map WinPython.
-\item Open de map WinPython. Hierin zit `WinPython Command Prompt'. Open deze en type:
+\item Download Anaconda 2.7. Let op: Het bestand is ongeveer 300 Megabyte.
+\item Voer het exe-bestand uit, zodat Anaconda installeert. Klik telkens op "Verder>". Er hoeven geen speciale
+    instellingen gekozen te worden.
+\item Open in het Start menu de map Anaconda. Hierin zit `Anaconda Prompt'. Open deze en type:
  {\tt pip install hisparc-sapphire}. Druk op `Enter'. De benodigde \hisparc software wordt ge\"\i nstalleerd.
- (Ook in een Python(xy) omgeving moet hisparc-sapphire worden ge\"\i nstalleerd.)
-\item In de map WinPython zit verder een map `notebooks' waarin een map 'docs' zit. In deze map kunnen notebooks,
-te herkennen aan het achtervoegsel {\tt ipynb}, worden geplaatst. De notebooks zijn op te halen op de Infopakket pagina 
+ (Ook in een andere \python omgeving moet hisparc-sapphire op dezelfde wijze worden ge\"\i nstalleerd.)
+\item De notebooks zijn op te halen op de Infopakket pagina 
 van de HiSPARC-site onder het kopje Python Notebooks\footnote{De nieuwste versie is op te halen op 
 \url{https://github.com/HiSPARC/infopakket/tree/master/notebooks}. Klik op de `RAW' knop en kopi\"{e}er het bestand 
-(rechtsklikken etc.).}. Kopieer het bestand naar de map `WinPython\textbackslash notebooks\textbackslash docs'.
-\item Het een en ander is te testen door `Jupyter Notebook', te vinden in de `WinPython' map, te draaien. De browser
+(rechtsklikken etc.).}. Kopieer het bestand naar (bijvoorbeeld) de map `Mijn Documenten\textbackslash'. 
+\item De notebooks zijn te gebruiken door `Jupyter Notebook', te vinden in de `Anaconda' map van het Start Menu, te draaien. De browser
 opent met een scherm waarop 'docs' te zien is. Klik je op `docs' dan worden onder andere de opgehaalde notebooks
 getoond. Deze zijn weer te openen door er op de klikken. Je krijgt voor ieder geopend notebook een nieuw tabblad.
 \item De notebooks zijn interactief en `Shift + Enter' voert de opdrachten in de code-cellen uit. Deze zijn te herkennen aan
@@ -61,5 +58,10 @@ uitgevoerd.
 
 Notebooks worden op een lokale server beheerd. De informatie is via een browser, zoals firefox, chrome etc., te bekijken. 
 De server wordt benaderd via poort 8888, deze moet in de firewall dus open staan.
+
+Informatie over installatie van Anaconda op andere systemen is te vinden op: \url{http://docs.hisparc.nl/sapphire/installation.html#installing-the-prerequisites} 
+\begin{itemize}
+\item 
+       
 
 \end{document}
