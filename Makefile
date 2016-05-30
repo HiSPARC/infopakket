@@ -1,6 +1,10 @@
-.PHONY: all distclean clean gh-pages latexmk-recursive distclean-recursive clean-recursive index
+.PHONY: all distclean clean gh-pages notebooks latexmk-recursive distclean-recursive clean-recursive index
 
 TEXFILES=$(wildcard *.tex)
+NOTEBOOKDIR=notebooks
+NOTEBOOKSRCS:=$(wildcard $(NOTEBOOKDIR)/*.md)
+NOTEBOOKSRCS:=$(filter-out $(NOTEBOOKDIR)/README.md, $(NOTEBOOKSRCS))
+NOTEBOOKS:=$(NOTEBOOKSRCS:.md=.ipynb)
 TARGETS=$(patsubst %.tex,%.pdf,$(TEXFILES))
 TEX_DIRECTORIES=$(sort $(dir $(wildcard */*.tex)))
 BRANCH=master
@@ -13,6 +17,12 @@ BRANCH=master
 all: latexmk-recursive
 distclean: distclean-recursive
 clean: clean-recursive
+
+$(NOTEBOOKS):$(NOTEBOOKSRCS)
+	notedown $< > $@
+
+notebooks: $(NOTEBOOKS)
+	@echo 'converted notebooks from .md to .ipynb'
 
 latexmk-recursive:
 	for dir in $(TEX_DIRECTORIES); do \
@@ -54,6 +64,7 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	git checkout $(BRANCH) -- Makefile
 	git checkout $(BRANCH) -- $(TEX_DIRECTORIES)
 	git checkout $(BRANCH) -- notebooks
+	$(MAKE) notebooks
 	$(MAKE) index
 	$(MAKE) all
 	mkdir pdf
