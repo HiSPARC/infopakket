@@ -133,7 +133,7 @@ De gereconstrueerde hoeken zijn nu ook opgeslagen op disk, in het HDF5 bestand.
 
 De kolommen 'zenith' en 'azimuth' bevatten de gereconstrueerde hoeken (of NaN):
 
-# Opgave
+## Opgave:
 
 Maak een histogram van de zenithoeken en een polarplot van de azimuth en
 zenithhoeken, zoals in het voorbeeld hierboven. Gebruik de `zenith` en `azimuth`
