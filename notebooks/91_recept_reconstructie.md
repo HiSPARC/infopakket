@@ -79,7 +79,7 @@ We maken een polar-plot van de hoeken theta en phi (zenit, azimut) van de
 
 ```{.python .input}
 import matplotlib.pyplot as plt
-%matplotlib inline
+%matplotlib notebook
 ```
 
 We rekenen de hoeken om naar graden:
