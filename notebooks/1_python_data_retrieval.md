@@ -220,6 +220,7 @@ ph2 = ph[:, 1]
 - `[:, 1]` is de gehele tweede rij, dwz de pulshoogtes per event van detector 1
 
 ```{.python .input}
+plt.figure()
 plt.hist(ph1, bins=np.arange(0, 2000., 20.), histtype='step', log=True)
 plt.hist(ph2, bins=np.arange(0, 2000., 20.), histtype='step', log=True)
 plt.title('Station 102: Pulseheights')
