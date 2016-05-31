@@ -26,16 +26,6 @@ hieronder)
 print 'Hello, World!'
 ```
 
-```{.json .output n=2}
-[
- {
-  "name": "stdout",
-  "output_type": "stream",
-  "text": "Hello, World!\n"
- }
-]
-```
-
 ## Blokken: Inspringen
 
 Blokken code worden in `python` ingegesprongen:
@@ -52,16 +42,6 @@ else:
         print 'En het getal is even!'
 ```
 
-```{.json .output n=6}
-[
- {
-  "name": "stdout",
-  "output_type": "stream",
-  "text": "Geef een getal: 12\nGroter dan tien!\n"
- }
-]
-```
-
 ## Variabelen
 
 Variabelen (objecten) hoeven niet gedeclareerd te worden met een `type`, maar ze
@@ -72,19 +52,6 @@ a = 3
 b = 5.7
 c = 'Hallo!'
 type(a), type(b), type(c)
-```
-
-```{.json .output n=7}
-[
- {
-  "data": {
-   "text/plain": "(int, float, str)"
-  },
-  "execution_count": 7,
-  "metadata": {},
-  "output_type": "execute_result"
- }
-]
 ```
 
 ## Lijsten
