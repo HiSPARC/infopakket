@@ -16,23 +16,94 @@ https://www.codecademy.com/learn/python
 heeft zeer bruikbare (natuurkundige) opdrachten in Python:
 https://progns.mprog.nl/ (klik bovenaan op Archive)
 
+
+## Hello, World!
+
+In `python 2.7` ziet deze klassieker er zo uit: (Druk Ctrl-Enter in de cel
+hieronder)
+
+```{.python .input  n=2}
+print 'Hello, World!'
+```
+
+```{.json .output n=2}
+[
+ {
+  "name": "stdout",
+  "output_type": "stream",
+  "text": "Hello, World!\n"
+ }
+]
+```
+
+## Blokken: Inspringen
+
+Blokken code worden in `python` ingegesprongen:
+
+```{.python .input  n=6}
+getal = input('Geef een getal: ')
+if getal > 10:
+    print 'Groter dan tien!'
+elif getal < 0:
+    print 'Negatief!'
+else:
+    print 'Tussen nul en tien!'
+    if getal % 2 == 0:
+        print 'En het getal is even!'
+```
+
+```{.json .output n=6}
+[
+ {
+  "name": "stdout",
+  "output_type": "stream",
+  "text": "Geef een getal: 12\nGroter dan tien!\n"
+ }
+]
+```
+
+## Variabelen
+
+Variabelen (objecten) hoeven niet gedeclareerd te worden met een `type`, maar ze
+hebben wel een `type`
+
+```{.python .input  n=7}
+a = 3
+b = 5.7
+c = 'Hallo!'
+type(a), type(b), type(c)
+```
+
+```{.json .output n=7}
+[
+ {
+  "data": {
+   "text/plain": "(int, float, str)"
+  },
+  "execution_count": 7,
+  "metadata": {},
+  "output_type": "execute_result"
+ }
+]
+```
+
 ## Lijsten
 
-Lijsten zijn een belangrijk data type in python:
+Lijsten zijn een belangrijk `type` in `python`:
 
-```python
+```{.python .input}
 personen = ['Tom', 'Klaas', 'Piet', 'Jan', 'Wouter', 'Joop', 'Karel']
 ```
 
 Voor de lengte van een lijst gebruiken we `len()`:
 
-```python
+```{.python .input}
 len(personen)
 ```
 
 Een item toevoegen kan met append:
 
-```python
+```{.python .input}
 personen.append('Mieke')
 personen
 ```
@@ -40,20 +111,20 @@ personen
 De items van lijsten kunnen we bekijken met [index]:
 Let op: Python telt vanaf 0.
 
-```python
+```{.python .input}
 personen[1]
 ```
 
 Er zijn veel mogelijkheden met behulp van de index:
 
-```python
+```{.python .input}
 print "item 1 tot 5", personen[1:5]
 print "Vanaf het tweede item:", personen[1:]
 print "Vanaf 0 tot 8, stapgrootte 2", personen[0:8:2]
 print "Het laatste item:", personen[-1]
 ```
 
-```python
+```{.python .input}
 if 'Karel' in personen:
     print "Karel zit in de lijst."
 else:
@@ -64,7 +135,7 @@ else:
 
 range() maakt een lijst gehele getallen (integers):
 
-```python
+```{.python .input}
 print "Tot 10:\t\t", range(10)
 print "Vanaf 5 tot 10:\t", range(5, 10)
 print "tot 10, stap 2:", range(0, 10, 2)
@@ -73,13 +144,13 @@ print "tot 10, stap 2:", range(0, 10, 2)
 ### help() en ?
 Voor meer informatie over een python functie gebruiken we de functie `help()`:
 
-```python
+```{.python .input}
 help(range)
 ```
 
 range? laat een pop-up zien met vergelijkbare informatie.
 
-```python
+```{.python .input}
 range?
 ```
 
@@ -87,12 +158,12 @@ range?
 
 Het statement `for` wordt gebruikt om te loopen:
 
-```python
+```{.python .input}
 for getal in range(5):
     print getal
 ```
 
-```python
+```{.python .input}
 for getal in range(1,50):
     if getal % 7 == 0:
         print "Het getal %d is deelbaar door 7" % getal
@@ -102,7 +173,7 @@ for getal in range(1,50):
 Dit betekent dat we niet alleen maar over getallen kunnen loopen, zoals in veel
 andere talen gebruikelijk, maar over *alle* lijst-achtige objecten:
 
-```python
+```{.python .input}
 for persoon in personen:
     print persoon
 ```
@@ -112,14 +183,14 @@ for persoon in personen:
 In `python` kom je vaak een wiskundige manier van het definieren van lijsten
 tegen:
 
-```python
+```{.python .input}
 [x**2 for x in range(10)]
 ```
 
 Een dergelijke syntax heet een `list comprehension` en is in feite een snelle
 (en mits juist gebruikt, leesbare) manier om het volgende te schrijven:
 
-```python
+```{.python .input}
 lijst = []
 for x in range(10):
     lijst.append(x**2)
@@ -130,7 +201,7 @@ lijst
 
 Een functie definieren we in `python` alsvolgt:
 
-```python
+```{.python .input}
 def is_priem(getal):
     """Test of getal een priemgetal is
     
@@ -146,7 +217,7 @@ def is_priem(getal):
 
 Een functie roepen we aan met `functie(paramter1, parameter2, ...)`:
 
-```python
+```{.python .input}
 for getal in range(100):
     if is_priem(getal):
         print getal,
@@ -155,7 +226,7 @@ for getal in range(100):
 Het commentaar tussen de """ is belangrijk. Deze zogenaamde 'docstring' is
 beschikbaar via `help()` of het vraagteken:
 
-```python
+```{.python .input}
 help(is_priem)
 ```
 
@@ -166,15 +237,15 @@ Numpy is een bibliotheek met wiskundige functies die werken op `array's`
 geimplementeerd zijn, zijn numpy functies vaak veel sneller dan alternatieven
 uit `math`.
 
-```python
+```{.python .input}
 import numpy as np
 ```
 
-```python
+```{.python .input}
 np.arange(0.1, 3.0, 0.2)
 ```
 
-```python
+```{.python .input}
 np.linspace(0.1, 3.0, 20)  # hetzelfde interval in 20 stappen
 ```
 
@@ -182,11 +253,11 @@ np.linspace(0.1, 3.0, 20)  # hetzelfde interval in 20 stappen
 
 Een van de krachten van `numpy` is het uitvoeren van operaties op een vector:
 
-```python
+```{.python .input}
 %timeit [2*x for x in range(10000)]
 ```
 
-```python
+```{.python .input}
 %timeit 2*np.arange(10000)
 ```
 
@@ -194,32 +265,34 @@ In het bovenstaande voorbeeld wordt in de `list-comprehension` in python
 'gelooped' over 10.000 getallen. Het `numpy` alternatief verwerkt de array in
 zijn geheel, zonder de loop en is daarom >100x sneller.
 
-```python
+## Matrices en Lineaire algebra
+
+```{.python .input}
 matrix = np.arange(9).reshape(3,3)
 matrix
 ```
 
-```python
+```{.python .input}
 matrix[1] # tweede rij
 ```
 
-```python
+```{.python .input}
 matrix[:, 0] # eerste kolom
 ```
 
-```python
+```{.python .input}
 np.transpose(matrix)
 ```
 
-```python
+```{.python .input}
 np.linalg.det(matrix)
 ```
 
-```python
+```{.python .input}
 Ook hier geeft `help()` snel veel informatie:
 ```
 
-```python
+```{.python .input}
 help(np.linalg)
 ```
 
@@ -227,25 +300,21 @@ help(np.linalg)
 
 Een belangrijke stap in het data verwerken is plotten:
 
-```python
+```{.python .input}
 import matplotlib.pyplot as plt
 %matplotlib notebook
 ```
 
-```python
+```{.python .input}
 x = np.linspace(0, 10., 100)
 y = np.sin(x)
 ```
 
-```python
+```{.python .input}
 plt.plot(x, y, 'b-')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.ylim(-1.1,1.1)
 plt.title('f(x) = sin(x)')
 plt.show()
-```
-
-```python
-
 ```
