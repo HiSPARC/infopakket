@@ -2,7 +2,7 @@
 
 Plot station (en detector) LLA coordinaten op OpenStreetMap tiles.
 
-```python
+```{.python .input}
 from sapphire import HiSPARCStations
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -17,13 +17,13 @@ deze link (klik!)](https://gist.githubusercontent.com/tomkooij/34cbc1f8f1fb22a0a
 0f1d0c4ce462618/raw/b44abd1e0eb32687defc3d1a444d044af08baeef/smopy.py) en sla
 deze op in dezelfde map als dit notebook.
 
-```python
+```{.python .input}
 import smopy
 ```
 
 Als deze import een fout oplevert, lees dan hierboven nogmaals!
 
-```python
+```{.python .input}
 def get_latlontext(cluster):
     """
     Create list of latitude, longitudes and (legend texts)
@@ -32,20 +32,14 @@ def get_latlontext(cluster):
     cluster = HiSPARCStations object
     
     """
-    lat = []
-    lon = []
-    text = []
+    latlon = []
     for station in cluster.stations:
-        latitude, longitude, z = station.get_lla_coordinates()
-        lat.append(latitude)
-        lon.append(longitude)
-        text.append(station.number)
+        latitude, longitude, _ = station.get_lla_coordinates()
+        latlon.append((latitude, longitude, station.number))
         for detector in station.detectors:
-            latitude, longitude, z = detector.get_lla_coordinates()
-            lat.append(latitude)
-            lon.append(longitude)
-            text.append(None)
-    return lat, lon, text
+            latitude, longitude, _ = detector.get_lla_coordinates()
+            latlon.append((latitude, longitude, None))
+    return latlon
 ```
 
 Bovenstaande functie maakt van een `HiSPARCStations` cluster object een lijst
@@ -53,11 +47,11 @@ met lla coordinaten.
 
 Test:
 
-```python
+```{.python .input}
 print get_latlontext(HiSPARCStations([102], force_stale=True))
 ```
 
-```python
+```{.python .input}
 def plot_cluster_OSM(stations, plot_detectors=False, force_stale=True):
     """Plot cluster (station and detectors) on top of OSM tiles 
     
@@ -71,11 +65,13 @@ def plot_cluster_OSM(stations, plot_detectors=False, force_stale=True):
     
     cluster = HiSPARCStations(stations, force_stale=force_stale)
     
-    lat, lon, text = get_latlontext(cluster)
-        
+    latlon = get_latlontext(cluster)
+    lat = [ll[0] for ll in latlon]
+    lon = [ll[1] for ll in latlon]
+    
     map = smopy.Map((min(lat), min(lon)), (max(lat), max(lon)), margin=.01)
     ax = map.show_mpl(figsize=(10,10), dpi=200)
-    for px, py, label in zip(lat, lon, text):
+    for px, py, label in latlon:
         x, y = map.to_pixels(px, py)
         if label is not None:
             ax.plot(x, y, 'or', ms=10, mew=2)
@@ -84,22 +80,14 @@ def plot_cluster_OSM(stations, plot_detectors=False, force_stale=True):
             ax.plot(x, y, 'xb', ms=10)
 ```
 
-```python
+```{.python .input}
 plot_cluster_OSM((102, 104, 105), plot_detectors=True)
 ```
 
-```python
+```{.python .input}
 plot_cluster_OSM(range(501, 512))
 ```
 
-```python
+```{.python .input}
 plot_cluster_OSM((501, 508, 510), plot_detectors=True)
-```
-
-```python
-
-```
-
-```python
-
 ```
