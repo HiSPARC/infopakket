@@ -18,7 +18,7 @@ all: latexmk-recursive
 distclean: distclean-recursive
 clean: clean-recursive
 
-$(NOTEBOOKS):$(NOTEBOOKSRCS)
+%.ipynb:%.md
 	notedown $< > $@
 
 notebooks: $(NOTEBOOKS)
