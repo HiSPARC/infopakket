@@ -4,9 +4,7 @@ Het notebook 'Data retrieval met python' is het eerste notebook van een serie.
 In dit notebook wordt beschreven hoe HiSPARC data met de HiSPARC sapphire module
 voor python op te halen is. De installatie van sapphire is beschreven op:
 
-[http://docs.hisparc.nl/sapphire/installation.html#installing-the-
-prerequisites](http://docs.hisparc.nl/sapphire/installation.html#installing-the-
-prerequisites)
+[http://docs.hisparc.nl/sapphire/installation.html#installing-the-prerequisites](http://docs.hisparc.nl/sapphire/installation.html#installing-the-prerequisites)
 
 Nadat deze installatie is voltooid, kan de sapphire module in python geladen
 worden. (Klik met de muis in de onderstaande code-cel en druk op shift-enter):
@@ -98,11 +96,9 @@ signaal voor detector 1.
 1. t_trigger: Het moment van de GPS-tijdstempel vanaf het begin van het
 opgeslagen signaal.
 
-In het werkblad [http://docs.hisparc.nl/infopakket/pdf/traces.pdf](http://docs.h
-isparc.nl/infopakket/pdf/traces.pdf) wordt de natuurkundige betekenis van deze
+In het werkblad [http://docs.hisparc.nl/infopakket/pdf/traces.pdf](http://docs.hisparc.nl/infopakket/pdf/traces.pdf) wordt de natuurkundige betekenis van deze
 getallen beschreven.  De afbeeldingen in dit werkblad zijn afkomstig uit het
-interactieve werkblad [http://data.hisparc.nl/media/jsparc/jsparc.html](http://d
-ata.hisparc.nl/media/jsparc/jsparc.html). Let op, computers tellen vanaf "`0`"
+interactieve werkblad [http://data.hisparc.nl/media/jsparc/jsparc.html](http://data.hisparc.nl/media/jsparc/jsparc.html). Let op, computers tellen vanaf "`0`"
 en niet vanaf "`1`"
 
 

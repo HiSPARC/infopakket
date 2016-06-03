@@ -138,9 +138,7 @@ Voor events waarbij twee detectoren een of meer deeltjes hebben gedetecteerd is
 er slechts 1 zenithoek. Voor events waarbij 3 detectoren zijn geraakt zijn er 3
 zenithoeken. Als 4 detectoren meedoen, dan zijn er 6 zenithoeken.
 
-Een beschrijving van de zenith-hoek is te vinden op: [http://docs.hisparc.nl/inf
-opakket/pdf/richting_reconstructie.pdf](http://docs.hisparc.nl/infopakket/pdf/ri
-chting_reconstructie.pdf).
+Een beschrijving van de zenith-hoek is te vinden op: [http://docs.hisparc.nl/infopakket/pdf/richting_reconstructie.pdf](http://docs.hisparc.nl/infopakket/pdf/richting_reconstructie.pdf).
 
 ```python
 
