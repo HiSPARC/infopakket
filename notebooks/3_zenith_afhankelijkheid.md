@@ -31,8 +31,7 @@ Noorden.
 
 Een werkblad voor het maken van een stations-plattegrond is te vinden op:
 
-[http://docs.hisparc.nl/infopakket/pdf/station_map.pdf](http://docs.hisparc.nl/i
-nfopakket/pdf/station_map.pdf)
+[http://docs.hisparc.nl/infopakket/pdf/station_map.pdf](http://docs.hisparc.nl/infopakket/pdf/station_map.pdf)
 
 ### Afstanden
 De afstand tussen twee detectoren is te bepalen met de cosinusregel. Dit is in
