@@ -10,11 +10,12 @@ hoogte van tientallen kilometers. De doorsnede van de deeltjeslawine is slechts
 enkele hectometers. We kunnen we er dus van uitgaan dat deeltjes globaal in een
 vlak loodrecht op de snelheid van het primaire deeltje bewegen.
 
+
 ```python
 import numpy as np
 import sapphire
 from sapphire import Station
-detectors = Station(501).detectors()
+detectors = Station(501).info['scintillators']
 for detector in detectors:
     print detector
 ```
@@ -37,6 +38,7 @@ nfopakket/pdf/station_map.pdf)
 De afstand tussen twee detectoren is te bepalen met de cosinusregel. Dit is in
 een functie te beschrijven:
 
+
 ```python
 def afstand(detector_1, detector_2):
     '''Bepaal de afstand tussen twee detectoren'''
@@ -49,24 +51,35 @@ def afstand(detector_1, detector_2):
 De afstand tussen detector 1 (telt als 0) en 4 (telt als 3) is nu te berekenen
 met:
 
+
 ```python
 print afstand(detectors[0], detectors[3])
 ```
 
 ### Aankomsttijden
 
-In het notebook python_data_retrieval is uitgelegd hoe data op te halen is:
+In het recept *python data retrieval* zijn events van station 501 van een enkele
+dag gedownload.
+We openen nu deze data en controleren of de tabel '/s501/events' bestaat. Zo
+niet, dan downloaden we de data alsnog
+
 
 ```python
-from sapphire import quick_download
-data = quick_download(508)
+import tables
+data = tables.open_file('data.h5', 'a')
+if '/s501/events' not in data:
+    sapphire.quick_download(501)
+else:
+    print data.root.s501.events
 ```
 
+
 ```python
-events = data.root.s508.events.read()
+events = data.root.s501.events.read()
 event = events[0]
 print event
 ```
+
 
 ```python
 tijdkolommen = ['t1', 't2', 't3', 't4'] 
@@ -80,6 +93,7 @@ Uit de tijdsverschillen tussen de aankomsttijden in detectoren is de zenithoek
 te bepalen.
 
 Voor een stations met 4 detectoren zijn er 6 combinaties, d.w.z. 6 zenithoeken:
+
 
 ```python
 from itertools import combinations
@@ -117,12 +131,14 @@ def zenithoeken(event, detectors):
     return zenith
 ```
 
+
 ```python
 print zenithoeken(event, detectors)
 ```
 
 Omdat slechts 2 van de 4 detectoren (detector 3 en 4) deeltjes hebben
 gedetecteerd is er slechts 1 zenithoek.
+
 
 ```python
 for event in events[0:10]:
@@ -139,7 +155,3 @@ er slechts 1 zenithoek. Voor events waarbij 3 detectoren zijn geraakt zijn er 3
 zenithoeken. Als 4 detectoren meedoen, dan zijn er 6 zenithoeken.
 
 Een beschrijving van de zenith-hoek is te vinden op: [http://docs.hisparc.nl/infopakket/pdf/richting_reconstructie.pdf](http://docs.hisparc.nl/infopakket/pdf/richting_reconstructie.pdf).
-
-```python
-
-```

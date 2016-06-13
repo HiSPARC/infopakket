@@ -1,15 +1,22 @@
 # 1 Python data retrieval
 ## Inleiding
-Het notebook 'Data retrieval met python' is het eerste notebook van een serie.
-In dit notebook wordt beschreven hoe HiSPARC data met de HiSPARC sapphire module
-voor python op te halen is. De installatie van sapphire is beschreven op:
+Het notebook 'Data retrieval met python'
+is het eerste notebook van een serie.
+In dit notebook wordt beschreven hoe
+HiSPARC data met de HiSPARC sapphire module
+voor python op te halen is. De
+installatie van sapphire is beschreven op:
+[http://docs.hisparc.nl/sapphire/installation.html#installing-the-
+prerequisites](http://docs.hisparc.nl/sapphire/installation.html#installing-the-
+prerequisites)
 
-[http://docs.hisparc.nl/sapphire/installation.html#installing-the-prerequisites](http://docs.hisparc.nl/sapphire/installation.html#installing-the-prerequisites)
+Nadat deze installatie is voltooid, kan de sapphire module in
+python geladen
+worden. (Klik met de muis in de onderstaande code-cel en druk op
+shift-enter):
 
-Nadat deze installatie is voltooid, kan de sapphire module in python geladen
-worden. (Klik met de muis in de onderstaande code-cel en druk op shift-enter):
 
-```{.python .input}
+```python
 import sapphire
 ```
 
@@ -18,26 +25,32 @@ Wordt een foutcode afgebeeld, dan is de installatie niet gelukt. De sapphire
 module bevat onder andere de "`quick_download`" functie. Deze functie maakt het
 mogelijk om data (meetgegevens) uit de HiSPARC data-server op te halen.
 
-Aan de functie wordt het stationsnummer als parameter meegegeven. Hieronder
-wordt data voor station 102 opgehaald. Uiteraard is deze opdracht aan te passen
-zodat er data van een andere station opgehaald wordt. (Dit doen we weer door in
-de code-cel te klikken en op shift-enter te drukken).
+Aan de
+functie wordt het stationsnummer als parameter meegegeven. Hieronder
+wordt data
+voor station 102 opgehaald. Uiteraard is deze opdracht aan te passen
+zodat er
+data van een andere station opgehaald wordt. (Dit doen we weer door in
+de code-
+cel te klikken en op shift-enter te drukken).
 
-```{.python .input}
+
+```python
 from sapphire import quick_download
 data = quick_download(102)
 ```
 
 Na enige tijd verschijnt hierboven een regel zoals:
-
 "`100%|############################################################|Time:
 0:00:06`"
 
 Soms is de download zo snel dat deze regel niet wordt afgedrukt.
 
-De variabele "`data`" bevat nu een set meetgegevens. Deze set is af te drukken.
+De
+variabele "`data`" bevat nu een set meetgegevens. Deze set is af te drukken.
 
-```{.python .input}
+
+```python
 print data
 ```
 
@@ -47,69 +60,90 @@ RootGroup, deze is te benaderen met "`data.root`". Hierin zit weer een groep
 "`events`".
 
 ## Werken met een events tabel
-Voor het gemak maken we een variable `events` die naar de eventstabel van
+Voor het gemak maken we een variable
+`events` die naar de eventstabel van
 station 102 wijst:
 
-```{.python .input}
+
+```python
 event_tabel = data.root.s102.events
 event_tabel
 ```
 
 Dit is een tabel van 46329 regels. Elke regel is een event.
 
-De informatie van het eerste event is op te halen met:
+De informatie van
+het eerste event is op te halen met:
 
-```{.python .input}
+
+```python
 event_tabel[0]
 ```
 
 Het **tweede** event: (Let op, python telt vanaf 0 en niet vanaf 1)
 
-```{.python .input}
+
+```python
 event_tabel[1]
 ```
 
 De informatie in een event bestaat uit een lijst getallen. Deze getallen hebben
 de volgende betekenis:
 
-1. event_id: Het unieke nummer van het event in deze dataset.
-1. timestamp: De tijd in hele seconden (GPS) waarop de trigger van het event
+1. event_id: Het unieke nummer van het event in deze
+dataset.
+1. timestamp: De tijd in hele seconden (GPS) waarop de trigger van het
+event
 plaatsvond.
-1. nanoseconds: De tijd in nanoseconden waarop de trigger van het event
+1. nanoseconds: De tijd in nanoseconden waarop de trigger van
+het event
 plaatsvond.
-1. ext_timestamp: Dit getal is vrij groot, namelijk de twee vorige achter
+1. ext_timestamp: Dit getal is vrij groot, namelijk de
+twee vorige achter
 elkaar.
-1. pulseheights: Een array met pulshoogten, "`-1`" betekent dat er geen detector
+1. pulseheights: Een array met pulshoogten, "`-1`"
+betekent dat er geen detector
 was.
-1. integrals: Een array met pulsoppervlakten, "`-1`" betekent ook hier dat er
+1. integrals: Een array met pulsoppervlakten,
+"`-1`" betekent ook hier dat er
 geen detector was.
-1. n1: Het aantal MIPS's (Minimal Ionising Particles) dat in detector 1 is
+1. n1: Het aantal MIPS's
+(Minimal Ionising Particles) dat in detector 1 is
 gereconstrueerd.
 1. n2
 1. n3
 1. n4
-1. t1: De gereconstrueerde detectietijden vanaf het begin van het opgeslagen
+1. t1: De gereconstrueerde detectietijden vanaf het begin van het
+opgeslagen
 signaal voor detector 1.
 1. t2
 1. t3
 1. t4
-1. t_trigger: Het moment van de GPS-tijdstempel vanaf het begin van het
+1. t_trigger: Het moment
+van de GPS-tijdstempel vanaf het begin van het
 opgeslagen signaal.
 
-In het werkblad [http://docs.hisparc.nl/infopakket/pdf/traces.pdf](http://docs.hisparc.nl/infopakket/pdf/traces.pdf) wordt de natuurkundige betekenis van deze
+In het
+werkblad [http://docs.hisparc.nl/infopakket/pdf/traces.pdf](http://docs.h
+isparc.nl/infopakket/pdf/traces.pdf) wordt de natuurkundige betekenis van deze
 getallen beschreven.  De afbeeldingen in dit werkblad zijn afkomstig uit het
-interactieve werkblad [http://data.hisparc.nl/media/jsparc/jsparc.html](http://data.hisparc.nl/media/jsparc/jsparc.html). Let op, computers tellen vanaf "`0`"
+interactieve werkblad [http://data.hisparc.nl/media/jsparc/jsparc.html](http://d
+ata.hisparc.nl/media/jsparc/jsparc.html). Let op, computers tellen vanaf "`0`"
 en niet vanaf "`1`"
 
 
 
 ### Werken met kolomnamen
 
-Een kolom zoals 'event_id', 'timestamp' of 't1' kan opgevraagd worden door de
-index van de kolom (0, 1, 2, ...) of door de kolomnaam. Door gebruik te maken
-van de kolomnaam wordt de code veel beter leesbaar:
+Een kolom zoals 'event_id',
+'timestamp' of 't1' kan opgevraagd worden door de
+index van de kolom (0, 1, 2,
+...) of door de kolomnaam. Door gebruik te maken
+van de kolomnaam wordt de code
+veel beter leesbaar:
 
-```{.python .input}
+
+```python
 first_event = event_tabel[0]
 first_event['timestamp']
 ```
@@ -117,27 +151,31 @@ first_event['timestamp']
 Het aantal gereconstrueerde deeltjes in detector 1 (het zevende getal) bij het
 eerste event is dus te vinden met:
 
-```{.python .input}
+
+```python
 event_tabel[0][6]  # 7de kolom van 1ste rij
 ```
 
 en:
 
-```{.python .input}
+
+```python
 first_event = event_tabel[0]
 first_event['n1']
 ```
 
 De tweede code is weliswaar langer, maar veel beter leesbaar.
 
-```{.python .input}
+
+```python
 print first_event['n1']
 print event_tabel[0][6]
 ```
 
 Een array met pulshoogten in ADC-waarden is in dit geval te vinden met:
 
-```{.python .input}
+
+```python
 first_event['pulseheights']
 ```
 
@@ -147,30 +185,36 @@ slechts twee detectoren.
 
 De eerste pulshoogte is te vinden met:
 
-```{.python .input}
+
+```python
 print "pulshoogte detector 1: %d ADC" % first_event['pulseheights'][0]
 ```
 
 ### Eventkolommen gebruiken
-Vaak is het eenvoudiger om de hele *kolom* `n1` in een keer te bekijken:
+Vaak is het eenvoudiger om de hele *kolom* `n1` in
+een keer te bekijken:
 
 De variabele `n1` wijst naar de kolom `n1`
-en we bekijken de eerste 30 regels (events):
+en we bekijken
+de eerste 30 regels (events):
 
-```{.python .input}
+
+```python
 n1 = event_tabel.col('n1')
 n1[:30]
 ```
 
 We kunnen nu de data uit een hele kolom verwerken en/of plotten:
 
-```{.python .input}
+
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 %matplotlib notebook
 ```
 
-```{.python .input}
+
+```python
 n1 = event_tabel.col('n1')
 plt.hist(n1, bins=np.arange(0.3, 5., .1), histtype='step')
 plt.title('Station 102: Number of particles in detector 1')
@@ -180,42 +224,51 @@ plt.ylabel('counts')
 
 Merk op dat:
 
-```{.python .input}
+
+```python
 event_tabel['n1']
 ```
 
 niet werkt, omdat event_tabel een (database) tabel is en geen *array*.
 
-We kunnen wel eerst alle rijen uit de tabel inlezen:
+We
+kunnen wel eerst alle rijen uit de tabel inlezen:
 
-```{.python .input}
+
+```python
 events = event_tabel.read()
 ```
 
 Dan kunnen we de kolom wel selecteren: (maar we hebben nu de **gehele** tabel in
 het geheugen!)
 
-```{.python .input}
+
+```python
 events['n1']
 ```
 
 ## Opgave
 
-Maak een histogram van de pulshoogtes van detector 1 en 2 van station 102.
+Maak een histogram van de pulshoogtes van detector 1 en 2 van station
+102.
 
 Een voorbeeld is hier te zien: http://data.hisparc.nl/show/stations/102
 
-```{.python .input}
+
+```python
 ph = event_tabel.col('pulseheights')
 ph1 = ph[:, 0]
 ph2 = ph[:, 1]
 ```
 
 'pulseheights' is een *matrix*:
-- `[:, 0]` is de gehele eerste rij, dwz de pulshoogtes per event van detector 0
-- `[:, 1]` is de gehele tweede rij, dwz de pulshoogtes per event van detector 1
+- `[:, 0]` is de gehele eerste rij, dwz de
+pulshoogtes per event van detector 0
+- `[:, 1]` is de gehele tweede rij, dwz de
+pulshoogtes per event van detector 1
 
-```{.python .input}
+
+```python
 plt.figure()
 plt.hist(ph1, bins=np.arange(0, 2000., 20.), histtype='step', log=True)
 plt.hist(ph2, bins=np.arange(0, 2000., 20.), histtype='step', log=True)
@@ -226,6 +279,7 @@ plt.legend(['detector 1', 'detector 2' ])
 plt.ylim(10, 1e4)
 ```
 
-```{.python .input}
+
+```python
 data.close()
 ```

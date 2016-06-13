@@ -4,32 +4,44 @@ Richtingsrecontructie op basis van aankomsttijden van deeltjes is mogelijk als
 er 3 tijden zijn gemeten. In het geval van HiSPARC meetstations, is dat mogelijk
 bij stations met 4 detectoren.
 
-```{.python .input}
+
+```python
 import tables
 from sapphire import download_data
 from datetime import datetime
 ```
 
-```{.python .input}
-FILENAME = 's501.h5'
+In het recept *download data* is reeds data gedownload in het bestand 'data.h5':
+
+(Als dit bestand nog niet bestaat wordt het nu gemaakt. We downloaden de
+benodigde data dan verderop alsnog)
+
+
+```python
+FILENAME = 'data5.h5'
 data = tables.open_file(FILENAME, 'a')
 ```
 
-We downloaden data van het "vier-plaat" station 501; Een station met vier
-detectoren:
+In het recept *download data* zijn reeds de events van station 501 van de eerste
+twee dagen van januari 2016 gedownload, in de tabel 's501'.
 
-```{.python .input}
+Als de data nog niet is gedownload, dan downloaden we de data hier alsnog:
+
+
+```python
 if '/s501' not in data:
-    download_data(data, '/s501', 501, start=datetime(2016, 1, 1), end=datetime(2016,1,2))
+    download_data(data, '/s501', 501, start=datetime(2016, 1, 1), end=datetime(2016,1,3))
 ```
 
-```{.python .input}
+
+```python
 print data
 ```
 
 We gebruiken de SAPPHiRE class `ReconstructESDEvents`:
 
-```{.python .input}
+
+```python
 from sapphire import ReconstructESDEvents
 rec = ReconstructESDEvents(data, '/s501', 501)
 ```
@@ -44,7 +56,8 @@ de volgende paragraaf toegelicht.
 
 Eerst reconstrueren we de aankomstrichting van de events:
 
-```{.python .input}
+
+```python
 rec.reconstruct_directions()
 ```
 
@@ -53,13 +66,15 @@ Not-a-number: De reconstructie was niet mogelijk. Ofwel er was onvoldoende
 informatie, bijvoorbeeld slechts twee aankomsttijden. Ofwel de oplossing was
 niet fysisch:
 
-```{.python .input}
+
+```python
 rec.theta[:20]
 ```
 
 Met behulp van de functie `numpy.isnan()` kunnen we de NaNs verwijderen:
 
-```{.python .input}
+
+```python
 from numpy import isnan
 zenith = [a for a in rec.theta if not isnan(a)]
 azimuth = [a for a in rec.phi if not isnan(a)]
@@ -68,7 +83,8 @@ print "Er zijn %d events succesvol gereconstrueerd." % len(zenith)
 
 Nu bevat de array `zenith` slechts hoeken (in radialen):
 
-```{.python .input}
+
+```python
 zenith[:5]
 ```
 
@@ -77,14 +93,16 @@ zenith[:5]
 We maken een polar-plot van de hoeken theta en phi (zenit, azimut) van de
 (succesvol) gereconstrueerde events, en een histrogram van de zenithoeken.
 
-```{.python .input}
+
+```python
 import matplotlib.pyplot as plt
-%matplotlib notebook
+%matplotlib inline
 ```
 
 We rekenen de hoeken om naar graden:
 
-```{.python .input}
+
+```python
 from numpy import degrees
 zenith = degrees(zenith)
 azimuth = degrees(azimuth)
@@ -92,14 +110,16 @@ azimuth = degrees(azimuth)
 
 Polar plot van zenit en azimuth:
 
-```{.python .input}
+
+```python
 ax = plt.subplot(polar=True)
 ax.scatter(zenith, azimuth)
 ```
 
 Histogram van de zenithoeken:
 
-```{.python .input}
+
+```python
 from numpy import arange
 plt.hist(zenith, bins=arange(0,90., 5.), histtype='step')
 plt.xlabel('zenith angle (degrees)')
@@ -112,7 +132,8 @@ plt.title('Zenith histrogram station 501.')
 De SAPPHiRE reconstructie class `ReconstructESDEvents` kan de reconstructies ook
 direct opslaan in het HDF5 bestand waar de events in zijn opgeslagen:
 
-```{.python .input}
+
+```python
 rec = ReconstructESDEvents(data, '/s501', 501)
 rec.reconstruct_and_store()
 ```
@@ -124,7 +145,8 @@ de core reconstructie buiten beschouwing.
 naast `rec.theta` en `rec.phi` is er nu ook een nieuwe groep
 `/s501/reconstructions` in het hdf5 bestand:
 
-```{.python .input}
+
+```python
 rec_tabel = data.root.s501.reconstructions
 print rec_tabel
 ```
@@ -143,28 +165,33 @@ kolommen uit de groep `/s501/reconstructions` uit het HDF5 bestand.
 - gebruik: `.col('zenith')` om een kolom in te laden.
 - gebruik  `.compress(~isnan(...))` om te NaNs verwijderen.
 
-```{.python .input}
+
+```python
 zenith = rec_tabel.col('zenith')
 azimuth = rec_tabel.col('azimuth')
 ```
 
-```{.python .input}
+
+```python
 zenith = zenith.compress(~isnan(zenith))
 azimuth = azimuth.compress(~isnan(azimuth))
 print "Er zijn %d events succesvol gereconstrueerd." % len(zenith)            
 ```
 
-```{.python .input}
+
+```python
 zenith = degrees(zenith)
 azimuth = degrees(azimuth)
 ```
 
-```{.python .input}
+
+```python
 ax = plt.subplot(polar=True)
 ax.scatter(zenith, azimuth)
 ```
 
-```{.python .input}
+
+```python
 plt.hist(zenith, bins=arange(0,90., 5.), histtype='step')
 plt.xlabel('zenith angle (degrees)')
 plt.ylabel('counts')
