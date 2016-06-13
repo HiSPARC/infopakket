@@ -2,7 +2,8 @@
 
 Plot station (en detector) LLA coordinaten op OpenStreetMap tiles.
 
-```{.python .input}
+
+```python
 from sapphire import HiSPARCStations
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -13,17 +14,18 @@ Deze worksheet gebruikt `smopy` om OpenStreetMap tiles te downloaden en plotten.
 
 Helaas bevat de laatste versie van `smopy` (0.0.3) een aantal bugs, waardoor de
 schaal van de kaarten niet klopt. Download daarom het bestand `smopy.py` [van
-deze link (klik!)]
-(https://gist.githubusercontent.com/tomkooij/34cbc1f8f1fb22a0a0f1d0c4ce462618/raw/b44abd1e0eb32687defc3d1a444d044af08baeef/smopy.py)
+deze link (klik!)](https://github.com/rossant/smopy/blob/master/smopy.py)
 en sla deze op in dezelfde map als dit notebook.
 
-```{.python .input}
+
+```python
 import smopy
 ```
 
 Als deze import een fout oplevert, lees dan hierboven nogmaals!
 
-```{.python .input}
+
+```python
 def get_latlontext(cluster):
     """Create list of latitude, longitudes, and legend text for a cluster
 
@@ -48,11 +50,13 @@ met lla coordinaten.
 
 Test:
 
-```{.python .input}
+
+```python
 print get_latlontext(HiSPARCStations([102], force_stale=True))
 ```
 
-```{.python .input}
+
+```python
 def plot_cluster_OSM(stations, plot_detectors=False, force_stale=True):
     """Plot cluster (station and detectors) on top of OSM tiles
 
@@ -81,14 +85,17 @@ def plot_cluster_OSM(stations, plot_detectors=False, force_stale=True):
             ax.plot(x, y, 'xb', ms=10)
 ```
 
-```{.python .input}
+
+```python
 plot_cluster_OSM((102, 104, 105), plot_detectors=True)
 ```
 
-```{.python .input}
+
+```python
 plot_cluster_OSM(range(501, 512))
 ```
 
-```{.python .input}
+
+```python
 plot_cluster_OSM((501, 508, 510), plot_detectors=True)
 ```
