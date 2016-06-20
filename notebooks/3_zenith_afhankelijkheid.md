@@ -67,7 +67,7 @@ niet, dan downloaden we de data alsnog
 import tables
 data = tables.open_file('data.h5', 'a')
 if '/s501/events' not in data:
-    sapphire.quick_download(501)
+    data = sapphire.quick_download(501)
 else:
     print data.root.s501.events
 ```
