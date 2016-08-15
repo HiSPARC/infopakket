@@ -10,10 +10,7 @@ import matplotlib.pyplot as plt
 
 Deze worksheet gebruikt `smopy` om OpenStreetMap tiles te downloaden en plotten.
 
-`smopy` kan geinstalleerd worden met:
-```
-pip install smopy
-```
+`smopy` kan geinstalleerd worden met: `pip install smopy` (vanuit een shell of command prompt). 
 
 ```{.python .input}
 import smopy
