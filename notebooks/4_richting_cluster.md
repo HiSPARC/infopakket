@@ -3,6 +3,12 @@ Richtingreconstructie is nauwkeuriger als er een aantal stations dicht bij
 elkaar liggen. Deze stations zijn (een onderdeel van) een cluster. Als meerdere
 stations een event meten, wordt dit een coincidentie genoemd.
 
+
+```{.python .input}
+# Dit notebook werkt onder python 2 en 3:
+from __future__ import print_function, division
+```
+
 Eerst worden enkele modules geimporteerd:
 * tables: deze module bevat methoden om met tabellen te werken.
 * datetime: deze module geeft een standaard format voor datum en tijd.
@@ -10,7 +16,7 @@ Eerst worden enkele modules geimporteerd:
 * sapphire: de HiSPARC module waarmee gegevens van meetstations op te halen
 zijn.
 
-```{.python .input  n=1}
+```{.python .input  n=4}
 import tables
 from datetime import datetime
 import numpy as np
@@ -33,12 +39,25 @@ with tables.open_file('data_coincidences.h5', 'w') as data:
 ```
 
 Als de meetgegevens opgeslagen zijn, kunnen we deze bewerken. De bewerkte
-gegevens worden in een variabele 'rec' opgeslagen.
+gegevens worden in een variabele `rec` opgeslagen.
 
-```{.python .input}
+```{.python .input  n=2}
 with tables.open_file('data_coincidences.h5', 'a') as data:
     rec = ReconstructESDCoincidences(data, overwrite=True, progress=True)
     rec.reconstruct_and_store()
+```
+
+De richtingreconstructie levert `rec.theta ` en `rec.phi` lijsten met
+respectievelijk alle gereconstrueerde
+zenit- en azimuthoeken. Deze hoeken zijn `NaN` (Not A Number) als de richting
+niet gereconstrueerd kon worden.
+
+Met behulp van de functie `np.isnan()` kunnen we de NaNs verwijderen:
+
+```{.python .input}
+zenit = [a for a in rec.theta if not np.isnan(a)]
+azimut = [a for a in rec.phi if not np.isnan(a)]
+print("Er zijn %d events succesvol gereconstrueerd." % len(zenit))            
 ```
 
 Deze gegevens zijn in een met matplotlib in een polar plot af te beelden.
@@ -49,7 +68,7 @@ een plot afgebeeld.
 ```{.python .input}
 plt.figure(1)
 ax = plt.subplot(111, polar=True)
-plt.scatter(rec.phi, rec.theta)
+plt.scatter(azimut, zenit)
 plt.show()
 ```
 
@@ -61,16 +80,16 @@ en pi/2 gedefinieerd (0 tot 90 graden), de breedte is 0.5 graad.
 ```{.python .input}
 bins = np.arange(0, np.pi/2., np.pi/180.)
 plt.figure(2)
-plt.hist(rec.theta, bins, histtype='step')
+plt.hist(zenit, bins, histtype='step')
 plt.show()
 ```
 
-De code is op te slaan met "`%save this 1-6`". Voor "`this`" kan iedere naam
-worden ingevuld, "`1-6`" geeft aan welke cellen worden opgeslagen. Het bestand
+De code is op te slaan met "`%save this 1-7`". Voor "`this`" kan iedere naam
+worden ingevuld, "`1-7`" geeft aan welke cellen worden opgeslagen. Het bestand
 "`this.py`" wordt opgeslagen.
 
 ```{.python .input}
-%save this 1-6
+%save this 1-7
 ```
 
 Met "`%run this.py`" wordt het opgeslagen bestand uitgevoerd.
