@@ -1,4 +1,10 @@
 # Recept Coincidenties bepalen
+
+```python
+# dit notebook werkt onder Python 2 en 3
+from __future__ import division, print_function
+```
+
 Coincidenties tussen meetstations worden automatisch bepaald door de publieke
 database. Ze kunnen eenvoudig worden gedownload, zoals in een eerder notebook is
 beschreven.
@@ -38,12 +44,12 @@ Eerst downloaden we de events per station:
 station_groups = ['/s%d' % station for station in STATIONS]
 
 for station, group in zip(STATIONS, station_groups):
-    print "Station %d in group: %s." % (station, group),
+    print("Station %d in group: %s." % (station, group),)
     if group not in data:
-        print "Downloading data: "
+        print("Downloading data: ")
         download_data(data, group, station, START, END)
     else:
-        print "group %s already in datafile." % group
+        print("group %s already in datafile." % group)
 ```
 
 De HDF5 file heeft nu 3 events tabellen:
@@ -52,7 +58,7 @@ De HDF5 file heeft nu 3 events tabellen:
 - /s599/events
 
 ```{.python .input}
-print data
+print(data)
 ```
 
 ## Coincidenties bepalen tussen events
@@ -66,7 +72,7 @@ coin.search_and_store_coincidences(station_numbers=STATIONS)
 ```
 
 ```{.python .input}
-print data
+print(data)
 ```
 
 De HDF5 file heeft nu een nieuwe group '/coincidences' met daarin:
@@ -82,7 +88,7 @@ De tabel `/coincidences/coincidences` ziet er als volgt uit:
 
 ```{.python .input}
 coinc_tabel = data.root.coincidences.coincidences
-print coinc_tabel
+print(coinc_tabel)
 ```
 
 ```{.python .input}
@@ -112,11 +118,11 @@ s599 = coincidences['s599']
 De functie `sum()` telt alle waarden die `True` zijn op:
 
 ```{.python .input}
-print "Er zijn %d events van station 501 betrokken bij coincidenties tussen 501, 510 en/of 599" % sum(s501)
+print("Er zijn %d events van station 501 betrokken bij coincidenties tussen 501, 510 en/of 599" % sum(s501))
 ```
 
 ```{.python .input}
-print "Er zijn %d coincidenties tussen 501, 510 en 599" % sum(s510 & s501 & s599)
+print("Er zijn %d coincidenties tussen 501, 510 en 599" % sum(s510 & s501 & s599))
 ```
 
 # Opgave
@@ -143,7 +149,7 @@ coinc_510_501
 In deze selectie zitten ook coincidenties tussen 501, 510 en 599:
 
 ```{.python .input}
-print "Er zijn %d coincenties tussen 510 en 511 waarbij ook 599 betrokken is" % sum(coinc_510_501['s599'])
+print("Er zijn %d coincenties tussen 510 en 511 waarbij ook 599 betrokken is" % sum(coinc_510_501['s599']))
 ```
 
 Dit komt natuurlijk overeen met het eerder gevonden aantal coincidenties tussen

@@ -1,5 +1,10 @@
 # 3 Zenith-afhankelijkheid van een station.
 
+```python
+# dit notebook werkt onder Python 2 en 3
+from __future__ import division, print_function
+```
+
 Dit notebook sluit aan op het notebook 'HiSPARC_API'. Er wordt zowel informatie
 van het station als van de metingen verwerkt.
 
@@ -17,7 +22,7 @@ import sapphire
 from sapphire import Station
 detectors = Station(501).info['scintillators']
 for detector in detectors:
-    print detector
+    print(detector)
 ```
 
 De *plattegrond* van een meetstation (detectorposities) is gedefinieerd door:
@@ -52,7 +57,7 @@ met:
 
 
 ```python
-print afstand(detectors[0], detectors[3])
+print(afstand(detectors[0], detectors[3]))
 ```
 
 ### Aankomsttijden
@@ -69,21 +74,21 @@ data = tables.open_file('data.h5', 'a')
 if '/s501/events' not in data:
     data = sapphire.quick_download(501)
 else:
-    print data.root.s501.events
+    print(data.root.s501.events)
 ```
 
 
 ```python
 events = data.root.s501.events.read()
 event = events[0]
-print event
+print(event)
 ```
 
 
 ```python
-tijdkolommen = ['t1', 't2', 't3', 't4'] 
+tijdkolommen = ['t1', 't2', 't3', 't4']
 for kolom in tijdkolommen:
-    print event[kolom]
+    print(event[kolom])
 ```
 
 ### Zenithoeken
@@ -98,22 +103,22 @@ Voor een stations met 4 detectoren zijn er 6 combinaties, d.w.z. 6 zenithoeken:
 from itertools import combinations
 
 def zenithoeken(event, detectors):
-    ''' 
-    De zenithoek is de hoek tussen het golf-front en de horizon, 
+    '''
+    De zenithoek is de hoek tussen het golf-front en de horizon,
     of ook tussen de as naar het zenith en de as van de deeltjeslawine.
-    
+
     parameters
     event: een enkel event uit de opgehaalde data
     detectors: de detectorinformatie uit de API
-    
+
     returns
     een array met de hoek tussen de as door twee detectors en het deeltjes front.
     '''
     c = 0.2998  # in m/ns
-    
+
     tijden = [event['t1'], event['t2'], event['t3'], event['t4']]
     detector_tijd_paren = zip(detectors, tijden)
-    
+
     zenith = []
     for paar1, paar2 in combinations(detector_tijd_paren, 2):
         detector1, t1 = paar1
@@ -123,8 +128,8 @@ def zenithoeken(event, detectors):
             continue
 
         schuine = afstand(detector1, detector2)
-        overstaande = c * (t1 - t2) 
-        
+        overstaande = c * (t1 - t2)
+
         angle = np.degrees(np.arcsin(overstaande / schuine))
         zenith.append(angle)
     return zenith
@@ -132,7 +137,7 @@ def zenithoeken(event, detectors):
 
 
 ```python
-print zenithoeken(event, detectors)
+print(zenithoeken(event, detectors))
 ```
 
 Omdat slechts 2 van de 4 detectoren (detector 3 en 4) deeltjes hebben
@@ -141,7 +146,7 @@ gedetecteerd is er slechts 1 zenithoek.
 
 ```python
 for event in events[0:10]:
-    print zenithoeken(event, detectors)
+    print(zenithoeken(event, detectors))
 ```
 
 Hierboven zijn de gereconstrueerde hoeken voor de eerste 10 events voor alle

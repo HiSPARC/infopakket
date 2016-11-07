@@ -1,5 +1,10 @@
 # Recept Richtingsreconstructie
 
+```python
+# dit notebook werkt onder Python 2 en 3
+from __future__ import division, print_function
+```
+
 Richtingsrecontructie op basis van aankomsttijden van deeltjes is mogelijk als
 er 3 tijden zijn gemeten. In het geval van HiSPARC meetstations, is dat mogelijk
 bij stations met 4 detectoren.
@@ -35,7 +40,7 @@ if '/s501' not in data:
 
 
 ```python
-print data
+print(data)
 ```
 
 We gebruiken de SAPPHiRE class `ReconstructESDEvents`:
@@ -78,7 +83,7 @@ Met behulp van de functie `numpy.isnan()` kunnen we de NaNs verwijderen:
 from numpy import isnan
 zenith = [a for a in rec.theta if not isnan(a)]
 azimuth = [a for a in rec.phi if not isnan(a)]
-print "Er zijn %d events succesvol gereconstrueerd." % len(zenith)            
+print("Er zijn %d events succesvol gereconstrueerd." % len(zenith))            
 ```
 
 Nu bevat de array `zenith` slechts hoeken (in radialen):
@@ -148,7 +153,7 @@ naast `rec.theta` en `rec.phi` is er nu ook een nieuwe groep
 
 ```python
 rec_tabel = data.root.s501.reconstructions
-print rec_tabel
+print(rec_tabel)
 ```
 
 De gereconstrueerde hoeken zijn nu ook opgeslagen op disk, in het HDF5 bestand.
@@ -175,7 +180,7 @@ azimuth = rec_tabel.col('azimuth')
 ```python
 zenith = zenith.compress(~isnan(zenith))
 azimuth = azimuth.compress(~isnan(azimuth))
-print "Er zijn %d events succesvol gereconstrueerd." % len(zenith)            
+print("Er zijn %d events succesvol gereconstrueerd." % len(zenith))           
 ```
 
 

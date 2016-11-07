@@ -1,5 +1,10 @@
 # Recept station layout
 
+```python
+# dit notebook werkt onder Python 2 en 3
+from __future__ import division, print_function
+```
+
 Haal de station layout op uit de API en plot
 
 ```python

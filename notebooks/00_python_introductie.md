@@ -8,7 +8,7 @@ Het is zeker niet bedoeld als een complete introductie van `python` voor
 beginners.
 
 Andere bronnen:
-- Een zeer leesbaar boek over Python 2.7 is `Think Python` (gratis downloadbaar
+- Een zeer leesbaar boek over Python is `Think Python` (gratis downloadbaar
 in PDF en HTML): http://greenteapress.com/wp/think-python/
 - Een online interactieve basis introductie van Python:
 https://www.codecademy.com/learn/python
@@ -16,30 +16,42 @@ https://www.codecademy.com/learn/python
 heeft zeer bruikbare (natuurkundige) opdrachten in Python:
 https://progns.mprog.nl/ (klik bovenaan op Archive)
 
+## Python 2 en 3
 
+Deze notebooks werken onder python 2 en 3. Helaas zijn er verschillen tussen python 2 en 3, waardoor python 2 code niet zomaar onder python 3 werkt. Twee opvallende verschillen tussen python 2 en 3 zijn:
+
+- `print`: Python 2: `print 'hallo'`. Python 3: `print('hallo')`
+- `division`: Python 2: `3 / 2 == 1`. Python 3: `3 / 2 == 1.5`
+
+Door `from __future__ import division, print_function` gedraagd python 2 zich als python 3.
+
+```python
+# dit notebook werkt onder Python 2 en 3
+from __future__ import division, print_function
+```
 ## Hello, World!
 
-In `python 2.7` ziet deze klassieker er zo uit: (Druk Ctrl-Enter in de cel
+In `python` ziet deze klassieker er zo uit: (Druk Ctrl-Enter in de cel
 hieronder)
 
 ```{.python .input  n=2}
-print 'Hello, World!'
+print('Hello, World!')
 ```
 
 ## Blokken: Inspringen
 
-Blokken code worden in `python` ingegesprongen:
+Blokken code worden in `python` ingesprongen:
 
 ```{.python .input  n=6}
-getal = input('Geef een getal: ')
+getal = int(input('Geef een getal: '))
 if getal > 10:
-    print 'Groter dan tien!'
+    print('Groter dan tien!')
 elif getal < 0:
-    print 'Negatief!'
+    print('Negatief!')
 else:
-    print 'Tussen nul en tien!'
+    print('Tussen nul en tien!')
     if getal % 2 == 0:
-        print 'En het getal is even!'
+        print('En het getal is even!')
 ```
 
 ## Variabelen
@@ -85,17 +97,17 @@ personen[1]
 Er zijn veel mogelijkheden met behulp van de index:
 
 ```{.python .input}
-print "item 1 tot 5", personen[1:5]
-print "Vanaf het tweede item:", personen[1:]
-print "Vanaf 0 tot 8, stapgrootte 2", personen[0:8:2]
-print "Het laatste item:", personen[-1]
+print("item 1 tot 5", personen[1:5])
+print("Vanaf het tweede item:", personen[1:])
+print("Vanaf 0 tot 8, stapgrootte 2", personen[0:8:2])
+print("Het laatste item:", personen[-1])
 ```
 
 ```{.python .input}
 if 'Karel' in personen:
-    print "Karel zit in de lijst."
+    print("Karel zit in de lijst.")
 else:
-    print "Karel zit niet in de lijst"
+    print("Karel zit niet in de lijst")
 ```
 
 ## range
@@ -103,9 +115,9 @@ else:
 range() maakt een lijst gehele getallen (integers):
 
 ```{.python .input}
-print "Tot 10:\t\t", range(10)
-print "Vanaf 5 tot 10:\t", range(5, 10)
-print "tot 10, stap 2:", range(0, 10, 2)
+print("Tot 10:\t\t", range(10))
+print("Vanaf 5 tot 10:\t", range(5, 10))
+print("tot 10, stap 2:", range(0, 10, 2))
 ```
 
 ### help() en ?
@@ -127,13 +139,13 @@ Het statement `for` wordt gebruikt om te loopen:
 
 ```{.python .input}
 for getal in range(5):
-    print getal
+    print(getal)
 ```
 
 ```{.python .input}
 for getal in range(1,50):
     if getal % 7 == 0:
-        print "Het getal %d is deelbaar door 7" % getal
+        print("Het getal %d is deelbaar door 7" % getal)
 ```
 
 `for` kan geinterpreteerd worden als `foreach` (voor elk item, doe:)
@@ -142,7 +154,7 @@ andere talen gebruikelijk, maar over *alle* lijst-achtige objecten:
 
 ```{.python .input}
 for persoon in personen:
-    print persoon
+    print(persoon)
 ```
 
 ## List comprehensions
@@ -171,14 +183,14 @@ Een functie definieren we in `python` alsvolgt:
 ```{.python .input}
 def is_priem(getal):
     """Test of getal een priemgetal is
-    
+
     Dit is een zeer inefficiente implementatie
 
     """
     for deler in range(2, getal):
         if not getal % deler:
             return False
-    
+
     return True
 ```
 
@@ -187,7 +199,7 @@ Een functie roepen we aan met `functie(paramter1, parameter2, ...)`:
 ```{.python .input}
 for getal in range(100):
     if is_priem(getal):
-        print getal,
+        print(getal,)
 ```
 
 Het commentaar tussen de """ is belangrijk. Deze zogenaamde 'docstring' is

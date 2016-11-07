@@ -1,4 +1,10 @@
 # 2 HiSPARC-API
+
+```python
+# dit notebook werkt onder Python 2 en 3
+from __future__ import division, print_function
+```
+
 ## Inleiding
 Informatie over en van meetstations (configuraties, events, coincidenties) is op
 te halen via de publieke database op http://data.hisparc.nl
@@ -35,15 +41,15 @@ Network is voor het ophalen van informatie over het netwerk via de API:
 
 ```python
 network = Network()
-print network.station_numbers()
+print(network.station_numbers())
 ```
 
 ```python
-print network.clusters()
+print(network.clusters())
 ```
 
 ```python
-print network.station_numbers(cluster=2000)
+print(network.station_numbers(cluster=2000))
 ```
 
 ### Station()
@@ -53,7 +59,7 @@ De informatie uit de URL http://data.hisparc.nl/api/station/22/ (informatie over
 meetstation 22, St. Ignatius, Adam) kunnen we ook met Station() opvragen:
 
 ```python
-print Station(22).info
+print(Station(22).info)
 ```
 
 Een belangrijke eigenschap is de plaats waar een station zich bevindt.
@@ -64,7 +70,7 @@ http://data.hisparc.nl/show/source/gps/22/
 Via Station():
 
 ```python
-print Station(22).gps_locations
+print(Station(22).gps_locations)
 ```
 
 Dit zijn *alle* GPS posities van meetstation 22.
@@ -83,8 +89,8 @@ from sapphire.transformations.clock import datetime_to_gps
 from datetime import datetime
 
 ts = datetime_to_gps(datetime.now())
-print "timestamp: ", ts
-print "GPS: ", Station(22).gps_location(ts)
+print("timestamp: ", ts)
+print("GPS: ", Station(22).gps_location(ts))
 ```
 
 # Opgave
@@ -92,8 +98,8 @@ Bepaal de GPS coordinaten van station 22 op 5 December 2012:
 
 ```python
 ts = datetime_to_gps(datetime(2012, 12, 5))
-print "timestamp: ", ts
-print "GPS: ", Station(22).gps_location(ts)
+print("timestamp: ", ts)
+print("GPS: ", Station(22).gps_location(ts))
 ```
 
 ## Clusters via HiSPARCStations() en HiSPARCNetwork()
@@ -119,7 +125,7 @@ onderlinge afstanden e.d. eenvoudig bepalen.
 
 ```python
 for station in cluster.stations:
-    print station.number, station.get_lla_coordinates()
+    print(station.number, station.get_lla_coordinates())
 ```
 
 ### set_timestamp()
@@ -133,9 +139,9 @@ de stations op dat gegeven tijdstip stonden:
 ```python
 ts = 1368403200
 cluster.set_timestamp(ts)
-print "LLA coordinaten op timestamp = %d\n" % ts
+print("LLA coordinaten op timestamp = %d\n" % ts)
 for station in cluster.stations:
-    print station.number, station.get_lla_coordinates()
+    print(station.number, station.get_lla_coordinates())
 ```
 
 # Opgave:
@@ -182,7 +188,7 @@ network = HiSPARCNetwork(force_stale=True)
 De *UserWarnings* kunnen hier genegeerd worden.
 
 ```python
-print "De afstand tussen 505 en 509 is %.f m" % network.calc_distance_between_stations(505, 509)
+print("De afstand tussen 505 en 509 is %.f m" % network.calc_distance_between_stations(505, 509))
 ```
 
 Ook voor het hele netwerk kan een timestamp worden opgegeven:
@@ -198,7 +204,7 @@ In combinatie met clusters maken we vaak gebruik van de functie
 stations = [3, 22, 501, 509]
 from itertools import combinations
 for eerste, tweede in combinations(stations, 2):
-    print eerste, tweede
+    print(eerste, tweede)
 ```
 
 # Opgave:
@@ -214,6 +220,6 @@ cluster = HiSPARCStations(stations, force_stale=True)
 for sn1, sn2 in combinations(stations, 2):
     d = cluster.calc_distance_between_stations(sn1, sn2)
     if d < 1000:
-        print "De afstand tussen station %d en %d is %.f m." % (sn1, sn2, d)
-    
+        print("De afstand tussen station %d en %d is %.f m." % (sn1, sn2, d))
+
 ```

@@ -1,5 +1,10 @@
 # Recept: Download events van een station
 
+```python
+# dit notebook werkt onder Python 2 en 3
+from __future__ import division, print_function
+```
+
 We maken een HDF5 bestand 'data.h5' en downloaden 3 dagen data (events) van
 station 501:
 
@@ -34,13 +39,13 @@ De events zijn opgeslagen in de tabel '/s501/events' (data.root.s501.events)
 
 
 ```python
-print data
+print(data)
 ```
 
 
 ```python
 events = data.root.s501.events[:5]
-print events
+print(events)
 ```
 
 
@@ -82,7 +87,7 @@ zoeken:
 
 
 ```python
-print data.root.coincidences.coincidences
+print(data.root.coincidences.coincidences)
 ```
 
 Meer informatie over het koppelen van station events aan coincidenties is te
@@ -108,9 +113,9 @@ stations = [3201, 3202, 3203]
 with tables.open_file('middelharnis.h5', 'w') as data:
 
     for station in stations:
-        print 'station: %d.' % station
+        print('station: %d.' % station)
         path = '/s%d' % station
         download_data(data, path, station, start, end)
 
-    print data
+    print(data)
 ```
