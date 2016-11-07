@@ -1,5 +1,6 @@
 from __future__ import print_function
 
+import sys
 import glob
 import os
 import re
@@ -90,7 +91,10 @@ def fix_title(title):
     title = title.replace(r'\pmt', 'PMT')
     title = title.replace(r'\gps', 'GPS')
     title = title.replace(r'\adc', 'ADC')
-    return title.decode('utf-8').encode('ascii', 'xmlcharrefreplace')
+    if sys.version_info[0] > 2:
+        return title.encode('ascii', 'xmlcharrefreplace').decode('utf-8')
+    else:
+        return title.decode('utf-8').encode('ascii', 'xmlcharrefreplace')
 
 
 def find_first(finder, path):
