@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import glob
 import os
 import re
@@ -72,7 +74,7 @@ def get_documents(categories):
                     document['version'] = find_first(version_finder, path)[0]
                     category, document['rank'] = find_first(cat_rank_finder, path)
                 except Exception:
-                    print path
+                    print(path)
                 else:
                     infopakket['docent']['documents'].append(document)
         else:
