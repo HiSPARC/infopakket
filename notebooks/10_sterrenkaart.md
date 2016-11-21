@@ -8,6 +8,7 @@ from __future__ import division, print_function
 ```
 
 ```python
+# importeer modules en functies
 from datetime import datetime
 
 import numpy as np
@@ -21,29 +22,55 @@ from sapphire.transformations.celestial import zenithazimuth_to_equatorial
 ```
 
 ## Download data
+
 Download coincidenties tussen stations van het Science Park.
-We
-nemen coincidenties tussen negen stations in een periode van een maand.
-Door
-deze keuze selecteren we een beperkt aantal showers met hoge energie.
+We nemen coincidenties tussen negen stations in een periode van een maand. Door
+deze voorwaarde kiezen we showers met een hoge energie, waarvoor het interessant
+is om de aankomstrichting uit de ruimte te onderzoeken.
+
+
+Open een HDF5 bestand,
+waarin we onze data opslaan:
 
 ```python
-DATAFILE = '../Datastore/large_coinc.h5'
-STATIONS = [501, 502, 503, 505, 506, 508, 509, 510, 511]
-START = datetime(2016, 1, 1)
-END = datetime(2016, 2, 1)
+DATAFILE = 'coinc.h5'
 ```
 
 ```python
 data = tables.open_file(DATAFILE, 'w')
 ```
 
+Definieer de dataset:
+
+* STATIONS = lijst van stations
+* START = eerste tijdstip
+in `datetime`
+* END = laatste tijdstip als `datetime`
+* N = minimum aantal
+stations per coincidentie
+
+Tip: Gebruik `datetime?` om informatie te krijgen
+over het datetime object.
+
+Suggestie: Gebruik coincidenties tussen
+(bijvoorbeeld) minimaal zes stations.
+
 ```python
-download_coincidences(data, stations=STATIONS, start=START, end=END, n=9)
+STATIONS = [501, 502, 503, 505, 506, 508, 509, 510, 511]
+START = datetime(2016, 1, 1)
+END = datetime(2016, 2, 1)
+N = 9
+```
+
+Download coincidenties uit de ESD ([data.hisparc.nl](data.hisparc.nl)) en sla ze
+op in het HDF5 bestand:
+
+```python
+download_coincidences(data, stations=STATIONS, start=START, end=END, n=N)
 ```
 
 ```python
-print("Aantal showers (coincidenties n=9 stations): ", len(data.root.coincidences.coincidences))
+print("Aantal showers (coincidenties n=%d stations): %d " % (N, len(data.root.coincidences.coincidences)))
 ```
 
 ## Reconstrueer richting van de showers
@@ -79,8 +106,10 @@ De richting van
 de events (`zenit-hoek` en `azimut` ten opzicht van een ENU-assenstelsel in het
 cluster) wordt getransformeerd naar rechte klimming en declinatie.
 
-Voor de coordinatentransformatie naar rechte-klimming en declinatie is de
-positie van ENU-assenstelsel van het cluster nodig:
+Voor de
+coordinatentransformatie naar rechte-klimming en declinatie is de
+positie van
+ENU-assenstelsel van het cluster nodig:
 
 ```python
 lla = ScienceParkCluster().get_lla_coordinates()
@@ -105,14 +134,24 @@ events = np.array(events)
 Histrogram ter controle:
 
 ```python
-ra = events[:,0]
-dec = events[:, 1]
-plt.title('Histrogram van rechte klimming (ra) en declinatie (dec)')
-plt.hist(ra, histtype='step')
-plt.hist(dec, histtype='step')
-plt.xlabel('ra en dec (-pi, pi)')
+ra = np.degrees(events[:,0])
+plt.title('Histrogram van rechte klimming (ra)')
+n, bins, _ = plt.hist(ra, histtype='step')  # n is het aantal events per bin
+plt.xlabel('ra (graden)')
 plt.ylabel('aantal')
-plt.legend(['ra', 'dec'])
+plt.xlim([-180, 179])
+plt.ylim([0, 1.2*max(n)])
+plt.show()
+```
+
+```python
+dec = np.degrees(events[:, 1])
+plt.title('Histrogram van declinatie (dec)')
+n, bins, _ = plt.hist(dec, histtype='step')  # n is het aantal events per bin
+plt.xlabel('dec (graden)')
+plt.ylabel('aantal')
+plt.xlim([-90, 89])
+plt.ylim([0, 1.2*max(n)])
 plt.show()
 ```
 
@@ -165,7 +204,36 @@ def plot_events_on_mollweide(events, filename=None):
 ```
 
 ```python
--
+def plot_events_polar(events, filename=None):
+    """Plot events (een lijst van RA, DEC paren) op een hemelkaart van de noordelijke hemel"""
+
+    events = np.array(events)
+
+    fig = plt.figure(figsize=(15,15))
+    ax = fig.add_subplot(111, projection="polar")
+    ax.set_xticklabels(['12h', '15h', '18h', '21h', '0h', '3h', '6h', '9h'], fontsize='large')
+    ax.set_yticklabels(['80', '70', '60', '50', '40', '30', '20', '10', '0'])
+
+    ax.grid(True)
+    
+    # plot milky way contours
+    for ra_mw, dec_mw in mw_contour_polar:
+        ax.plot(ra_mw, 90. - np.degrees(dec_mw), color='grey')
+
+    # plot UMa
+    ra_uma = np.radians(steelpan[:, 0] / 24 * 360 - 180.)
+    dec_uma = np.radians(steelpan[:, 1])
+    ax.plot(ra_uma, 90. - np.degrees(dec_uma), color='red')
+    ax.scatter(ra_uma, 90. - np.degrees(dec_uma), color='red')
+    # plot Polaris
+    ax.scatter(0., 0., color='red')
+
+    # plot reconstructions
+    ax.scatter(events[:,0], 90. - np.degrees(events[:,1]), marker='x')
+    ax.set_rmax(90.0)
+    if filename:
+        plt.savefig(filename, dpi=200)
+    plt.show()
 ```
 
 # Maak plots
@@ -176,6 +244,10 @@ plot_events_on_mollweide(events, filename='noordelijke hemel.png')
 
 ```python
 plot_events_polar(events, filename='noordelijke hemel.png')
+```
+
+```python
+data.close()
 ```
 
 ```python
