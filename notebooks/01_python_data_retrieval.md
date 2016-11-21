@@ -1,4 +1,10 @@
 # 1 Python data retrieval
+
+```python
+# dit notebook werkt onder Python 2 en 3
+from __future__ import division, print_function
+```
+
 ## Inleiding
 Het notebook 'Data retrieval met python'
 is het eerste notebook van een serie.
@@ -51,7 +57,7 @@ variabele "`data`" bevat nu een set meetgegevens. Deze set is af te drukken.
 
 
 ```python
-print data
+print(data)
 ```
 
 Het "`data`" bestand heeft een hierarchise opbouw. In "`data`" zit een
@@ -168,8 +174,8 @@ De tweede code is weliswaar langer, maar veel beter leesbaar.
 
 
 ```python
-print first_event['n1']
-print event_tabel[0][6]
+print(first_event['n1'])
+print(event_tabel[0][6])
 ```
 
 Een array met pulshoogten in ADC-waarden is in dit geval te vinden met:
@@ -187,7 +193,7 @@ De eerste pulshoogte is te vinden met:
 
 
 ```python
-print "pulshoogte detector 1: %d ADC" % first_event['pulseheights'][0]
+print("pulshoogte detector 1: %d ADC" % first_event['pulseheights'][0])
 ```
 
 ### Eventkolommen gebruiken
@@ -210,7 +216,7 @@ We kunnen nu de data uit een hele kolom verwerken en/of plotten:
 ```python
 import matplotlib.pyplot as plt
 import numpy as np
-%matplotlib notebook
+%matplotlib inline
 ```
 
 

@@ -1,5 +1,10 @@
 # Recept station map
 
+```python
+# dit notebook werkt onder Python 2 en 3
+from __future__ import division, print_function
+
+
 Plot station (en detector) LLA coordinaten op OpenStreetMap tiles.
 
 ```{.python .input}
@@ -10,7 +15,7 @@ import matplotlib.pyplot as plt
 
 Deze worksheet gebruikt `smopy` om OpenStreetMap tiles te downloaden en plotten.
 
-`smopy` kan geinstalleerd worden met: `pip install smopy` (vanuit een shell of command prompt). 
+`smopy` kan geinstalleerd worden met: `pip install smopy` (vanuit een shell of command prompt).
 
 ```{.python .input}
 import smopy
@@ -44,7 +49,7 @@ met lla coordinaten.
 Test:
 
 ```{.python .input}
-print get_latlontext(HiSPARCStations([102], force_stale=True))
+print(get_latlontext(HiSPARCStations([102], force_stale=True)))
 ```
 
 ```{.python .input}
@@ -58,7 +63,7 @@ def plot_cluster_OSM(stations, plot_detectors=False, force_stale=True):
     """
     if isinstance(stations, int):
         stations = [stations]
-    
+
     cluster = HiSPARCStations(stations, force_stale=force_stale)
 
     latlon = get_latlontext(cluster)

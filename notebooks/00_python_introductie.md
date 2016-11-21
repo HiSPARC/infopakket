@@ -23,7 +23,7 @@ Deze notebooks werken onder python 2 en 3. Helaas zijn er verschillen tussen pyt
 - `print`: Python 2: `print 'hallo'`. Python 3: `print('hallo')`
 - `division`: Python 2: `3 / 2 == 1`. Python 3: `3 / 2 == 1.5`
 
-Door `from __future__ import division, print_function` gedraagd python 2 zich als python 3.  
+Door `from __future__ import division, print_function` gedraagt python 2 zich als python 3.
 
 ```python
 # dit notebook werkt onder Python 2 en 3
@@ -40,10 +40,10 @@ print('Hello, World!')
 
 ## Blokken: Inspringen
 
-Blokken code worden in `python` ingegesprongen:
+Blokken code worden in `python` ingesprongen:
 
 ```{.python .input  n=6}
-getal = input('Geef een getal: ')
+getal = int(input('Geef een getal: '))
 if getal > 10:
     print('Groter dan tien!')
 elif getal < 0:

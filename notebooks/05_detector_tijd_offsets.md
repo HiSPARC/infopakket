@@ -1,4 +1,10 @@
 # Recept: Detector tijd offsets
+
+```python
+# dit notebook werkt onder Python 2 en 3
+from __future__ import division, print_function
+```
+
 Tijdsverschillen tussen detectoren
 
 ```{.python .input}
@@ -30,10 +36,10 @@ data = tables.open_file(FILENAME, 'a')
 ```{.python .input}
 from sapphire import download_data
 if '/events' not in data:
-    print 'downloading events'
+    print('downloading events')
     download_data(data, '/', station, start, end)
 else:
-    print 'events already downloaded.'
+    print('events already downloaded.')
 ```
 
 ```{.python .input}
@@ -145,7 +151,7 @@ s501.detector_timing_offset(ts)
 
 ```{.python .input}
 o1, o2, o3, o4 = s501.detector_timing_offset(ts)
-print "De detector tijd offset tussen detector 3 en 1 op is: %2.1f ns (t = %d)" % ((o3 - o1), ts)
+print("De detector tijd offset tussen detector 3 en 1 op is: %2.1f ns (t = %d)" % ((o3 - o1), ts))
 ```
 
 ```{.python .input}

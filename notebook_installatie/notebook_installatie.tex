@@ -16,48 +16,38 @@ en draait op de achtergrond. Specifieke software voor interpretatie van meetgege
 Python\footnote{Documentatie is te vinden op \url{http://docs.hisparc.nl/}} geschreven worden.
 
 De benodigde kennis voor het schrijven van \python software is in een aantal interactieve werkbladen
- (notebooks) beschreven. Deze notebooks geven voorbeelden voor:
+(notebooks) beschreven. Deze notebooks geven voorbeelden voor:
 \begin{itemize}
 \item Het ophalen van meetgegegevens.
 \item Het ophalen van stationsgegevens.
 \item Het verwerken van de opgehaalde gegevens
 \end{itemize}
-De notebooks maken gebruik van het iets uitgebreidere iPython.
+De notebooks maken gebruik van het iets uitgebreidere IPython.
 
 \section{Software-installatie}
 
-We gebruiken \python 2.7, hiervoor zijn distributies beschikbaar. De  Anaconda distributie bevat een aantal algemeen en specifiek wetenschappelijk te gebruiken bibliotheken hulpprogramma's. Voor de installatie wordt de software opgehaald, gaat als volgt:
+We gebruiken \python, hiervoor zijn distributies beschikbaar. De Anaconda distributie bevat een aantal algemeen en specifiek wetenschappelijk te gebruiken bibliotheken en hulpprogramma's. Voor de installatie wordt de software opgehaald, dat gaat als volgt:
 
 \begin{itemize}
-\item Download Anaconda: (\url{https://www.continuum.io/downloads})
-\item Kies de \python 2.7 versie van Anaconda. (Een 64 bits Windows versie voor een 64 bits Windows computer.)
+\item Ga naar de download pagina van Anaconda \url{https://www.continuum.io/downloads}
+\item Kies de juiste versie voor het systeem waarop het geïnstalleerd gaat worden, waarschijnlijk 64-bit Windows.
+\item Kies de gewenste \python versie.
+\item Download Anaconda. Let op: Het bestand is groter dan 300 Megabyte.
 \end{itemize}
 
 De procedure voor de installatie van Anaconda op een Windows computer is als volgt:
+
 \begin{itemize}
-\item Download Anaconda 2.7. Let op: Het bestand is ongeveer 300 Megabyte.
-\item Voer het exe-bestand uit, zodat Anaconda installeert. Klik telkens op "Verder>". Er hoeven geen speciale
-    instellingen gekozen te worden.
-\item Open in het Start menu de map Anaconda. Hierin zit `Anaconda Prompt'. Open deze en type:
- {\tt pip install hisparc-sapphire}. Druk op `Enter'. De benodigde \hisparc software wordt ge\"\i nstalleerd.
- (Ook in een andere \python omgeving moet hisparc-sapphire op dezelfde wijze worden ge\"\i nstalleerd.)
-\item De notebooks zijn op te halen op de Infopakket pagina 
-van de HiSPARC-site onder het kopje Python Notebooks\footnote{De nieuwste versie is op te halen op 
-\url{https://github.com/HiSPARC/infopakket/tree/master/notebooks}. Klik op de `RAW' knop en kopi\"{e}er het bestand 
-(rechtsklikken etc.).}. Kopieer het bestand naar (bijvoorbeeld) de map `Mijn Documenten'. 
-\item De notebooks zijn te gebruiken door `Jupyter Notebook', te vinden in de `Anaconda' map van het Start Menu, te draaien. De browser
-opent met een scherm waarop mappen zoals 'Mijn Documenten' te zien zijn. Klik je op de juiste map dan worden de opgehaalde notebooks
-getoond. Deze zijn weer te openen door er op de klikken. Je krijgt voor ieder geopend notebook een nieuw tabblad.
-\item De notebooks zijn interactief en `Shift + Enter' voert de opdrachten in de code-cellen uit. Deze zijn te herkennen aan
-een opdracht prompt met een cijfer. Tijdens het uitvoeren van de opdracht wordt het cijfer vervangen door een sterretje. Als 
-een opdracht is uitgevoerd, wordt een nieuw volgnumer gecre\"{e}erd. Is het volgnummer '2', dan zijn er dus twee opdrachten 
-uitgevoerd.
+\item Voer het exe-bestand uit, zodat Anaconda installeert. Klik telkens op "Verder>". Er hoeven geen speciale instellingen gekozen te worden.
+\item Open in het Start menu de map Anaconda. Hierin zit `Anaconda Prompt'. Open deze en type: {\tt pip install hisparc-sapphire}. Druk op `Enter'. De benodigde \hisparc software wordt geïnstalleerd. (Ook in een andere \python omgeving moet `hisparc-sapphire' op dezelfde wijze worden geïnstalleerd.)
+\item De notebooks zijn op te halen op de Infopakket pagina van de \hisparc website onder het kopje Python Notebooks\footnote{De nieuwste versie is op te halen op \url{https://github.com/HiSPARC/infopakket/tree/master/notebooks}. Klik op de `RAW' knop en kopiëer het bestand (rechtsklikken etc.).}. Kopieer het bestand naar (bijvoorbeeld) de map `Mijn Documenten'. 
+\item De notebooks zijn te gebruiken door `Jupyter Notebook', te vinden in de `Anaconda' map van het Start Menu, te draaien. De browser opent met een scherm waarop mappen zoals 'Mijn Documenten' te zien zijn. Klik je op de juiste map dan worden de opgehaalde notebooks getoond. Deze zijn weer te openen door er op de klikken. Je krijgt voor ieder geopend notebook een nieuw tabblad.
+\item De notebooks zijn interactief en `Shift + Enter' voert de opdrachten in de code-cellen uit. Deze zijn te herkennen aan een opdracht prompt met een cijfer. Tijdens het uitvoeren van de opdracht wordt het cijfer vervangen door een sterretje. Als een opdracht is uitgevoerd, wordt een nieuw volgnumer gecreëerd. Is het volgnummer '2', dan is dat dus de tweede opdracht die uitgevoerd is.
 \end{itemize}
 
-Notebooks worden op een lokale server beheerd. De informatie is via een browser, zoals firefox, chrome etc., te bekijken. 
+Notebooks worden op een lokale server beheerd. De informatie is via een browser, zoals Firefox, Chrome etc., te bekijken. 
 De server wordt benaderd via poort 8888, deze moet in de firewall dus open staan.
 
 Informatie over installatie van Anaconda op andere systemen is te vinden op: \url{http://docs.hisparc.nl/sapphire/installation.html#installing-the-prerequisites} 
-
 
 \end{document}
