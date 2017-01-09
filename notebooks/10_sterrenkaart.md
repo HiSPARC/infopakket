@@ -16,7 +16,8 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 
 import tables
-from sapphire import download_coincidences, ReconstructESDCoincidences, ScienceParkCluster
+from sapphire import (download_coincidences, ReconstructESDCoincidences,
+                      HiSPARCStations)
 from sapphire.utils import pbar
 from sapphire.transformations.celestial import zenithazimuth_to_equatorial
 ```
@@ -112,7 +113,7 @@ positie van
 ENU-assenstelsel van het cluster nodig:
 
 ```python
-lla = ScienceParkCluster().get_lla_coordinates()
+lla = HiSPARCStations(STATIONS).get_lla_coordinates()
 lat, lon, alt = lla
 print(lat, lon)
 ```
@@ -168,7 +169,7 @@ steelpan = np.array([[13.792222, 49.3167], [13.398889, 54.9333], [12.900556, 55.
 # Melkweg contouren als lijst van RA, DEC paren.
 # `milky_way.npy` heeft *geen* verbinding tussen RA 23h59 en 0h00 en `milky_way_polar.npy` wel.
 try:
-    mw_contour = np.load('milky_way.npy') 
+    mw_contour = np.load('milky_way.npy')
     mw_contour_polar = np.load('milky_way_polar.npy')
 except:
     mw_contour = mw_contour_polar = []
@@ -177,18 +178,18 @@ except:
 ```python
 def plot_events_on_mollweide(events, filename=None):
     """Plot events (een lijst van RA, DEC tuples) op een kaart in Mollweide projectie"""
-    
+
     events = np.array(events)
-    
+
     fig = plt.figure(figsize=(15, 15))
     ax = fig.add_subplot(111, projection="mollweide")
     ax.set_xticklabels(['2h', '4h', '6h', '8h', '10h', '12h', '14h', '16h', '18h', '20h', '22h'], fontsize='large')
     ax.grid(True)
-    
+
     # plot milky way contours
     for ra_mw, dec_mw in mw_contour:
         ax.plot(ra_mw, dec_mw, color='grey')
-    
+
     # plot steelpan in UMa
     ra_uma = np.radians(steelpan[:, 0] / 24 * 360 - 180.)
     dec_uma = np.radians(steelpan[:, 1])
@@ -196,7 +197,7 @@ def plot_events_on_mollweide(events, filename=None):
     ax.scatter(ra_uma, dec_uma, color='red')
     # plot Polaris
     ax.scatter(0., np.radians(90), color='red')
-    
+
     # plot reconstructions
     ax.scatter(events[:,0], events[:,1], marker='x')
     if filename:
@@ -215,7 +216,7 @@ def plot_events_polar(events, filename=None):
     ax.set_yticklabels(['80', '70', '60', '50', '40', '30', '20', '10', '0'])
 
     ax.grid(True)
-    
+
     # plot milky way contours
     for ra_mw, dec_mw in mw_contour_polar:
         ax.plot(ra_mw, 90. - np.degrees(dec_mw), color='grey')
