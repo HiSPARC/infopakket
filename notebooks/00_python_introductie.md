@@ -10,8 +10,7 @@ beginners.
 Andere bronnen:
 - Een zeer leesbaar boek over Python is `Think Python` (gratis downloadbaar
 in PDF en HTML): http://greenteapress.com/wp/think-python/
-- Een online interactieve basis introductie van Python:
-https://www.codecademy.com/learn/python
+- Een online interactieve basis introductie van Python: https://cscircles.cemc.uwaterloo.ca/nl/
 - **Aanrader**: Het UvA practicum "Programmeren voor Natuur- en Sterrenkunde"
 heeft zeer bruikbare (natuurkundige) opdrachten in Python:
 https://progns.mprog.nl/ (klik bovenaan op Archive)
