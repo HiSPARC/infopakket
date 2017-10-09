@@ -1,13 +1,16 @@
+
 # Reconstructies op een hemelkaart
 In dit notebook worden de richtingen van
 deeltjeslawines bepaald en geplot op een projectie van de (sterren)hemel.
 
-```python
+
+```
 # dit notebook werkt onder Python 2 en 3
 from __future__ import division, print_function
 ```
 
-```python
+
+```
 # importeer modules en functies
 from datetime import datetime
 
@@ -33,11 +36,13 @@ is om de aankomstrichting uit de ruimte te onderzoeken.
 Open een HDF5 bestand,
 waarin we onze data opslaan:
 
-```python
+
+```
 DATAFILE = 'coinc.h5'
 ```
 
-```python
+
+```
 data = tables.open_file(DATAFILE, 'w')
 ```
 
@@ -56,7 +61,8 @@ over het datetime object.
 Suggestie: Gebruik coincidenties tussen
 (bijvoorbeeld) minimaal zes stations.
 
-```python
+
+```
 STATIONS = [501, 502, 503, 505, 506, 508, 509, 510, 511]
 START = datetime(2016, 1, 1)
 END = datetime(2016, 2, 1)
@@ -66,11 +72,13 @@ N = 9
 Download coincidenties uit de ESD ([data.hisparc.nl](data.hisparc.nl)) en sla ze
 op in het HDF5 bestand:
 
-```python
+
+```
 download_coincidences(data, stations=STATIONS, start=START, end=END, n=N)
 ```
 
-```python
+
+```
 print("Aantal showers (coincidenties n=%d stations): %d " % (N, len(data.root.coincidences.coincidences)))
 ```
 
@@ -79,12 +87,14 @@ Reconstrueer en verwijder showers
 waarvan de richting niet gereconstrueerd konden worden (Zowel de zenit-hoek als
 azimut van die showers is NaN).
 
-```python
+
+```
 rec = ReconstructESDCoincidences(data, overwrite=True)
 rec.reconstruct_and_store()
 ```
 
-```python
+
+```
 recs = data.root.coincidences.reconstructions.read()
 theta = recs['zenith']
 recs = recs.compress(~np.isnan(theta))
@@ -93,7 +103,8 @@ recs = recs.compress(~np.isnan(theta))
 Maak een histrogram van de zenit-hoeken om de kwaliteit van de data te
 controleren:
 
-```python
+
+```
 plt.hist(recs['zenith'], histtype='step')
 plt.title('Zenit-hoek verdeling')
 plt.xlabel('zenit-hoek (rad)')
@@ -112,7 +123,8 @@ coordinatentransformatie naar rechte-klimming en declinatie is de
 positie van
 ENU-assenstelsel van het cluster nodig:
 
-```python
+
+```
 lla = HiSPARCStations(STATIONS).get_lla_coordinates()
 lat, lon, alt = lla
 print(lat, lon)
@@ -121,7 +133,8 @@ print(lat, lon)
 Reken elk event om naar rechte klimming (RA) en declinatie (DEC). En schaal deze
 naar (-pi, pi) voor het plotten. Sla de RA,DEC paren op in de lijst `events`
 
-```python
+
+```
 events = []
 for rec in pbar(recs):
     timestamp = rec['ext_timestamp'] / 1.e9
@@ -134,7 +147,8 @@ events = np.array(events)
 
 Histrogram ter controle:
 
-```python
+
+```
 ra = np.degrees(events[:,0])
 plt.title('Histrogram van rechte klimming (ra)')
 n, bins, _ = plt.hist(ra, histtype='step')  # n is het aantal events per bin
@@ -145,7 +159,8 @@ plt.ylim([0, 1.2*max(n)])
 plt.show()
 ```
 
-```python
+
+```
 dec = np.degrees(events[:, 1])
 plt.title('Histrogram van declinatie (dec)')
 n, bins, _ = plt.hist(dec, histtype='step')  # n is het aantal events per bin
@@ -161,7 +176,8 @@ plt.show()
 Hier worden de plot functies `plot_events_on_mollweide()`
 en `plot_events_polar()` gedefinieerd.
 
-```python
+
+```
 # RA, DEC tuples van het steelpan asterisme in het sterrenbeeld Grote Beer
 steelpan = np.array([[13.792222, 49.3167], [13.398889, 54.9333], [12.900556, 55.95],
                      [12.257222, 57.0333], [11.896944, 53.7000], [11.030833, 56.3833],
@@ -175,62 +191,79 @@ except:
     mw_contour = mw_contour_polar = []
 ```
 
-```python
+
+```
 def plot_events_on_mollweide(events, filename=None):
     """Plot events (een lijst van RA, DEC tuples) op een kaart in Mollweide projectie"""
+
+    # Let op: De RA-as is gespiegeld. Alle RA coordinates worden gespiegeld (negatief)
+    # geplot.
 
     events = np.array(events)
 
     fig = plt.figure(figsize=(15, 15))
     ax = fig.add_subplot(111, projection="mollweide")
-    ax.set_xticklabels(['2h', '4h', '6h', '8h', '10h', '12h', '14h', '16h', '18h', '20h', '22h'], fontsize='large')
+    # let op: De RA as is gespiegeld:
+    ax.set_xticklabels(['22h', '20h', '18h', '16h', '14h', '12h', '10h', '8h', '6h', '4h', '2h'], fontsize='large')
     ax.grid(True)
 
     # plot milky way contours
     for ra_mw, dec_mw in mw_contour:
-        ax.plot(ra_mw, dec_mw, color='grey')
+        ax.plot(-ra_mw, dec_mw, color='grey')
 
     # plot steelpan in UMa
     ra_uma = np.radians(steelpan[:, 0] / 24 * 360 - 180.)
     dec_uma = np.radians(steelpan[:, 1])
-    ax.plot(ra_uma, dec_uma, color='red')
-    ax.scatter(ra_uma, dec_uma, color='red')
+    ax.plot(-ra_uma, dec_uma, color='red')
+    ax.scatter(-ra_uma, dec_uma, color='red')
+
     # plot Polaris
-    ax.scatter(0., np.radians(90), color='red')
+    ax.scatter(0., np.radians(90.), color='red')
+
+    # plot Galactic Center (RA 17h45, DEC -29)
+    ax.scatter(-np.radians(17.75 / 24 * 360 - 180.), np.radians(-29), color='red', marker='*')
 
     # plot reconstructions
-    ax.scatter(events[:,0], events[:,1], marker='x')
+    ax.scatter(-events[:,0], events[:,1], marker='x')
     if filename:
         plt.savefig(filename, dpi=200)
 ```
 
-```python
+
+```
 def plot_events_polar(events, filename=None):
     """Plot events (een lijst van RA, DEC paren) op een hemelkaart van de noordelijke hemel"""
+
+    # Let op: De RA-as is gespiegeld. Alle RA coordinates worden gespiegeld (negatief)
+    # geplot.
 
     events = np.array(events)
 
     fig = plt.figure(figsize=(15,15))
     ax = fig.add_subplot(111, projection="polar")
-    ax.set_xticklabels(['12h', '15h', '18h', '21h', '0h', '3h', '6h', '9h'], fontsize='large')
+
+    # let op: De RA as is gespiegeld:
+    ax.set_xticklabels(['12h', '9h', '6h', '3h', '0h', '21h', '18h', '15h'], fontsize='large')
     ax.set_yticklabels(['80', '70', '60', '50', '40', '30', '20', '10', '0'])
 
     ax.grid(True)
+    ax.set_theta_zero_location("W")
+
 
     # plot milky way contours
     for ra_mw, dec_mw in mw_contour_polar:
-        ax.plot(ra_mw, 90. - np.degrees(dec_mw), color='grey')
+        ax.plot(-ra_mw, 90. - np.degrees(dec_mw), color='grey')
 
     # plot UMa
-    ra_uma = np.radians(steelpan[:, 0] / 24 * 360 - 180.)
+    ra_uma = np.radians(steelpan[:, 0] / 24 * 360 - 180)
     dec_uma = np.radians(steelpan[:, 1])
-    ax.plot(ra_uma, 90. - np.degrees(dec_uma), color='red')
-    ax.scatter(ra_uma, 90. - np.degrees(dec_uma), color='red')
+    ax.plot(-ra_uma, 90. - np.degrees(dec_uma), color='red')
+    ax.scatter(-ra_uma, 90. - np.degrees(dec_uma), color='red')
     # plot Polaris
     ax.scatter(0., 0., color='red')
 
     # plot reconstructions
-    ax.scatter(events[:,0], 90. - np.degrees(events[:,1]), marker='x')
+    ax.scatter(-events[:,0], 90. - np.degrees(events[:,1]), marker='x')
     ax.set_rmax(90.0)
     if filename:
         plt.savefig(filename, dpi=200)
@@ -239,18 +272,17 @@ def plot_events_polar(events, filename=None):
 
 # Maak plots
 
-```python
+
+```
 plot_events_on_mollweide(events, filename='noordelijke hemel.png')
 ```
 
-```python
+
+```
 plot_events_polar(events, filename='noordelijke hemel.png')
 ```
 
-```python
-data.close()
+
 ```
-
-```python
-
+data.close()
 ```
