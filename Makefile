@@ -71,6 +71,7 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	mv -fv */*.pdf pdf/
 	mkdir tmp_notebooks
 	mv -fv notebooks/*.ipynb tmp_notebooks/
+	mv -fv notebooks/environment.yml environment.yml
 	rm -rf $(TEX_DIRECTORIES)
 	rm -rf notebooks
 	mv -fv tmp_notebooks notebooks
