@@ -17,12 +17,13 @@ https://progns.mprog.nl/ (klik bovenaan op Archive)
 
 ## Python 2 en 3
 
-Deze notebooks werken onder python 2 en 3. Helaas zijn er verschillen tussen python 2 en 3, waardoor python 2 code niet zomaar onder python 3 werkt. Twee opvallende verschillen tussen python 2 en 3 zijn:
+Deze notebooks werken onder Python 2 en 3. Helaas zijn er verschillen tussen Python 2 en 3,
+waardoor Python 2 code niet zomaar onder Python 3 werkt. Twee opvallende verschillen tussen Python 2 en 3 zijn:
 
 - `print`: Python 2: `print 'hallo'`. Python 3: `print('hallo')`
 - `division`: Python 2: `3 / 2 == 1`. Python 3: `3 / 2 == 1.5`
 
-Door `from __future__ import division, print_function` gedraagt python 2 zich als python 3.
+Door `from __future__ import division, print_function` gedraagt Python 2 zich meer als Python 3.
 
 ```python
 # dit notebook werkt onder Python 2 en 3
@@ -33,7 +34,7 @@ from __future__ import division, print_function
 In `python` ziet deze klassieker er zo uit: (Druk Ctrl-Enter in de cel
 hieronder)
 
-```{.python .input  n=2}
+```{.python .input}
 print('Hello, World!')
 ```
 
@@ -41,7 +42,7 @@ print('Hello, World!')
 
 Blokken code worden in `python` ingesprongen:
 
-```{.python .input  n=6}
+```{.python .input}
 getal = int(input('Geef een getal: '))
 if getal > 10:
     print('Groter dan tien!')
@@ -58,7 +59,7 @@ else:
 Variabelen (objecten) hoeven niet gedeclareerd te worden met een `type`, maar ze
 hebben wel een `type`
 
-```{.python .input  n=7}
+```{.python .input}
 a = 3
 b = 5.7
 c = 'Hallo!'

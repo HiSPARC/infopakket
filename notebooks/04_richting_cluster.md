@@ -16,7 +16,7 @@ Eerst worden enkele modules geimporteerd:
 * sapphire: de HiSPARC module waarmee gegevens van meetstations op te halen
 zijn.
 
-```{.python .input  n=4}
+```{.python .input}
 import tables
 from datetime import datetime
 import numpy as np
@@ -41,7 +41,7 @@ with tables.open_file('data_coincidences.h5', 'w') as data:
 Als de meetgegevens opgeslagen zijn, kunnen we deze bewerken. De bewerkte
 gegevens worden in een variabele `rec` opgeslagen.
 
-```{.python .input  n=2}
+```{.python .input}
 with tables.open_file('data_coincidences.h5', 'a') as data:
     rec = ReconstructESDCoincidences(data, overwrite=True, progress=True)
     rec.reconstruct_and_store()
