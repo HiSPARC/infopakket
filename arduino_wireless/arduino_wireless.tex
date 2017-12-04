@@ -248,10 +248,10 @@ def main():
     while True:
         try:
             line = ser.readline()
-            print line
+            print(line)
             time.sleep(10)
         except KeyboardInterrupt:
-            print 'exiting'
+            print('exiting')
             break
 
 if __name__ == '__main__':
@@ -297,7 +297,7 @@ def get_first_valid_port():
 
 if __name__ == '__main__': 
     poort = get_first_valid_port()
-    print poort
+    print(poort)
 \end{minted}
 
 Het stukje code om de informatie over de UART in te lezen (Windows):
@@ -333,7 +333,7 @@ letter `s' wordt getypt. \verb|getch()| functie haalt de waarde van de keyboard
 while True:
     output = port.read(50)
     if output:
-        print output
+        print(output)
     if msvcrt.kbhit() and msvcrt.getch() == 's':
         break
 \end{minted}
