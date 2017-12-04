@@ -1,5 +1,7 @@
 # Notebooks for HiSPARC
 
+[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/v2/gh/HiSPARC/infopakket/gh-pages?filepath=notebooks)
+
 Notebooks are stored in git in markdown format using `notedown`: https://github.com/aaren/notedown
 
 
