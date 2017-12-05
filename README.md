@@ -12,6 +12,8 @@ verschillende facetten van wetenschappelijk onderzoek:
 - Het opvragen en verwerken van de digitaal opgeslagen meetgegevens.
 - Op basis van de meetgegevens de onderzoeksvraag beantwoorden. 
 
+De documenten zijn te vinden op http://docs.hisparc.nl/infopakket/
+
 
 HiSPARC infopackage
 -------------------
@@ -23,7 +25,7 @@ several assignments have been created which the teacher can use in his
 courses. By using these the students learn the different facets of
 scientific research:
 
-- Maintaining a experimental setup.
+- Maintaining an experimental setup.
 - Requesting and processing the measurement data.
 - Using the data to answer questions.
 
