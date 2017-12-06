@@ -9,3 +9,4 @@ TEXMFSYSVAR /tmp/texlive/texmf-var
 option_doc 0
 option_src 0
 collection-latexextra 1
+collection-binextra 1
