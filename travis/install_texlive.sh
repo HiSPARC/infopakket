@@ -15,7 +15,10 @@ fi
 tlmgr option -- autobackup 0
 
 # Install additional fonts
-tlmgr install ec fouriernc
+tlmgr install \
+  ec \
+  fouriernc \
+  fourier
 
 # Update the TL install but add nothing new
 tlmgr update --self --all --no-auto-install
