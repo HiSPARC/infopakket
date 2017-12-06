@@ -14,5 +14,8 @@ fi
 # Keep no backups (smaller cache)
 tlmgr option -- autobackup 0
 
+# Install additional fonts
+tlmgr install ec
+
 # Update the TL install but add nothing new
 tlmgr update --self --all --no-auto-install

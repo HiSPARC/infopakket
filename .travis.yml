@@ -16,5 +16,4 @@ before_script:
   - export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
 
 script:
-  - echo $PATH
   - make all
