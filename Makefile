@@ -26,9 +26,11 @@ notebooks: $(NOTEBOOKS)
 
 latexmk-recursive:
 	for dir in $(TEX_DIRECTORIES); do \
+		echo '******** starting latexmk ********'; \
 		cd $$dir; \
 		echo $$dir; \
 		latexmk -shell-escape -quiet -pdf *.tex; \
+		echo '******** finished latexmk ********'; \
 		cd ..; \
 	done
 
