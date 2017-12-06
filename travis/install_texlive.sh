@@ -19,7 +19,8 @@ tlmgr install \
   collection-mathscience \
   fouriernc \
   fourier \
-  babel-dutch
+  babel-dutch \
+  hyphen-dutch
 
 # Update the TL install but add nothing new
 tlmgr update --self --all --no-auto-install
