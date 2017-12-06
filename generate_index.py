@@ -1,14 +1,12 @@
-from __future__ import print_function
-
-import sys
 import glob
 import os
 import re
-from operator import itemgetter
+import sys
+
 from collections import OrderedDict
+from operator import itemgetter
 
 import jinja2
-
 
 PATH = os.path.dirname(__file__)
 
