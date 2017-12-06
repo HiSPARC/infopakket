@@ -8,7 +8,7 @@ if ! command -v latexmk > /dev/null 2>&1; then
   wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
   tar -xzf install-tl-unx.tar.gz
   cd install-tl-20*
-  ./install-tl --profile=../travis/texlive.profile
+  ./install-tl --profile=../texlive.profile
 fi
 
 # Keep no backups (smaller cache)
