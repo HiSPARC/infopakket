@@ -18,7 +18,8 @@ tlmgr option -- autobackup 0
 tlmgr install \
   collection-mathscience \
   fouriernc \
-  fourier
+  fourier \
+  babel-dutch
 
 # Update the TL install but add nothing new
 tlmgr update --self --all --no-auto-install
