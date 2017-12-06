@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 set -e
 
 export PATH=/tmp/texlive/bin/x86_64-linux:$PATH

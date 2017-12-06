@@ -13,4 +13,5 @@ install:
   - (cd travis && source ./install_texlive.sh)
 
 script:
+  - echo $PATH
   - make all
