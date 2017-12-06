@@ -10,7 +10,7 @@ cache:
     - $HOME/.texlive
 
 install:
-  - (cd travis && source ./texlive_install.sh)
+  - source ./travis/texlive_install.sh
 
 script:
   - make all
