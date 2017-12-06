@@ -1,4 +1,4 @@
 # Converting the notebooks from Markdown to IPython notebooks
-git+git@github.com:aaren/notedown.git@master#egg=notedown
+notedown
 # Creating the HTML index
 jinja2
