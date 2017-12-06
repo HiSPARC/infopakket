@@ -28,7 +28,7 @@ latexmk-recursive:
 	for dir in $(TEX_DIRECTORIES); do \
 		cd $$dir; \
 		echo $$dir; \
-		latexmk -shell-escape -quiet -pdf *.tex; \
+		latexmk -shell-escape -pdf *.tex; \
 		cd ..; \
 	done
 
