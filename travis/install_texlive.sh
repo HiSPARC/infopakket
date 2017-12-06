@@ -16,7 +16,7 @@ tlmgr option -- autobackup 0
 
 # Install additional fonts
 tlmgr install \
-  ec \
+  collection-mathscience \
   fouriernc \
   fourier
 
