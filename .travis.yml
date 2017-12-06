@@ -1,6 +1,6 @@
 language: python
 python:
-  - "2.7"
+  - "3.6"
 
 sudo: false
 
@@ -13,12 +13,16 @@ cache:
   directories:
     - /tmp/texlive
     - $HOME/.texlive
+    - $HOME/.cache/pip
 
 install:
   - (cd travis && source ./install_texlive.sh)
+  - pip install -r requirements.txt
 
 before_script:
   - export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
 
 script:
   - make all
+  - make notebooks
+  - make index
