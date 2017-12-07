@@ -1,4 +1,4 @@
-.PHONY: all distclean clean gh-pages notebooks latexmk-recursive distclean-recursive clean-recursive index
+.PHONY: all distclean clean notebooks latexmk-recursive distclean-recursive clean-recursive index
 
 TEXFILES=$(wildcard *.tex)
 NOTEBOOKDIR=notebooks
