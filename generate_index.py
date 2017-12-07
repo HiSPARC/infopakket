@@ -32,7 +32,7 @@ def get_categories():
 
     """
     finder = re.compile(r'doc(.*?)\}.*\{(.*?)\}\{#1')
-    path = os.path.join(PATH, 'common_style.tex')
+    path = os.path.join(PATH, 'style_common.tex')
     categories = []
     for line in open(path):
         result = finder.search(line)
