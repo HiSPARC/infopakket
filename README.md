@@ -1,6 +1,8 @@
 HiSPARC infopakket
 ==================
 
+![http://img.shields.io/travis/HiSPARC/infopakket/master.svg](https://travis-ci.org/HiSPARC/infopakket)
+
 Dit zijn documenten met lesmateriaal en praktische opdrachten gericht op
 middelbare scholen. Het doel van het materiaal is om docenten en
 leerlingen een ingang te bieden voor onderhoud en onderzoek. Hiervoor
@@ -43,14 +45,10 @@ creating pdfs use `make clean`, to also remove the generated pdfs use
 How to publish
 --------------
 
-First ensure that the `gh-pages` branch is up-to-date. Then go back to
-the `master` branch. To publish new documents or changes run the
-terminal command `make gh-pages` from the root repository directory
-while in the `master` branch. This will first checkout the `gh-pages`
-branch. Then get all directories containing a tex file from the `master`
-branch, and `index.html`, `styles` and `images`. It will then build all
-pdf files, which will be copied to a `pdf` directory, after which the
-source directories will be removed. Then a new commit will automatically
-be created. And the `master` branch will be checked out again. Once you
-push the `gh-pages` branch to GitHub, the changes will be available
-online.
+Commits pushed to the master branch will be automatically build on Travis.
+This means that all pdfs will be generated with LaTeX, the html index page
+is rendered, and the IPython notebooks are converted from markdown to ipynb
+files.
+
+If this is all successful the result is pushed to the gh-pages branch
+and made available via http://docs.hisparc.nl/infopakket/ .

@@ -1,0 +1,49 @@
+language: python
+python:
+  - "3.6"
+
+sudo: false
+
+addons:
+  apt:
+    packages:
+      - python-pygments
+
+cache:
+  directories:
+    - /tmp/texlive
+    - $HOME/.texlive
+    - $HOME/.cache/pip
+
+install:
+  - (cd travis && source ./install_texlive.sh)
+  - pip install -r requirements.txt
+
+before_script:
+  - export PATH=/tmp/texlive/bin/x86_64-linux:$PATH
+
+script:
+  - make all
+  - make notebooks
+  - make index
+
+before_deploy:
+  - mkdir _build
+  - mkdir _build/pdf
+  - mkdir _build/notebooks
+  - cp -R images _build/
+  - cp -R styles _build/
+  - cp index.html _build/
+  - cp notebooks/*.ipynb _build/notebooks/
+  - cp */*.pdf _build/pdf/
+  - touch _build/.nojekyll
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: _build
+  email: beheer@hisparc.nl
+  name: HiSPARC-Bot
+  on:
+    branch: master

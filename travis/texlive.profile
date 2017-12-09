@@ -1,0 +1,12 @@
+selected_scheme scheme-medium
+TEXDIR /tmp/texlive
+TEXMFCONFIG ~/.texlive/texmf-config
+TEXMFVAR ~/.texlive/texmf-var
+TEXMFHOME ~/texmf
+TEXMFLOCAL /tmp/texlive/texmf-local
+TEXMFSYSCONFIG /tmp/texlive/texmf-config
+TEXMFSYSVAR /tmp/texlive/texmf-var
+option_doc 0
+option_src 0
+collection-latexextra 1
+collection-binextra 1

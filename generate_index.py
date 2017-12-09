@@ -1,14 +1,12 @@
-from __future__ import print_function
-
-import sys
 import glob
 import os
 import re
-from operator import itemgetter
+import sys
+
 from collections import OrderedDict
+from operator import itemgetter
 
 import jinja2
-
 
 PATH = os.path.dirname(__file__)
 
@@ -34,7 +32,7 @@ def get_categories():
 
     """
     finder = re.compile(r'doc(.*?)\}.*\{(.*?)\}\{#1')
-    path = os.path.join(PATH, 'common_style.tex')
+    path = os.path.join(PATH, 'style_common.tex')
     categories = []
     for line in open(path):
         result = finder.search(line)
