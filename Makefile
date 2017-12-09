@@ -29,7 +29,7 @@ latexmk-recursive:
 		echo '******** starting latexmk ********'; \
 		cd $$dir; \
 		echo $$dir; \
-		latexmk -shell-escape -quiet -pdf *.tex; \
+		latexmk -shell-escape -quiet -pdf *.tex || exit 1; \
 		echo '******** finished latexmk ********'; \
 		cd ..; \
 	done
