@@ -11,6 +11,9 @@ if ! command -v latexmk > /dev/null 2>&1; then
   ./install-tl --profile=../texlive.profile
 fi
 
+# Update tlmgr
+tlmgr update --self
+
 # Keep no backups (smaller cache)
 tlmgr option -- autobackup 0
 
