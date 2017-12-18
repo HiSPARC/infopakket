@@ -115,9 +115,9 @@ else:
 range() maakt een lijst gehele getallen (integers):
 
 ```{.python .input}
-print("Tot 10:\t\t", range(10))
-print("Vanaf 5 tot 10:\t", range(5, 10))
-print("tot 10, stap 2:", range(0, 10, 2))
+print("Tot 10:\t\t", list(range(10)))
+print("Vanaf 5 tot 10:\t", list(range(5, 10)))
+print("tot 10, stap 2:", list(range(0, 10, 2)))
 ```
 
 ### help() en ?
