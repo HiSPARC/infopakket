@@ -35,6 +35,7 @@ before_deploy:
   - cp -R styles _build/
   - cp index.html _build/
   - cp notebooks/*.ipynb _build/notebooks/
+  - cp notebooks/*.npy _build/notebooks/
   - cp */*.pdf _build/pdf/
   - touch _build/.nojekyll
 
