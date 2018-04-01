@@ -226,15 +226,15 @@ zetten we het aantal keer dat een bepaalde pulshoogte voorkomt uit tegen
 de spanningswaarde van de pulshoogte. De laagste piek van de pulshoogte
 komt het vaakst voor en deze waarde geeft dus een maat voor de detectie van
 precies één deeltje in een detector. Stel dus dat de waarde van de
-pulshoogte -180 mV heel vaak voorkomt op een dag. Dan zul je in het
-pulshoogte histogram een piek krijgen bij 180 mV (we nemen nu het
-potentiaalverschil positief), dit is dan de waarde die hoort bij één
-deeltje wat gedetecteerd is. Meet je bij een ander event in een detector
-een puls van -540 mV, dan zouden er 3 deeltjes zijn gedetecteerd
+pulshoogte \SI{300}{\adc} heel vaak voorkomt op een dag. Dan zul je in het
+pulshoogte histogram een piek krijgen bij \SI{300}{\adc}, dit is dan de
+waarde die hoort bij één
+deeltje wat gedetecteerd is. Meet je bij een ander event in dezelfde detector
+een puls van \SI{900}{\adc}, dan zouden er mogelijk 3 deeltjes zijn gedetecteerd
 zijn door deze detector. De piek in het pulshoogte histogram noemen we
 de MIP (Minimum Ionizing Particle) dat is waarde van de rode lijn in
-\figref{fig:MIP_histogram} (in dit geval ongeveer 180 mV). Deze waarde wordt voor elke set
-data per detector elke keer opnieuw bepaalt en gebruikt als ijkmiddel om
+\figref{fig:MIP_histogram} (in dit geval ongeveer \SI{316}{\adc}).
+Deze waarde wordt elke dag per detector elke keer opnieuw bepaalt en gebruikt als ijkmiddel om
 het aantal deeltjes te berekenen wat in één event is gedetecteerd. De waarde
 van de MIP varieert per detector en per meetperiode, omdat de MIP waarde
 afhankelijk is van temperatuur, spanning over de fotobuis, dikte van de
@@ -253,7 +253,7 @@ scintillator, montage van de detector en leeftijd van de detector.
     \caption{Een pulshoogte histogram, in dit diagram zijn de pulseheights van veel
     gemeten events door één detector uitgezet. De piek is de pulshoogte,
     die hoort bij de detectie van één deeltje. Dit is de MIP piek. In dit geval is
-    de MIP \SI{\pm180}{\milli\volt}. De MIP piek wordt gebruikt om de deeltjes
+    de MIP \SI{\pm316}{\adc}. De MIP piek wordt gebruikt om de deeltjes
     dichtheid in de detector voor alle geregistreerde events uit te
     rekenen.}
     \label{fig:MIP_histogram}
