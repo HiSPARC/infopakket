@@ -36,6 +36,7 @@ before_deploy:
   - cp index.html _build/
   - cp notebooks/*.ipynb _build/notebooks/
   - cp notebooks/*.npy _build/notebooks/
+  - cp notebooks/requirements.txt _build/notebooks/requirements.txt
   - cp */*.pdf _build/pdf/
   - touch _build/.nojekyll
 
