@@ -1,8 +1,6 @@
 HiSPARC infopakket
 ==================
 
-![https://img.shields.io/travis/HiSPARC/infopakket/primary.svg](https://travis-ci.org/HiSPARC/infopakket)
-
 Dit zijn documenten met lesmateriaal en praktische opdrachten gericht op
 middelbare scholen. Het doel van het materiaal is om docenten en
 leerlingen een ingang te bieden voor onderhoud en onderzoek. Hiervoor
