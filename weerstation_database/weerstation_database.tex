@@ -88,7 +88,7 @@ volgorde (zie tabel volgorde).
             van de bekende grootheden als luchtvochtigheid en buitentemperatuur.
             Formules die daarvoor nodig zijn kunnen in de literatuur gevonden
             worden.
-            \protect\url{http://github.com/HiSPARC/weather/blob/master/doc/
+            \protect\url{http://github.com/HiSPARC/weather/blob/primary/doc/
             _static/Parameter_Manual.pdf}. Als de data geanalyseerd wordt kunnen
             deze grootheden alsnog berekend worden. Voor andere grootheden zoals
             bijvoorbeeld hoeveelheid neerslag moet een extra sensor worden
@@ -263,7 +263,7 @@ class Measurement(object):
 
         # Calculate vaporpressure, Dewpoint: Formula from Vantage Pro Davis instruments
         # This document can be found at:
-        # http://github.com/HiSPARC/weather/blob/master/doc/_static/Parameter_Manual.pdf
+        # http://github.com/HiSPARC/weather/blob/primary/doc/_static/Parameter_Manual.pdf
 
         dampdruk = RH * 6.112 * numpy.exp((17.62 * Tout) / (Tout + 243.12))
         Numerator = 243.12 * numpy.log(dampdruk) - 440.1
@@ -321,7 +321,7 @@ De andere classes in het Python programma hoeven niet verandert te worden.
 
 Het gehele Python bestand waarmee je de data naar de \hisparc database kunt schrijven
 is te vinden op:
-\url{https://github.com/HiSPARC/weather-arduino/tree/master/python}
+\url{https://github.com/HiSPARC/weather-arduino/tree/primary/python}
 Om het geheel te laten werken zijn, moeten wel een aantal libraries geïmporteerd worden.
 Werk je in Anaconda onder windows, dan zijn de meeste libraries geïnstalleerd.
 Zo niet open dan een terminal. Ga naar `Tools' en open een Terminal of Command prompt.
@@ -362,7 +362,7 @@ Waarschijnlijk moet `pysparc' nog geïnstalleerd worden. Open de terminal van
 Anaconda. Wat we gaan doen is een link naar de pysparc module van \hisparc
 maken en deze gelijk installeren. type:
 \begin{verbatim}
-pip install http://github.com/HiSPARC/pysparc/archive/master.zip
+pip install http://github.com/HiSPARC/pysparc/archive/primary.zip
 \end{verbatim}
 
 Nu kun je \verb|import pysparc| gebruiken, Zie \figref{fig:canopy1}.

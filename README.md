@@ -1,8 +1,6 @@
 HiSPARC infopakket
 ==================
 
-![https://img.shields.io/travis/HiSPARC/infopakket/master.svg](https://travis-ci.org/HiSPARC/infopakket)
-
 Dit zijn documenten met lesmateriaal en praktische opdrachten gericht op
 middelbare scholen. Het doel van het materiaal is om docenten en
 leerlingen een ingang te bieden voor onderhoud en onderzoek. Hiervoor
@@ -45,7 +43,7 @@ creating pdfs use `make clean`, to also remove the generated pdfs use
 How to publish
 --------------
 
-Commits pushed to the master branch will be automatically build on Travis.
+Commits pushed to the primary branch will be automatically build on Travis.
 This means that all pdfs will be generated with LaTeX, the html index page
 is rendered, and the IPython notebooks are converted from markdown to ipynb
 files.
