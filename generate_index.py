@@ -106,11 +106,11 @@ def find_first(finder, path):
 def get_notebooks():
     """Retrieve all notebooks from the directory tree."""
 
-    path = os.path.join(PATH, 'notebooks', '*.ipynb')
+    path = os.path.join(PATH, 'notebooks', '*.md')
     files = glob.glob(path)
     notebooks = []
     for f in files:
-        filename = os.path.basename(f)
+        filename = os.path.splitext(os.path.basename(f))[0] + '.ipynb'
         title = make_notebook_title(filename)
         notebooks.append({'filename': filename, 'title': title})
     return notebooks
