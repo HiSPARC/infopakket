@@ -1,19 +1,21 @@
-.PHONY: all distclean clean notebooks latexmk-recursive distclean-recursive clean-recursive index
+# Build pdfs for the TeX files
+
+# '-recursive' rules are based on a Makefile by Santiago Gonzalez Gancedo
+# which was a modified version of a Makefile by Johannes Ranke,
+# which was based on Makesfiles by Tadeusz Pietraszek
 
 TEXFILES=$(wildcard *.tex)
 TARGETS=$(patsubst %.tex,%.pdf,$(TEXFILES))
 TEX_DIRECTORIES=$(sort $(dir $(wildcard */*.tex)))
-BRANCH=master
 
-# '-recursive' rules are based on a Makefile by Santiago Gonzalez Gancedo
-# https://github.com/sangonz/latex_makefile
-# which was a modified version of a Makefile by Johannes Ranke,
-# which was based on Makesfiles by Tadeusz Pietraszek
-
+.PHONY: all
 all: latexmk-recursive
+.PHONY: distclean
 distclean: distclean-recursive
+.PHONY: clean
 clean: clean-recursive
 
+.PHONY: latexmk-recursive
 latexmk-recursive:
 	for dir in $(TEX_DIRECTORIES); do \
 		echo '******** starting latexmk ********'; \
@@ -24,6 +26,7 @@ latexmk-recursive:
 		cd ..; \
 	done
 
+.PHONY: distclean-recursive
 distclean-recursive:
 	for dir in $(TEX_DIRECTORIES); do \
 		cd $$dir; \
@@ -31,6 +34,7 @@ distclean-recursive:
 		cd ..; \
 	done
 
+.PHONY: clean-recursive
 clean-recursive:
 	for dir in $(TEX_DIRECTORIES); do \
 		cd $$dir; \
@@ -38,6 +42,7 @@ clean-recursive:
 		cd ..; \
 	done
 
+.PHONY: index
 index:
 	python generate_index.py
 
