@@ -1,11 +1,9 @@
 # 2 HiSPARC-API
 
-```python
-# dit notebook werkt onder Python 2 en 3
-from __future__ import division, print_function
-```
+Deze notebooks werken alleen met Python 3.
 
 ## Inleiding
+
 Informatie over en van meetstations (configuraties, events, coincidenties) is op
 te halen via de publieke database op http://data.hisparc.nl
 
@@ -17,8 +15,7 @@ Via de API kan door middel van een URL informatie uit de publieke database over
 stations worden opgevraagd:
 - http://data.hisparc.nl/api/clusters/  (de clusters in het netwerk in JSON)
 - http://data.hisparc.nl/api/station/22/  (informatie over station 22 in JSON)
-- http://data.hisparc.nl/show/source/gps/501/  (De GPS posities van station 501,
-in TSV)
+- http://data.hisparc.nl/show/source/gps/501/  (De GPS posities van station 501, in TSV)
 
 Bovenstaande links zijn ook te vinden als links op http://data.hisparc.nl.
 Meer informatie over de HiSPARC API is te vinden via:
@@ -53,6 +50,7 @@ print(network.station_numbers(cluster=2000))
 ```
 
 ### Station()
+
 `Station()` kan informatie over een meetstation uit de API lezen.
 
 De informatie uit de URL http://data.hisparc.nl/api/station/22/ (informatie over
@@ -94,7 +92,8 @@ print("GPS: ", Station(22).gps_location(ts))
 ```
 
 # Opgave
-Bepaal de GPS coordinaten van station 22 op 5 December 2012:
+
+Bepaal de GPS coördinaten van station 22 op 5 December 2012:
 
 ```python
 ts = datetime_to_gps(datetime(2012, 12, 5))
@@ -105,6 +104,7 @@ print("GPS: ", Station(22).gps_location(ts))
 ## Clusters via HiSPARCStations() en HiSPARCNetwork()
 
 ### HiSPARCStations()
+
 Met behulp van HiSPARCStations() kunnen we een cluster van een aantal
 meetstations aanmaken. HiSPARCNetwork() maakt een cluster van alle meetstations
 in het netwerk.
@@ -174,6 +174,7 @@ daarbij informatie van *alle* stations uit het netwerk via de API worden
 opgehaald, is het aanmaken van HiSPARCNetwork() redelijk traag.
 
 #### force_stale
+
 Door gebruik te maken van de optie `force_stale=True` wordt die informatie
 *niet* uit de API opgehaald, maar gelezen uit SAPPHiRE. Deze informatie is
 mogelijk veroudert, maar wel veel sneller beschikbaar.
@@ -221,5 +222,4 @@ for sn1, sn2 in combinations(stations, 2):
     d = cluster.calc_distance_between_stations(sn1, sn2)
     if d < 1000:
         print("De afstand tussen station %d en %d is %.f m." % (sn1, sn2, d))
-
 ```

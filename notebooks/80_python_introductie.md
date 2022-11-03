@@ -8,33 +8,21 @@ Het is zeker niet bedoeld als een complete introductie van `python` voor
 beginners.
 
 Andere bronnen:
-- Een zeer leesbaar boek over Python is `Think Python` (gratis downloadbaar
-in PDF en HTML): http://greenteapress.com/wp/think-python/
+- Een zeer leesbaar boek over Python is `Think Python` (gratis downloadbaar in PDF en HTML):
+  https://greenteapress.com/wp/think-python-2e/
 - Een online interactieve basis introductie van Python: https://cscircles.cemc.uwaterloo.ca/nl/
-- **Aanrader**: Het UvA practicum "Programmeren voor Natuur- en Sterrenkunde"
-heeft zeer bruikbare (natuurkundige) opdrachten in Python:
-https://progns.mprog.nl/ (klik bovenaan op Archive)
+- **Aanrader**: Het UvA practicum "Programmeren voor Natuur- en Sterrenkunde" heeft
+  zeer bruikbare (natuurkundige) opdrachten in Python: https://progns.mprog.nl/ (klik bovenaan op Archive)
 
-## Python 2 en 3
+## Python 3
 
-Deze notebooks werken onder Python 2 en 3. Helaas zijn er verschillen tussen Python 2 en 3,
-waardoor Python 2 code niet zomaar onder Python 3 werkt. Twee opvallende verschillen tussen Python 2 en 3 zijn:
+Deze notebooks werken alleen met 3, dus niet met Python 2.7.
 
-- `print`: Python 2: `print 'hallo'`. Python 3: `print('hallo')`
-- `division`: Python 2: `3 / 2 == 1`. Python 3: `3 / 2 == 1.5`
-
-Door `from __future__ import division, print_function` gedraagt Python 2 zich meer als Python 3.
-
-```python
-# dit notebook werkt onder Python 2 en 3
-from __future__ import division, print_function
-```
 ## Hello, World!
 
-In `python` ziet deze klassieker er zo uit: (Druk Ctrl-Enter in de cel
-hieronder)
+In `python` ziet deze klassieker er zo uit: (Druk op Ctrl-Enter in de cel hieronder om deze uit te voeren)
 
-```{.python .input}
+```python
 print('Hello, World!')
 ```
 
@@ -42,7 +30,7 @@ print('Hello, World!')
 
 Blokken code worden in `python` ingesprongen:
 
-```{.python .input}
+```python
 getal = int(input('Geef een getal: '))
 if getal > 10:
     print('Groter dan tien!')
@@ -59,7 +47,7 @@ else:
 Variabelen (objecten) hoeven niet gedeclareerd te worden met een `type`, maar ze
 hebben wel een `type`
 
-```{.python .input}
+```python
 a = 3
 b = 5.7
 c = 'Hallo!'
@@ -70,19 +58,19 @@ type(a), type(b), type(c)
 
 Lijsten zijn een belangrijk `type` in `python`:
 
-```{.python .input}
+```python
 personen = ['Tom', 'Klaas', 'Piet', 'Jan', 'Wouter', 'Joop', 'Karel']
 ```
 
 Voor de lengte van een lijst gebruiken we `len()`:
 
-```{.python .input}
+```python
 len(personen)
 ```
 
 Een item toevoegen kan met append:
 
-```{.python .input}
+```python
 personen.append('Mieke')
 personen
 ```
@@ -90,20 +78,20 @@ personen
 De items van lijsten kunnen we bekijken met [index]:
 Let op: Python telt vanaf 0.
 
-```{.python .input}
+```python
 personen[1]
 ```
 
 Er zijn veel mogelijkheden met behulp van de index:
 
-```{.python .input}
+```python
 print("item 1 tot 5", personen[1:5])
 print("Vanaf het tweede item:", personen[1:])
 print("Vanaf 0 tot 8, stapgrootte 2", personen[0:8:2])
 print("Het laatste item:", personen[-1])
 ```
 
-```{.python .input}
+```python
 if 'Karel' in personen:
     print("Karel zit in de lijst.")
 else:
@@ -114,7 +102,7 @@ else:
 
 range() maakt een lijst gehele getallen (integers):
 
-```{.python .input}
+```python
 print("Tot 10:\t\t", list(range(10)))
 print("Vanaf 5 tot 10:\t", list(range(5, 10)))
 print("tot 10, stap 2:", list(range(0, 10, 2)))
@@ -123,13 +111,13 @@ print("tot 10, stap 2:", list(range(0, 10, 2)))
 ### help() en ?
 Voor meer informatie over een python functie gebruiken we de functie `help()`:
 
-```{.python .input}
+```python
 help(range)
 ```
 
 range? laat een pop-up zien met vergelijkbare informatie.
 
-```{.python .input}
+```python
 range?
 ```
 
@@ -137,12 +125,12 @@ range?
 
 Het statement `for` wordt gebruikt om te loopen:
 
-```{.python .input}
+```python
 for getal in range(5):
     print(getal)
 ```
 
-```{.python .input}
+```python
 for getal in range(1,50):
     if getal % 7 == 0:
         print("Het getal %d is deelbaar door 7" % getal)
@@ -152,7 +140,7 @@ for getal in range(1,50):
 Dit betekent dat we niet alleen maar over getallen kunnen loopen, zoals in veel
 andere talen gebruikelijk, maar over *alle* lijst-achtige objecten:
 
-```{.python .input}
+```python
 for persoon in personen:
     print(persoon)
 ```
@@ -162,14 +150,14 @@ for persoon in personen:
 In `python` kom je vaak een wiskundige manier van het definieren van lijsten
 tegen:
 
-```{.python .input}
+```python
 [x**2 for x in range(10)]
 ```
 
 Een dergelijke syntax heet een `list comprehension` en is in feite een snelle
 (en mits juist gebruikt, leesbare) manier om het volgende te schrijven:
 
-```{.python .input}
+```python
 lijst = []
 for x in range(10):
     lijst.append(x**2)
@@ -180,7 +168,7 @@ lijst
 
 Een functie definieren we in `python` alsvolgt:
 
-```{.python .input}
+```python
 def is_priem(getal):
     """Test of getal een priemgetal is
 
@@ -196,7 +184,7 @@ def is_priem(getal):
 
 Een functie roepen we aan met `functie(paramter1, parameter2, ...)`:
 
-```{.python .input}
+```python
 for getal in range(100):
     if is_priem(getal):
         print(getal,)
@@ -205,7 +193,7 @@ for getal in range(100):
 Het commentaar tussen de """ is belangrijk. Deze zogenaamde 'docstring' is
 beschikbaar via `help()` of het vraagteken:
 
-```{.python .input}
+```python
 help(is_priem)
 ```
 
@@ -216,15 +204,15 @@ Numpy is een bibliotheek met wiskundige functies die werken op `array's`
 geimplementeerd zijn, zijn numpy functies vaak veel sneller dan alternatieven
 uit `math`.
 
-```{.python .input}
+```python
 import numpy as np
 ```
 
-```{.python .input}
+```python
 np.arange(0.1, 3.0, 0.2)
 ```
 
-```{.python .input}
+```python
 np.linspace(0.1, 3.0, 20)  # hetzelfde interval in 20 stappen
 ```
 
@@ -232,11 +220,11 @@ np.linspace(0.1, 3.0, 20)  # hetzelfde interval in 20 stappen
 
 Een van de krachten van `numpy` is het uitvoeren van operaties op een vector:
 
-```{.python .input}
+```python
 %timeit [2*x for x in range(10000)]
 ```
 
-```{.python .input}
+```python
 %timeit 2*np.arange(10000)
 ```
 
@@ -246,32 +234,32 @@ zijn geheel, zonder de loop en is daarom >100x sneller.
 
 ## Matrices en Lineaire algebra
 
-```{.python .input}
+```python
 matrix = np.arange(9).reshape(3,3)
 matrix
 ```
 
-```{.python .input}
+```python
 matrix[1] # tweede rij
 ```
 
-```{.python .input}
+```python
 matrix[:, 0] # eerste kolom
 ```
 
-```{.python .input}
+```python
 np.transpose(matrix)
 ```
 
-```{.python .input}
+```python
 np.linalg.det(matrix)
 ```
 
-```{.python .input}
+```python
 Ook hier geeft `help()` snel veel informatie:
 ```
 
-```{.python .input}
+```python
 help(np.linalg)
 ```
 
@@ -279,17 +267,17 @@ help(np.linalg)
 
 Een belangrijke stap in het data verwerken is plotten:
 
-```{.python .input}
+```python
 import matplotlib.pyplot as plt
 %matplotlib notebook
 ```
 
-```{.python .input}
+```python
 x = np.linspace(0, 10., 100)
 y = np.sin(x)
 ```
 
-```{.python .input}
+```python
 plt.plot(x, y, 'b-')
 plt.xlabel('x')
 plt.ylabel('y')

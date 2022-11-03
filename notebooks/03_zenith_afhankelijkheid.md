@@ -1,9 +1,6 @@
 # 3 Zenith-afhankelijkheid van een station.
 
-```python
-# dit notebook werkt onder Python 2 en 3
-from __future__ import division, print_function
-```
+Deze notebooks werken alleen met Python 3.
 
 Dit notebook sluit aan op het notebook 'HiSPARC_API'. Er wordt zowel informatie
 van het station als van de metingen verwerkt.
@@ -27,10 +24,8 @@ for detector in detectors:
 
 De *plattegrond* van een meetstation (detectorposities) is gedefinieerd door:
 
-- 'alpha' : De hoek tussen de as gedefinieerd door de GPS-antenne en het midden
-van de scintillatorplaat en het Noorden.
-- 'beta' : De hoek tussen de lange zijde van de scintillatorplaat en het
-Noorden.
+- 'alpha' : De hoek tussen de as gedefinieerd door de GPS-antenne en het midden van de scintillatorplaat en het Noorden.
+- 'beta' : De hoek tussen de lange zijde van de scintillatorplaat en het Noorden.
 - 'radius' : De afstand van GPS- antenne tot het midden van de detector.
 - 'height' : De hoogte t.o.v de GPS- antenne
 
@@ -39,9 +34,9 @@ Een werkblad voor het maken van een stations-plattegrond is te vinden op:
 [http://docs.hisparc.nl/infopakket/pdf/station_map.pdf](http://docs.hisparc.nl/infopakket/pdf/station_map.pdf)
 
 ### Afstanden
+
 De afstand tussen twee detectoren is te bepalen met de cosinusregel. Dit is in
 een functie te beschrijven:
-
 
 ```python
 def afstand(detector_1, detector_2):
@@ -55,7 +50,6 @@ def afstand(detector_1, detector_2):
 De afstand tussen detector 1 (telt als 0) en 4 (telt als 3) is nu te berekenen
 met:
 
-
 ```python
 print(afstand(detectors[0], detectors[3]))
 ```
@@ -67,7 +61,6 @@ dag gedownload.
 We openen nu deze data en controleren of de tabel '/s501/events' bestaat. Zo
 niet, dan downloaden we de data alsnog
 
-
 ```python
 import tables
 data = tables.open_file('data.h5', 'a')
@@ -77,13 +70,11 @@ else:
     print(data.root.s501.events)
 ```
 
-
 ```python
 events = data.root.s501.events.read()
 event = events[0]
 print(event)
 ```
-
 
 ```python
 tijdkolommen = ['t1', 't2', 't3', 't4']
@@ -97,7 +88,6 @@ Uit de tijdsverschillen tussen de aankomsttijden in detectoren is de zenithoek
 te bepalen.
 
 Voor een stations met 4 detectoren zijn er 6 combinaties, d.w.z. 6 zenithoeken:
-
 
 ```python
 from itertools import combinations
@@ -135,14 +125,12 @@ def zenithoeken(event, detectors):
     return zenith
 ```
 
-
 ```python
 print(zenithoeken(event, detectors))
 ```
 
 Omdat slechts 2 van de 4 detectoren (detector 3 en 4) deeltjes hebben
 gedetecteerd is er slechts 1 zenithoek.
-
 
 ```python
 for event in events[0:10]:
@@ -158,4 +146,5 @@ Voor events waarbij twee detectoren een of meer deeltjes hebben gedetecteerd is
 er slechts 1 zenithoek. Voor events waarbij 3 detectoren zijn geraakt zijn er 3
 zenithoeken. Als 4 detectoren meedoen, dan zijn er 6 zenithoeken.
 
-Een beschrijving van de zenith-hoek is te vinden op: [http://docs.hisparc.nl/infopakket/pdf/richting_reconstructie.pdf](http://docs.hisparc.nl/infopakket/pdf/richting_reconstructie.pdf).
+Een beschrijving van de zenith-hoek is te vinden op:
+[http://docs.hisparc.nl/infopakket/pdf/richting_reconstructie.pdf](http://docs.hisparc.nl/infopakket/pdf/richting_reconstructie.pdf).

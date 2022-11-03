@@ -11,13 +11,13 @@ vereenvoudigen:
 
 Eerst maken een HDF5-bestand en downloaden daarna de coincidenties:
 
-```{.python .input}
+```python
 import tables
 FILENAME = 'data_cq.h5'
 data = tables.open_file(FILENAME, 'a')
 ```
 
-```{.python .input}
+```python
 from datetime import datetime
 from sapphire import download_coincidences
 download_coincidences(data, cluster='Science Park', start=datetime(2016, 1, 1), end=datetime(2016, 1, 2), n=3)
@@ -26,14 +26,14 @@ download_coincidences(data, cluster='Science Park', start=datetime(2016, 1, 1), 
 CoincidenceQuery opent zelf het HDF5 bestand. We sluiten daarom eerst het
 bestand:
 
-```{.python .input}
+```python
 data.close()
 ```
 
 We initialiseren CoincidenceQuery. Als argument geven we alleen het bestandsnaam
 op:
 
-```{.python .input}
+```python
 from sapphire import CoincidenceQuery
 cq = CoincidenceQuery(FILENAME)
 ```
@@ -41,7 +41,7 @@ cq = CoincidenceQuery(FILENAME)
 Eerst maken we een lijst van alle concidenties waar minstens een
 event van de stations 501, 510, en 509 in zit.
 
-```{.python .input}
+```python
 STATIONS = [501, 510, 509]
 coincidences = cq.all(STATIONS, iterator=True)
 ```
@@ -53,7 +53,7 @@ van tuples, met telkens het stationnummer en het bijbehorende event.
 
 Met een dubbele for-loop kunnen we de informatie "uitpakken":
 
-```{.python .input}
+```python
 coincidence_events = cq.all_events(coincidences)
 for id, events in enumerate(coincidence_events):
     print("Coincidentie: %d" % id)
@@ -64,7 +64,7 @@ for id, events in enumerate(coincidence_events):
 Met `finish()` sluiten we CoincidenceQuery en wordt ook het HDF5 bestand
 gesloten.
 
-```{.python .input}
+```python
 cq.finish()
 ```
 

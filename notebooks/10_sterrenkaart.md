@@ -1,14 +1,9 @@
-
 # Reconstructies op een hemelkaart
-In dit notebook worden de richtingen van
-deeltjeslawines bepaald en geplot op een projectie van de (sterren)hemel.
 
+Deze notebooks werken alleen met Python 3.
 
-```
-# dit notebook werkt onder Python 2 en 3
-from __future__ import division, print_function
-```
-
+In dit notebook worden de richtingen van deeltjeslawines bepaald
+en geplot op een projectie van de (sterren)hemel.
 
 ```
 # importeer modules en functies
@@ -32,15 +27,11 @@ We nemen coincidenties tussen negen stations in een periode van een maand. Door
 deze voorwaarde kiezen we showers met een hoge energie, waarvoor het interessant
 is om de aankomstrichting uit de ruimte te onderzoeken.
 
-
-Open een HDF5 bestand,
-waarin we onze data opslaan:
-
+Open een HDF5 bestand, waarin we onze data opslaan:
 
 ```
 DATAFILE = 'coinc.h5'
 ```
-
 
 ```
 data = tables.open_file(DATAFILE, 'w')
@@ -49,18 +40,13 @@ data = tables.open_file(DATAFILE, 'w')
 Definieer de dataset:
 
 * STATIONS = lijst van stations
-* START = eerste tijdstip
-in `datetime`
+* START = eerste tijdstip in `datetime`
 * END = laatste tijdstip als `datetime`
-* N = minimum aantal
-stations per coincidentie
+* N = minimum aantal stations per coincidentie
 
-Tip: Gebruik `datetime?` om informatie te krijgen
-over het datetime object.
+Tip: Gebruik `datetime?` om informatie te krijgen over het datetime object.
 
-Suggestie: Gebruik coincidenties tussen
-(bijvoorbeeld) minimaal zes stations.
-
+Suggestie: Gebruik coincidenties tussen (bijvoorbeeld) minimaal zes stations.
 
 ```
 STATIONS = [501, 502, 503, 505, 506, 508, 509, 510, 511]
@@ -72,27 +58,24 @@ N = 9
 Download coincidenties uit de ESD ([data.hisparc.nl](data.hisparc.nl)) en sla ze
 op in het HDF5 bestand:
 
-
 ```
 download_coincidences(data, stations=STATIONS, start=START, end=END, n=N)
 ```
-
 
 ```
 print("Aantal showers (coincidenties n=%d stations): %d " % (N, len(data.root.coincidences.coincidences)))
 ```
 
 ## Reconstrueer richting van de showers
+
 Reconstrueer en verwijder showers
 waarvan de richting niet gereconstrueerd konden worden (Zowel de zenit-hoek als
 azimut van die showers is NaN).
-
 
 ```
 rec = ReconstructESDCoincidences(data, overwrite=True)
 rec.reconstruct_and_store()
 ```
-
 
 ```
 recs = data.root.coincidences.reconstructions.read()
@@ -102,7 +85,6 @@ recs = recs.compress(~np.isnan(theta))
 
 Maak een histrogram van de zenit-hoeken om de kwaliteit van de data te
 controleren:
-
 
 ```
 plt.hist(recs['zenith'], histtype='step')
@@ -118,11 +100,8 @@ De richting van
 de events (`zenit-hoek` en `azimut` ten opzicht van een ENU-assenstelsel in het
 cluster) wordt getransformeerd naar rechte klimming en declinatie.
 
-Voor de
-coordinatentransformatie naar rechte-klimming en declinatie is de
-positie van
-ENU-assenstelsel van het cluster nodig:
-
+Voor de coordinatentransformatie naar rechte-klimming en declinatie is de
+positie van ENU-assenstelsel van het cluster nodig:
 
 ```
 lla = HiSPARCStations(STATIONS).get_lla_coordinates()
@@ -132,7 +111,6 @@ print(lat, lon)
 
 Reken elk event om naar rechte klimming (RA) en declinatie (DEC). En schaal deze
 naar (-pi, pi) voor het plotten. Sla de RA,DEC paren op in de lijst `events`
-
 
 ```
 events = []
@@ -147,7 +125,6 @@ events = np.array(events)
 
 Histrogram ter controle:
 
-
 ```
 ra = np.degrees(events[:,0])
 plt.title('Histrogram van rechte klimming (ra)')
@@ -158,7 +135,6 @@ plt.xlim([-180, 179])
 plt.ylim([0, 1.2*max(n)])
 plt.show()
 ```
-
 
 ```
 dec = np.degrees(events[:, 1])
@@ -176,7 +152,6 @@ plt.show()
 Hier worden de plot functies `plot_events_on_mollweide()`
 en `plot_events_polar()` gedefinieerd.
 
-
 ```
 # RA, DEC tuples van het steelpan asterisme in het sterrenbeeld Grote Beer
 steelpan = np.array([[13.792222, 49.3167], [13.398889, 54.9333], [12.900556, 55.95],
@@ -190,7 +165,6 @@ try:
 except:
     mw_contour = mw_contour_polar = []
 ```
-
 
 ```
 def plot_events_on_mollweide(events, filename=None):
@@ -228,7 +202,6 @@ def plot_events_on_mollweide(events, filename=None):
     if filename:
         plt.savefig(filename, dpi=200)
 ```
-
 
 ```
 def plot_events_polar(events, filename=None):
@@ -272,16 +245,13 @@ def plot_events_polar(events, filename=None):
 
 # Maak plots
 
-
 ```
 plot_events_on_mollweide(events, filename='noordelijke hemel.png')
 ```
 
-
 ```
 plot_events_polar(events, filename='noordelijke hemel.png')
 ```
-
 
 ```
 data.close()

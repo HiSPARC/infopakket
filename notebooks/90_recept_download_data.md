@@ -1,9 +1,7 @@
 # Recept: Download events van een station
 
-```python
-# dit notebook werkt onder Python 2 en 3
-from __future__ import division, print_function
-```
+
+Deze notebooks werken alleen met Python 3.
 
 We maken een HDF5 bestand 'data.h5' en downloaden 3 dagen data (events) van
 station 501:
