@@ -54,7 +54,7 @@ NOTEBOOKSRCS:=$(filter-out $(NOTEBOOKDIR)/README.md, $(NOTEBOOKSRCS))
 NOTEBOOKS:=$(NOTEBOOKSRCS:.md=.ipynb)
 
 %.ipynb:%.md
-	jupytext $<
+	jupytext $< --to ipynb
 
 .PHONY: notebooks
 notebooks: $(NOTEBOOKS)
