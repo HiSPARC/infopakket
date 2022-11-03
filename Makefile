@@ -1,10 +1,6 @@
 .PHONY: all distclean clean notebooks latexmk-recursive distclean-recursive clean-recursive index
 
 TEXFILES=$(wildcard *.tex)
-NOTEBOOKDIR=notebooks
-NOTEBOOKSRCS:=$(wildcard $(NOTEBOOKDIR)/*.md)
-NOTEBOOKSRCS:=$(filter-out $(NOTEBOOKDIR)/README.md, $(NOTEBOOKSRCS))
-NOTEBOOKS:=$(NOTEBOOKSRCS:.md=.ipynb)
 TARGETS=$(patsubst %.tex,%.pdf,$(TEXFILES))
 TEX_DIRECTORIES=$(sort $(dir $(wildcard */*.tex)))
 BRANCH=master
@@ -17,12 +13,6 @@ BRANCH=master
 all: latexmk-recursive
 distclean: distclean-recursive
 clean: clean-recursive
-
-%.ipynb:%.md
-	notedown $< > $@
-
-notebooks: $(NOTEBOOKS)
-	@echo 'converted notebooks from .md to .ipynb'
 
 latexmk-recursive:
 	for dir in $(TEX_DIRECTORIES); do \
@@ -50,3 +40,17 @@ clean-recursive:
 
 index:
 	python generate_index.py
+
+# Convert notebooks from markdown to ipynb
+
+NOTEBOOKDIR=notebooks
+NOTEBOOKSRCS:=$(wildcard $(NOTEBOOKDIR)/*.md)
+NOTEBOOKSRCS:=$(filter-out $(NOTEBOOKDIR)/README.md, $(NOTEBOOKSRCS))
+NOTEBOOKS:=$(NOTEBOOKSRCS:.md=.ipynb)
+
+%.ipynb:%.md
+	jupytext $<
+
+.PHONY: notebooks
+notebooks: $(NOTEBOOKS)
+	@echo 'converted notebooks from .md to .ipynb'
