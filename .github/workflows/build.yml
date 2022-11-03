@@ -57,7 +57,7 @@ jobs:
           path: "*/*.pdf"
 
   publish:
-    needs: [notebooks, index, tex]
+    needs: [notebooks, index, pdf]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v3
