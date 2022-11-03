@@ -61,10 +61,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v3
-      - run: ls -R
-#       - uses: peaceiris/actions-gh-pages@v3.9.0
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: _build
-#           publish_branch: gh-pages
-#           force_orphan: true
+      - run: mv notebooks/environment.yml ./environment.yml
+      - run: mv index/* ./
+      - run: mv pdf/*/*.pdf ./pdf/
+      - uses: peaceiris/actions-gh-pages@v3.9.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-test
+          force_orphan: true
