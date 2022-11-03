@@ -1,6 +1,6 @@
 \input{../style_werkblad}
 
-\usepackage{hepnames} 
+\usepackage{hepnames}
 \usepackage[version=3]{mhchem}
 \usepackage{lipsum}
 \usepackage{pgfplots}
@@ -14,41 +14,41 @@
 
 \DeclareRobustCommand{\PgDpp}{\HepParticle{\Delta}{}{++}\xspace}
 
-\title{Large Hadron Collider} 
+\title{Large Hadron Collider}
 \author{C.G.N. van Veen}
-\docwerkblad{9}{LHC} 
+\docwerkblad{9}{LHC}
 \version{1.0}
 
 \begin{document}
 
 \maketitle
 
-\section{Inleiding} In het voorjaar van 2015 start de LHC opnieuw op. Ditmaal 
+\section{Inleiding} In het voorjaar van 2015 start de LHC opnieuw op. Ditmaal
 met een hogere energie dan ooit tevoren. Protonen met een energie van \SI{7.0}{\tera\electronvolt}
-zullen op elkaar botsen en bij deze botsingen hoopt men extra dimensies aan te tonen en 
-aanwijzingen te vinden wat donkere materie is. Daarnaast zullen er interacties tussen Higgs bosonen 
+zullen op elkaar botsen en bij deze botsingen hoopt men extra dimensies aan te tonen en
+aanwijzingen te vinden wat donkere materie is. Daarnaast zullen er interacties tussen Higgs bosonen
 onderzocht gaan worden.
 
 \section{Voorkennis}
 
-Van het natuurkunde programma van het VWO hebben leerlingen kennis nodig van impuls, 
+Van het natuurkunde programma van het VWO hebben leerlingen kennis nodig van impuls,
 energiebehoud,atoommodel en de beschikking hebben over een Binas.
-Daarnaast hebben leerlingen geleerd dat geladen deeltjes afbuigen in magneetvelden en dat 
+Daarnaast hebben leerlingen geleerd dat geladen deeltjes afbuigen in magneetvelden en dat
 geladen deeltjes versneld kunnen worden in elektrische velden.
 De energie van bewegende deeltjes (relativistisch) is:\\
 $E^2 = E_0^2 + p^2 \cdot c^2 \rightarrow  E^2 = m_0^2 \cdot c^4 + p^2 \cdot c^2 $
 
-Als achtergrondinformatie moet de LHC guide gedownload worden van de 
-website van CERN en kan de presentatie van I. van Vulpen gebruikt worden. 
+Als achtergrondinformatie moet de LHC guide gedownload worden van de
+website van CERN en kan de presentatie van I. van Vulpen gebruikt worden.
 LHC-guide: \url{http://cds.cern.ch/record/1165534/files/CERN-Brochure-2009-003-Eng.pdf}
 Presentatie LHC: \url{www.nikhef.nl/~ivov/Talks/2009_10_14_FomVisiteNikhef.ppt}
 
 \section{Opgaven atoombouw}
 \begin{questions}
 \question
-Schat de grootte van een goudatoom. (We gaan uit van een kubusvormig blokje met 
+Schat de grootte van een goudatoom. (We gaan uit van een kubusvormig blokje met
 zijden van 1 cm.)
-\makelines{4} 
+\makelines{4}
 
 \begin{figure}[h]
 \begin{tikzpicture}
@@ -69,7 +69,7 @@ zijden van 1 cm.)
 \end{figure}
 
 \begin{solution}
-De molaire massa van goud is \SI{197}{\gram\per\mol} en de dichtheid is 
+De molaire massa van goud is \SI{197}{\gram\per\mol} en de dichtheid is
 \SI{19.3}{\gram\per\cubic\centi\meter}
 
 
@@ -86,7 +86,7 @@ Welke energie is nodig om met elektronen de innerlijke structuur van \\
 \begin{parts}
 
 \part atomen te onderzoeken?\\
-\makelines{4} 
+\makelines{4}
 \begin{solution}
 Om de structuur van atomen te onderzoeken heb je een resolutie nodig van \SI{e-10}{\meter}.
 Er geldt (voor atomen):\\
@@ -96,39 +96,39 @@ Het gaat hier om niet relativistische elektronen omdat de benodigde energie mind
 \end{solution}
 
 \part protonen en neutronen te onderzoeken?\\
-(hint:Bedenk dat materie een golflengte heeft (de Broglie \footnote{zie RouteNet: \url{http://www.hisparc.nl/docent-student/lesmateriaal/routenet}}
+(hint:Bedenk dat materie een golflengte heeft (de Broglie \footnote{zie RouteNet: \url{https://docs.hisparc.nl/routenet/routenet.html}}
 ) en dat de resolutie voor waarneming afhangt van de golflengte van het deeltje wat voor detectie moet zorgen.)
 
-\makelines{4} 
+\makelines{4}
 
 \begin{solution}
-Kerndeeltjes hebben afmetingen kleiner dan \SI{1e-15}{\meter}. 
+Kerndeeltjes hebben afmetingen kleiner dan \SI{1e-15}{\meter}.
 Er geldt (voor kerndeeltjes):\\
 $p = \frac{h}{\lambda} = \frac{6,626\cdot 10^{-34}}{10^{-15}} = 6,626 \cdot 10^{-29} kgm/s$\\
 $E= \sqrt{p^{2}c^{2}+m_0^{2}c^{4}} \approx pc = 1,24 GeV$
-Elektronen zijn met deze energie relativistisch. 
+Elektronen zijn met deze energie relativistisch.
 \end{solution}
 \end{parts}
 
 \question
-Doordat we de afmetingen van neutronen en protonen weten, kunnen we schatten wat 
+Doordat we de afmetingen van neutronen en protonen weten, kunnen we schatten wat
 de massa is van het deeltje, dat voor de interactie tussen die twee zorgt.
 Gebruik hierbij de onzekerheidsrelatie van Heisenberg en de tijd die een deeltje
 nodig heeft om een afstand in de orde van grootte van een kerndeeltje af te leggen.
 De afstand tussen twee nucleonen is in de orde van \SI{e-15}{m}.
 
-\makelines{4} 
+\makelines{4}
 \begin{solution}
- 
+
 $r = c \cdot \Delta t \rightarrow \Delta t = \frac{r}{c} = \frac{10^{-15}}{3,0\cdot 10^{8}}= 3,34\cdot 10^{-24} s$
 
 $\Delta E \cdot \Delta t \geq \hbar \rightarrow \Delta E = \frac {\hbar}{\Delta t} = 197 MeV$
 
-$\hbar$ is $ \frac{h}{2\pi}$ 
-De onzekerheidsrelatie voor een afstand van \SI{e-15}{m} geeft een afwijking in de energie van 
-ongeveer \SI{200}{\mega\electronvolt}. Een deeltje wat zorgt voor een interactie tussen 
+$\hbar$ is $ \frac{h}{2\pi}$
+De onzekerheidsrelatie voor een afstand van \SI{e-15}{m} geeft een afwijking in de energie van
+ongeveer \SI{200}{\mega\electronvolt}. Een deeltje wat zorgt voor een interactie tussen
 twee nucleonen zou dus een massa moeten hebben in de orde grootte van \SI{200}{\mega\electronvolt},
-maar kan slechts \SI{e-24}{\second} bestaan. Yukawa voorspelde het $\pi$ -meson en Powell ontdekte het deeltje 
+maar kan slechts \SI{e-24}{\second} bestaan. Yukawa voorspelde het $\pi$ -meson en Powell ontdekte het deeltje
 met een massa van \SI{140}{\mega\electronvolt}. Yukawa kreeg in 1949 de Nobelprijs.
 \end{solution}
 
@@ -181,7 +181,7 @@ particle/.style={thick,draw=blue, postaction={decorate},
 \draw[particle] (n1) node [right] {n} -- (aux2) ;
 \draw[particle] (aux2) -- (n2) node [right] {p};
 \draw[dotted, thick] (aux1) -- (aux2) node [midway, above] {$\pi^+$};
-%\draw 
+%\draw
 %\draw[gluon] (aux1) -- node[label=right:$\gamma$] {} (aux2);
 \end{tikzpicture}
 }
@@ -198,17 +198,17 @@ zoals CMS en ATLAS. Om een betere voorstelling te kunnen maken gaan
 we even rekenen aan de eigenschappen van de protonen bundels in de LHC.
 
 \question
-Vergelijk de dichtheid in een protonenbundel in de LHC met de dichtheid van zuurstof en goud 
-(beide bij kamertemperatuur). Een bundel protonen is een cilinder met een lengte 
+Vergelijk de dichtheid in een protonenbundel in de LHC met de dichtheid van zuurstof en goud
+(beide bij kamertemperatuur). Een bundel protonen is een cilinder met een lengte
 van \SI{15}{\centi\meter} en een straal van \SI{17e-6}{m}, met zo'n \SI{e11}{} protonen.
 (We rekenen niet relativistisch vanuit de bundel zelf.)
- 
-\makelines{4} 
+
+\makelines{4}
 \begin{solution}
 
-De dichtheid van goud kun je opzoeken in Binas. Dit tabellenboek geeft een waarde van 
+De dichtheid van goud kun je opzoeken in Binas. Dit tabellenboek geeft een waarde van
 $\rho$ is \SI{19.3}{\kilogram\per\cubic\meter}. Dit kun je omrekenen naar
-een $\rho$ van \SI{19.3}{\gram\per\cubic\centi\meter}. 
+een $\rho$ van \SI{19.3}{\gram\per\cubic\centi\meter}.
 Bij zuurstof gebruiken we dat er een mol zuurstof in \SI{22.4}{\liter} gaat.
 
 $\rho_0 = \frac{n \cdot M}{V} = \frac {1 mol \cdot 16 g/mol}{22,4 L} = 7,14 \cdot 10^{-4} g/cm^{3} $
@@ -224,19 +224,19 @@ gas.
 
 In de LHC guide kun je op pagina 30 veel specificaties opzoeken over de LHC.
 \question
-Zoek de omtrek van de LHC en de maximale magneetveldsterkte op van de 
+Zoek de omtrek van de LHC en de maximale magneetveldsterkte op van de
 supergeleidende magneten.
-\makelines{2} 
+\makelines{2}
 \begin{solution}
 blz. 30 $L = 26 659 [m] B = 8,33 [T]$
 \end{solution}
 
-\question 
+\question
 Wat is de maximale energie, die een versneller met de lengte van de LHC en
 het gegeven magneetveld, kan meegeven aan protonen? (hint: De middelpuntzoekende kracht wordt geleverd door
 de Lorentzkracht.)
 
-\makelines{6} 
+\makelines{6}
 \begin{solution}
 In de ring bewegen geladen deeltjes met hoge snelheid, waarop het magneetveld
 een lorentz kracht uitoefent. Deze Lorentz kracht levert de benodigde middelpuntzoekende
@@ -260,18 +260,18 @@ afgebogen) korter is. Er zijn dus ook rechte stukken in de ring van de LHC.
 Wat is dan effectieve lengte van de LHC uitgaande van de
 \SI{7}{\tera\electronvolt}? De rustmassa van protonen is \SI{938}{\mega\electronvolt}.
 
-\makelines{4} 
+\makelines{4}
 \begin{solution}
 Volgens Einstein geldt:\\
 $E^2 = E_0^2 + p^2 \cdot c^2 \rightarrow $
 $p = \sqrt{\frac{E^2 -E_0^2}{c^2}} = \sqrt{\frac{7^2 -(938 \cdot 10^{-3})^2}{c^2}} \approx 7\frac{TeV}{c}$
-De rustmassa van de protonen is dus te verwaarlozen bij deze hoge energiëen. 
-Wat ook te verwachten was. 
+De rustmassa van de protonen is dus te verwaarlozen bij deze hoge energiëen.
+Wat ook te verwachten was.
 
 Voor de impuls geldt geldt: \\
 $p = \frac{E}{c} = \frac{7 \cdot 10^{12} \cdot 1,602 \cdot 10^{-19}}{3,0 \cdot 10^8} = 3,738 \cdot 10^{-15} [kg m/s]$
 
-Het gedeelte van de LHC wat de bundel afbuigt is dan 
+Het gedeelte van de LHC wat de bundel afbuigt is dan
 $ p = q \cdot R \cdot B $ \\
 dus: \\
 $R = \frac{m \cdot v}{q \cdot B} \rightarrow \frac{p}{q\cdot B} $
@@ -289,12 +289,12 @@ $ \frac{27 [km] - 17,5 [km]}{27 [km]} \approx 0,35$
 
 \question
 Op bladzijde 34 van de LHC guide kun je lezen over de `proton beam' en dat elke beam bestaat
-uit 2835 `bunches' van \SI{e11}{} protonen. Deze bunches botsen met elkaar op de plekken waar 
+uit 2835 `bunches' van \SI{e11}{} protonen. Deze bunches botsen met elkaar op de plekken waar
 hun banen elkaar kruisen.
 \begin{parts}
 \part Hoeveel botsingen van deze `bunches' zijn er per seconde?
 
-\makelines{4} 
+\makelines{4}
 \begin{solution}
 De bunches reizen met de lichtsnelheid dus komen elke:
 $t = \frac{L_{LHC}}{2835} / c = \frac{27\cdot 10^3}{2835} / 3,0 \cdot 10^8 = 3,2 .10^{-8} [s]$
@@ -306,19 +306,19 @@ Bundels die overblijven voegen samen met andere bundels.
 
 \part Hoeveel botsingen zijn er in een run (een run duurt ongeveer 10 uur)?
 
-\makelines{2} 
+\makelines{2}
 \begin{solution}
 In een uur hebben we dan:
 $ 32\cdot10^6 \cdot 10 \cdot 3600 \approx 1,2\cdot 10^{12}$ botsingen.
 \end{solution}
 \end{parts}
 
-\question 
-Als een Formule 1 coureur met \SI{320}{\kilo\meter\per\hour} door de ring van de 
+\question
+Als een Formule 1 coureur met \SI{320}{\kilo\meter\per\hour} door de ring van de
 LHC zou rijden. Hoe lang moet hij rijden zodat hij dezelfde afstand heeft gereden als
 proton in de LHC in 1 s aflegt?
 
-\makelines{3} 
+\makelines{3}
 \begin{solution}
 Het duurt dan: \\
 $t = \frac{s}{v} = \frac{c\cdot t}{v} = \frac{ 300000 [km/s] \cdot 1 [s]}{320 [km/h]} = 937,5 [h] = 39 dagen.$
@@ -329,7 +329,7 @@ De LHC werkt met supergeleidende magneten, als deze aangezet worden kan de stroo
 in de magneten toenemen met \SI{10}{\ampere\per\second}. Hoe lang duurt het dan om
 de maximale stroomsterkte van \SI{11,7e3}{\ampere} te bereiken?
 
-\makelines{4} 
+\makelines{4}
 \begin{solution}
 De tijd, die dat kost is: \\
 $t = \frac{11700 [A]}{10 [A/s]} = 1170 s \approx 19,5 [min.]$
@@ -340,7 +340,7 @@ Een buis in een deel van de LHC is ongeveer \SI{15}{\meter} lang en gemaakt van 
 Hoeveel \SI{}{\centi\meter} is de buis kleiner geworden als hij van kamertemperatuur \SI{20}{\celsius}
 naar \SI{1,9}{\kelvin} afgekoeld wordt?
 
-\makelines{4} 
+\makelines{4}
 \begin{solution}
 De lineaire expansiecoefficiënt $\lambda$ van staal is \SI{12e-6}{\per\kelvin}:\\
 $\Delta L = L_0 \cdot \lambda \cdot \Delta T$
@@ -350,20 +350,20 @@ $\Delta L = 15 \cdot 12\cdot 10^{-6} \cdot (293-1,9) = 0,05 [m]$
 
 \question
 Hoeveel energie zit er in het totale aantal bundels protonen, die in één ring ronddraaien?
-De energie van de protonen is \SI{7}{\tera\electronvolt} en er zitten \SI{e11}{} protonen in 
-een bundel. 
+De energie van de protonen is \SI{7}{\tera\electronvolt} en er zitten \SI{e11}{} protonen in
+een bundel.
 
-\makelines{4} 
+\makelines{4}
 \begin{solution}
 De totale energie in de bundel is:
 $ E_{totaal} = 2835 \cdot 10^{11} \cdot 7 \cdot 10^{12} \cdot 1,602 \cdot 10^{-19} \approx 320 [MJ]$
 
-Als je dit zou vergelijken met een boot die \SI{11}{\kilo\meter\per\hour} vaart. Dan 
+Als je dit zou vergelijken met een boot die \SI{11}{\kilo\meter\per\hour} vaart. Dan
 heeft die boot een massa van :
 $m = \sqrt{\frac{2 \cdot E}{v^2}} = \sqrt{\frac{2 \cdot 320 \cdot 10^6}{(11/3,6)^2}} = 7,0 \cdot 10^7 [kg] $
 
 Er zit dus ontzettend veel energie in één beam protonen.
 \end{solution}
 
-\end{questions} 
+\end{questions}
 \end{document}
