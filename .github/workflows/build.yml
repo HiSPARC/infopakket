@@ -22,7 +22,7 @@ jobs:
           path: |
             notebooks/*.ipynb
             notebooks/*.npy
-            notebooks/requirements.yml
+            notebooks/environment.yml
 
   index:
     runs-on: ubuntu-latest
