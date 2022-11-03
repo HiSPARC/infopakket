@@ -126,7 +126,7 @@ plt.xlim((-60, 70))
 
 ## Detector tijd offsets ophalen mbv de API
 
-De publieke database (http://data.hisparc.nl) bepaalt dagelijks de detector tijd
+De publieke database (https://data.hisparc.nl) bepaalt dagelijks de detector tijd
 offsets voor alle stations.
 
 De informatie is via de API beschikbaar:

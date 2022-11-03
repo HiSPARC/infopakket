@@ -202,7 +202,7 @@ events['n1']
 
 Maak een histogram van de pulshoogtes van detector 1 en 2 van station 102.
 
-Een voorbeeld is hier te zien: http://data.hisparc.nl/show/stations/102
+Een voorbeeld is hier te zien: https://data.hisparc.nl/show/stations/102
 
 ```python
 ph = event_tabel.col('pulseheights')

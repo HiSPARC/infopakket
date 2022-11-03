@@ -5,7 +5,7 @@ Deze notebooks werken alleen met Python 3.
 ## Inleiding
 
 Informatie over en van meetstations (configuraties, events, coincidenties) is op
-te halen via de publieke database op http://data.hisparc.nl
+te halen via de publieke database op https://data.hisparc.nl
 
 Dit notebook gaat over het ophalen en verwerken van gegevens van meetstations
 GPS posities, hardwareserienummers, detector tijdoffsets en PMT spanning via de
@@ -13,11 +13,11 @@ GPS posities, hardwareserienummers, detector tijdoffsets en PMT spanning via de
 
 Via de API kan door middel van een URL informatie uit de publieke database over
 stations worden opgevraagd:
-- http://data.hisparc.nl/api/clusters/  (de clusters in het netwerk in JSON)
-- http://data.hisparc.nl/api/station/22/  (informatie over station 22 in JSON)
-- http://data.hisparc.nl/show/source/gps/501/  (De GPS posities van station 501, in TSV)
+- https://data.hisparc.nl/api/clusters/  (de clusters in het netwerk in JSON)
+- https://data.hisparc.nl/api/station/22/  (informatie over station 22 in JSON)
+- https://data.hisparc.nl/show/source/gps/501/  (De GPS posities van station 501, in TSV)
 
-Bovenstaande links zijn ook te vinden als links op http://data.hisparc.nl.
+Bovenstaande links zijn ook te vinden als links op https://data.hisparc.nl.
 Meer informatie over de HiSPARC API is te vinden via:
 http://docs.hisparc.nl/publicdb/api_tutorial.html
 
@@ -53,7 +53,7 @@ print(network.station_numbers(cluster=2000))
 
 `Station()` kan informatie over een meetstation uit de API lezen.
 
-De informatie uit de URL http://data.hisparc.nl/api/station/22/ (informatie over
+De informatie uit de URL https://data.hisparc.nl/api/station/22/ (informatie over
 meetstation 22, St. Ignatius, Adam) kunnen we ook met Station() opvragen:
 
 ```python
@@ -63,7 +63,7 @@ print(Station(22).info)
 Een belangrijke eigenschap is de plaats waar een station zich bevindt.
 
 Deze informatie is te vinden via de API met de URL:
-http://data.hisparc.nl/show/source/gps/22/
+https://data.hisparc.nl/show/source/gps/22/
 
 Via Station():
 

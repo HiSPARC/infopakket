@@ -54,7 +54,7 @@ data.close()
 # Coincidenties downloaden
 
 Coincidenties tussen HiSPARC stations (binnen een afstand van 1000 m) worden
-automatisch bepaald door de publieke database ([http://data.hisparc.nl/).
+automatisch bepaald door de publieke database ([https://data.hisparc.nl/).
 Het downloaden van coincidenties gaat alsvolgt:
 
 

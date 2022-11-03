@@ -94,7 +94,7 @@ In het
 werkblad [http://docs.hisparc.nl/infopakket/pdf/traces.pdf](http://docs.hisparc.nl/infopakket/pdf/traces.pdf)
 wordt de natuurkundige betekenis van deze
 getallen beschreven.  De afbeeldingen in dit werkblad zijn afkomstig uit het
-interactieve werkblad [http://data.hisparc.nl/media/jsparc/jsparc.html](http://d
+interactieve werkblad [https://data.hisparc.nl/media/jsparc/jsparc.html](http://d
 ata.hisparc.nl/media/jsparc/jsparc.html). Let op, computers tellen vanaf "`0`"
 en niet vanaf "`1`"
 
@@ -219,7 +219,7 @@ plt.ylabel('counts')
 Maak een histogram van de pulshoogtes van detector 1 en 2 van het
 station.
 
-Een voorbeeld is hier te zien: http://data.hisparc.nl/show/stations/15
+Een voorbeeld is hier te zien: https://data.hisparc.nl/show/stations/15
 
 ```python
 ph = event_tabel.col('pulseheights')

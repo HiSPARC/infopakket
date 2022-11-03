@@ -76,5 +76,5 @@ coincidenties per dag, waarbij alle stations betrokken worden.
 Bepaal de extended timestamps van events in coincidenties met 9 of meer
 meetstations op een willekeurige dag in 2016.
 
-Kijk eerst op http://data.hisparc.nl hoeveel coincidenties er die dag waren.
+Kijk eerst op https://data.hisparc.nl hoeveel coincidenties er die dag waren.
 Niet alle stations hebben elke dag data en station 507 staat binnen!
