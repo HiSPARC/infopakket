@@ -1,0 +1,54 @@
+name: Build documents
+
+on:
+  push:
+    branches:
+      - master
+      - gh-actions
+
+jobs:
+  notebooks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install jupytext
+      - run: make notebooks
+
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install jinja2
+      - run: make index
+
+  tex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: xu-cheng/latex-action@v2
+        with:
+          root_file: "*/*.tex"
+          glob_root_file: true
+          latexmk_shell_escape: true
+          work_in_root_file_dir: true
+          pre_compile: >-
+            tlmgr update --self
+            && tlmgr install collection-mathscience fouriernc fourier babel-dutch hyphen-dutch
+            && tlmgr update --self --all --no-auto-install
+
+#   publish:
+#     needs: [notebooks, index, tex]
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: peaceiris/actions-gh-pages@v3.9.0
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: _build
+#           publish_branch: gh-pages
+#           force_orphan: true
