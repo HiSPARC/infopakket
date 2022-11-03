@@ -56,10 +56,12 @@ jobs:
           name: tex
           path: "*/*.pdf"
 
-#   publish:
-#     needs: [notebooks, index, tex]
-#     runs-on: ubuntu-latest
-#     steps:
+  publish:
+    needs: [notebooks, index, tex]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+      - run: ls -R
 #       - uses: peaceiris/actions-gh-pages@v3.9.0
 #         with:
 #           github_token: ${{ secrets.GITHUB_TOKEN }}
