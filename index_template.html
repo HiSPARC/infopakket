@@ -45,7 +45,7 @@
                 <img alt="launch binder" src="https://mybinder.org/badge.svg"/></a>
                 <p>
                     {%- for doc in notebooks %}
-                        <a href="https://nbviewer.jupyter.org/url/docs.hisparc.nl/infopakket/notebooks/{{ doc.filename }}" view>{{ doc.title }}</a>
+                        <a href="https://github.com/HiSPARC/infopakket/blob/gh-pages/notebooks/{{ doc.filename }}" view>{{ doc.title }}</a>
                         <a href="notebooks/{{ doc.filename }}" download>(download)</a>
                         <span class='version'>ipynb</span>
                         {%- if not loop.last %}<br>{% endif %}
