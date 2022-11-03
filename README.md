@@ -43,10 +43,10 @@ creating pdfs use `make clean`, to also remove the generated pdfs use
 How to publish
 --------------
 
-Commits pushed to the primary branch will be automatically build on Travis.
+Commits pushed to the master branch will be automatically build on GitHub Actions.
 This means that all pdfs will be generated with LaTeX, the html index page
 is rendered, and the IPython notebooks are converted from markdown to ipynb
 files.
 
 If this is all successful the result is pushed to the gh-pages branch
-and made available via http://docs.hisparc.nl/infopakket/ .
+and made available via https://docs.hisparc.nl/infopakket/ .
