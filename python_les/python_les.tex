@@ -3,7 +3,7 @@
 \title{Werken met Python Notebooks}
 \author{N.G. Schultheiss}
 \docpython{2}{WP}
-\version{1.0}
+\version{1.1}
 
 \begin{document}
 
@@ -11,16 +11,16 @@
 
 \section{Inleiding}
 
-Python wordt veel gebruikt om meetgegevens te verwerken en simulaties van meetsystemen en natuurkundige 
-processen door te rekenen. De taal is object geor\"\i enteerd en gebruikt variabelen net iets anders dan andere 
+Python wordt veel gebruikt om meetgegevens te verwerken en simulaties van meetsystemen en natuurkundige
+processen door te rekenen. De taal is object geor\"\i enteerd en gebruikt variabelen net iets anders dan andere
 talen.
 
-Een notebook is een interactieve leeromgeving voor Python. In deze leeromgeving kunnen de instructies na elkaar worden 
-uitgevoerd. Zonder update-problemen werken de opdrachten in \'{e}\'{e}n keer. Verder hebben notebooks het voordeel 
-dat de opdrachten aan te passen zijn. Eventueel kunnen zelfs cellen met nieuwe opdrachten worden toegevoegd. Met 
-enig begrip van python is het dus mogelijk om een notebook aan te passen aan de eigen wensen. 
+Een notebook is een interactieve leeromgeving voor Python. In deze leeromgeving kunnen de instructies na elkaar worden
+uitgevoerd. Zonder update-problemen werken de opdrachten in \'{e}\'{e}n keer. Verder hebben notebooks het voordeel
+dat de opdrachten aan te passen zijn. Eventueel kunnen zelfs cellen met nieuwe opdrachten worden toegevoegd. Met
+enig begrip van python is het dus mogelijk om een notebook aan te passen aan de eigen wensen.
 
-Een nadeel is dat de opdrachten door elkaar uit te voeren zijn, bijvoorbeeld eerst de derde en dan de eerste opdracht. Dit leidt tot problemen. 
+Een nadeel is dat de opdrachten door elkaar uit te voeren zijn, bijvoorbeeld eerst de derde en dan de eerste opdracht. Dit leidt tot problemen.
 
 Op \url{http://docs.hisparc.nl/infopakket/} zijn notebooks te vinden voor\footnote{Het ophalen van notebooks is beschreven in `Notebook installatie'. Documentatie van overige \hisparc software is te vinden op \url{http://docs.hisparc.nl/}.}:
 \begin{itemize}
@@ -31,7 +31,7 @@ Op \url{http://docs.hisparc.nl/infopakket/} zijn notebooks te vinden voor\footno
 
 \section{De notebook server}
 
-Notebooks worden in de computer op een lokale server bijgehouden\footnote{De server gebruikt poort 8888, deze moet in de firewall dus open staan.}. De informatie op deze server is op de computer via een browser, zoals firefox of chrome, te bekijken. 
+Notebooks worden in de computer op een lokale server bijgehouden\footnote{De server gebruikt poort 8888, deze moet in de firewall dus open staan.}. De informatie op deze server is op de computer via een browser, zoals firefox of chrome, te bekijken.
 
 \begin{figure}[H]
 \includegraphics[width=16cm]{home.png}
@@ -55,17 +55,17 @@ In de home-pagina werkt `1\_python\_data\_retrieval' als een link. Als we er op 
 
 Als we met een notebook gaan werken, verdient het aanbeveling om de kernel opnieuw te starten. Klik op 'Kernel', er verschijnt een pop-up menu. Kies `Restart' en alle vorige bewerkingen worden vergeten. Klik hierna op `Cell', kies `All Output' en daarna `Clear'. Het noteboot is hierna schoon.
 
-Het is mogelijk om een duplicaat (kopie) van een programma te maken. De oude notebook blijft bestaan en de nieuwe notebook is aan te passen. 
+Het is mogelijk om een duplicaat (kopie) van een programma te maken. De oude notebook blijft bestaan en de nieuwe notebook is aan te passen.
 
 Het pictogram waarin een pijltje naar rechts afgebeeld staat, werkt als `Shift-Enter' toets. Het geselecteerde commando wordt uitgevoerd. Als het commando wordt bewerkt is voor dit blok een sterretje te zien. Als het commando is uitgevoerd, wordt het sterretje vervangen door een volgnummer.
 
 \section{Notebooks}
 
 Notebooks hebben een afwisselende structuur. Er zijn blokken uitleg en blokken waarin de programmeer code kan worden onderzocht of aangepast. Het doorwerken en aanpassen van de blokken aan eigen idee\"{e}n is te beschouwen als een introductie van het programmeren. Ieder notebook is te beschouwen als een programmeer-practicum van ongeveer \"{e}\"{e}n lesuur.
- 
-Met `Python data retrieval' kunnen de meetgegevens van een station worden opgehaald. De gegevens worden opgeslagen in `.h5' formaat. Dit bestand heeft een inwendige structuur. Uitgelegd wordt hoe een enkel gegeven uit de berg informatie te halen is. 
 
-Naast de meetgegevens is het noodzakelijk om informatie over het meetnetwerk te verzamelen. De eigenschappen van een station zijn op te halen met `HiSPARC-API'.  
+Met `Python data retrieval' kunnen de meetgegevens van een station worden opgehaald. De gegevens worden opgeslagen in `.h5' formaat. Dit bestand heeft een inwendige structuur. Uitgelegd wordt hoe een enkel gegeven uit de berg informatie te halen is.
+
+Naast de meetgegevens is het noodzakelijk om informatie over het meetnetwerk te verzamelen. De eigenschappen van een station zijn op te halen met `HiSPARC-API'.
 
 Nadat onderzocht is hoe de meetgegevens en stationsgegevens opgehaald kunnen worden, is het mogelijk om te onderzoeken \textit{wat} er gemeten is. Een eenvoudige reconstructie wordt uitgelegd in `Zenith-afhankelijkheid van een station'. Als uitvoer wordt een lijst met hoeken gegenereerd.
 
