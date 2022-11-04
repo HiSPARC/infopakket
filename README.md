@@ -12,7 +12,7 @@ verschillende facetten van wetenschappelijk onderzoek:
 - Het opvragen en verwerken van de digitaal opgeslagen meetgegevens.
 - Op basis van de meetgegevens de onderzoeksvraag beantwoorden. 
 
-De documenten zijn te vinden op http://docs.hisparc.nl/infopakket/
+De documenten zijn te vinden op https://docs.hisparc.nl/infopakket/
 
 
 HiSPARC infopackage

@@ -31,7 +31,7 @@ De *plattegrond* van een meetstation (detectorposities) is gedefinieerd door:
 
 Een werkblad voor het maken van een stations-plattegrond is te vinden op:
 
-[http://docs.hisparc.nl/infopakket/pdf/station_map.pdf](http://docs.hisparc.nl/infopakket/pdf/station_map.pdf)
+[https://docs.hisparc.nl/infopakket/pdf/station_map.pdf](https://docs.hisparc.nl/infopakket/pdf/station_map.pdf)
 
 ### Afstanden
 
@@ -147,4 +147,4 @@ er slechts 1 zenithoek. Voor events waarbij 3 detectoren zijn geraakt zijn er 3
 zenithoeken. Als 4 detectoren meedoen, dan zijn er 6 zenithoeken.
 
 Een beschrijving van de zenith-hoek is te vinden op:
-[http://docs.hisparc.nl/infopakket/pdf/richting_reconstructie.pdf](http://docs.hisparc.nl/infopakket/pdf/richting_reconstructie.pdf).
+[https://docs.hisparc.nl/infopakket/pdf/richting_reconstructie.pdf](https://docs.hisparc.nl/infopakket/pdf/richting_reconstructie.pdf).

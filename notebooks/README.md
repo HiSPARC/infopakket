@@ -1,6 +1,6 @@
 # Notebooks for HiSPARC
 
-[![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/HiSPARC/infopakket/gh-pages?filepath=notebooks)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/HiSPARC/infopakket/gh-pages?filepath=notebooks)
 
 Notebooks are stored in git in markdown format using `jupytext`: https://jupytext.readthedocs.io
 

@@ -1,4 +1,4 @@
-% Tomasz M. Trzeciak. http://www.texample.net/ tikz/examples/map-projections/
+% Tomasz M. Trzeciak. https://texample.net/tikz/examples/map-projections/
 
 \newcommand\pgfmathsinandcos[3]{
     \pgfmathsetmacro#1{sin(#3)}
@@ -17,7 +17,7 @@
     \pgfmathsinandcos\sint\cost{#3} % latitude
     \pgfmathsetmacro\yshift{\cosEl*\sint}
     \tikzset{#1/.estyle={cm={
-       \cost,0,0,\cost*\sinEl,(0,\yshift)}}} 
+       \cost,0,0,\cost*\sinEl,(0,\yshift)}}}
 }
 
 \newcommand\DrawLongitudeCircle[4][1]{
@@ -25,7 +25,7 @@
     \tikzset{current plane/.prefix style={scale=#1}}
      % angle of "visibility"
     \pgfmathsetmacro\angVis{
-       atan(sin(#2)*cos(\angEl)/sin(\angEl))} 
+       atan(sin(#2)*cos(\angEl)/sin(\angEl))}
     \draw[shift={(#3, #4)}][current plane]
        (\angVis:1) arc (\angVis:\angVis+180:1);
     \draw[shift={(#3, #4)}][current plane,dashed]

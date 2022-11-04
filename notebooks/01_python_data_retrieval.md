@@ -7,7 +7,7 @@ Deze notebooks werken alleen met Python 3.
 Het notebook 'Data retrieval met python' is het eerste notebook van een serie.
 In dit notebook wordt beschreven hoe HiSPARC data met de HiSPARC sapphire module
 voor python op te halen is. De installatie van sapphire is beschreven op:
-[http://docs.hisparc.nl/sapphire/installation.html#installing-the-prerequisites](http://docs.hisparc.nl/sapphire/installation.html#installing-the-prerequisites)
+[https://docs.hisparc.nl/sapphire/installation.html#installing-the-prerequisites](https://docs.hisparc.nl/sapphire/installation.html#installing-the-prerequisites)
 
 Nadat deze installatie is voltooid, kan de sapphire module in python geladen
 worden. (Klik met de muis in de onderstaande code-cel en druk op shift-enter):

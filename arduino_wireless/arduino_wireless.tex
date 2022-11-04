@@ -98,7 +98,7 @@ CANSAT satelliet gemaakt kan worden. De CANSAT zendt draadloos data via
 de APC-220 module. Andere tools om de APC-module te configureren bestaan
 wel, maar geven veel problemen. Een voorbeeld van zo'n problematisch
 programma is "RF-Magic". Gebruik Google met zoekterm `apc220cfg.ino'} of
-van \url{http://github.com/HiSPARC/weather-arduino}.
+van \url{https://github.com/HiSPARC/weather-arduino}.
 
 
 \begin{figure}
@@ -218,12 +218,12 @@ Op de Mac en Windows computers gaat dat net even anders, vandaar dat de ondersta
 paragraven uitleg voor beide `operating systems' bevatten.
 
 \subsubsection{Python voor Mac}
-Een pakket om Python in te draaien is bijvoorbeeld: Anaconda, kies Python 2.7.
-Dat is gratis te downloaden van: \url{http://continuum.io/downloads#all}
+Een pakket om Python in te draaien is bijvoorbeeld: Anaconda, kies Python 3.
+Dat is gratis te downloaden van: \url{https://www.anaconda.com/products/distribution#all}
 Download de free version en installeer deze. Je hebt dan een venster waar je kunt
 programmeren en een uitvoer venster.
 
-Uitleg over hoe je moet werken met Anaconda Python 2.7 kun je op Youtube wel vinden.
+Uitleg over hoe je moet werken met Anaconda Python 3 kun je op YouTube wel vinden.
 
 Hieronder zie je een voorbeeld programma in Python, om data van het weerstation
 (voor de Mac) uit te lezen.
@@ -263,20 +263,20 @@ if __name__ == '__main__':
 
 Als je de wireless connectie maakt op een windowscomputer dan kun je
 waarschijnlijk de COM poort waar de UART zit niet vinden met de behulp van de
-Arduino software. Download Anaconda Python 2.7 voor windows.
-Die is gratis te downloaden van: \url{http://continuum.io/downloads#all}
+Arduino software. Download Anaconda Python 3 voor Windows.
+Die is gratis te downloaden van: \url{https://www.anaconda.com/products/distribution#all}
 Download de free version en installeer deze. Je hebt dan een venster waar je kunt
 programmeren en een uitvoer venster.
 
-Uitleg over hoe je moet werken met Anaconda Python 2.7 kun je op Youtube wel vinden.
+Uitleg over hoe je moet werken met Anaconda Python 3 kun je op YouTube wel vinden.
 
 Eerst willen we vinden waar de COM poort van de UART zit. Gebruik het onderstaande
-stukje code \footnote{bron: \url{http://asvresearch.com/main/index.php/tutorials/tutorial-5}}.
+stukje code.
 
 \begin{minted}{python}
 # Code 2
 
-# Code om COM poort van de UART op windows te vinden.
+# Code om COM poort van de UART op Windows te vinden.
 
 import serial
 
@@ -352,7 +352,7 @@ programmeercode. De oplossing van dit probleem kun je zelf bedenken.
 In deze paragraaf zullen we wel wat oplossingen aandragen.
 In Python kun je de data die je uitleest wegschrijven als een tekstfile.
 Hoe dat moet kun je hier lezen:
-\url{http://www.pythonforbeginners.com/files/reading-and-writing-files-in-python}
+\url{https://www.pythonforbeginners.com/files/reading-and-writing-files-in-python}
 
 Voordat je wegschrijft moet je zorgen dat de nieuwe data vergelijkt met
 de oude data, als deze exact hetzelfde is als de vorige kun je in het

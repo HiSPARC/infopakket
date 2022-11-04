@@ -19,7 +19,7 @@ stations worden opgevraagd:
 
 Bovenstaande links zijn ook te vinden als links op https://data.hisparc.nl.
 Meer informatie over de HiSPARC API is te vinden via:
-http://docs.hisparc.nl/publicdb/api_tutorial.html
+https://docs.hisparc.nl/publicdb/api_tutorial.html
 
 In SAPPHiRE is de informatie uit de API op twee manieren beschikbaar:
 1. Direct uitlezen van API informatie via `Station()` en `Network()`

@@ -91,12 +91,11 @@ de volgende betekenis:
 1. t_trigger: Het moment van de GPS-tijdstempel vanaf het begin van het opgeslagen signaal.
 
 In het
-werkblad [http://docs.hisparc.nl/infopakket/pdf/traces.pdf](http://docs.hisparc.nl/infopakket/pdf/traces.pdf)
+werkblad [https://docs.hisparc.nl/infopakket/pdf/traces.pdf](https://docs.hisparc.nl/infopakket/pdf/traces.pdf)
 wordt de natuurkundige betekenis van deze
 getallen beschreven.  De afbeeldingen in dit werkblad zijn afkomstig uit het
-interactieve werkblad [https://data.hisparc.nl/media/jsparc/jsparc.html](http://d
-ata.hisparc.nl/media/jsparc/jsparc.html). Let op, computers tellen vanaf "`0`"
-en niet vanaf "`1`"
+interactieve werkblad [https://data.hisparc.nl/media/jsparc/jsparc.html](https://data.hisparc.nl/media/jsparc/jsparc.html).
+Let op, computers tellen vanaf "`0`" en niet vanaf "`1`".
 
 
 ### Werken met kolomnamen
