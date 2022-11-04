@@ -1,38 +1,30 @@
-import glob
-import os
 import re
-import sys
 
-from collections import OrderedDict
 from operator import itemgetter
+from pathlib import Path
 
 import jinja2
 
-PATH = os.path.dirname(__file__)
+PATH = Path(__file__).parent
 
 
 def make_index(infopakket, notebooks):
-    template_path = os.path.join(PATH, 'index_template.html')
-    with open(template_path) as template_file:
-        template = template_file.read()
-    template = jinja2.Template(template)
+    template_path = PATH / 'index_template.html'
+    template = jinja2.Template(template_path.read_text())
     index = template.render(infopakket=infopakket, notebooks=notebooks)
-    index_path = os.path.join(PATH, 'index.html')
-    with open(index_path, 'w') as index_file:
-        index_file.write(index)
+    index_path = PATH / 'index.html'
+    index_path.write_text(index)
 
 
 def get_categories():
     """Read the categories from the common_style file
 
-    The order of the categories is preserved.
-
     :return: list of tuples which contain the shortname and the title name
              for each category.
 
     """
-    finder = re.compile(r'doc(.*?)\}.*\{(.*?)\}\{#1')
-    path = os.path.join(PATH, 'style_common.tex')
+    finder = re.compile(r'\\doc(.*?)\}.*\{(.*?)\}\{#1')
+    path = PATH / 'style_common.tex'
     categories = []
     for line in open(path):
         result = finder.search(line)
@@ -50,79 +42,73 @@ def get_documents(categories):
 
     """
     title_finder = re.compile(r'\\title\{(.*)\}')
-    cat_rank_finder = re.compile(r'\\doc(.*?)\{([0-9]+)\}')
     version_finder = re.compile(r'\\version\{(.*)\}')
+    cat_rank_finder = re.compile(r'\\doc(.*?)\{([0-9]+)\}')
 
-    infopakket = OrderedDict((category, {'title': title, 'documents': []})
-                             for category, title in categories)
+    infopakket = {
+        category: {'title': title, 'documents': []}
+        for category, title in categories
+    }
 
-    for path in glob.glob(os.path.join(PATH, '*/*.tex')):
-        if 'examples' in path:
+    for path in PATH.glob('*/*.tex'):
+        if 'examples' in path.parts:
             continue
-        filename = os.path.splitext(os.path.basename(path))[0] + '.pdf'
+        filename = path.with_suffix('.pdf').name
         document = {'filename': filename}
+        contents = path.read_text()
         try:
-            document['title'] = fix_title(find_first(title_finder, path)[0])
-            document['version'] = find_first(version_finder, path)[0]
-            category, document['rank'] = find_first(cat_rank_finder, path)
-        except Exception:
+            document['title'] = fix_title(title_finder.search(contents).group(1))
+            document['version'] = version_finder.search(contents).group(1)
+            category, document['rank'] = cat_rank_finder.search(contents).groups()
+        except AttributeError:
             if 'uitwerkingen' in filename:
-                path = path.replace('_uitwerkingen', '')
-                try:
-                    document['title'] = fix_title(find_first(title_finder, path)[0])
-                    document['version'] = find_first(version_finder, path)[0]
-                    category, document['rank'] = find_first(cat_rank_finder, path)
-                except Exception:
-                    print(path)
-                else:
-                    infopakket['docent']['documents'].append(document)
-        else:
-            infopakket[category]['documents'].append(document)
+                contents = Path(str(path).replace('_uitwerkingen', '')).read_text()
+                document['title'] = fix_title(title_finder.search(contents).group(1))
+                document['version'] = version_finder.search(contents).group(1)
+                _, document['rank'] = cat_rank_finder.search(contents).groups()
+                category = 'docent'
+            else:
+                raise
+        infopakket[category]['documents'].append(document)
 
-    for key in infopakket.keys():
-        infopakket[key]['documents'].sort(key=itemgetter('rank'))
+    for value in infopakket.values():
+        value['documents'].sort(key=itemgetter('rank'))
+
     return infopakket
 
 
 def fix_title(title):
-    title = title.replace(r'\hisparc', 'HiSPARC')
-    title = title.replace(r'\pmt', 'PMT')
-    title = title.replace(r'\gps', 'GPS')
-    title = title.replace(r'\adc', 'ADC')
-    if sys.version_info[0] > 2:
-        return title.encode('ascii', 'xmlcharrefreplace').decode('utf-8')
-    else:
-        return title.decode('utf-8').encode('ascii', 'xmlcharrefreplace')
-
-
-def find_first(finder, path):
-    for line in open(path):
-        result = finder.search(line)
-        if result:
-            return result.groups()
-    raise Exception
+    title = (
+        title
+        .replace(r'\hisparc', 'HiSPARC')
+        .replace(r'\pmt', 'PMT')
+        .replace(r'\gps', 'GPS')
+        .replace(r'\adc', 'ADC')
+    )
+    return title.encode('ascii', 'xmlcharrefreplace').decode('utf-8')
 
 
 def get_notebooks():
     """Retrieve all notebooks from the directory tree."""
 
-    path = os.path.join(PATH, 'notebooks', '*.md')
-    files = glob.glob(path)
-    notebooks = []
-    for f in files:
-        filename = os.path.splitext(os.path.basename(f))[0] + '.ipynb'
-        title = make_notebook_title(filename)
-        notebooks.append({'filename': filename, 'title': title})
+    notebooks = [
+        {
+            'filename': filename.with_suffix('.ipynb'),
+            'title': make_notebook_title(filename),
+        }
+        for filename in PATH.glob('notebooks/*.md')
+    ]
     return notebooks
 
 
 def make_notebook_title(filename):
-    """Make a title out of the notebook filename."""
+    """Make a title out of the notebook filename.
 
-    name, ext = filename.split('.')
-    words = name.split('_')
-    del words[0]
-    return ' '.join(words)
+    Remove the extension, remove the prefix, replace underscores by spaces.
+
+    """
+
+    return filename.stem.partition('_')[2].replace('_', ' ')
 
 
 if __name__ == "__main__":
