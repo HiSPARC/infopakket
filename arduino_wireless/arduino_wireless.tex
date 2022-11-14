@@ -8,7 +8,7 @@
 \title{Wireless connectie PC en Arduino}
 \author{C.G.N. van Veen}
 \docweerstation{2}{WW}
-\version{1.4}
+\version{1.5}
 
 \begin{document}
 
@@ -23,17 +23,17 @@ meten, kan het handig zijn om de data van het weerstation wireless naar
 de PC te versturen. Dit heeft een aantal voordelen. We hoeven geen kabel
 tussen PC en Arduino te trekken en we kunnen over grote afstand een nieuw
 programma zenden naar de Arduino. Het nadeel dat we wel constante
-voeding nodig hebben bij het station (als er geen voeding beschikbaar), 
-zouden we kunnen ondervangen met een zonnecel en backup batterij. 
+voeding nodig hebben bij het station (als er geen voeding beschikbaar),
+zouden we kunnen ondervangen met een zonnecel en backup batterij.
 
 \paragraph{Benodigdheden}
 Om het geheel wireless te laten werken hebben we een aantal zaken nodig.
-Het belangrijkste is de zend/ontvangmodule (APC220) module. Dit is een 
-zend/ontvangmodule die makkelijk in te stellen is en makkelijk via een ander 
+Het belangrijkste is de zend/ontvangmodule (APC220) module. Dit is een
+zend/ontvangmodule die makkelijk in te stellen is en makkelijk via een ander
 programma uit te lezen is.
 
-\begin{itemize}  
-    \item APC220 zendmodules (2x)    
+\begin{itemize}
+    \item APC220 zendmodules (2x)
     \item Arduino software
     \item USB to UART adapter
     \item APC programma
@@ -69,23 +69,23 @@ bereik van de zender is 1 km in open lucht. De zender kan door muren heen
 zenden, maar het verdient aanbeveling om het aantal muren tussen het
 meetstation en de computer beperkt te houden. De zender kan zenden
 tussen \SIrange{430}{440}{\MHz}. De default waarde is echter
-\SI{434}{\MHz}. In tabel zie je mogelijke waarden die we gebruiken, de APC220 
+\SI{434}{\MHz}. In tabel zie je mogelijke waarden die we gebruiken, de APC220
 kan zenden tussen \SI{418}{\MHz} en \SI{454}{\MHz}.
 In Nederland mag er echter alleen tussen deze frequentiegrenzen door
 zendamateurs informatie verzonden worden.
 
 
 \subsection{APC-220 installeren}
-De ontvanger zal gekoppeld moeten worden aan de computer. De computer heeft 
-een driver nodig om te werken. We hebben een VCP (Virtual Com Port) driver nodig, 
+De ontvanger zal gekoppeld moeten worden aan de computer. De computer heeft
+een driver nodig om te werken. We hebben een VCP (Virtual Com Port) driver nodig,
 die we kunnen downloaden van Silabs.com:
 Gebruik 'google' met de zoekterm \textbf{'USB to UART Bridge VCP Drivers'} en kies de eerste
 optie die je krijgt.
 Download de juiste driver voor je besturingssysteem op de gebruikte computer
-en installeer deze. Zorg tijdens de installatie van de driver dat je de 
+en installeer deze. Zorg tijdens de installatie van de driver dat je de
 ontvangmodule nog niet in je pc hebt aangesloten.
-Na installatie sluit je de APC module \figref{fig:APC_complete} aan op een 
-USB ingang van de PC. Als Windows hem dan niet vind, verwijder de module en 
+Na installatie sluit je de APC module \figref{fig:APC_complete} aan op een
+USB ingang van de PC. Als Windows hem dan niet vind, verwijder de module en
 stop hem er opnieuw in.
 
 Om de APC module te configureren gebruiken we de Arduino en een
@@ -97,10 +97,10 @@ universiteit op basis van Arduino een pakket ontwikkeld waarmee een
 CANSAT satelliet gemaakt kan worden. De CANSAT zendt draadloos data via
 de APC-220 module. Andere tools om de APC-module te configureren bestaan
 wel, maar geven veel problemen. Een voorbeeld van zo'n problematisch
-programma is "RF-Magic". Gebruik Google met zoekterm `apc220cfg.ino'} of 
-van \url{http://github.com/HiSPARC/weather-arduino}.
+programma is "RF-Magic". Gebruik Google met zoekterm `apc220cfg.ino'} of
+van \url{https://github.com/HiSPARC/weather-arduino}.
 
- 
+
 \begin{figure}
     \centering
     \includegraphics[width=0.60\textwidth]{APC_complete}
@@ -119,7 +119,7 @@ van \url{http://github.com/HiSPARC/weather-arduino}.
 \begin{figure}
     \centering
     \includegraphics[width=0.60\textwidth]{scrshotConfigAPC}
-    
+
     \caption{Screenshot van de "serial monitor", type 'm' in de invoerbalk
     van de serial monitor. Na het typen van 'm' wordt dit menu getoond.
     Type `r' om de instellingen van de APC module uit te lezen. Type `w'
@@ -129,7 +129,7 @@ van \url{http://github.com/HiSPARC/weather-arduino}.
     frequentie \SI{434150}{\MHz} met 9600 bps in lucht, met een zendvermogen van
     \SI{20}{\milli\watt} ontvangen van data met 9600 bps over UART zonder parity
     check.}
-   
+
    \label{fig:scrshotConfigAPC}
 \end{figure}
 
@@ -160,7 +160,7 @@ werken. Beide modules moeten op dezelfde frequentie werken. Voer dan je
 keuze in. Bijvoorbeeld de invoer: w 434790 3 9 3 0 staat voor: write
 frequentie \SI{434790}{\MHz} met 9600 bps in lucht en
 \SI{20}{\milli\watt} 9600 bps wegschrijven over UART zonder parity check.
-Herhaal deze stap voor de andere APC module. Belangrijk is dat de Baudrate op 
+Herhaal deze stap voor de andere APC module. Belangrijk is dat de Baudrate op
 9600 staat en paritycheck `none' is.
 
 \begin{table}
@@ -201,7 +201,7 @@ Herhaal deze stap voor de andere APC module. Belangrijk is dat de Baudrate op
 We hebben nu de modules zo geconfigureerd dat ze in principe klaar zijn
 om te zenden en ontvangen. Nu moeten we ons weerprogramma weer uploaden
 naar de Arduino. Sluit de USB kabel aan op de Arduino en upload het
-weerprogramma (Zorg dat er geen kabeltje in de Rx<-0 ingang van de Arduino zit, 
+weerprogramma (Zorg dat er geen kabeltje in de Rx<-0 ingang van de Arduino zit,
 anders krijg je een foutmelding). Run het programma, kijk in de serial monitor van de
 arduino software of er data verschijnt. Sluit de serial monitor. We gaan
 nu wireless meten. Haal de usb kabel nu los.
@@ -213,21 +213,21 @@ in de USB ingang van de pc. De Arduino software zal de UART vinden en
 geeft ook de poort aan, waar deze zit. Ga naar \emph {"Tools"},
 \emph{"Serial Port"}. Daar vind je de poort waar de UART zit, zorg dat je deze checkt.
 Het adres van deze poort is nodig om met een andere programmeertaal (in ons
-geval: Python) de gegevens van het weerstation uit te lezen. 
+geval: Python) de gegevens van het weerstation uit te lezen.
 Op de Mac en Windows computers gaat dat net even anders, vandaar dat de onderstaande
 paragraven uitleg voor beide `operating systems' bevatten.
 
 \subsubsection{Python voor Mac}
-Een pakket om Python in te draaien is bijvoorbeeld: Anaconda, kies Python 2.7.
-Dat is gratis te downloaden van: \url{http://continuum.io/downloads#all}
+Een pakket om Python in te draaien is bijvoorbeeld: Anaconda, kies Python 3.
+Dat is gratis te downloaden van: \url{https://www.anaconda.com/products/distribution#all}
 Download de free version en installeer deze. Je hebt dan een venster waar je kunt
-programmeren en een uitvoer venster. 
+programmeren en een uitvoer venster.
 
-Uitleg over hoe je moet werken met Anaconda Python 2.7 kun je op Youtube wel vinden.
+Uitleg over hoe je moet werken met Anaconda Python 3 kun je op YouTube wel vinden.
 
-Hieronder zie je een voorbeeld programma in Python, om data van het weerstation 
+Hieronder zie je een voorbeeld programma in Python, om data van het weerstation
 (voor de Mac) uit te lezen.
-Als een regel voorafgegaan wordt door een \verb|#| dan is dat een commentaar 
+Als een regel voorafgegaan wordt door een \verb|#| dan is dat een commentaar
 regel en die wordt niet gecompiled en uitgevoerd.
 
 \begin{minted}{python}
@@ -238,13 +238,13 @@ regel en die wordt niet gecompiled en uitgevoerd.
 import sys, serial
 import time
 from time import sleep
-      
+
 def main():
-    strPort = '/dev/tty.SLAB_USBtoUART' # Adres van een APC-UART module voor Mac. 
-    ser = serial.Serial(strPort, baudrate=9600, parity=serial.PARITY_NONE, 
+    strPort = '/dev/tty.SLAB_USBtoUART' # Adres van een APC-UART module voor Mac.
+    ser = serial.Serial(strPort, baudrate=9600, parity=serial.PARITY_NONE,
                         bytesize=serial.EIGHTBITS, stopbits=serial.STOPBITS_ONE,
                         timeout=1.0)
-    
+
     while True:
         try:
             line = ser.readline()
@@ -261,25 +261,25 @@ if __name__ == '__main__':
 
 \subsubsection{Python voor Windows}
 
-Als je de wireless connectie maakt op een windowscomputer dan kun je 
-waarschijnlijk de COM poort waar de UART zit niet vinden met de behulp van de 
-Arduino software. Download Anaconda Python 2.7 voor windows.
-Die is gratis te downloaden van: \url{http://continuum.io/downloads#all}
+Als je de wireless connectie maakt op een windowscomputer dan kun je
+waarschijnlijk de COM poort waar de UART zit niet vinden met de behulp van de
+Arduino software. Download Anaconda Python 3 voor Windows.
+Die is gratis te downloaden van: \url{https://www.anaconda.com/products/distribution#all}
 Download de free version en installeer deze. Je hebt dan een venster waar je kunt
 programmeren en een uitvoer venster.
 
-Uitleg over hoe je moet werken met Anaconda Python 2.7 kun je op Youtube wel vinden.
+Uitleg over hoe je moet werken met Anaconda Python 3 kun je op YouTube wel vinden.
 
-Eerst willen we vinden waar de COM poort van de UART zit. Gebruik het onderstaande 
-stukje code \footnote{bron: \url{http://asvresearch.com/main/index.php/tutorials/tutorial-5}}.
+Eerst willen we vinden waar de COM poort van de UART zit. Gebruik het onderstaande
+stukje code.
 
 \begin{minted}{python}
 # Code 2
 
-# Code om COM poort van de UART op windows te vinden.
+# Code om COM poort van de UART op Windows te vinden.
 
 import serial
- 
+
 def get_first_valid_port():
     # Windows
     found = False
@@ -295,7 +295,7 @@ def get_first_valid_port():
         return 'COM' + str(port_number + 1)
     return None
 
-if __name__ == '__main__': 
+if __name__ == '__main__':
     poort = get_first_valid_port()
     print(poort)
 \end{minted}
@@ -307,14 +307,14 @@ Dat is adres van de UART aansluiting.
 \begin{minted}{python}
 # Code 3
 
-# Code om de COM poort op de juiste manier te benaderen vul bij 
+# Code om de COM poort op de juiste manier te benaderen vul bij
 # port_id het adres in wat in code (2) gevonden is.
 
-import serial 
+import serial
 
-port = serial.Serial(port_id, baudrate=9600, parity=serial.PARITY_NONE, 
+port = serial.Serial(port_id, baudrate=9600, parity=serial.PARITY_NONE,
                      bytesize=serial.EIGHTBITS, stopbits=serial.STOPBITS_ONE,
-                     timeout=1.0) 
+                     timeout=1.0)
 port.setRTS(0)
 \end{minted}
 
@@ -322,14 +322,14 @@ Het stukje code om daadwerkelijk data uit te lezen. De output leest de
 data in blokjes van 50 karakters en print deze als er data is. De
 library \emph{msvcrt} moet je importeren met Python. \verb|kbhit()|
 functie detecteert een keyboard input en de code stopt als op het keyboard de
-letter `s' wordt getypt. \verb|getch()| functie haalt de waarde van de keyboard 
+letter `s' wordt getypt. \verb|getch()| functie haalt de waarde van de keyboard
  op en vergelijkt met de opgegeven `s'.
 
 \begin{minted}{python}
 # Code 4
 
-# Download data via APC-220  
- 
+# Download data via APC-220
+
 while True:
     output = port.read(50)
     if output:
@@ -352,7 +352,7 @@ programmeercode. De oplossing van dit probleem kun je zelf bedenken.
 In deze paragraaf zullen we wel wat oplossingen aandragen.
 In Python kun je de data die je uitleest wegschrijven als een tekstfile.
 Hoe dat moet kun je hier lezen:
-\url{http://www.pythonforbeginners.com/files/reading-and-writing-files-in-python}
+\url{https://www.pythonforbeginners.com/files/reading-and-writing-files-in-python}
 
 Voordat je wegschrijft moet je zorgen dat de nieuwe data vergelijkt met
 de oude data, als deze exact hetzelfde is als de vorige kun je in het
@@ -378,15 +378,15 @@ In de bovenstaande code staat in het \textit{if} statement een controle op 3
 punten. Namelijk of de \verb|nieuwe_data| niet gelijk is aan de oude data, of
 \verb|nieuwe_data| niet leeg is en het statement kijkt of de lengte van de data
 gelijk is aan het minimale aantal characters wat je nodig had voor
-bijvoorbeeld 3x een temperatuurmeting, luchtdruk en luchtvochtigheid. In ons geval is 
+bijvoorbeeld 3x een temperatuurmeting, luchtdruk en luchtvochtigheid. In ons geval is
 het minimale karakters in de string gelijk aan 32. Als we data naar de \hisparc database gaan
-sturen zal het aantal karakters minder zijn. 
+sturen zal het aantal karakters minder zijn.
 De file wordt elke keer geopend en gesloten als er data wordt weggeschreven, \verb|"a"|
 zorgt ervoor dat er data toegevoegd wordt (\textbf{a}ppend) aan de textfile.
 
 \section{Wireless weerstation plaatsen}
 
-\subsection{Behuizing en voeding Arduino weerstation} 
+\subsection{Behuizing en voeding Arduino weerstation}
 Het weerstation moet kunnen
 meten aan het weer, dus de behuizing moet voldoen aan de eigenschappen
 van een weerhuisje, zoals waterdicht zijn, wind doorlatend en niet in de
@@ -402,7 +402,7 @@ batterij zoals de `USB LiPoly Charge'. Onze voorkeur gaat echter uit
 naar een kant en klare zonnecel met batterij met een USB uitgang, zodat we de Arduino
 via USB kunnen voeden. Let er op dat de zonnecel waterbestendig is, als dit niet zo is maak dan een
 constructie waardoor deze afgeschermd is van de weersinvloeden.
-De Arduino heeft bij (5V) een stroomsterkte van ongeveer \SI{40}{\milli\ampere} nodig per 
+De Arduino heeft bij (5V) een stroomsterkte van ongeveer \SI{40}{\milli\ampere} nodig per
 aangesloten pin, daarnaast \SI{50}{\milli\ampere} voor de \SI{3,3}{\volt} uitgang.
 De zender (APC220) heeft \SI{40}{\milli\ampere} nodig.
 Als we uitgaan van metingen in de winter dan kunnen we op zonnecel ongeveer
@@ -411,14 +411,14 @@ op een batterij die in korte tijd is opgeladen.
 Een snelle rekensom leert ons dat we dan een batterij met een capaciteit van rond
 de \SI{2000}{\milli\ampere\hour} nodig hebben. Een hogere capaciteit is wel aan te bevelen.
 
-In het volgende document gaan we daadwerkelijk data naar de database van \hisparc schrijven. 
+In het volgende document gaan we daadwerkelijk data naar de database van \hisparc schrijven.
 
 \begin{thebibliography}{9}
     \bibitem{CANSAT}
-        NAROM, 2013 \emph{The CANSAT BOOK 2013-edition}, 
+        NAROM, 2013 \emph{The CANSAT BOOK 2013-edition},
         CANSAT project
     \bibitem{Radio}
-    Agentschap Telecom, 2012 \emph{Vergunningsvrije radiotoepassingen}, 
+    Agentschap Telecom, 2012 \emph{Vergunningsvrije radiotoepassingen},
     Ministerie van Economische zaken, Landbouw en Innovatie
 \end{thebibliography}
 

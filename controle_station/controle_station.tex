@@ -3,7 +3,7 @@
 \title{Dagelijkse controle van een station}
 \author{C.G.N. van Veen}
 \docdetector{4}{DC}
-\version{1.0}
+\version{1.1}
 
 \begin{document}
 
@@ -15,14 +15,14 @@
 staan. De stations meten onophoudelijk en verzenden hun data naar de
 \hisparc database. De status van de \hisparc stations wordt bijgehouden
 door Nagios. Informatie over de status van een station is te vinden op
-\url{http://data.hisparc.nl}. Dit document geeft aan hoe de status van
+\url{https://data.hisparc.nl}. Dit document geeft aan hoe de status van
 een station optimaal gemaakt kan worden.
 
 
 \section{Status van een station controleren}
 
 De school of instelling is verantwoordelijk voor het onderhoud van het
-meetstation. Op de site: \url{http://data.hisparc.nl} kunnen de
+meetstation. Op de site: \url{https://data.hisparc.nl} kunnen de
 prestaties van het station worden gevolgd. Van deze site is in
 \figref{fig:frontweb} een screenshot te zien is. Op de site staan alle
 stations vermeld die in het netwerk van \hisparc zijn aangesloten. De
@@ -37,7 +37,7 @@ internet of VPN werkt niet.
     \centering \includegraphics[scale=0.40]{websitefront}
     \caption{Screenshot van het station overzicht op de \hisparc data
              website. De status van een station is af te lezen aan de
-             kleur van het bolletjes bij de stations namen.} 
+             kleur van het bolletjes bij de stations namen.}
     \label{fig:frontweb}
 \end{figure}
 
@@ -56,15 +56,15 @@ gaat. In het Pulseheight histogram is ook te zien dat de \mip piek niet
 goed aanwezig is, wat duidt op een verkeerde instelling van de \pmt. Zie
 ook \cite{inregelen}.
 
-\begin{figure} 
-    \centering 
+\begin{figure}
+    \centering
     \includegraphics[scale=0.40]{websiteerror}
     \caption{Screenshot van het data-overzicht van een station. Dit is
              een samenvatting van de metingen van een dag. In het event
              histogram is duidelijk te zien dat het station niets meer
              heeft gemeten na 14.00 uur (UTC-tijd). Ook is er in het
              pulseheight histogram geen duidelijke MIP piek te zien.}
-    \label{fig:websiteerror} 
+    \label{fig:websiteerror}
 \end{figure}
 
 
@@ -72,14 +72,14 @@ ook \cite{inregelen}.
 
 Om precies te zien wat er mis is met het station en het probleem
 daadwerkelijk op te lossen, klikt u op de site:
-\url{http://data.hisparc.nl} op het gekleurde cirkeltje voor het
+\url{https://data.hisparc.nl} op het gekleurde cirkeltje voor het
 betreffende station. Als u al op de data pagina van het station zit kunt
 u op \emph{Status} klikken rechtsboven. In beide gevallen krijgt u een
 status en problemen overzicht, zie \figref{fig:statusstation}. In
 \figref{fig:statusstation} is te zien dat de \emph{TriggerRate} rood is
 en dus aandacht behoeft. Om de problemen met de verschillende
 categorieën op te lossen is een speciale website ontwikkeld. Ga naar
-\url{http://docs.hisparc.nl/maintenance/}, zie \figref{fig:maintenance}.
+\url{https://docs.hisparc.nl/maintenance/}, zie \figref{fig:maintenance}.
 U kunt hier onder andere op \emph{known issues} klikken en op
 \emph{frequently asked questions}. Op de pagina \emph{known issues}
 bevindt zich een gecategoriseerde lijst van problemen. U kunt daar in de
@@ -94,36 +94,36 @@ u het bovenstaande stappenplan op dezelfde manier volgen om diverse
 storingen en problemen met u station op te lossen. Komt u er alsnog niet
 uit neem dan contact op met de clustercoordinator of met
 \url{beheer@hisparc.nl}.
- 
 
-\begin{figure} 
-\centering 
+
+\begin{figure}
+\centering
 \includegraphics[scale=0.40]{statusstation}
-\caption{Screenshot van de status van een station. In de tabel is in rood aangegeven 
-welke foutmeldingen er voor het station zijn waargenomen. 
-In dit geval is er een probleem met de \emph{TriggerRate}.}\label{fig:statusstation} 
+\caption{Screenshot van de status van een station. In de tabel is in rood aangegeven
+welke foutmeldingen er voor het station zijn waargenomen.
+In dit geval is er een probleem met de \emph{TriggerRate}.}\label{fig:statusstation}
 \end{figure}
 
-\begin{figure} 
-\centering 
+\begin{figure}
+\centering
 \includegraphics[scale=0.40]{maintenance}
 \caption{Klik op \emph{frequently asked questions} en daarna op
          \emph{known issues} om naar verschillende foutmeldingen en
-         oplossingen daarvan te gaan.}\label{fig:maintenance} 
+         oplossingen daarvan te gaan.}\label{fig:maintenance}
 \end{figure}
- 
-\begin{figure} 
-\centering 
+
+\begin{figure}
+\centering
 \includegraphics[scale=0.40]{solution}
 \caption{Een mogelijke reden voor foutmelding en de bijhorende
          oplossing. Hier is de oplossing, om in het programma \hisparc
-         DAQ op de button DAQ \emph{mode} te klikken.} 
-\label{fig:solution} 
+         DAQ op de button DAQ \emph{mode} te klikken.}
+\label{fig:solution}
 \end{figure}
 
 
-\begin{thebibliography}{9} 	
-	\bibitem{inregelen} D.B.R.A. Fokkema, \emph{Inregelen PMT's}, infopakket \hisparc 
+\begin{thebibliography}{9}
+	\bibitem{inregelen} D.B.R.A. Fokkema, \emph{Inregelen PMT's}, infopakket \hisparc
 \end{thebibliography}
 
 \end{document}

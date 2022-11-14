@@ -1,9 +1,7 @@
 # Recept station layout
 
-```python
-# dit notebook werkt onder Python 2 en 3
-from __future__ import division, print_function
-```
+
+Deze notebooks werken alleen met Python 3.
 
 Haal de station layout op uit de API en plot
 
@@ -24,6 +22,7 @@ layout = s.station_layout(datetime_to_gps(datetime(2016, 1, 1)))
 ```
 
 De indeling van de station layout tsv is alsvolgt:
+
 ```
 # This data contains the following columns:
 #

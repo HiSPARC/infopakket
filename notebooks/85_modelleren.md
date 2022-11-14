@@ -1,4 +1,5 @@
 ## Het schrijven van simulaties: Modelleren
+
 Het notebook voor een simulatie
 bestaat uit een aantal blokken. Eerst worden enkele noodzakelijke bibliotheken
 geimporteerd:

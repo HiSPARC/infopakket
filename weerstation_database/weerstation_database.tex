@@ -8,7 +8,7 @@
 \title{Weerdata versturen naar \hisparc}
 \author{C.G.N. van Veen}
 \docweerstation{3}{WD}
-\version{1.3}
+\version{1.4}
 
 \begin{document}
 
@@ -44,7 +44,7 @@ wordt opgeslagen. Deze data is vrij voor iedereen om uit te lezen, te
 gebruiken voor onderzoek of om te leren omgaan met data en hoe je deze data
 kunt manipuleren met Python. Uitgebreide informatie over de \hisparc database
 en hoe deze te benaderen is te vinden op
-\url{http://docs.hisparc.nl/publicdb/}. Hier vind je ook voorbeeld programma's
+\url{https://docs.hisparc.nl/publicdb/}. Hier vind je ook voorbeeld programma's
 in Python waarmee je zelf data kunt binnen halen. Wat wij willen doen is nu
 onze eigen weerdata koppelen aan de data van het \hisparc meetstation, zodat
 deze data wordt opgeslagen in de \hisparc database.
@@ -88,7 +88,7 @@ volgorde (zie tabel volgorde).
             van de bekende grootheden als luchtvochtigheid en buitentemperatuur.
             Formules die daarvoor nodig zijn kunnen in de literatuur gevonden
             worden.
-            \protect\url{http://github.com/HiSPARC/weather/blob/primary/doc/
+            \protect\url{https://github.com/HiSPARC/weather/blob/primary/doc/
             _static/Parameter_Manual.pdf}. Als de data geanalyseerd wordt kunnen
             deze grootheden alsnog berekend worden. Voor andere grootheden zoals
             bijvoorbeeld hoeveelheid neerslag moet een extra sensor worden
@@ -263,7 +263,7 @@ class Measurement(object):
 
         # Calculate vaporpressure, Dewpoint: Formula from Vantage Pro Davis instruments
         # This document can be found at:
-        # http://github.com/HiSPARC/weather/blob/primary/doc/_static/Parameter_Manual.pdf
+        # https://github.com/HiSPARC/weather/blob/primary/doc/_static/Parameter_Manual.pdf
 
         dampdruk = RH * 6.112 * numpy.exp((17.62 * Tout) / (Tout + 243.12))
         Numerator = 243.12 * numpy.log(dampdruk) - 440.1
@@ -362,7 +362,7 @@ Waarschijnlijk moet `pysparc' nog geïnstalleerd worden. Open de terminal van
 Anaconda. Wat we gaan doen is een link naar de pysparc module van \hisparc
 maken en deze gelijk installeren. type:
 \begin{verbatim}
-pip install http://github.com/HiSPARC/pysparc/archive/primary.zip
+pip install https://github.com/HiSPARC/pysparc/archive/primary.zip
 \end{verbatim}
 
 Nu kun je \verb|import pysparc| gebruiken, Zie \figref{fig:canopy1}.
@@ -376,7 +376,7 @@ op te slaan, totdat er weer een internetverbinding tot stand komt.
 
 - Voor \textbf{windows} ga je naar:
 \begin{verbatim}
-http://github.com/rgl/redis/downloads
+https://github.com/rgl/redis/downloads
 \end{verbatim}
 
 Download de versie van Redis, die je nodig hebt.
@@ -424,7 +424,7 @@ weergegeven. Sluit nu de UART-APC220 module aan op de Arduino en de PC.
 Start Redis.
 
 Open nu het Python programma (te vinden op
-\url{http://github.com/HiSPARC/weather-arduino}. \verb|Datafromwirelesstodatabase.py|.
+\url{https://github.com/HiSPARC/weather-arduino}. \verb|Datafromwirelesstodatabase.py|.
 Run het programma.
 \emph{!Pas op!} Pas dit Python programma eventueel alleen aan in de `class' die in deze
 handleiding benoemd is. Dus alleen in de class `Measurement' kun je sensor waarden
@@ -446,6 +446,6 @@ Plaats nu je weerstation op het dak bij het station. Na een dag meten kun je
 bij de gegevens van het station ook de `weer-grafiekjes' zien. Bekijk ze op
 \url{data.hisparc.nl}.
 Je eigen weerdata kun je nu altijd online uitlezen met dataretrieval tool. Zie de handleiding
-'data retrieval' op \url{http://www.hisparc.nl/docent-student/lesmateriaal/informatie-pakket/}.
+'data retrieval' op \url{https://docs.hisparc.nl/infopakket//}.
 
 \end{document}

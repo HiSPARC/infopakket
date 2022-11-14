@@ -1,9 +1,6 @@
 # Recept Coincidenties bepalen
 
-```python
-# dit notebook werkt onder Python 2 en 3
-from __future__ import division, print_function
-```
+Deze notebooks werken alleen met Python 3.
 
 Coincidenties tussen meetstations worden automatisch bepaald door de publieke
 database. Ze kunnen eenvoudig worden gedownload, zoals in een eerder notebook is
@@ -14,7 +11,7 @@ coincidenties. In dit notebook worden coincidenties tussen de een teststation en
 nabijgelegen meetstations bepaald aan de hand van gedownloade events van de
 betreffende stations.
 
-```{.python .input}
+```python
 from datetime import datetime
 import tables
 from sapphire import download_data
@@ -27,20 +24,20 @@ We bepalen de coincidenties tussen deze drie stations op 1 Mei 2016:
 Om het aantal coincidenties wat te beperken, downloaden we alleen data tussen
 0:00 en 3:00.
 
-```{.python .input}
+```python
 STATIONS = [501, 510, 599]
 START = datetime(2016, 5, 1)
 END = datetime(2016, 5, 1, 3)
 FILENAME = 'coinc_with_s599.h5'
 ```
 
-```{.python .input}
+```python
 data = tables.open_file(FILENAME, 'a')
 ```
 
 Eerst downloaden we de events per station:
 
-```{.python .input}
+```python
 station_groups = ['/s%d' % station for station in STATIONS]
 
 for station, group in zip(STATIONS, station_groups):
@@ -57,7 +54,7 @@ De HDF5 file heeft nu 3 events tabellen:
 - /s510/events
 - /s599/events
 
-```{.python .input}
+```python
 print(data)
 ```
 
@@ -65,33 +62,33 @@ print(data)
 We gebruiken de SAPPHiRE class `CoincidencesEDS` om coincidenties tussen events
 in de drie eventtabellen te bepalen:
 
-```{.python .input}
+```python
 from sapphire import CoincidencesESD
 coin = CoincidencesESD(data, '/coincidences', station_groups, overwrite=True)
 coin.search_and_store_coincidences(station_numbers=STATIONS)
 ```
 
-```{.python .input}
+```python
 print(data)
 ```
 
 De HDF5 file heeft nu een nieuwe group '/coincidences' met daarin:
-    - coincidences (table): coincidenties tabel
-    - c_index (array)
-    - s_index (array)
+- `coincidences` (table): coincidenties tabel
+- `c_index` (array)
+- `s_index` (array)
 
-De c_index en s_index arrays kunnen gebruikt worden om events en coincidenties
+De `c_index` en `s_index` arrays kunnen gebruikt worden om events en coincidenties
 aan elkaar te koppelen. SAPPHiRE kan dit echter automatisch. Zie
 `CoincidenceQuery` verderop.
 
 De tabel `/coincidences/coincidences` ziet er als volgt uit:
 
-```{.python .input}
+```python
 coinc_tabel = data.root.coincidences.coincidences
 print(coinc_tabel)
 ```
 
-```{.python .input}
+```python
 coincidences = coinc_tabel.read()
 coincidences[:10]
 ```
@@ -109,7 +106,7 @@ is in de coincidentie.
 
 We kunnen deze kolommen gebruiken om coincidenties te filteren:
 
-```{.python .input}
+```python
 s501 = coincidences['s501']
 s510 = coincidences['s510']
 s599 = coincidences['s599']
@@ -117,11 +114,11 @@ s599 = coincidences['s599']
 
 De functie `sum()` telt alle waarden die `True` zijn op:
 
-```{.python .input}
+```python
 print("Er zijn %d events van station 501 betrokken bij coincidenties tussen 501, 510 en/of 599" % sum(s501))
 ```
 
-```{.python .input}
+```python
 print("Er zijn %d coincidenties tussen 501, 510 en 599" % sum(s510 & s501 & s599))
 ```
 
@@ -132,7 +129,7 @@ is.
 
 *Hint:* gebruik de tilde: ~ voor het tegengestelde van een array.
 
-```{.python .input}
+```python
 sum(s501 & s599 & ~s510)
 ```
 
@@ -141,14 +138,14 @@ sum(s501 & s599 & ~s510)
 Door gebruik te maken van `compress()` en de kolommen `s501`, `s510` en `s599`
 kunnen we coincidenties filteren op de betrokken stations:
 
-```{.python .input}
+```python
 coinc_510_501 = coincidences.compress(s501 & s510)
 coinc_510_501
 ```
 
 In deze selectie zitten ook coincidenties tussen 501, 510 en 599:
 
-```{.python .input}
+```python
 print("Er zijn %d coincenties tussen 510 en 511 waarbij ook 599 betrokken is" % sum(coinc_510_501['s599']))
 ```
 
@@ -157,7 +154,7 @@ Dit komt natuurlijk overeen met het eerder gevonden aantal coincidenties tussen
 
 We kunnen 599 ook uitsluiten:
 
-```{.python .input}
+```python
 coinc_510_501_zonder599 = coincidences.compress(s501 & s510 & ~s599)
 coinc_510_501_zonder599
 ```

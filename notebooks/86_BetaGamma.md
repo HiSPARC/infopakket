@@ -16,8 +16,7 @@ bekijken. Dit gaat met een relativistische transformatie. (Als een elektron in
 de buurt van een elektrisch geladen kern komt, is de elektrische kracht te
 beschouwen als een uitwisseling van fotonen.)
 
-Eerst halen we de volgende
-bibliotheken op:
+Eerst halen we de volgende bibliotheken op:
 
 ```python
 import numpy as np
@@ -37,8 +36,7 @@ De toestand van een deeltje is vast te leggen met een 'viervector'.
 Achtereenvolgens worden hier de tijd en de snelheden in drie richtingen of de
 energie en de impuls (massa maal snelheid) opgeschreven. 
 
-De energie van
-deeltjes is te schrijven als $E_e=\gamma_e{m_ec}^2$, de impuls is
+De energie van deeltjes is te schrijven als $E_e=\gamma_e{m_ec}^2$, de impuls is
 $P_e=\beta_e\gamma_e{m_ec}=\beta_e{E_e/c}$. Voor $c$ wordt vaak 1 lichtjaar/jaar
 gebruikt. Met wat wiskunde valt in dit geval ($c=1$) af te leidden dat:
 $m^2=E^2-p^2$. We maken een functie die de viervector voor een bewegend deeltje:
@@ -100,13 +98,12 @@ print(getBeta(foton))
 ```
 
 ## Waarnemers
+
 We kunnen van waarnemer wisselen met behulp van een matrix.
 Normaal worden er twee soorten waarnemers gedefinieerd:
 
-* De waarnemer die aan
-het coordinaten systeem van het laboratorium wordt gekoppeld.
-* De waarnemer die
-aan het zwaartepunt (center of mass) van de deeltjes wordt gekoppeld.
+* De waarnemer die aan het coordinaten systeem van het laboratorium wordt gekoppeld.
+* De waarnemer die aan het zwaartepunt (center of mass) van de deeltjes wordt gekoppeld.
 
 In dit
 geval zijn er dus twee matrixes, van lab naar center en van center naar lab. We
@@ -176,11 +173,9 @@ interactie moet hetzelfde blijven.
 
 Relativistiche interacties van deeltjes
 worden in eerste instantie beschreven in het massa centrale systeem ($\Sigma
-P=0$).  We beschouwen fotonen en elektronen die langs de $x$-as bewegen.
+P=0$). We beschouwen fotonen en elektronen die langs de $x$-as bewegen.
 
-De
-energie van de fotonen is $E_f=h\nu$ ($E=hf$), de impuls is
-$P_f=h/\lambda_f=E_f/c$.
+De energie van de fotonen is $E_f=h\nu$ ($E=hf$), de impuls is $P_f=h/\lambda_f=E_f/c$.
 
 Het voordeel van dit massa centraal systeem is dat de
 som van de impulsen hier ook 0kgm/s is. Bijgevolg geldt voor deze waarnemer voor
@@ -266,6 +261,7 @@ soort interacties komt daarom ook voor in de staart van een kosmische
 deeltjeslawine.
 
 ## Van bijzonder naar algemeen
+
 Hiervoor is het bijzondere geval besproken van
 twee deeltjes die loodrecht op de inkomende deeltjes wegvliegen. In de praktijk
 weten we niet naar welke kant de deeltjes wegvliegen. We maken eerst deeltjes

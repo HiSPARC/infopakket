@@ -1,4 +1,4 @@
 # Converting the notebooks from Markdown to IPython notebooks
-notedown
+jupytext
 # Creating the HTML index
 jinja2

@@ -1,9 +1,6 @@
 # Recept Richtingsreconstructie
 
-```python
-# dit notebook werkt onder Python 2 en 3
-from __future__ import division, print_function
-```
+Deze notebooks werken alleen met Python 3.
 
 Richtingsrecontructie op basis van aankomsttijden van deeltjes is mogelijk als
 er 3 tijden zijn gemeten. In het geval van HiSPARC meetstations, is dat mogelijk
@@ -32,12 +29,10 @@ twee dagen van januari 2016 gedownload, in de tabel 's501'.
 
 Als de data nog niet is gedownload, dan downloaden we de data hier alsnog:
 
-
 ```python
 if '/s501' not in data:
     download_data(data, '/s501', 501, start=datetime(2016, 1, 1), end=datetime(2016,1,3))
 ```
-
 
 ```python
 print(data)
@@ -70,7 +65,6 @@ Hieronder staan de eerste twintig zenithoeken. 'nan' (NaN) betekent:
 Not-a-number: De reconstructie was niet mogelijk. Ofwel er was onvoldoende
 informatie, bijvoorbeeld slechts twee aankomsttijden. Ofwel de oplossing was
 niet fysisch:
-
 
 ```python
 rec.theta[:20]
@@ -170,12 +164,10 @@ kolommen uit de groep `/s501/reconstructions` uit het HDF5 bestand.
 - gebruik: `.col('zenith')` om een kolom in te laden.
 - gebruik  `.compress(~isnan(...))` om te NaNs verwijderen.
 
-
 ```python
 zenith = rec_tabel.col('zenith')
 azimuth = rec_tabel.col('azimuth')
 ```
-
 
 ```python
 zenith = zenith.compress(~isnan(zenith))
@@ -183,18 +175,15 @@ azimuth = azimuth.compress(~isnan(azimuth))
 print("Er zijn %d events succesvol gereconstrueerd." % len(zenith))           
 ```
 
-
 ```python
 zenith = degrees(zenith)
 azimuth = degrees(azimuth)
 ```
 
-
 ```python
 ax = plt.subplot(polar=True)
 ax.scatter(zenith, azimuth)
 ```
-
 
 ```python
 plt.hist(zenith, bins=arange(0,90., 5.), histtype='step')

@@ -1,0 +1,70 @@
+name: Build documents
+
+on:
+  push:
+
+jobs:
+  notebooks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install jupytext
+      - run: make notebooks
+      - uses: actions/upload-artifact@v3
+        with:
+          name: notebooks
+          path: |
+            notebooks/*.ipynb
+            notebooks/*.npy
+            notebooks/environment.yml
+
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install jinja2
+      - run: make index
+      - uses: actions/upload-artifact@v3
+        with:
+          name: index
+          path: |
+            images
+            styles
+            index.html
+
+  pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: xu-cheng/latex-action@v2
+        with:
+          root_file: "*/*.tex"
+          glob_root_file: true
+          latexmk_shell_escape: true
+          work_in_root_file_dir: true
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pdf
+          path: "*/*.pdf"
+
+  publish:
+    needs: [notebooks, index, pdf]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/download-artifact@v3
+      - run: mv notebooks/environment.yml ./environment.yml
+      - run: mv index/* ./
+      - run: mv pdf/*/*.pdf ./pdf/
+      - uses: peaceiris/actions-gh-pages@v3.9.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
+          force_orphan: true

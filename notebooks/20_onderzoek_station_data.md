@@ -17,13 +17,11 @@ data = sapphire.quick_download(STATION)
 ```
 
 Na enige tijd verschijnt hierboven een regel zoals:
-"`100%|############################################################|Time:
-0:00:06`"
+"`100%|############################################################|Time: 0:00:06`"
 
 Soms is de download zo snel dat deze regel niet wordt afgedrukt.
 
-De
-variabele "`data`" bevat nu een set meetgegevens. Deze set is af te drukken.
+De variabele "`data`" bevat nu een set meetgegevens. Deze set is af te drukken.
 
 ```python
 # Download data van een andere dag
@@ -61,9 +59,7 @@ event_tabel
 
 Dit is een tabel tienduizenden regels. Elke regel is een event.
 
-De informatie
-van
-het eerste event is op te halen met:
+De informatie van het eerste event is op te halen met:
 
 ```python
 event_tabel[0]
@@ -78,57 +74,35 @@ event_tabel[1]
 De informatie in een event bestaat uit een lijst getallen. Deze getallen hebben
 de volgende betekenis:
 
-1. event_id: Het unieke nummer van het event in deze
-dataset.
-1. timestamp: De tijd in hele seconden (GPS) waarop de trigger van het
-event
-plaatsvond.
-1. nanoseconds: De tijd in nanoseconden waarop de trigger van
-het event
-plaatsvond.
-1. ext_timestamp: Dit getal is vrij groot, namelijk de
-twee vorige achter
-elkaar.
-1. pulseheights: Een array met pulshoogten, "`-1`"
-betekent dat er geen detector
-was.
-1. integrals: Een array met pulsoppervlakten,
-"`-1`" betekent ook hier dat er
-geen detector was.
-1. n1: Het aantal MIPS's
-(Minimal Ionising Particles) dat in detector 1 is
-gereconstrueerd.
+1. event_id: Het unieke nummer van het event in deze dataset.
+1. timestamp: De tijd in hele seconden (GPS) waarop de trigger van het event plaatsvond.
+1. nanoseconds: De tijd in nanoseconden waarop de trigger van het event plaatsvond.
+1. ext_timestamp: Dit getal is vrij groot, namelijk de twee vorige achter elkaar.
+1. pulseheights: Een array met pulshoogten, "`-1`" betekent dat er geen detector was.
+1. integrals: Een array met pulsoppervlakten, "`-1`" betekent ook hier dat er geen detector was.
+1. n1: Het aantal MIPS's (Minimal Ionising Particles) dat in detector 1 is gereconstrueerd.
 1. n2
 1. n3
 1. n4
-1. t1: De gereconstrueerde detectietijden vanaf het begin van het
-opgeslagen
-signaal voor detector 1.
+1. t1: De gereconstrueerde detectietijden vanaf het begin van het opgeslagen signaal voor detector 1.
 1. t2
 1. t3
 1. t4
-1. t_trigger: Het moment
-van de GPS-tijdstempel vanaf het begin van het
-opgeslagen signaal.
+1. t_trigger: Het moment van de GPS-tijdstempel vanaf het begin van het opgeslagen signaal.
 
 In het
-werkblad [http://docs.hisparc.nl/infopakket/pdf/traces.pdf](http://docs.h
-isparc.nl/infopakket/pdf/traces.pdf) wordt de natuurkundige betekenis van deze
+werkblad [https://docs.hisparc.nl/infopakket/pdf/traces.pdf](https://docs.hisparc.nl/infopakket/pdf/traces.pdf)
+wordt de natuurkundige betekenis van deze
 getallen beschreven.  De afbeeldingen in dit werkblad zijn afkomstig uit het
-interactieve werkblad [http://data.hisparc.nl/media/jsparc/jsparc.html](http://d
-ata.hisparc.nl/media/jsparc/jsparc.html). Let op, computers tellen vanaf "`0`"
-en niet vanaf "`1`"
-
+interactieve werkblad [https://data.hisparc.nl/media/jsparc/jsparc.html](https://data.hisparc.nl/media/jsparc/jsparc.html).
+Let op, computers tellen vanaf "`0`" en niet vanaf "`1`".
 
 
 ### Werken met kolomnamen
 
-Een kolom zoals 'event_id',
-'timestamp' of 't1' kan opgevraagd worden door de
-index van de kolom (0, 1, 2,
-...) of door de kolomnaam. Door gebruik te maken
-van de kolomnaam wordt de code
-veel beter leesbaar:
+Een kolom zoals 'event_id', 'timestamp' of 't1' kan opgevraagd worden door de
+index van de kolom (0, 1, 2, ...) of door de kolomnaam. Door gebruik te maken
+van de kolomnaam wordt de code veel beter leesbaar:
 
 ```python
 first_event = event_tabel[0]
@@ -173,21 +147,15 @@ print("pulshoogte detector 1: %d ADC (eerste event)" % first_event['pulseheights
 ```
 
 ## Timestamps
-Vaak is het eenvoudiger om een hele *kolom* bijvoorbeeld
-`timestamp` in
-een keer te bekijken.
+Vaak is het eenvoudiger om een hele *kolom* bijvoorbeeld `timestamp` in een keer te bekijken.
 
-Eerst lezen we de hele tabel in het
-geheugen. Het object `events` is de gehele tabel:
+Eerst lezen we de hele tabel in het geheugen. Het object `events` is de gehele tabel:
 
 ```python
 events = event_tabel.read()
 ```
 
-De variabele `ts` wijst naar de kolom `timestamp`
-en we bekijken
-de eerste 30
-regels (events):
+De variabele `ts` wijst naar de kolom `timestamp` en we bekijken de eerste 30 regels (events):
 
 ```python
 ts = events['timestamp']
@@ -250,7 +218,7 @@ plt.ylabel('counts')
 Maak een histogram van de pulshoogtes van detector 1 en 2 van het
 station.
 
-Een voorbeeld is hier te zien: http://data.hisparc.nl/show/stations/15
+Een voorbeeld is hier te zien: https://data.hisparc.nl/show/stations/15
 
 ```python
 ph = event_tabel.col('pulseheights')
@@ -259,10 +227,8 @@ ph2 = ph[:, 1]
 ```
 
 'pulseheights' is een *matrix*:
-- `[:, 0]` is de gehele eerste rij, dwz de
-pulshoogtes per event van detector 0
-- `[:, 1]` is de gehele tweede rij, dwz de
-pulshoogtes per event van detector 1
+- `[:, 0]` is de gehele eerste rij, dwz de pulshoogtes per event van detector 0
+- `[:, 1]` is de gehele tweede rij, dwz de pulshoogtes per event van detector 1
 
 ```python
 plt.figure(figsize=(10,4))
@@ -273,8 +239,4 @@ plt.xlabel('Pulseheight (ADC)')
 plt.ylabel('counts')
 plt.legend(['detector 1', 'detector 2' ])
 plt.ylim(10, 1e4)
-```
-
-```python
-
 ```
