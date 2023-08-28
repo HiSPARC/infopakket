@@ -42,10 +42,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: xu-cheng/latex-action@v2
+      - uses: xu-cheng/latex-action@v3
         with:
           root_file: "*/*.tex"
-          glob_root_file: true
           latexmk_shell_escape: true
           work_in_root_file_dir: true
       - uses: actions/upload-artifact@v3
