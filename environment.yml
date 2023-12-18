@@ -1,0 +1,13 @@
+name: binder
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - numpy
+  - matplotlib
+  - scipy
+  - pytables
+  - healpy
+  - pip:
+    - hisparc-sapphire
+    - smopy
