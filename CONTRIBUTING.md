@@ -8,7 +8,7 @@ makes it easier for other to read and understand the source files.
 To submit new documents or suggest changes to existing ones you can
 create create a Pull Request or Issue on GitHub. If you do not have a
 GitHub account you can send documents (preferably as .tex, other
-document types are allowed for the initial submit) to info@hisparc.nl.
+document types are allowed for the initial submit) to hisparc@utah.edu.
 
 
 Repository structure
