@@ -13,7 +13,7 @@ jobs:
           python-version: '3.10'
       - run: pip install jupytext
       - run: make notebooks
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: notebooks
           path: |
@@ -30,7 +30,7 @@ jobs:
           python-version: '3.10'
       - run: pip install jinja2
       - run: make index
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: index
           path: |
@@ -48,7 +48,7 @@ jobs:
           glob_root_file: true
           latexmk_shell_escape: true
           work_in_root_file_dir: true
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: pdf
           path: "*/*.pdf"
