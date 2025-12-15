@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
       - run: mv notebooks/environment.yml ./environment.yml
       - run: mv index/* ./
       - run: mv pdf/*/*.pdf ./pdf/
