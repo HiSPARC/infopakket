@@ -1,0 +1,114 @@
+html {
+    font-family: sans-serif;}
+
+#container {
+    margin: auto;
+    width: 850px;}
+
+#header {
+    height: 75px;
+    width: 100%;}
+
+#pageHeader {
+    background: url(../images/header.png) top right no-repeat;
+    height: 63px;
+    width: 189px;
+    margin: 0;
+    padding: 0;
+    float: right;
+    display: inline-block;}
+
+#pageHeader span {
+    display: none;}
+
+.clearer {
+    clear: both;}
+
+#introduction, #description {
+    font: 90% sans-serif;
+    letter-spacing: .03em;
+    line-height: 1.3em;
+}
+
+#description {
+    width: 80%;
+}
+
+#infopakket-content {
+    margin: 0;
+    margin-bottom: 2em;
+    padding: 0;
+    float: left;
+    width: 100%;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;}
+
+#infopakket-content div {
+    break-inside: avoid-column;
+    column-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;}
+
+h2 {
+    margin-top: 0px;}
+
+h3 {
+    color: white;
+    font-weight: normal;
+    display: inline-block;
+    margin-bottom: 0px;
+    padding: 5px;}
+
+#infopakket-content p {
+    font-size: .85em;
+    line-height: 1.8em;
+    border-left-style: solid;
+    border-left-width: 3px;
+    padding: 7px;
+    margin: 0;}
+
+a {
+    color: #0060B9;
+    text-decoration: none;}
+
+a:visited {
+    color: #3C6891;
+    text-decoration: none;}
+
+a:hover {
+    color: #002141;
+    text-decoration: none;}
+
+.category {
+    display: inline;
+    border-radius: 5px;}
+
+.version {
+    font-size: .6em;
+    color: gray;}
+
+#algemeen h3 {background-color: red;}
+#algemeen p {border-color: red;}
+#installatie h3 {background-color: Goldenrod;}
+#installatie p {border-color: Goldenrod;}
+#detector h3 {background-color: blue;}
+#detector p {border-color: blue;}
+#weerstation h3 {background-color: LightSlateGray;}
+#weerstation p {border-color: LightSlateGray;}
+#bliksem h3 {background-color: orange;}
+#bliksem p {border-color: orange;}
+#analyse h3 {background-color: DarkViolet;}
+#analyse p {border-color: DarkViolet;}
+#werkblad h3 {background-color: ForestGreen;}
+#werkblad p {border-color: ForestGreen;}
+#docent h3 {background-color: DarkKhaki;}
+#docent p {border-color: DarkKhaki;}
+#opdrachten h3 {background-color: Silver;}
+#opdrachten p {border-color: Silver;}
+#recept h3 {background-color: Navy;}
+#recept p {border-color: Navy;}
+#python h3 {background-color: black;}
+#python p {border-color: black;}
+#notebooks h3 {background-color: black;}
+#notebooks p {border-color: black;}
