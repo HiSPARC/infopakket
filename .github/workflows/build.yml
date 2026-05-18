@@ -62,7 +62,7 @@ jobs:
       - run: mv notebooks/environment.yml ./environment.yml
       - run: mv index/* ./
       - run: mv pdf/*/*.pdf ./pdf/
-      - uses: peaceiris/actions-gh-pages@v4.0.0
+      - uses: peaceiris/actions-gh-pages@v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
